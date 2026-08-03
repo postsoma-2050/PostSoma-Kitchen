@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap');
+
+@font-face {
+    font-family: 'PingFangLiuAngLeTianTi';
+    src: url('/fonts/PingFangLiuAngLeTianTi-2.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────────────────────
+ * PostSoma Kitchen 设计 System Tokens
+ * 核心审美：暖编辑感、安静手作感、清晰流程结构
+ * ───────────────────────────────────────────────────────────── */
+:root {
+    --pk-bg-canvas: #FAF8F5;          /* 暖米白画布 */
+    --pk-bg-card: #FFFFFF;            /* 卡片白 */
+    --pk-bg-subtle: #F4F2EC;          /* 轻微淡灰绿/底衬 */
+    
+    --pk-brand-primary: #2D5A43;       /* 核心草本绿 */
+    --pk-brand-dark: #1F4030;          /* 深草本绿 */
+    --pk-brand-light: #EBF2ED;         /* 浅草本绿衬底 */
+    
+    --pk-text-primary: #1C2520;        /* 墨黑主字 */
+    --pk-text-secondary: #58605B;      /* 次级灰绿字 */
+    --pk-text-muted: #8A928C;          /* 弱化字 */
+
+    --pk-border-stone: #E5E2DC;        /* 低对比米灰边框 */
+    --pk-border-dark: #1C2520;         /* 深色强调边框 */
+    
+    --pk-accent-amber: #D49B35;        /* 琥珀金/Formula酱汁 */
+    --pk-accent-red: #C84B31;          /* 辣椒红/食材重点 */
+}
+
+body {
+    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--pk-bg-canvas);
+    color: var(--pk-text-primary);
+    min-height: 100vh;
+}
+
+/* 渐进式渲染通用卡片类 */
+.pk-card {
+    background-color: var(--pk-bg-card);
+    border: 1px solid var(--pk-border-stone);
+    border-radius: 1.25rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.02);
+}
+
+.pk-card-hover {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.pk-card-hover:hover {
+    border-color: #D5D1C8;
+    box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* 自定义轻量微动画 */
+@keyframes steam {
+    0% {
+        opacity: 0.7;
+        transform: translateY(0px) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-16px) scale(1.15);
+    }
+}
+
+.steam-animation {
+    animation: steam 2s ease-out infinite;
+}
+
+/* 文本截断工具类 */
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

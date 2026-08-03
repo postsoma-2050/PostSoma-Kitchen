@@ -1,0 +1,37 @@
+{
+    "name": "what-to-eat",
+    "version": "0.1.0",
+    "description": "AI Recipe Generator & Personal Recipe Manager - Generate recipes with AI or create your own custom recipes",
+    "scripts": {
+        "dev": "vite",
+        "build": "vue-tsc --noEmit && vite build",
+        "build:netlify": "vite build --config vite.config.prod.ts",
+        "build:simple": "vite build --config vite.config.prod.ts",
+        "preview": "vite preview",
+        "type-check": "vue-tsc --noEmit",
+        "audit:presets": "node scripts/runTs.js scripts/auditPresets.ts",
+        "test:domain": "node scripts/runTs.js scripts/testDomain.ts",
+        "test:repo": "node scripts/runTs.js tests/domain/repository.test.ts",
+        "migrate:samples": "node scripts/runTs.js scripts/migrateSampleRecipes.ts",
+        "migrate:all": "node scripts/runTs.js scripts/migrateAllRecipes.ts"
+    },
+    "dependencies": {
+        "@supabase/supabase-js": "^2.109.0",
+        "@vueuse/core": "^10.7.0",
+        "axios": "^1.6.0",
+        "markdown-it": "^14.1.0",
+        "party-js": "^2.2.0",
+        "vue": "^3.4.0",
+        "vue-router": "^4.2.0"
+    },
+    "devDependencies": {
+        "@types/node": "^20.19.11",
+        "@vitejs/plugin-vue": "^5.0.0",
+        "autoprefixer": "^10.4.0",
+        "postcss": "^8.4.0",
+        "tailwindcss": "^3.4.0",
+        "typescript": "^5.3.0",
+        "vite": "^5.0.0",
+        "vue-tsc": "^3.0.6"
+    }
+}
