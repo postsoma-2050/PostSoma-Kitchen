@@ -18,8 +18,10 @@
           <h3 class="text-xl font-black text-white tracking-tight">
             {{ formula.name }}
           </h3>
-          <p v-if="formula.yieldText" class="text-xs text-stone-300 font-medium">
-            成品基准：{{ formula.yieldText }} (适用于 {{ formula.baseServings || 2 }} 人份)
+          <p v-if="formula.yieldText || formula.baseServings" class="text-xs text-stone-300 font-medium">
+            <span v-if="formula.yieldText">原始配方记录：{{ formula.yieldText }}</span>
+            <span v-if="formula.yieldText && formula.baseServings" aria-hidden="true"> · </span>
+            <span v-if="formula.baseServings">记录基准：{{ formula.baseServings }} 人份</span>
           </p>
         </div>
 
@@ -36,37 +38,14 @@
       <!-- Modal 主体内容区 -->
       <div class="p-6 space-y-6 max-h-[80vh] overflow-y-auto">
         
-        <!-- 1. 动态份量换算器 -->
-        <div class="bg-stone-50 p-4 rounded-2xl border border-stone-200/80 flex flex-wrap items-center justify-between gap-3 text-xs">
-          <div class="space-y-0.5">
-            <span class="font-bold text-stone-900">动态份量换算</span>
-            <span class="block text-[11px] text-stone-500">按目标份数自动调配原料用量</span>
-          </div>
-
-          <div class="flex items-center gap-1.5 bg-white p-1 rounded-xl border border-stone-300">
-            <button
-              v-for="s in [1, 2, 4, 6, 8]"
-              :key="s"
-              @click="currentServings = s"
-              type="button"
-              :class="[
-                'px-2.5 py-1 rounded-lg font-bold transition-all',
-                currentServings === s ? 'bg-amber-600 text-white shadow-sm' : 'text-stone-600 hover:bg-stone-100'
-              ]"
-            >
-              {{ s }}人份
-            </button>
-          </div>
-        </div>
-
-        <!-- 2. 精确原料用量清单表格 -->
+        <!-- 1. 原始原料用量清单表格 -->
         <div class="space-y-2">
           <div class="flex items-center justify-between text-xs font-bold text-stone-900 px-1">
             <span class="flex items-center gap-1">
               <span>⚖️</span>
-              <span>配料精确定量表 (份量倍率: {{ scaleRatio.toFixed(1) }}x)</span>
+              <span>原始配料定量表</span>
             </span>
-            <span class="text-stone-400 font-normal">共 {{ scaledItems.length }} 项原料</span>
+            <span class="text-stone-400 font-normal">共 {{ formula.items.length }} 项原料</span>
           </div>
 
           <div class="border border-stone-200 rounded-2xl overflow-hidden text-xs">
@@ -79,10 +58,10 @@
                 </tr>
               </thead>
               <tbody class="divide-y divide-stone-100 font-medium">
-                <tr v-for="(item, idx) in scaledItems" :key="idx" class="hover:bg-stone-50/80 transition-colors">
+                <tr v-for="(item, idx) in formula.items" :key="item.id || idx" class="hover:bg-stone-50/80 transition-colors">
                   <td class="p-3 font-bold text-stone-900">{{ item.name }}</td>
                   <td class="p-3 text-right font-mono font-black text-amber-900 bg-amber-50/40">
-                    {{ item.formattedAmountText }}
+                    {{ item.baseAmount }} {{ item.unit }}
                   </td>
                   <td class="p-3 text-stone-500 text-[11px]">{{ item.note || '-' }}</td>
                 </tr>
@@ -91,7 +70,7 @@
           </div>
         </div>
 
-        <!-- 3. 调制步骤顺序 -->
+        <!-- 2. 调制步骤顺序 -->
         <div v-if="formula.steps && formula.steps.length > 0" class="space-y-2">
           <div class="text-xs font-bold text-stone-900 flex items-center gap-1 px-1">
             <span>🥣</span>
@@ -107,7 +86,7 @@
           </div>
         </div>
 
-        <!-- 4. 使用时机与小贴士 -->
+        <!-- 3. 使用时机与小贴士 -->
         <div v-if="formula.timingTip" class="bg-emerald-50/60 p-4 rounded-2xl border border-emerald-200/80 text-xs space-y-1">
           <div class="font-bold text-emerald-950 flex items-center gap-1">
             <span>💡 烹入使用时机与秘诀</span>
@@ -115,7 +94,7 @@
           <p class="text-emerald-900 leading-relaxed font-medium">{{ formula.timingTip }}</p>
         </div>
 
-        <!-- 5. 【Matrix Flow 语义联动提示】 -->
+        <!-- 4. 【Matrix Flow 语义联动提示】 -->
         <div v-if="actionStageInfo" class="bg-stone-100 p-3.5 rounded-2xl border border-stone-200 text-xs flex items-center justify-between text-stone-600">
           <span class="font-bold text-stone-900">🔗 Matrix Flow 联动指示:</span>
           <span class="font-mono text-emerald-800 font-semibold">{{ actionStageInfo }}</span>
@@ -139,33 +118,18 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 import type { SubRecipeFormula } from '@/types/formula'
 import type { VisualRecipeV3 } from '@/types/recipeV3'
-import { calculateScaledFormula } from '@/utils/formulaCalculator'
 
 const props = defineProps<{
   formula: SubRecipeFormula | null
   recipe?: VisualRecipeV3 | null
-  initialServings?: number
 }>()
 
 defineEmits<{
   (e: 'close'): void
 }>()
-
-const currentServings = ref(props.initialServings || props.formula?.baseServings || 2)
-
-const scaleRatio = computed(() => {
-  if (!props.formula) return 1
-  const base = props.formula.baseServings || 2
-  return currentServings.value / base
-})
-
-const scaledItems = computed(() => {
-  if (!props.formula) return []
-  return calculateScaledFormula(props.formula, currentServings.value)
-})
 
 // 解析与 Matrix Flow 工序节点的关联联动信息
 const actionStageInfo = computed(() => {

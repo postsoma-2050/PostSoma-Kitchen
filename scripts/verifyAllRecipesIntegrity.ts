@@ -5,8 +5,8 @@
 
 import { CHINESE_HEALTHY_RECIPES } from '../src/data/chineseHealthyRecipes'
 import { HOME_SWEET_HOME_RECIPES } from '../src/data/homeSweetHomeRecipes'
-import { espressoBrowniesV3, matchaSuffleeV3, garlicScallopsV3 } from '../src/data/v3Examples'
-import { VisualRecipeV3 } from '../src/types/recipeV2'
+import { espressoBrowniesV3, hongShaoRouV3, caesarSaladV3 } from '../src/data/v3Examples'
+import type { VisualRecipeV3 } from '../src/types/recipeV3'
 
 interface InspectionIssue {
   recipeId: string
@@ -22,10 +22,10 @@ function runDeepIntegrityInspection() {
   console.log('================================================================\n')
 
   const V3_EXAMPLE_RECIPES: VisualRecipeV3[] = [
-    espressoBrowniesV3 as any,
-    matchaSuffleeV3 as any,
-    garlicScallopsV3 as any,
-  ].filter(Boolean)
+    espressoBrowniesV3,
+    hongShaoRouV3,
+    caesarSaladV3,
+  ]
 
   const allRecipes: VisualRecipeV3[] = [
     ...CHINESE_HEALTHY_RECIPES,

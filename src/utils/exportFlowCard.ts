@@ -35,9 +35,8 @@ function isMainIngredient(ing: V3Ingredient): boolean {
     return isMatchName || isLargeAmount
 }
 
-function getCircledNumber(n: number): string {
-    const circles = ['①', '②', '③', '④', '⑤', '⑥', '⑦', '⑧', '⑨', '⑩']
-    return circles[n - 1] || `${n}.`
+function getStageToken(tokens: readonly string[], stageIndex: number): string {
+    return tokens[stageIndex % tokens.length]
 }
 
 function getMethodIcon(method?: string): string {
@@ -74,8 +73,9 @@ function getFirstLineYOffset(block: V3LayoutActionBlock): string {
     const lCount = block.labelLines.length
     const sCount = block.sublabelLines.length
     const hasHeat = Boolean(block.block.heatLevel || block.block.durationMinutes)
+    const equipmentCount = block.equipmentLines.length
 
-    const totalLines = lCount + sCount + (hasHeat ? 1 : 0)
+    const totalLines = lCount + sCount + (hasHeat ? 1 : 0) + equipmentCount
     if (totalLines <= 1) return '0em'
     
     const startOffset = -((totalLines - 1) * 0.6)
@@ -116,12 +116,7 @@ export function generatePageSvgString(
     const isColdFinal = recipe.finalBlock?.method === 'raw' || recipe.finalBlock?.method === 'serve'
 
     let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`
-    xml += `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" style="background-color: ${theme.colors.canvasBg}; font-family: ${theme.typography.fontFamily};">\n`
-    xml += `  <defs>\n`
-    xml += `    <marker id="v3-flow-arrow-export" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">\n`
-    xml += `      <path d="M 0 1 L 8 5 L 0 9 z" fill="#94A3B8" />\n`
-    xml += `    </marker>\n`
-    xml += `  </defs>\n`
+    xml += `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" style="background-color: ${theme.colors.canvasBg}; font-family: ${escapeXml(theme.typography.fontFamily)};">\n`
 
     // 0. 最外层纸张底板
     xml += `  <rect x="16" y="16" width="${w - 32}" height="${h - 32}" fill="${theme.colors.paperBg}" stroke="${theme.colors.paperStroke}" stroke-width="${theme.strokes.paperWidth}" rx="${theme.radii.card}" />\n`
@@ -148,14 +143,7 @@ export function generatePageSvgString(
         xml += `  </g>\n`
     }
 
-    // 2. 网格背景线
-    xml += `  <g class="v3-grid-lines">\n`
-    baseLayout.gridLines.forEach(line => {
-        xml += `    <line x1="${line.x1}" y1="${line.y1}" x2="${line.x2}" y2="${line.y2}" stroke="${theme.colors.gridLine}" stroke-width="${theme.strokes.gridWidth}" stroke-dasharray="${theme.strokes.dashArray}" />\n`
-    })
-    xml += `  </g>\n`
-
-    // 3. 左侧食材行 (方向 3: 主料 vs 调料/辅料 分级视效)
+    // 2. 左侧食材行 (方向 3: 主料 vs 调料/辅料 分级视效)
     const fontSize = isCompact ? "10.5" : "11.5"
     xml += `  <g class="v3-ingredients-group">\n`
     baseLayout.ingredientRows.forEach(row => {
@@ -183,37 +171,31 @@ export function generatePageSvgString(
     })
     xml += `  </g>\n`
 
-    // 流向连接线 (→)
-    xml += `  <g class="v3-flow-connectors">\n`
-    baseLayout.actionBlockLayouts.forEach(lb => {
-        if (lb.computedColIndex < baseLayout.numActionCols - 1) {
-            const x1 = lb.x + lb.w + 0.5
-            const y1 = lb.y + lb.h / 2
-            const x2 = lb.x + lb.w + 2
-            const y2 = y1
-            xml += `    <line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#v3-flow-arrow-export)" />\n`
-        }
-    })
-    xml += `  </g>\n`
-
-    // 4. 中间矩阵工序块
+    // 3. 中间矩阵工序块：依靠列位置表达顺序，不导出编号或路径
     xml += `  <g class="v3-actions-group">\n`
     baseLayout.actionBlockLayouts.forEach(lb => {
         const isPlaceholder = lb.isEmptyPlaceholder
-        const bgFill = isPlaceholder ? theme.colors.actionPlaceholderFill : theme.colors.actionFill
-        const dash = isPlaceholder ? `stroke-dasharray="${theme.strokes.dashArray}"` : ''
+        const bgFill = isPlaceholder
+            ? theme.colors.actionPlaceholderFill
+            : getStageToken(theme.colors.actionStageFills, lb.computedColIndex)
+        const blockStroke = isPlaceholder
+            ? theme.colors.actionStroke
+            : getStageToken(theme.colors.actionStageStrokes, lb.computedColIndex)
+        const blockAccent = getStageToken(theme.colors.actionStageAccents, lb.computedColIndex)
 
         xml += `    <g transform="translate(${lb.x}, ${lb.y})">\n`
-        xml += `      <rect width="${lb.w}" height="${lb.h}" fill="${bgFill}" stroke="${theme.colors.actionStroke}" stroke-width="${theme.strokes.blockWidth}" rx="${theme.radii.block}" ${dash} />\n`
+        xml += `      <rect width="${lb.w}" height="${lb.h}" fill="${bgFill}" stroke="${blockStroke}" stroke-width="${theme.strokes.blockWidth}" rx="${theme.radii.block}" />\n`
+        if (!isPlaceholder) {
+            xml += `      <rect x="0" y="0" width="4" height="${lb.h}" fill="${blockAccent}" rx="2" />\n`
+        }
         xml += `      <g transform="translate(${lb.w / 2}, ${lb.h / 2})">\n`
         if (!isPlaceholder) {
             xml += `        <text text-anchor="middle" dominant-baseline="central">\n`
             
-            // 多行主标题 (带序号)
+            // 多行主标题
             lb.labelLines.forEach((lText, lIdx) => {
                 const dy = lIdx === 0 ? getFirstLineYOffset(lb) : '1.3em'
-                const numberedLabel = lIdx === 0 ? `${getCircledNumber(lb.computedColIndex + 1)} ${lText}` : lText
-                xml += `          <tspan x="0" dy="${dy}" font-size="13" font-weight="bold" fill="${theme.colors.actionLabelText}">${escapeXml(numberedLabel)}</tspan>\n`
+                xml += `          <tspan x="0" dy="${dy}" font-size="13" font-weight="bold" fill="${theme.colors.actionLabelText}">${escapeXml(lText)}</tspan>\n`
             })
 
             // 多行副标题
@@ -228,6 +210,10 @@ export function generatePageSvgString(
                 xml += `          <tspan x="0" dy="1.4em" font-size="10" fill="${theme.colors.actionHeatText}">${heatText}</tspan>\n`
             }
 
+            lb.equipmentLines.forEach(equipmentLine => {
+                xml += `          <tspan x="0" dy="1.3em" font-size="10" fill="${theme.colors.actionSublabelText}">${escapeXml(equipmentLine)}</tspan>\n`
+            })
+
             xml += `        </text>\n`
         } else {
             xml += `        <text text-anchor="middle" dominant-baseline="central" font-size="11" fill="#9CA3AF" y="0">请选择相关食材</text>\n`
@@ -237,17 +223,16 @@ export function generatePageSvgString(
     })
     xml += `  </g>\n`
 
-    // 5. 最右侧最终完成区
+    // 4. 最右侧最终完成区
     const fbLayout = baseLayout.finalBlockLayout
     const fb = fbLayout.finalBlock
     const isPlaceholder = fbLayout.isPlaceholder
     const fbFill = isPlaceholder ? theme.colors.finalPlaceholderFill : (isColdFinal ? theme.colors.finalColdFill : theme.colors.finalBakeFill)
     const fbStroke = isPlaceholder ? theme.colors.actionStroke : (isColdFinal ? theme.colors.finalColdStroke : theme.colors.finalBakeStroke)
     const fbBadgeFill = isColdFinal ? theme.colors.finalColdBadge : theme.colors.finalBakeBadge
-    const fbDash = isPlaceholder ? `stroke-dasharray="${theme.strokes.dashArray}"` : ''
 
     xml += `  <g transform="translate(${fbLayout.x}, ${fbLayout.y})">\n`
-    xml += `    <rect width="${fbLayout.w}" height="${fbLayout.h}" fill="${fbFill}" stroke="${fbStroke}" stroke-width="1.8" rx="${theme.radii.block}" ${fbDash} />\n`
+    xml += `    <rect width="${fbLayout.w}" height="${fbLayout.h}" fill="${fbFill}" stroke="${fbStroke}" stroke-width="1.8" rx="${theme.radii.block}" />\n`
     xml += `    <g transform="translate(${fbLayout.w / 2}, ${fbLayout.h / 2})">\n`
 
     if (isPlaceholder) {
@@ -271,7 +256,7 @@ export function generatePageSvgString(
     xml += `    </g>\n`
     xml += `  </g>\n`
 
-    // 6. 多页页脚印章标注
+    // 5. 多页页脚印章标注
     if (totalPages > 1) {
         const pageText = escapeXml(`Page ${pageIndex + 1} of ${totalPages}`)
         xml += `  <g class="v3-footer-group">\n`

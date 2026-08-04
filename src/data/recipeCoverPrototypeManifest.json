@@ -1,0 +1,1195 @@
+{
+  "generatedAt": "2026-08-04T01:26:30.764Z",
+  "mode": "prototype",
+  "records": [
+    {
+      "recipeId": "cn-01-yuxiang-rousi",
+      "recipeTitle": "🥢 私房少油鱼香肉丝",
+      "status": "prototype",
+      "assetPath": "/recipe-covers/prototype/cn-01-yuxiang-rousi.jpg",
+      "confidence": "high",
+      "query": "鱼香肉丝",
+      "provider": "wikimedia",
+      "candidateTitle": "吉林大学中心校区新食堂一楼四川风味鱼香肉丝.jpg",
+      "creator": "董辰兴",
+      "license": "CC BY-SA 4.0",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:%E5%90%89%E6%9E%97%E5%A4%A7%E5%AD%A6%E4%B8%AD%E5%BF%83%E6%A0%A1%E5%8C%BA%E6%96%B0%E9%A3%9F%E5%A0%82%E4%B8%80%E6%A5%BC%E5%9B%9B%E5%B7%9D%E9%A3%8E%E5%91%B3%E9%B1%BC%E9%A6%99%E8%82%89%E4%B8%9D.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/%E5%90%89%E6%9E%97%E5%A4%A7%E5%AD%A6%E4%B8%AD%E5%BF%83%E6%A0%A1%E5%8C%BA%E6%96%B0%E9%A3%9F%E5%A0%82%E4%B8%80%E6%A5%BC%E5%9B%9B%E5%B7%9D%E9%A3%8E%E5%91%B3%E9%B1%BC%E9%A6%99%E8%82%89%E4%B8%9D.jpg/1280px-%E5%90%89%E6%9E%97%E5%A4%A7%E5%AD%A6%E4%B8%AD%E5%BF%83%E6%A0%A1%E5%8C%BA%E6%96%B0%E9%A3%9F%E5%A0%82%E4%B8%80%E6%A5%BC%E5%9B%9B%E5%B7%9D%E9%A3%8E%E5%91%B3%E9%B1%BC%E9%A6%99%E8%82%89%E4%B8%9D.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "sourceWidth": 2592,
+      "sourceHeight": 1944,
+      "outputWidth": 1200,
+      "outputHeight": 900,
+      "sha256": "90c99f8915a11ad12fbc57d2d5803fab1b04f9d5762e237858ea9db2be4e085f",
+      "perceptualHash": "1111111111111111111000111100000111000010110001111000011100010011",
+      "reviewFlags": []
+    },
+    {
+      "recipeId": "cn-02-steamed-scallops",
+      "recipeTitle": "🐚 蒜蓉粉丝蒸扇贝",
+      "status": "prototype",
+      "assetPath": "/recipe-covers/prototype/cn-02-steamed-scallops.jpg",
+      "confidence": "medium",
+      "query": "蒜蓉粉丝蒸扇贝",
+      "provider": "wikimedia",
+      "candidateTitle": "Minced garlic glass noodle scallops.jpg",
+      "creator": "lazy fri13th",
+      "license": "CC BY 2.0",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Minced_garlic_glass_noodle_scallops.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Minced_garlic_glass_noodle_scallops.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "sourceWidth": 1024,
+      "sourceHeight": 768,
+      "outputWidth": 1200,
+      "outputHeight": 900,
+      "sha256": "d5b6ff1e53f383e40103350914ebdf4e5e40d35bb559ed0e641dbf873e193581",
+      "perceptualHash": "0001111000101111011111110001100111100101111001110111111000011100",
+      "reviewFlags": []
+    },
+    {
+      "recipeId": "cn-05-gongbao-jiding",
+      "recipeTitle": "🌶️ 宫保鸡丁",
+      "status": "prototype",
+      "assetPath": "/recipe-covers/prototype/cn-05-gongbao-jiding.jpg",
+      "confidence": "medium",
+      "query": "宫保鸡丁",
+      "provider": "wikimedia",
+      "candidateTitle": "Kung Pao chicken (western version) -1.jpg",
+      "creator": "Alexander Marks ( aomarks )",
+      "license": "Public domain",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Kung_Pao_chicken_(western_version)_-1.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Kung_Pao_chicken_%28western_version%29_-1.jpg/1280px-Kung_Pao_chicken_%28western_version%29_-1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "sourceWidth": 1596,
+      "sourceHeight": 1362,
+      "outputWidth": 1200,
+      "outputHeight": 900,
+      "sha256": "f05ca660a68b1d2651aafb053a3cdc168dfbc90819f4af520bf6c7f54b218f6a",
+      "perceptualHash": "0110111011000010110000011100000111000001111100111111111111111111",
+      "reviewFlags": []
+    },
+    {
+      "recipeId": "cn-09-jingjiang-rousi",
+      "recipeTitle": "🥢 私家京酱肉丝",
+      "status": "prototype",
+      "assetPath": "/recipe-covers/prototype/cn-09-jingjiang-rousi.jpg",
+      "confidence": "high",
+      "query": "京酱肉丝",
+      "provider": "wikimedia",
+      "candidateTitle": "京酱肉丝.jpg",
+      "creator": "Дмитрий Журавлев (dejur)",
+      "license": "CC BY-SA 3.0",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:%E4%BA%AC%E9%85%B1%E8%82%89%E4%B8%9D.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/71/%E4%BA%AC%E9%85%B1%E8%82%89%E4%B8%9D.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "sourceWidth": 800,
+      "sourceHeight": 536,
+      "outputWidth": 1200,
+      "outputHeight": 900,
+      "sha256": "d5daf8c8a62f0111b5c26fa80ab87d8d40fe4ef62d2ea1ed5bebd33a2adfcb4f",
+      "perceptualHash": "1111111111111111000011110110010011000010110000110110110110000001",
+      "reviewFlags": []
+    },
+    {
+      "recipeId": "cn-12-xihongshi-jidan",
+      "recipeTitle": "🍳 经典番茄炒鸡蛋",
+      "status": "prototype",
+      "assetPath": "/recipe-covers/prototype/cn-12-xihongshi-jidan.jpg",
+      "confidence": "medium",
+      "query": "番茄炒鸡蛋",
+      "provider": "wikimedia",
+      "candidateTitle": "Stir Fried Tomatoes with Scrambled Eggs.jpg",
+      "creator": "NNU-10-24100123",
+      "license": "CC BY-SA 3.0",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Stir_Fried_Tomatoes_with_Scrambled_Eggs.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Stir_Fried_Tomatoes_with_Scrambled_Eggs.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "sourceWidth": 640,
+      "sourceHeight": 480,
+      "outputWidth": 1200,
+      "outputHeight": 900,
+      "sha256": "5a57a3a2b8a8eb390c66a05edd3304ef8435ee10c75425b87e59d1fff46ec3f2",
+      "perceptualHash": "1111011011100110001001110110110011001100010000110011001100000011",
+      "reviewFlags": []
+    },
+    {
+      "recipeId": "cn-13-suan-shao-wuhuarou",
+      "recipeTitle": "🧄 蒜烧五花肉",
+      "status": "prototype",
+      "assetPath": "/recipe-covers/prototype/cn-13-suan-shao-wuhuarou.jpg",
+      "confidence": "medium",
+      "query": "Chinese stew pork belly cabbage dish",
+      "provider": "openverse",
+      "candidateTitle": "Belly Pork and Preserved Cabbage Stew - Original Taste - Julia - flash",
+      "creator": "avlxyz",
+      "license": "by-sa",
+      "sourcePage": "https://www.flickr.com/photos/10559879@N00/2300199080",
+      "originalUrl": "https://api.openverse.org/v1/images/267229ea-17f4-40a4-ab40-8377ab0c6bd2/thumb/",
+      "sourceWidth": 1024,
+      "sourceHeight": 768,
+      "outputWidth": 1200,
+      "outputHeight": 900,
+      "sha256": "539e95540fd19f3a41c43723e32f1c9d3ac210f5957ba81697b2234c0075bdb9",
+      "perceptualHash": "0000000000000000000011110011111110011111101111110111111100111111",
+      "reviewFlags": []
+    },
+    {
+      "recipeId": "cn-15-xingbaogu-niurouli",
+      "recipeTitle": "🥩 黑椒杏鲍菇牛肉粒",
+      "status": "prototype",
+      "assetPath": "/recipe-covers/prototype/cn-15-xingbaogu-niurouli.jpg",
+      "confidence": "medium",
+      "query": "Chinese stir fry beef dish",
+      "provider": "openverse",
+      "candidateTitle": "Beef and Pea Pod Stir Fry",
+      "creator": "jeffreyw",
+      "license": "by",
+      "sourcePage": "https://www.flickr.com/photos/7927684@N03/4423896316",
+      "originalUrl": "https://api.openverse.org/v1/images/12bb241a-34c0-4df9-92cd-0ceec632a51b/thumb/",
+      "sourceWidth": 1024,
+      "sourceHeight": 680,
+      "outputWidth": 1200,
+      "outputHeight": 900,
+      "sha256": "bb6e4e9d7c88cc9553c88655be2535e362df329c0e3138490cc6dfb18b6dbd13",
+      "perceptualHash": "1110000111100001111000010011000110000001110000011100101111000011",
+      "reviewFlags": []
+    },
+    {
+      "recipeId": "cn-19-banli-shaoji",
+      "recipeTitle": "🍗 经典板栗烧土鸡",
+      "status": "prototype",
+      "assetPath": "/recipe-covers/prototype/cn-19-banli-shaoji.jpg",
+      "confidence": "medium",
+      "query": "Chinese stew chicken mushroom dish",
+      "provider": "openverse",
+      "candidateTitle": "Chicken and Mushroom Stew - Original Taste - Alpha",
+      "creator": "avlxyz",
+      "license": "by-sa",
+      "sourcePage": "https://www.flickr.com/photos/10559879@N00/2300203732",
+      "originalUrl": "https://api.openverse.org/v1/images/7f8ad855-a56d-4f5c-9b1c-25900d8e7d0e/thumb/",
+      "sourceWidth": 1024,
+      "sourceHeight": 769,
+      "outputWidth": 1200,
+      "outputHeight": 900,
+      "sha256": "d31dd407a17ca303985c5a987a12b2861a031356918ca8e17bf661b66b502b04",
+      "perceptualHash": "1111001001101110110001111001110010011001011111100011110000000000",
+      "reviewFlags": []
+    },
+    {
+      "recipeId": "cn-24-jianzhi-fanqie-doufugeng",
+      "recipeTitle": "🥣 减脂番茄内酯豆腐羹",
+      "status": "prototype",
+      "assetPath": "/recipe-covers/prototype/cn-24-jianzhi-fanqie-doufugeng.jpg",
+      "confidence": "medium",
+      "query": "Chinese stew egg tofu dish",
+      "provider": "openverse",
+      "candidateTitle": "咸蛋黄豆腐 Tofu with Salted-Duck Egg - Sungs Kitchen",
+      "creator": "avlxyz",
+      "license": "by-sa",
+      "sourcePage": "https://www.flickr.com/photos/10559879@N00/2704735813",
+      "originalUrl": "https://api.openverse.org/v1/images/2c46bbc3-005a-4cc3-8a6c-849ddf067c26/thumb/",
+      "sourceWidth": 1024,
+      "sourceHeight": 768,
+      "outputWidth": 1200,
+      "outputHeight": 900,
+      "sha256": "b5ed2c68c80029e9fa25e63bd8f2a4f6b7f7e0bd3ed090897b5ae04afdc7c4fd",
+      "perceptualHash": "0000000011111111111011110000001110000001100000011100001101101101",
+      "reviewFlags": []
+    },
+    {
+      "recipeId": "cn-37-qincai-larouding",
+      "recipeTitle": "🥓 芹菜爆炒腊肉丁",
+      "status": "prototype",
+      "assetPath": "/recipe-covers/prototype/cn-37-qincai-larouding.jpg",
+      "confidence": "medium",
+      "query": "Chinese stir fry celery dish",
+      "provider": "openverse",
+      "candidateTitle": "豆腐干芹菜 Tofu and Celery Stir Fry",
+      "creator": "Augapfel",
+      "license": "by",
+      "sourcePage": "https://www.flickr.com/photos/47038415@N00/1483892139",
+      "originalUrl": "https://api.openverse.org/v1/images/b0b45d4e-8d0a-4ca8-82c7-1d9167d41e63/thumb/",
+      "sourceWidth": 1024,
+      "sourceHeight": 576,
+      "outputWidth": 1200,
+      "outputHeight": 900,
+      "sha256": "b5aacbbfd0160e1a3697a3359ecbe07c73ba96e1156aa40e38871916e001f27a",
+      "perceptualHash": "0001000001111110111111111111111111111111001110000000000000000000",
+      "reviewFlags": []
+    },
+    {
+      "recipeId": "cn-54-liangban-xihulu",
+      "recipeTitle": "🥒 酸辣生拌西葫芦丝",
+      "status": "prototype",
+      "assetPath": "/recipe-covers/prototype/cn-54-liangban-xihulu.jpg",
+      "confidence": "medium",
+      "query": "salad zucchini dish",
+      "provider": "openverse",
+      "candidateTitle": "Couscous salad with Zucchini and Roasted Almonds",
+      "creator": "Rooey202",
+      "license": "by",
+      "sourcePage": "https://www.flickr.com/photos/50284194@N00/5955307155",
+      "originalUrl": "https://api.openverse.org/v1/images/a098bad4-9be5-4342-bb93-dfab60fc8dbd/thumb/",
+      "sourceWidth": 1024,
+      "sourceHeight": 768,
+      "outputWidth": 1200,
+      "outputHeight": 900,
+      "sha256": "ba07d09c9bfd9efd0a8caeda9d5b96fde0b94644aecf5e507529faeb0cc13925",
+      "perceptualHash": "0001100001111110111111111111111111111111101000010110001000011000",
+      "reviewFlags": []
+    },
+    {
+      "recipeId": "cn-58-sanxian-niurou-baoshe",
+      "recipeTitle": "🥟 酵母三鲜牛肉面蒸包",
+      "status": "prototype",
+      "assetPath": "/recipe-covers/prototype/cn-58-sanxian-niurou-baoshe.jpg",
+      "confidence": "medium",
+      "query": "Chinese steamed shrimp dish",
+      "provider": "openverse",
+      "candidateTitle": "Free steamed shrimp image",
+      "creator": "",
+      "license": "cc0",
+      "sourcePage": "https://www.rawpixel.com/image/5920519/photo-image-public-domain-green-food",
+      "originalUrl": "https://api.openverse.org/v1/images/e621f42e-4ea3-4ed9-ae9b-a961e284f630/thumb/",
+      "sourceWidth": 4864,
+      "sourceHeight": 3648,
+      "outputWidth": 1200,
+      "outputHeight": 900,
+      "sha256": "3fec05d715ec587bb15e18d5d108cf5d94c649fec9dfc330630484f0d21a1607",
+      "perceptualHash": "1110111110000101000000100000000000000110000010110001011111111100",
+      "reviewFlags": [
+        "MISSING_CREATOR_METADATA"
+      ]
+    },
+    {
+      "recipeId": "cn-70-bazi-rou",
+      "recipeTitle": "🥩 鲁味传统浓香把子肉",
+      "status": "prototype",
+      "assetPath": "/recipe-covers/prototype/cn-70-bazi-rou.jpg",
+      "confidence": "high",
+      "query": "把子肉",
+      "provider": "wikimedia",
+      "candidateTitle": "Food 把子肉, Yi Yuan Peking Cuisine, The Westin Taipei, 頤園, 頤園北京料理, 六福皇宮, 台北威斯汀六福皇宮, 台北 (20222070712).jpg",
+      "creator": "bryan... from Taipei, Taiwan",
+      "license": "CC BY-SA 2.0",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Food_%E6%8A%8A%E5%AD%90%E8%82%89,_Yi_Yuan_Peking_Cuisine,_The_Westin_Taipei,_%E9%A0%A4%E5%9C%92,_%E9%A0%A4%E5%9C%92%E5%8C%97%E4%BA%AC%E6%96%99%E7%90%86,_%E5%85%AD%E7%A6%8F%E7%9A%87%E5%AE%AE,_%E5%8F%B0%E5%8C%97%E5%A8%81%E6%96%AF%E6%B1%80%E5%85%AD%E7%A6%8F%E7%9A%87%E5%AE%AE,_%E5%8F%B0%E5%8C%97_(20222070712).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Food_%E6%8A%8A%E5%AD%90%E8%82%89%2C_Yi_Yuan_Peking_Cuisine%2C_The_Westin_Taipei%2C_%E9%A0%A4%E5%9C%92%2C_%E9%A0%A4%E5%9C%92%E5%8C%97%E4%BA%AC%E6%96%99%E7%90%86%2C_%E5%85%AD%E7%A6%8F%E7%9A%87%E5%AE%AE%2C_%E5%8F%B0%E5%8C%97%E5%A8%81%E6%96%AF%E6%B1%80%E5%85%AD%E7%A6%8F%E7%9A%87%E5%AE%AE%2C_%E5%8F%B0%E5%8C%97_%2820222070712%29.jpg/1280px-Food_%E6%8A%8A%E5%AD%90%E8%82%89%2C_Yi_Yuan_Peking_Cuisine%2C_The_Westin_Taipei%2C_%E9%A0%A4%E5%9C%92%2C_%E9%A0%A4%E5%9C%92%E5%8C%97%E4%BA%AC%E6%96%99%E7%90%86%2C_%E5%85%AD%E7%A6%8F%E7%9A%87%E5%AE%AE%2C_%E5%8F%B0%E5%8C%97%E5%A8%81%E6%96%AF%E6%B1%80%E5%85%AD%E7%A6%8F%E7%9A%87%E5%AE%AE%2C_%E5%8F%B0%E5%8C%97_%2820222070712%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "sourceWidth": 3264,
+      "sourceHeight": 2448,
+      "outputWidth": 1200,
+      "outputHeight": 900,
+      "sha256": "e5682418f8066e85a3463ab7d050afcf945f6f36ad43939eefd7ad51fe08af2c",
+      "perceptualHash": "1111111111111111110000111000001110000001100000011100001111111111",
+      "reviewFlags": []
+    }
+  ],
+  "fallback": [
+    {
+      "recipeId": "cn-03-tomato-beef-stew",
+      "recipeTitle": "🍅 番茄炖牛腩煲",
+      "status": "fallback",
+      "queries": [
+        "番茄炖牛腩煲",
+        "番茄炖牛腩",
+        "Chinese stew beef brisket tomato dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-04-congbao-yangrou",
+      "recipeTitle": "🥩 经典京味葱爆羊肉",
+      "status": "fallback",
+      "queries": [
+        "经典京味葱爆羊肉",
+        "葱爆羊肉",
+        "Chinese stir fry lamb dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-06-jiyu-tang",
+      "recipeTitle": "🐟 奶白豆腐鲫鱼汤",
+      "status": "fallback",
+      "queries": [
+        "奶白豆腐鲫鱼汤",
+        "豆腐鲫鱼汤",
+        "Chinese stew fish soup tofu dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-07-steamed-eel",
+      "recipeTitle": "🐉 豉汁蒸盘龙白鳝",
+      "status": "fallback",
+      "queries": [
+        "豉汁蒸盘龙白鳝",
+        "Chinese steamed eel dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-08-steamed-carrot-strips",
+      "recipeTitle": "🥕 蒜香粉蒸胡萝卜丝",
+      "status": "fallback",
+      "queries": [
+        "蒜香粉蒸胡萝卜丝",
+        "粉蒸胡萝卜丝",
+        "Chinese steamed egg carrot dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-10-suanrong-qiezi",
+      "recipeTitle": "🍆 蒜蓉蒸茄子",
+      "status": "fallback",
+      "queries": [
+        "蒜蓉蒸茄子",
+        "Chinese steamed eggplant dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-11-luobo-niunan",
+      "recipeTitle": "🍲 胡萝卜洋葱炖牛腩煲",
+      "status": "fallback",
+      "queries": [
+        "胡萝卜洋葱炖牛腩煲",
+        "胡萝卜洋葱炖牛腩",
+        "Chinese stew beef brisket carrot dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-14-zhurou-dun-fentiao",
+      "recipeTitle": "🍲 经典东北猪肉炖粉条",
+      "status": "fallback",
+      "queries": [
+        "经典东北猪肉炖粉条",
+        "猪肉炖粉条",
+        "Chinese stew pork belly sweet potato dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-16-jinzhen-feiniu",
+      "recipeTitle": "🍲 酸辣金针肥牛",
+      "status": "fallback",
+      "queries": [
+        "酸辣金针肥牛",
+        "金针肥牛",
+        "Chinese stir fry enoki mushroom dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-17-bailuobo-yangroujuan",
+      "recipeTitle": "🐑 蒜香白萝卜羊肉卷",
+      "status": "fallback",
+      "queries": [
+        "蒜香白萝卜羊肉卷",
+        "白萝卜羊肉卷",
+        "Chinese steamed lamb daikon dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-18-yangrou-dun-hulabu",
+      "recipeTitle": "🍲 枸杞羊肉炖胡萝卜煲",
+      "status": "fallback",
+      "queries": [
+        "枸杞羊肉炖胡萝卜煲",
+        "枸杞羊肉炖胡萝卜",
+        "Chinese stew lamb carrot dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-20-banli-jiding",
+      "recipeTitle": "🍗 酱香板栗炒鸡丁",
+      "status": "fallback",
+      "queries": [
+        "酱香板栗炒鸡丁",
+        "板栗炒鸡丁",
+        "Chinese stir fry chicken chestnut dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-21-douzha-zhengdan",
+      "recipeTitle": "🥚 高纤维豆渣水蒸蛋",
+      "status": "fallback",
+      "queries": [
+        "高纤维豆渣水蒸蛋",
+        "豆渣水蒸蛋",
+        "Chinese steamed egg dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-22-disanxian",
+      "recipeTitle": "🍆 经典东北地三鲜",
+      "status": "fallback",
+      "queries": [
+        "经典东北地三鲜",
+        "Chinese stir fry eggplant potato dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-23-mizhi-fanqiejiang",
+      "recipeTitle": "🥫 纯手工秘制番茄酱",
+      "status": "fallback",
+      "queries": [
+        "纯手工秘制番茄酱",
+        "纯番茄酱",
+        "Chinese stew tomato dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-25-luobosi-zheng-niurou",
+      "recipeTitle": "🥩 辣椒粉萝卜丝蒸牛肉",
+      "status": "fallback",
+      "queries": [
+        "辣椒粉萝卜丝蒸牛肉",
+        "Chinese steamed beef daikon dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-26-donggua-yimi-paigutang",
+      "recipeTitle": "🍲 冬瓜薏米排骨清润汤",
+      "status": "fallback",
+      "queries": [
+        "冬瓜薏米排骨清润汤",
+        "冬瓜薏米排骨汤",
+        "Chinese stew pork ribs dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-27-hongzao-baihe-zheng-nangua",
+      "recipeTitle": "🎃 蜂蜜红枣百合蒸南瓜",
+      "status": "fallback",
+      "queries": [
+        "蜂蜜红枣百合蒸南瓜",
+        "红枣百合蒸南瓜",
+        "Chinese steamed pumpkin lily bulb dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-28-huanggua-chao-tianjiao",
+      "recipeTitle": "🥒 双色甜椒炒黄瓜",
+      "status": "fallback",
+      "queries": [
+        "双色甜椒炒黄瓜",
+        "甜椒炒黄瓜",
+        "Chinese stir fry cucumber dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-29-kugua-donggu-gutang",
+      "recipeTitle": "🥣 苦瓜冬菇黄豆山药排骨汤",
+      "status": "fallback",
+      "queries": [
+        "苦瓜冬菇黄豆山药排骨汤",
+        "Chinese stew pork ribs Chinese yam dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-30-kugua-zheng-xiandan",
+      "recipeTitle": "🥚 咸蛋黄酿苦瓜圈",
+      "status": "fallback",
+      "queries": [
+        "咸蛋黄酿苦瓜圈",
+        "Chinese steamed bitter melon dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-31-kugua-roupian",
+      "recipeTitle": "🥩 豆豉苦瓜炒牛肉片",
+      "status": "fallback",
+      "queries": [
+        "豆豉苦瓜炒牛肉片",
+        "Chinese stir fry beef bitter melon dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-32-feicui-siguajuan",
+      "recipeTitle": "🐟 翡翠丝瓜黑鱼蓉卷",
+      "status": "fallback",
+      "queries": [
+        "翡翠丝瓜黑鱼蓉卷",
+        "Chinese steamed fish luffa dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-33-yangcong-chao-zhugan",
+      "recipeTitle": "🐖 洋葱爆炒猪肝",
+      "status": "fallback",
+      "queries": [
+        "洋葱爆炒猪肝",
+        "Chinese stir fry pork liver onion dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-34-piaoxiang-shousi-yuanbaicai",
+      "recipeTitle": "🥬 飘香手撕圆白菜",
+      "status": "fallback",
+      "queries": [
+        "飘香手撕圆白菜",
+        "手撕圆白菜",
+        "Chinese stir fry cabbage dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-35-haimi-youcai",
+      "recipeTitle": "🥬 海米清炒油菜",
+      "status": "fallback",
+      "queries": [
+        "海米清炒油菜",
+        "Chinese stir fry bok choy dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-36-haoyou-shengcai",
+      "recipeTitle": "🥬 蒜香蚝油生菜",
+      "status": "fallback",
+      "queries": [
+        "蒜香蚝油生菜",
+        "蚝油生菜",
+        "Chinese stir fry lettuce dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-38-baizhuo-jielan",
+      "recipeTitle": "🥬 粤式白灼芥蓝",
+      "status": "fallback",
+      "queries": [
+        "粤式白灼芥蓝",
+        "白灼芥蓝",
+        "Chinese stir fry Chinese broccoli dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-39-danhuang-xiancai",
+      "recipeTitle": "🥬 熟咸蛋黄炒苋菜",
+      "status": "fallback",
+      "queries": [
+        "熟咸蛋黄炒苋菜",
+        "Chinese stir fry amaranth greens dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-40-xiaren-zheng-xilanhua",
+      "recipeTitle": "🥦 鲜虾仁清蒸西蓝花",
+      "status": "fallback",
+      "queries": [
+        "鲜虾仁清蒸西蓝花",
+        "虾仁清蒸西蓝花",
+        "steamed shrimp broccoli dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-41-wosun-juhui",
+      "recipeTitle": "🥗 四蔬聚会蘸汁蒸菜 (莴笋聚会)",
+      "status": "fallback",
+      "queries": [
+        "四蔬聚会蘸汁蒸菜 (莴笋聚会)",
+        "Chinese steamed potato celtuce dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-42-wosun-shaorou",
+      "recipeTitle": "🍲 香辣莴笋烧猪肉煲",
+      "status": "fallback",
+      "queries": [
+        "香辣莴笋烧猪肉煲",
+        "香辣莴笋烧猪肉",
+        "Chinese stew pork celtuce dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-43-jiangzhi-wosun",
+      "recipeTitle": "🥒 清爽开胃姜汁莴笋",
+      "status": "fallback",
+      "queries": [
+        "清爽开胃姜汁莴笋",
+        "姜汁莴笋",
+        "Chinese salad celtuce dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-44-xihulu-chao-jidan",
+      "recipeTitle": "🍳 瓜氨酸西葫芦炒鸡蛋",
+      "status": "fallback",
+      "queries": [
+        "瓜氨酸西葫芦炒鸡蛋",
+        "西葫芦炒鸡蛋",
+        "stir fry egg zucchini dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-45-xianggu-ouwan",
+      "recipeTitle": "🍡 鲜香菇莲藕猪肉丸",
+      "status": "fallback",
+      "queries": [
+        "鲜香菇莲藕猪肉丸",
+        "香菇莲藕猪肉丸",
+        "Chinese steamed mushroom dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-46-jinzhengu-peigenjuan",
+      "recipeTitle": "🥓 培根金针菇卷",
+      "status": "fallback",
+      "queries": [
+        "培根金针菇卷",
+        "Chinese steamed enoki mushroom dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-47-culiu-sushijin",
+      "recipeTitle": "🥗 醋熘四宝素什锦",
+      "status": "fallback",
+      "queries": [
+        "醋熘四宝素什锦",
+        "Chinese stir fry carrot radish dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-48-yiner-baihe-xuelitang",
+      "recipeTitle": "🍐 银耳百合雪梨润肺汤",
+      "status": "fallback",
+      "queries": [
+        "银耳百合雪梨润肺汤",
+        "银耳百合雪梨汤",
+        "Chinese stew snow fungus lily bulb dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-49-hexiang-xiaomi-zheng-hongshu",
+      "recipeTitle": "🍠 荷香小米裹蒸红薯条",
+      "status": "fallback",
+      "queries": [
+        "荷香小米裹蒸红薯条",
+        "Chinese steamed sweet potato dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-50-shanyao-shousi",
+      "recipeTitle": "🍣 蒸山药胡萝卜海苔卷",
+      "status": "fallback",
+      "queries": [
+        "蒸山药胡萝卜海苔卷",
+        "Chinese steamed carrot radish dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-51-guandongzhu",
+      "recipeTitle": "🍢 日式关东煮 (芋头山药苹果高汤)",
+      "status": "fallback",
+      "queries": [
+        "日式关东煮 (芋头山药苹果高汤)",
+        "日式关东煮",
+        "stew tofu daikon dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-52-naixiang-tudouni",
+      "recipeTitle": "🥔 奶香浓郁鸡汤土豆泥",
+      "status": "fallback",
+      "queries": [
+        "奶香浓郁鸡汤土豆泥",
+        "奶香鸡汤土豆泥",
+        "Chinese steamed potato dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-53-moli-huacai",
+      "recipeTitle": "🌸 茉莉花清炒有机菜花",
+      "status": "fallback",
+      "queries": [
+        "茉莉花清炒有机菜花",
+        "Chinese stir fry cauliflower dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-55-xihulu-shrimp",
+      "recipeTitle": "🍲 西葫芦鲜虾豆腐煲",
+      "status": "fallback",
+      "queries": [
+        "西葫芦鲜虾豆腐煲",
+        "西葫芦虾豆腐",
+        "stew tofu zucchini dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-56-bingtang-dumu-xuelitang",
+      "recipeTitle": "🍐 冰糖川贝独目雪梨盅",
+      "status": "fallback",
+      "queries": [
+        "冰糖川贝独目雪梨盅",
+        "川贝独目雪梨",
+        "Chinese stew pear dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-57-xianrenzhang-chao-roupian",
+      "recipeTitle": "🌵 食用仙人掌爆炒猪肉片",
+      "status": "fallback",
+      "queries": [
+        "食用仙人掌爆炒猪肉片",
+        "Chinese stir fry pork cactus dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-59-qincai-niurou",
+      "recipeTitle": "🥩 经典平肝芹菜炒牛肉丝",
+      "status": "fallback",
+      "queries": [
+        "经典平肝芹菜炒牛肉丝",
+        "芹菜炒牛肉丝",
+        "Chinese stir fry beef celery dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-60-zheng-yangrou",
+      "recipeTitle": "🐑 葱姜原味清蒸羊肉",
+      "status": "fallback",
+      "queries": [
+        "葱姜原味清蒸羊肉",
+        "葱姜清蒸羊肉",
+        "Chinese steamed lamb dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-61-zheng-niurou",
+      "recipeTitle": "🥩 汉民风味清蒸嫩牛肉",
+      "status": "fallback",
+      "queries": [
+        "汉民风味清蒸嫩牛肉",
+        "清蒸嫩牛肉",
+        "Chinese steamed beef dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-62-jielan-chao-roupian",
+      "recipeTitle": "🥬 粤式生炒芥蓝猪肉片",
+      "status": "fallback",
+      "queries": [
+        "粤式生炒芥蓝猪肉片",
+        "生炒芥蓝猪肉片",
+        "Chinese stir fry pork Chinese broccoli dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-63-mizhi-fanqie",
+      "recipeTitle": "🍅 冰糖松子秘制蒸番茄盅",
+      "status": "fallback",
+      "queries": [
+        "冰糖松子秘制蒸番茄盅",
+        "松子蒸番茄",
+        "Chinese steamed tomato dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-64-huanggua-chao-xiaren",
+      "recipeTitle": "🥒 经典清爽黄瓜炒虾仁",
+      "status": "fallback",
+      "queries": [
+        "经典清爽黄瓜炒虾仁",
+        "黄瓜炒虾仁",
+        "Chinese stir fry shrimp cucumber dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-65-qincai-zheng-jiandou",
+      "recipeTitle": "🫛 芹菜叶拌粉蒸茧豆 (蚕豆)",
+      "status": "fallback",
+      "queries": [
+        "芹菜叶拌粉蒸茧豆 (蚕豆)",
+        "芹菜叶拌粉蒸茧豆",
+        "Chinese steamed celery fava beans dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-66-liangban-luhui",
+      "recipeTitle": "🌱 冰镇蜂蜜甜酸拌芦荟丁",
+      "status": "fallback",
+      "queries": [
+        "冰镇蜂蜜甜酸拌芦荟丁",
+        "甜酸拌芦荟丁",
+        "Chinese salad aloe vera dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-67-luobo-paigu-tang",
+      "recipeTitle": "🍲 白萝卜猪排骨顺气清汤",
+      "status": "fallback",
+      "queries": [
+        "白萝卜猪排骨顺气清汤",
+        "白萝卜猪排骨",
+        "Chinese stew daikon radish dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-68-bingtang-yiner-baihe",
+      "recipeTitle": "🥣 冰糖银耳莲子百合甜羹",
+      "status": "fallback",
+      "queries": [
+        "冰糖银耳莲子百合甜羹",
+        "银耳莲子百合",
+        "Chinese stew snow fungus lily bulb dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-69-xihongshi-zheng-dan",
+      "recipeTitle": "🥚 鲜番茄汁水蒸蛋",
+      "status": "fallback",
+      "queries": [
+        "鲜番茄汁水蒸蛋",
+        "番茄汁水蒸蛋",
+        "Chinese steamed egg tomato dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-71-cong-shao-haishen",
+      "recipeTitle": "🍢 鲁菜名菜葱烧高汤海参",
+      "status": "fallback",
+      "queries": [
+        "鲁菜名菜葱烧高汤海参",
+        "葱烧高汤海参",
+        "Chinese stir fry sea cucumber dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-72-shanyu-mizhi",
+      "recipeTitle": "🍯 桂花蜜汁浇清蒸铁棍山药",
+      "status": "fallback",
+      "queries": [
+        "桂花蜜汁浇清蒸铁棍山药",
+        "浇清蒸铁棍山药",
+        "Chinese steamed Chinese yam dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-73-bingtang-hulu",
+      "recipeTitle": "🍡 传统老北京冰糖山楂葫芦",
+      "status": "fallback",
+      "queries": [
+        "传统老北京冰糖山楂葫芦",
+        "山楂葫芦",
+        "Chinese stew dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-74-wuhua-guo-dun-paigu",
+      "recipeTitle": "🍲 无花果南北杏猪排骨润喉汤",
+      "status": "fallback",
+      "queries": [
+        "无花果南北杏猪排骨润喉汤",
+        "无花果南北杏猪排骨汤",
+        "Chinese stew dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-75-sangren-zheng-dan",
+      "recipeTitle": "🥚 鲜桑椹干补血水蒸蛋",
+      "status": "fallback",
+      "queries": [
+        "鲜桑椹干补血水蒸蛋",
+        "桑椹干水蒸蛋",
+        "Chinese steamed egg dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-76-hongzao-zheng-nangua",
+      "recipeTitle": "🎃 去核红枣清蒸甜南瓜",
+      "status": "fallback",
+      "queries": [
+        "去核红枣清蒸甜南瓜",
+        "红枣清蒸甜南瓜",
+        "Chinese steamed pumpkin dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-77-baihe-zheng-nangua",
+      "recipeTitle": "🎃 鲜百合蜂蜜蒸板栗南瓜",
+      "status": "fallback",
+      "queries": [
+        "鲜百合蜂蜜蒸板栗南瓜",
+        "百合蒸板栗南瓜",
+        "Chinese steamed pumpkin lily bulb dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-78-nangua-paigu-tang",
+      "recipeTitle": "🎃 老南瓜炖猪排骨浓汤",
+      "status": "fallback",
+      "queries": [
+        "老南瓜炖猪排骨浓汤",
+        "老南瓜炖猪排骨",
+        "Chinese stew pork ribs pumpkin dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-79-qincai-chaoxian-chao-roupian",
+      "recipeTitle": "🌱 朝鲜蓟嫩芹菜爆炒猪肉片",
+      "status": "fallback",
+      "queries": [
+        "朝鲜蓟嫩芹菜爆炒猪肉片",
+        "朝蓟嫩芹菜爆炒猪肉片",
+        "Chinese stir fry pork celery dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-80-baihe-zheng-shanyao",
+      "recipeTitle": "🌸 鲜百合清蒸山药片",
+      "status": "fallback",
+      "queries": [
+        "鲜百合清蒸山药片",
+        "百合清蒸山药片",
+        "Chinese steamed Chinese yam lily bulb dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-81-bingtang-luhui",
+      "recipeTitle": "🥣 冰糖枸杞炖芦荟饮",
+      "status": "fallback",
+      "queries": [
+        "冰糖枸杞炖芦荟饮",
+        "枸杞炖芦荟饮",
+        "Chinese stew aloe vera dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-82-zizhi-ganshou-mian",
+      "recipeTitle": "🍜 手工风干瘦肉蒸丝面",
+      "status": "fallback",
+      "queries": [
+        "手工风干瘦肉蒸丝面",
+        "风干瘦肉蒸丝面",
+        "Chinese steamed noodles dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-83-chao-yangcong",
+      "recipeTitle": "🧅 蒜香清炒紫洋葱",
+      "status": "fallback",
+      "queries": [
+        "蒜香清炒紫洋葱",
+        "清炒紫洋葱",
+        "Chinese stir fry onion dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-84-yangcong-chao-jidan",
+      "recipeTitle": "🍳 甜美洋葱炒滑蛋",
+      "status": "fallback",
+      "queries": [
+        "甜美洋葱炒滑蛋",
+        "洋葱炒滑蛋",
+        "stir fry egg onion dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-85-zheng-qiezi",
+      "recipeTitle": "🍆 原味蒜泥泼油清蒸长紫茄",
+      "status": "fallback",
+      "queries": [
+        "原味蒜泥泼油清蒸长紫茄",
+        "蒜泥泼油清蒸长紫茄",
+        "Chinese steamed eggplant dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-86-zheng-wosun",
+      "recipeTitle": "🥒 剁椒热油清蒸莴笋片",
+      "status": "fallback",
+      "queries": [
+        "剁椒热油清蒸莴笋片",
+        "Chinese steamed celtuce dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-87-chao-xihulu",
+      "recipeTitle": "🥒 蒜香清炒西葫芦片",
+      "status": "fallback",
+      "queries": [
+        "蒜香清炒西葫芦片",
+        "清炒西葫芦片",
+        "stir fry zucchini dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-88-fanqie-chao-roupian",
+      "recipeTitle": "🍅 经典浓酸番茄炒猪肉片",
+      "status": "fallback",
+      "queries": [
+        "经典浓酸番茄炒猪肉片",
+        "浓酸番茄炒猪肉片",
+        "Chinese stir fry pork tomato dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-89-mizhi-fanqie-shanyao",
+      "recipeTitle": "🍅 秘制番茄酸甜蒸山药",
+      "status": "fallback",
+      "queries": [
+        "秘制番茄酸甜蒸山药",
+        "番茄酸甜蒸山药",
+        "Chinese steamed tomato Chinese yam dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-90-chao-doufogan",
+      "recipeTitle": "🫘 香芹爆炒五香豆腐干",
+      "status": "fallback",
+      "queries": [
+        "香芹爆炒五香豆腐干",
+        "Chinese stir fry tofu celery dish"
+      ],
+      "reason": "候选重复、下载失败或无法处理"
+    },
+    {
+      "recipeId": "cn-91-zheng-tudou",
+      "recipeTitle": "🥔 椒盐蒜香清蒸小土豆",
+      "status": "fallback",
+      "queries": [
+        "椒盐蒜香清蒸小土豆",
+        "椒盐清蒸小土豆",
+        "Chinese steamed potato dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-92-zheng-nangua-2",
+      "recipeTitle": "🎃 冰糖桂花清蒸贝贝南瓜",
+      "status": "fallback",
+      "queries": [
+        "冰糖桂花清蒸贝贝南瓜",
+        "桂花清蒸贝贝南瓜",
+        "Chinese steamed pumpkin dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-93-chao-baocai",
+      "recipeTitle": "🥬 蒜香清炒绿菠菜",
+      "status": "fallback",
+      "queries": [
+        "蒜香清炒绿菠菜",
+        "清炒绿菠菜",
+        "Chinese stir fry spinach dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-94-chao-jiandou",
+      "recipeTitle": "🫛 葱油爆炒鲜蚕豆 (茧豆)",
+      "status": "fallback",
+      "queries": [
+        "葱油爆炒鲜蚕豆 (茧豆)",
+        "葱油爆炒蚕豆",
+        "Chinese stir fry fava beans dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-95-zheng-huanggua",
+      "recipeTitle": "🥒 蒜蓉肉末蒸黄瓜酿",
+      "status": "fallback",
+      "queries": [
+        "蒜蓉肉末蒸黄瓜酿",
+        "Chinese steamed pork cucumber dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-96-chao-kugua",
+      "recipeTitle": "🥒 蒜香豆豉清炒苦瓜片",
+      "status": "fallback",
+      "queries": [
+        "蒜香豆豉清炒苦瓜片",
+        "豆豉清炒苦瓜片",
+        "Chinese stir fry bitter melon dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-97-zheng-doufugan",
+      "recipeTitle": "🫘 剁椒蒸五香豆腐干",
+      "status": "fallback",
+      "queries": [
+        "剁椒蒸五香豆腐干",
+        "Chinese steamed tofu dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    },
+    {
+      "recipeId": "cn-98-chao-luobo",
+      "recipeTitle": "🥕 葱花炝锅清炒白萝卜丝",
+      "status": "fallback",
+      "queries": [
+        "葱花炝锅清炒白萝卜丝",
+        "Chinese stir fry daikon radish dish"
+      ],
+      "reason": "未找到具备基本语义信号的真实图片候选"
+    }
+  ]
+}

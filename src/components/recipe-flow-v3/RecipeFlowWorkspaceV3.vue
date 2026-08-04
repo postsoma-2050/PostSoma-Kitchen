@@ -7,8 +7,8 @@
     <div class="bg-white rounded-3xl border border-stone-200/80 shadow-sm overflow-hidden flex flex-col">
       
       <!-- 2.1 流程图卡控制 Header (去重瘦身，突出主流程) -->
-      <div class="px-5 py-4 bg-stone-50/80 border-b border-stone-200/80 flex flex-wrap items-center justify-between gap-3 text-xs">
-        <div class="flex items-center gap-2">
+      <div class="px-4 py-4 sm:px-5 bg-stone-50/80 border-b border-stone-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+        <div class="flex flex-wrap items-center gap-2">
           <span class="text-base">📊</span>
           <span class="font-black text-stone-900 tracking-tight">Visual Recipe Flow Card</span>
           <span class="text-[10px] font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">
@@ -28,16 +28,17 @@
         </div>
 
         <!-- 消费型实用工具按键组 (全屏 / 导出 PNG) -->
-        <div class="flex items-center gap-2">
+        <div class="grid grid-cols-2 sm:flex sm:items-center gap-2 w-full sm:w-auto">
           <!-- 全屏放大查看按钮 -->
           <button
             @click="showFullModal = true"
             type="button"
-            class="inline-flex items-center gap-1 px-3 py-1.5 bg-white hover:bg-stone-100 text-stone-700 rounded-xl font-bold border border-stone-200 transition-all shadow-sm cursor-pointer"
+            class="inline-flex items-center justify-center gap-1 px-3 py-2 sm:py-1.5 bg-white hover:bg-stone-100 text-stone-700 rounded-xl font-bold border border-stone-200 transition-all shadow-sm cursor-pointer"
             title="全屏放大查看完整 Flow Card 矩阵图"
           >
             <span>🔍</span>
-            <span>全屏查看</span>
+            <span class="sm:hidden">矩阵全图</span>
+            <span class="hidden sm:inline">全屏查看</span>
           </button>
 
           <!-- 导出 PNG 按钮 -->
@@ -45,7 +46,7 @@
             @click="handleExportPng"
             :disabled="isExporting"
             type="button"
-            class="inline-flex items-center gap-1 px-3.5 py-1.5 bg-emerald-700 hover:bg-emerald-800 disabled:opacity-50 text-white rounded-xl font-bold shadow-sm transition-all cursor-pointer"
+            class="inline-flex items-center justify-center gap-1 px-3.5 py-2 sm:py-1.5 bg-emerald-700 hover:bg-emerald-800 disabled:opacity-50 text-white rounded-xl font-bold shadow-sm transition-all cursor-pointer"
             title="导出高清 PNG 流程卡图"
           >
             <span>📸</span>
@@ -54,16 +55,11 @@
         </div>
       </div>
 
-      <!-- 2.2 SVG 矩阵流程卡画布区域 (带窄屏横滑提示) -->
+      <!-- 2.2 手机纵向 Cook Mode / 桌面矩阵画布 -->
       <div class="relative bg-[#FAF8F5] p-4 md:p-6">
-        <!-- 移动端 / 窄屏横滑微提示 -->
-        <div class="md:hidden text-center text-[11px] text-stone-400 font-medium mb-2 flex items-center justify-center gap-1 select-none">
-          <span>👈</span>
-          <span>左右滑动查看完整工序依赖</span>
-          <span>👉</span>
-        </div>
+        <RecipeFlowMobileV3 :recipe="recipe" />
 
-        <div class="flex justify-center overflow-x-auto pb-2">
+        <div class="hidden md:flex justify-center overflow-x-auto pb-2">
           <RecipeFlowCanvasV3 :recipe="recipe" />
         </div>
       </div>
@@ -79,17 +75,17 @@
     >
       <div class="bg-white w-full max-w-7xl max-h-[94vh] rounded-3xl shadow-2xl flex flex-col overflow-hidden border border-stone-200">
         <!-- Modal 顶栏 -->
-        <div class="px-6 py-4 bg-stone-50 border-b border-stone-200 flex items-center justify-between shrink-0">
-          <div class="flex items-center gap-2">
+        <div class="px-4 py-3 sm:px-6 sm:py-4 bg-stone-50 border-b border-stone-200 flex items-center justify-between gap-3 shrink-0">
+          <div class="flex items-center gap-2 min-w-0">
             <span class="text-xl">📊</span>
-            <h3 class="text-base font-black text-stone-900">{{ recipe.title }} - 完整 Visual Recipe Flow Card</h3>
+            <h3 class="text-sm sm:text-base font-black text-stone-900 truncate">{{ recipe.title }} - 完整 Visual Recipe Flow Card</h3>
           </div>
           <div class="flex items-center gap-2">
             <button
               @click="handleExportPng"
               :disabled="isExporting"
               type="button"
-              class="px-3.5 py-1.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-bold transition-all shadow-sm cursor-pointer"
+              class="hidden sm:inline-flex px-3.5 py-1.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-bold transition-all shadow-sm cursor-pointer"
             >
               导出高清 PNG
             </button>
@@ -105,7 +101,7 @@
         </div>
 
         <!-- Modal 内部 SVG 画布 -->
-        <div class="flex-1 overflow-auto p-6 bg-[#FAF8F5] flex justify-center items-start">
+        <div class="flex-1 overflow-auto p-2 sm:p-6 bg-[#FAF8F5] flex justify-start md:justify-center items-start">
           <RecipeFlowCanvasV3 :recipe="recipe" />
         </div>
       </div>
@@ -117,8 +113,8 @@
 import { ref } from 'vue'
 import type { VisualRecipeV3 } from '@/types/recipeV3'
 import RecipeFlowCanvasV3 from './RecipeFlowCanvasV3.vue'
+import RecipeFlowMobileV3 from './RecipeFlowMobileV3.vue'
 import FlowCardGuideBanner from './FlowCardGuideBanner.vue'
-import { exportFlowCardAsPng } from '@/utils/exportFlowCard'
 
 const props = defineProps<{
   recipe: VisualRecipeV3
@@ -136,6 +132,7 @@ async function handleExportPng() {
   if (isExporting.value) return
   isExporting.value = true
   try {
+    const { exportFlowCardAsPng } = await import('@/utils/exportFlowCard')
     await exportFlowCardAsPng(props.recipe, undefined, 'full')
   } catch (err: any) {
     alert(err.message || '导出高清 PNG 图卡失败')

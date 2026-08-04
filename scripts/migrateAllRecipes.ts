@@ -9,7 +9,7 @@
 import { CHINESE_HEALTHY_RECIPES } from '../src/data/chineseHealthyRecipes'
 import { HOME_SWEET_HOME_RECIPES } from '../src/data/homeSweetHomeRecipes'
 import { espressoBrowniesV3, hongShaoRouV3, caesarSaladV3 } from '../src/data/v3Examples'
-import { normalizeRecipe } from '../src/services/v3RecipeStore'
+import { normalizeRecipe } from '../src/services/recipeNormalizer'
 import { validateRecipe } from '../src/utils/taxonomyMatcher'
 import { createClient } from '@supabase/supabase-js'
 
@@ -25,14 +25,14 @@ async function runAllRecipesMigration() {
   console.log(`• 运行模式: ${isDryRun ? '🔍 DRY-RUN (模拟运行，校验 Payload 不写入数据库)' : '🚀 ACTUAL-RUN (真实云端写入数据库)'}`)
 
   const supabaseUrl = (process.env.VITE_SUPABASE_URL || '').trim()
-  const supabaseAnonKey = (process.env.VITE_SUPABASE_ANON_KEY || '').trim()
+  const supabaseServiceRoleKey = (process.env.SUPABASE_SERVICE_ROLE_KEY || '').trim()
 
   if (isActualRun) {
-    if (!supabaseUrl || !supabaseAnonKey || !supabaseUrl.startsWith('http')) {
+    if (!supabaseUrl || !supabaseServiceRoleKey || !supabaseUrl.startsWith('http')) {
       console.error(`❌ 真实写入失败：未检测到有效 Supabase 环境变量！`)
       console.error(`   - VITE_SUPABASE_URL: ${supabaseUrl ? '已设置 (' + supabaseUrl.substring(0, 20) + '...)' : '未找到/为空'}`)
-      console.error(`   - VITE_SUPABASE_ANON_KEY: ${supabaseAnonKey ? '已设置' : '未找到/为空'}`)
-      console.error('💡 请确认根目录下存在 .env 文件，且参数配置完整。')
+      console.error(`   - SUPABASE_SERVICE_ROLE_KEY: ${supabaseServiceRoleKey ? '已设置' : '未找到/为空'}`)
+      console.error('💡 真实迁移必须使用仅限服务端的 SUPABASE_SERVICE_ROLE_KEY，禁止使用浏览器 anon key。')
       process.exit(1)
     } else {
       console.log(`• 云端 Supabase URL: ${supabaseUrl}`)
@@ -40,7 +40,7 @@ async function runAllRecipesMigration() {
   }
 
   const supabase = isActualRun
-    ? createClient(supabaseUrl, supabaseAnonKey, {
+    ? createClient(supabaseUrl, supabaseServiceRoleKey, {
         auth: { persistSession: false },
         realtime: { enabled: false },
       })

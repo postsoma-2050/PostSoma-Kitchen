@@ -1,73 +1,75 @@
 <template>
   <div
     v-if="isOpen"
-    class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-black/55 p-4"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="byok-settings-title"
     @click.self="close"
   >
-    <div class="bg-white rounded-2xl p-6 max-w-lg w-full shadow-2xl space-y-5 border border-stone-200 animate-in fade-in zoom-in duration-200">
+    <div class="pk-surface w-full max-w-lg space-y-5 p-6">
       <!-- 头部 -->
-      <div class="flex items-center justify-between border-b border-stone-100 pb-3">
-        <div class="flex items-center gap-2">
-          <span class="text-2xl">🔑</span>
-          <div>
-            <h3 class="text-base font-bold text-stone-900">BYOK AI 密钥设置</h3>
-            <p class="text-[11px] text-stone-500">Bring Your Own Key (支持 OpenAI / Gemini / DeepSeek 兼容 API)</p>
-          </div>
+      <div class="flex items-start justify-between gap-4 border-b border-[color:var(--pk-border)] pb-4">
+        <div>
+          <h3 id="byok-settings-title" class="text-base font-bold text-[color:var(--pk-ink)]">可选排序服务设置</h3>
+          <p class="mt-1 text-xs text-[color:var(--pk-ink-secondary)]">使用自己的 API Key，仅为候选食谱补充排序参考与理由。</p>
         </div>
-        <button @click="close" type="button" class="text-stone-400 hover:text-stone-700 text-lg font-bold p-1">
-          ✕
+        <button @click="close" type="button" class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-[color:var(--pk-ink-secondary)] hover:bg-[color:var(--pk-surface-muted)]" aria-label="关闭设置">
+          <svg viewBox="0 0 20 20" class="h-5 w-5" fill="none" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg>
         </button>
       </div>
 
       <!-- 隐私安全提示 -->
-      <div class="p-3 bg-emerald-50 border border-emerald-200 rounded-lg text-xs text-emerald-900 space-y-1">
-        <div class="font-bold flex items-center gap-1">
-          <span>🔒 100% 本地隐私保证</span>
-        </div>
-        <p class="text-[11px] leading-relaxed text-emerald-800">
-          你的 API Key 仅安全地存储在当前浏览器的 LocalStorage 中，直接由前端向大模型 API 发起 HTTP 请求，绝对不会上传至任何中转服务器。
+      <div class="space-y-1 border-l-2 border-[color:var(--pk-accent)] bg-[color:var(--pk-surface-accent)] p-3 text-xs">
+        <p class="font-bold text-[color:var(--pk-ink)]">本地保存方式</p>
+        <p class="text-[11px] leading-relaxed text-[color:var(--pk-ink-secondary)]">
+          API Key 保存在当前浏览器的 LocalStorage 中，请求会直接发送至你配置的 API 地址。请仅在可信设备上保存，并自行确认服务商的数据政策。
         </p>
       </div>
 
       <!-- 配置表单 -->
       <div class="space-y-4 text-xs">
         <div>
-          <label class="block font-bold text-stone-700 mb-1">API Key *</label>
+          <label for="byok-api-key" class="mb-1 block font-bold text-[color:var(--pk-ink-secondary)]">API Key *</label>
           <input
+            id="byok-api-key"
             v-model="config.apiKey"
             type="password"
             placeholder="sk-..."
-            class="w-full p-2.5 bg-stone-50 border border-stone-300 rounded-md font-mono focus:outline-none focus:border-emerald-600"
+            class="pk-field w-full p-2.5 font-mono text-base"
           />
         </div>
 
         <div>
-          <label class="block font-bold text-stone-700 mb-1">API Base URL</label>
+          <label for="byok-base-url" class="mb-1 block font-bold text-[color:var(--pk-ink-secondary)]">API 地址</label>
           <input
+            id="byok-base-url"
             v-model="config.baseUrl"
+            type="url"
             placeholder="https://api.openai.com/v1"
-            class="w-full p-2.5 bg-stone-50 border border-stone-300 rounded-md font-mono focus:outline-none focus:border-emerald-600"
+            class="pk-field w-full p-2.5 font-mono text-base"
           />
-          <p class="text-[10px] text-stone-400 mt-1">如使用第三方代理或 DeepSeek，请填入其兼容的 Base URL</p>
+          <p class="mt-1 text-[11px] text-[color:var(--pk-ink-muted)]">支持 OpenAI、Gemini、DeepSeek 等兼容接口地址。</p>
         </div>
 
         <div>
-          <label class="block font-bold text-stone-700 mb-1">Model 名称</label>
+          <label for="byok-model" class="mb-1 block font-bold text-[color:var(--pk-ink-secondary)]">模型名称</label>
           <input
+            id="byok-model"
             v-model="config.model"
             placeholder="gpt-3.5-turbo / deepseek-chat / gemini-1.5-flash"
-            class="w-full p-2.5 bg-stone-50 border border-stone-300 rounded-md font-mono focus:outline-none focus:border-emerald-600"
+            class="pk-field w-full p-2.5 font-mono text-base"
           />
         </div>
       </div>
 
       <!-- 底部按钮 -->
-      <div class="flex items-center justify-between pt-3 border-t border-stone-100">
+      <div class="flex flex-wrap items-center justify-between gap-3 border-t border-[color:var(--pk-border)] pt-4">
         <button
           v-if="config.apiKey"
           @click="clearKey"
           type="button"
-          class="text-xs text-red-600 hover:text-red-800 font-semibold underline cursor-pointer"
+          class="min-h-11 rounded-lg px-2 text-xs font-semibold text-[color:var(--pk-danger)] underline underline-offset-4"
         >
           清除已存 Key
         </button>
@@ -77,14 +79,14 @@
           <button
             @click="close"
             type="button"
-            class="px-4 py-2 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded-lg text-xs font-semibold cursor-pointer"
+            class="pk-button pk-button-secondary"
           >
             取消
           </button>
           <button
             @click="handleSave"
             type="button"
-            class="px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-lg text-xs font-bold shadow-sm transition-colors cursor-pointer"
+            class="pk-button pk-button-primary"
           >
             保存本地配置
           </button>

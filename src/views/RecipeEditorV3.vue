@@ -29,13 +29,14 @@
 
         <!-- 载入预设 / 操作按钮 -->
         <div class="flex flex-wrap items-center gap-2">
-          <router-link
-            to="/admin"
+          <button
+            type="button"
+            @click="returnToKitchenStudio"
             class="px-3 py-2 bg-stone-100 hover:bg-stone-200 text-stone-800 border border-stone-300 rounded-md text-xs font-bold transition-colors inline-flex items-center gap-1 cursor-pointer"
           >
-            <span>⚙️</span>
-            <span>Admin 管理台</span>
-          </router-link>
+            <span>←</span>
+            <span>返回 Kitchen Studio</span>
+          </button>
 
           <!-- 载入已有食谱下拉菜单 -->
           <select
@@ -48,7 +49,7 @@
               <option value="preset-hongshaorou">毛氏红烧肉 (中式炖煮)</option>
               <option value="preset-salad">凯撒沙拉 (冷食免加热)</option>
             </optgroup>
-            <optgroup v-if="savedRecipes.length > 0" label="本地食谱库">
+            <optgroup v-if="savedRecipes.length > 0" label="统一食谱库">
               <option v-for="r in savedRecipes" :key="r.id" :value="`saved-${r.id}`">
                 {{ r.title }} ({{ r.status === 'published' ? '已发布' : '草稿' }})
               </option>
@@ -168,15 +169,15 @@
         </div>
       </div>
 
-      <!-- 碰撞平移轻量提示 -->
+      <!-- 布局自动校正提示 -->
       <div v-if="collisionNotices.length > 0" class="bg-amber-50 border border-amber-300 text-amber-900 px-4 py-2 rounded-lg text-xs space-y-1">
         <div class="font-bold flex items-center gap-1">
           <span>⚠️</span>
-          <span>布局提示：为避免工序重叠，系统已自动平移以下工序至下一阶段：</span>
+          <span>布局提示：系统已依据工序依赖与空间占用自动校正阶段：</span>
         </div>
         <ul class="list-disc list-inside text-amber-800 pl-2">
           <li v-for="n in collisionNotices" :key="n.blockId">
-            工序「{{ n.blockLabel }}」已从第 {{ n.originalStage + 1 }} 阶段平移至第 {{ n.adjustedStage + 1 }} 阶段
+            工序「{{ n.blockLabel }}」因{{ n.reason === 'dependency' ? '上游依赖' : '避让重叠' }}，已从第 {{ n.originalStage + 1 }} 阶段调整至第 {{ n.adjustedStage + 1 }} 阶段
           </li>
         </ul>
       </div>
@@ -466,6 +467,62 @@
                   </div>
                   <div v-else class="text-xs text-stone-400 italic">请先在上方添加食材</div>
                 </div>
+
+                <!-- 工序执行参数 -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-2 border-t border-stone-200">
+                  <label class="space-y-1 text-[11px] font-semibold text-stone-600">
+                    <span>火候 / 温度</span>
+                    <input
+                      v-model="block.heatLevel"
+                      placeholder="如：大火 / 170°C"
+                      class="w-full px-2.5 py-2 bg-white border border-stone-300 rounded-md text-xs text-stone-800 focus:outline-none focus:border-emerald-600"
+                    />
+                  </label>
+                  <label class="space-y-1 text-[11px] font-semibold text-stone-600">
+                    <span>持续时间（分钟）</span>
+                    <input
+                      v-model.number="block.durationMinutes"
+                      type="number"
+                      min="0"
+                      step="0.5"
+                      placeholder="如：5"
+                      class="w-full px-2.5 py-2 bg-white border border-stone-300 rounded-md text-xs text-stone-800 focus:outline-none focus:border-emerald-600"
+                    />
+                  </label>
+                  <label class="space-y-1 text-[11px] font-semibold text-stone-600">
+                    <span>使用器具</span>
+                    <input
+                      v-model="block.equipment"
+                      placeholder="如：28cm 炒锅"
+                      class="w-full px-2.5 py-2 bg-white border border-stone-300 rounded-md text-xs text-stone-800 focus:outline-none focus:border-emerald-600"
+                    />
+                  </label>
+                </div>
+
+                <!-- 上游工序依赖：只允许选择物理顺序在前的节点，从编辑器层避免产生循环 -->
+                <div class="space-y-1.5 pt-2 border-t border-stone-200">
+                  <div class="flex items-center justify-between gap-3">
+                    <label class="text-xs font-semibold text-stone-700">承接哪些上游工序：</label>
+                    <span class="text-[10px] text-stone-400">依赖用于确定布局顺序，预览不绘制箭头</span>
+                  </div>
+                  <div v-if="bIndex > 0" class="flex flex-wrap gap-2">
+                    <label
+                      v-for="upstream in recipe.actionBlocks.slice(0, bIndex)"
+                      :key="upstream.id"
+                      class="inline-flex items-center gap-1.5 px-2 py-1 bg-white rounded border border-stone-300 text-xs text-stone-700 cursor-pointer hover:bg-blue-50"
+                    >
+                      <input
+                        v-model="block.inputBlockIds"
+                        :value="upstream.id"
+                        type="checkbox"
+                        class="rounded text-blue-600 focus:ring-blue-500"
+                        @change="syncBlockStageFromDependencies(block)"
+                      />
+                      <span>{{ upstream.label || `工序 ${bIndex}` }}</span>
+                    </label>
+                  </div>
+                  <div v-else class="text-[11px] text-stone-400 italic">首个工序直接承接食材，无需选择上游节点</div>
+                </div>
               </div>
 
               <div v-if="recipe.actionBlocks.length === 0" class="text-xs text-stone-400 text-center py-4 border border-dashed border-stone-300 rounded-lg">
@@ -584,18 +641,22 @@
     <div
       v-if="showSaveModal"
       class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+      @click.self="showSaveModal = false"
     >
       <div class="bg-white rounded-2xl p-6 max-w-md w-full shadow-2xl space-y-4 border border-stone-200 animate-in fade-in zoom-in duration-200">
-        <div class="flex items-center gap-3 text-emerald-800 border-b border-stone-100 pb-3">
-          <span class="text-3xl">🎉</span>
-          <div>
-            <h3 class="text-base font-bold text-stone-900">完整食谱已成功保存！</h3>
-            <p class="text-xs text-stone-500 mt-0.5">已写入本地食谱库 (what-to-eat-v3-recipes)</p>
+        <div class="flex items-start justify-between gap-3 border-b border-stone-100 pb-3 text-emerald-800">
+          <div class="flex items-center gap-3">
+            <span class="text-3xl">🎉</span>
+            <div>
+              <h3 class="text-base font-bold text-stone-900">完整食谱已成功保存！</h3>
+              <p class="text-xs text-stone-500 mt-0.5">已写入当前 Repository 配置的统一食谱库</p>
+            </div>
           </div>
+          <button type="button" @click="showSaveModal = false" class="rounded-lg p-1 text-stone-400 hover:bg-stone-100 hover:text-stone-700" aria-label="关闭保存成功提示">✕</button>
         </div>
 
         <p class="text-xs text-stone-600 leading-relaxed">
-          你创建的 Visual Recipe Flow Card 已准备就绪。你可以选择直接大图预览、前往我的食谱库查看管理，或留在当前页面继续调整。
+          Visual Recipe Flow Card 已准备就绪。你可以预览公开展示、返回 Kitchen Studio 管理库，或留在当前页面继续调整。
         </p>
 
         <div class="flex flex-col sm:flex-row gap-2 pt-2">
@@ -603,16 +664,18 @@
             :to="`/recipe/${recipe.id}`"
             class="flex-1 py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white text-center rounded-lg text-xs font-bold shadow-sm transition-colors cursor-pointer"
           >
-            查看食谱详情
+            预览公开详情
           </router-link>
 
-          <router-link
-            to="/"
+          <button
+            type="button"
+            @click="returnToKitchenStudio"
             class="flex-1 py-2.5 bg-stone-100 hover:bg-stone-200 text-stone-800 text-center rounded-lg text-xs font-semibold border border-stone-300 transition-colors cursor-pointer"
           >
-            返回食谱库
-          </router-link>
+            返回 Kitchen Studio
+          </button>
         </div>
+        <button type="button" @click="showSaveModal = false" class="w-full py-2 text-xs font-semibold text-stone-500 hover:text-stone-800">继续编辑</button>
       </div>
     </div>
   </div>
@@ -620,7 +683,7 @@
 
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import type { VisualRecipeV3, V3ActionBlock } from '@/types/recipeV3'
 import {
   CUISINE_STYLES,
@@ -631,13 +694,21 @@ import {
 import { validateRecipe } from '@/utils/taxonomyMatcher'
 import { espressoBrowniesV3, hongShaoRouV3, caesarSaladV3 } from '@/data/v3Examples'
 import { buildV3MatrixLayout } from '@/utils/matrixFlowLayout'
-import { saveV3Recipe, getV3Recipes, getV3Draft, saveV3Draft, clearV3Draft } from '@/services/v3RecipeStore'
+import { saveV3Recipe, getV3Recipes, getV3RecipeById, getV3Draft, saveV3Draft, clearV3Draft } from '@/services/v3RecipeStore'
 import { findMatchingIngredients, addAlias } from '@/services/ingredientRegistryStore'
 import type { IngredientEntry } from '@/types/ingredientRegistry'
 import RecipeFlowWorkspaceV3 from '@/components/recipe-flow-v3/RecipeFlowWorkspaceV3.vue'
+import { resolveAdminReturnTarget } from '@/utils/adminNavigation'
 
 const route = useRoute()
+const router = useRouter()
 const showSaveModal = ref(false)
+const adminReturnTarget = computed(() => resolveAdminReturnTarget(route.query.returnTo))
+
+function returnToKitchenStudio() {
+  showSaveModal.value = false
+  void router.replace(adminReturnTarget.value)
+}
 
 // 默认空白食谱工厂
 function createDefaultBlankRecipe(): VisualRecipeV3 {
@@ -658,7 +729,7 @@ function createDefaultBlankRecipe(): VisualRecipeV3 {
       { id: 'i1', name: '细砂糖', amountText: '200 g', category: 'seasoning' }
     ],
     actionBlocks: [
-      { id: 'b0', stageIndex: 0, ingredientIds: ['i0'], action: 'melt', label: '融化', sublabel: 'melt' }
+      { id: 'b0', stageIndex: 0, ingredientIds: ['i0'], inputBlockIds: [], action: 'melt', label: '融化', sublabel: 'melt' }
     ],
     finalBlock: {
       method: 'bake',
@@ -674,6 +745,7 @@ function createDefaultBlankRecipe(): VisualRecipeV3 {
 const recipe = ref<VisualRecipeV3>(createDefaultBlankRecipe())
 const savedRecipes = ref<VisualRecipeV3[]>([])
 const toastMessage = ref('')
+const cloudStateUnavailable = ref(false)
 
 // ── 实时数据校验状态 ──────────────────────────────────────────────
 const showHealthPanel = ref(false)
@@ -785,32 +857,68 @@ watch(
     pushHistorySnapshot()
     if (saveTimer) clearTimeout(saveTimer)
     saveTimer = setTimeout(() => {
-      saveV3Draft(newVal)
+      void saveV3Draft(newVal)
     }, 800)
   },
   { deep: true }
 )
 
-onMounted(() => {
-  savedRecipes.value = getV3Recipes()
-  
+async function refreshSavedRecipes(): Promise<boolean> {
+  try {
+    savedRecipes.value = await getV3Recipes()
+    cloudStateUnavailable.value = false
+    return true
+  } catch (error) {
+    console.error('[RecipeEditor] 无法重新读取云端食谱列表:', error)
+    cloudStateUnavailable.value = true
+    return false
+  }
+}
+
+async function refreshRemoteRecipeAfterConflict(): Promise<boolean> {
+  try {
+    const remote = await getV3RecipeById(recipe.value.id)
+    if (remote) {
+      savedRecipes.value = [remote, ...savedRecipes.value.filter(item => item.id !== remote.id)]
+      return true
+    }
+    return false
+  } catch (error) {
+    console.error('[RecipeEditor] 保存冲突后的云端版本读取失败:', error)
+    return false
+  }
+}
+
+onMounted(async () => {
+  const listLoaded = await refreshSavedRecipes()
+
   // 校验 URL 中的 route.params.id 或 route.query.id
   const targetId = (route.params.id as string) || (route.query.id as string)
   
+  let loadedExistingRecipe = false
   if (targetId) {
     // 【编辑模式】：精确根据指定 ID 载入食谱
-    const found = savedRecipes.value.find(r => r.id === targetId)
+    let found = savedRecipes.value.find(r => r.id === targetId)
+    if (!found && !listLoaded) {
+      try {
+        found = await getV3RecipeById(targetId) || undefined
+      } catch (error) {
+        console.error('[RecipeEditor] 无法读取待编辑的云端食谱:', error)
+      }
+    }
     if (found) {
       recipe.value = JSON.parse(JSON.stringify(found))
       toastMessage.value = `已加载食谱进行编辑: "${recipe.value.title}"`
-      return
+      loadedExistingRecipe = true
+    } else if (!listLoaded) {
+      toastMessage.value = '❌ 暂时无法确认云端食谱状态，未载入编辑内容，请稍后刷新。'
     }
   }
 
   // 【新建模式】(/admin/create)：只有草稿属于新建的未命名食谱时才恢复，否则强制使用干净的全新空白表单
   const isCreateRoute = route.path.includes('/admin/create') || !targetId
-  if (isCreateRoute) {
-    const draft = getV3Draft()
+  if (isCreateRoute && !loadedExistingRecipe) {
+    const draft = await getV3Draft()
     // 如果草稿是一道已经命名并保存过的旧食谱(如宫保鸡丁)，在“新建食谱”页面忽略它，使用全新的空白表单
     if (draft && (!draft.id || draft.id.startsWith('v3-recipe-') || draft.status === 'draft') && draft.title === '未命名食谱') {
       recipe.value = draft
@@ -830,6 +938,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   window.removeEventListener('keydown', handleKeydown)
+  if (saveTimer) clearTimeout(saveTimer)
 })
 
 function handleKeydown(e: KeyboardEvent) {
@@ -872,10 +981,12 @@ function removeIngredient(index: number) {
 // 工序逻辑
 function handleAddActionBlock() {
   const newId = `b_${Date.now()}`
+  const previousBlock = recipe.value.actionBlocks[recipe.value.actionBlocks.length - 1]
   recipe.value.actionBlocks.push({
     id: newId,
-    stageIndex: 0,
+    stageIndex: previousBlock ? previousBlock.stageIndex + 1 : 0,
     ingredientIds: [],
+    inputBlockIds: previousBlock ? [previousBlock.id] : [],
     action: 'mix',
     label: '混合',
     sublabel: 'mix'
@@ -883,11 +994,41 @@ function handleAddActionBlock() {
 }
 
 function removeActionBlock(index: number) {
-  recipe.value.actionBlocks.splice(index, 1)
+  const [removed] = recipe.value.actionBlocks.splice(index, 1)
+  recipe.value.actionBlocks.forEach(block => {
+    block.inputBlockIds = (block.inputBlockIds || []).filter(id => id !== removed.id)
+  })
 }
 
 function changeBlockStage(block: V3ActionBlock, delta: number) {
-  block.stageIndex = Math.max(0, block.stageIndex + delta)
+  const dependencyStages = (block.inputBlockIds || [])
+    .map(id => recipe.value.actionBlocks.find(item => item.id === id)?.stageIndex)
+    .filter((stage): stage is number => stage !== undefined)
+  const minimumStage = dependencyStages.length > 0 ? Math.max(...dependencyStages) + 1 : 0
+  block.stageIndex = Math.max(minimumStage, block.stageIndex + delta)
+  normalizeDependentStages()
+}
+
+function syncBlockStageFromDependencies(block: V3ActionBlock) {
+  const dependencyStages = (block.inputBlockIds || [])
+    .map(id => recipe.value.actionBlocks.find(item => item.id === id)?.stageIndex)
+    .filter((stage): stage is number => stage !== undefined)
+  if (dependencyStages.length > 0) {
+    block.stageIndex = Math.max(block.stageIndex, Math.max(...dependencyStages) + 1)
+  }
+  normalizeDependentStages()
+}
+
+function normalizeDependentStages() {
+  // 编辑器只允许选择列表中更早的工序，因此按顺序单次传播即可保证下游阶段合法。
+  recipe.value.actionBlocks.forEach(current => {
+    const dependencyStages = (current.inputBlockIds || [])
+      .map(id => recipe.value.actionBlocks.find(item => item.id === id)?.stageIndex)
+      .filter((stage): stage is number => stage !== undefined)
+    if (dependencyStages.length > 0) {
+      current.stageIndex = Math.max(current.stageIndex, Math.max(...dependencyStages) + 1)
+    }
+  })
 }
 
 function toggleFinalBlock(e: Event) {
@@ -904,11 +1045,11 @@ function toggleFinalBlock(e: Event) {
 }
 
 // 载入已有食谱或范例
-function handleLoadSavedRecipe(e: Event) {
+async function handleLoadSavedRecipe(e: Event) {
   const val = (e.target as HTMLSelectElement).value
   if (!val) return
 
-  clearV3Draft()
+  await clearV3Draft()
 
   if (val === 'preset-brownies') {
     recipe.value = JSON.parse(JSON.stringify(espressoBrowniesV3))
@@ -928,34 +1069,74 @@ function handleLoadSavedRecipe(e: Event) {
 }
 
 // 保存逻辑
-function handleSaveDraft() {
+async function handleSaveDraft() {
+  if (cloudStateUnavailable.value) {
+    toastMessage.value = '❌ 云端状态尚未确认，已暂停保存；请刷新并重新连接后再试。'
+    return
+  }
+  const previousStatus = recipe.value.status
   recipe.value.status = 'draft'
-  const result = saveV3Recipe(recipe.value)
+  const result = await saveV3Recipe(recipe.value)
   if (result.ok) {
-    savedRecipes.value = getV3Recipes()
+    if (result.contentVersion !== undefined) recipe.value.contentVersion = result.contentVersion
+    const listConfirmed = await refreshSavedRecipes()
     const score = result.validation.completenessScore
-    toastMessage.value = '✅ 草稿已保存（完整度 ' + score + '%）'
+    toastMessage.value = listConfirmed
+      ? '✅ 草稿已保存（完整度 ' + score + '%）'
+      : '✅ 草稿已由云端确认保存；列表暂时无法重新读取，请稍后刷新。'
     if (result.validation.warnings.length > 0) {
       showHealthPanel.value = true
     }
   } else {
+    recipe.value.status = previousStatus
     showHealthPanel.value = true
-    toastMessage.value = '❌ 保存失败，请先解决数据健康面板中的阻断问题'
+    if (result.syncStatus === 'conflict') {
+      const remoteConfirmed = await refreshRemoteRecipeAfterConflict()
+      toastMessage.value = remoteConfirmed
+        ? '❌ 保存冲突：已重新读取最新云端版本；当前编辑内容未覆盖远端，请重新确认。'
+        : '❌ 保存冲突：远端内容未被覆盖，但暂时无法重新读取最新版本。'
+    } else if (result.syncStatus === 'unknown') {
+      await refreshSavedRecipes()
+      toastMessage.value = `⚠️ 保存结果暂时无法确认：${result.message || '请保留当前编辑内容并稍后重试。'}`
+    } else {
+      toastMessage.value = `❌ 保存失败：${result.message || '请检查数据健康面板或云端连接'}`
+    }
   }
 }
 
-function handleSaveComplete() {
+async function handleSaveComplete() {
+  if (cloudStateUnavailable.value) {
+    toastMessage.value = '❌ 云端状态尚未确认，已暂停发布；请刷新并重新连接后再试。'
+    return
+  }
+  const previousStatus = recipe.value.status
   recipe.value.status = 'published'
-  const result = saveV3Recipe(recipe.value)
+  const result = await saveV3Recipe(recipe.value)
 
   if (!result.ok) {
+    recipe.value.status = previousStatus
     showHealthPanel.value = true
-    toastMessage.value = '❌ 发布失败：存在 ' + result.validation.errors.length + ' 个必须修复的问题，请查看下方数据健康面板'
+    if (result.syncStatus === 'conflict') {
+      const remoteConfirmed = await refreshRemoteRecipeAfterConflict()
+      toastMessage.value = remoteConfirmed
+        ? '❌ 发布冲突：已重新读取最新云端版本；当前编辑内容未覆盖远端。'
+        : '❌ 发布冲突：远端内容未被覆盖，但暂时无法重新读取最新版本。'
+    } else if (result.syncStatus === 'unknown') {
+      await refreshSavedRecipes()
+      toastMessage.value = `⚠️ 发布结果暂时无法确认：${result.message || '请保留当前编辑内容并稍后重试。'}`
+    } else {
+      toastMessage.value = result.validation.errors.length > 0
+        ? '❌ 发布失败：存在 ' + result.validation.errors.length + ' 个必须修复的问题，请查看下方数据健康面板'
+        : `❌ 发布失败：${result.message || '云端没有确认保存'}`
+    }
     return
   }
 
-  savedRecipes.value = getV3Recipes()
-  toastMessage.value = '🎉 食谱「' + recipe.value.title + '」已成功发布！'
+  if (result.contentVersion !== undefined) recipe.value.contentVersion = result.contentVersion
+  const listConfirmed = await refreshSavedRecipes()
+  toastMessage.value = listConfirmed
+    ? '🎉 食谱「' + recipe.value.title + '」已成功发布！'
+    : '✅ 食谱已由云端确认发布；列表暂时无法重新读取，请稍后刷新。'
   showSaveModal.value = true
 }
 </script>

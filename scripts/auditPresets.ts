@@ -3,7 +3,7 @@ import path from 'path'
 import { CHINESE_HEALTHY_RECIPES } from '../src/data/chineseHealthyRecipes'
 import { HOME_SWEET_HOME_RECIPES } from '../src/data/homeSweetHomeRecipes'
 import { espressoBrowniesV3, hongShaoRouV3, caesarSaladV3 } from '../src/data/v3Examples'
-import { normalizeRecipe } from '../src/services/v3RecipeStore'
+import { normalizeRecipe } from '../src/services/recipeNormalizer'
 import { validateRecipe } from '../src/utils/taxonomyMatcher'
 
 const REPORT_PATH = path.join(process.cwd(), 'reports', 'audit-presets-report.json')

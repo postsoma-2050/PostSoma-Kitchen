@@ -18,6 +18,7 @@ export interface V3LayoutActionBlock {
     isEmptyPlaceholder: boolean
     labelLines: string[]
     sublabelLines: string[]
+    equipmentLines: string[]
     x: number
     y: number
     w: number
@@ -45,6 +46,16 @@ export interface V3CollisionNotice {
     blockLabel: string
     originalStage: number
     adjustedStage: number
+    reason: 'dependency' | 'collision'
+}
+
+export interface V3FlowConnectorLayout {
+    id: string
+    sourceBlockId: string
+    targetBlockId?: string
+    targetType: 'action' | 'final'
+    explicit: boolean
+    pathD: string
 }
 
 export interface V3MatrixLayoutResult {
@@ -59,6 +70,7 @@ export interface V3MatrixLayoutResult {
     contentStartY: number
     ingredientRows: V3LayoutRow[]
     actionBlockLayouts: V3LayoutActionBlock[]
+    connectorLayouts: V3FlowConnectorLayout[]
     actionColWidths: number[]
     finalBlockLayout: V3LayoutFinalBlock
     gridLines: V3GridLine[]
@@ -67,291 +79,337 @@ export interface V3MatrixLayoutResult {
     numActionCols: number
 }
 
-// 布局常量参数
-const BASE_ROW_HEIGHT = 46      // 默认基础每行食材高度 (px)
-const GAP_Y = 2                 // 行与行之间的边框间距 (px)
-const GAP_X = 2                 // 列与列之间的边框间距 (px)
-const INGREDIENT_COL_WIDTH = 330// 左侧食材列宽度 (px)
-const MIN_ACTION_COL_WIDTH = 115// 中间工序列最小下限宽度 (px)
-const MAX_ACTION_COL_WIDTH = 200// 中间工序列最大上限宽度 (超越则自动折行) (px)
-const FINAL_COL_WIDTH = 135     // 右侧最终烹饪列宽度 (px)
-const PADDING = 16              // 外边距 (px)
-const STRIP_ROW_HEIGHT = 28     // 顶栏每条 Strip 横栏高度 (px)
+const BASE_ROW_HEIGHT = 46
+const GAP_Y = 2
+// 仅保留卡片之间的 16px 阅读留白；不再为连接箭头预留通道。
+const GAP_X = 16
+const INGREDIENT_COL_WIDTH = 330
+const MIN_ACTION_COL_WIDTH = 115
+const MAX_ACTION_COL_WIDTH = 200
+const FINAL_COL_WIDTH = 135
+const PADDING = 16
+const STRIP_ROW_HEIGHT = 28
+
+function rangesOverlap(startA: number, endA: number, startB: number, endB: number): boolean {
+    return startA <= endB && startB <= endA
+}
+
+function createConnectorPath(startX: number, startY: number, endX: number, endY: number): string {
+    const controlOffset = Math.max(10, (endX - startX) * 0.45)
+    return `M ${startX} ${startY} C ${startX + controlOffset} ${startY}, ${endX - controlOffset} ${endY}, ${endX} ${endY}`
+}
 
 /**
- * 构建 V3 矩阵工序卡片布局 (支持上限列宽文本自动折行与行高自适应同步)
+ * 构建确定性的 V3 矩阵布局。
+ * - inputBlockIds 决定最低依赖层级；stageIndex 作为人工偏好列。
+ * - 全局列占用表保证任何自动右移都不会再次覆盖其他阶段。
+ * - 显式依赖继续生成可供领域审计使用的关系；默认视觉不再渲染连接线。
  */
 export function buildV3MatrixLayout(recipe: VisualRecipeV3): V3MatrixLayoutResult {
     const ingredients = recipe.ingredients || []
     const numRows = Math.max(ingredients.length, 1)
-
-    // 1. Header 高度计算
-    const p = recipe.prerequisites || {}
-    const hasContainer = Boolean(p.containerSize && p.containerSize.trim())
-    const hasPreheat = Boolean(p.preheat && p.preheat.trim())
-    
-    const headerLineCount = (hasContainer ? 1 : 0) + (hasPreheat ? 1 : 0)
+    const prerequisites = recipe.prerequisites || {}
+    const hasContainer = Boolean(prerequisites.containerSize?.trim())
+    const hasPreheat = Boolean(prerequisites.preheat?.trim())
+    const headerLineCount = Number(hasContainer) + Number(hasPreheat)
     const hasHeader = headerLineCount > 0
-    const headerHeight = headerLineCount === 2 ? (STRIP_ROW_HEIGHT * 2 + GAP_Y) : (headerLineCount === 1 ? STRIP_ROW_HEIGHT : 0)
+    const headerHeight = headerLineCount === 2
+        ? STRIP_ROW_HEIGHT * 2 + GAP_Y
+        : headerLineCount === 1 ? STRIP_ROW_HEIGHT : 0
     const headerY = PADDING
     const contentStartY = PADDING + (hasHeader ? headerHeight + GAP_Y : 0)
 
     const ingredientRowMap = new Map<string, number>()
-    ingredients.forEach((ing, index) => {
-        ingredientRowMap.set(ing.id, index)
-    })
+    ingredients.forEach((ingredient, index) => ingredientRowMap.set(ingredient.id, index))
 
-    // 2. 自动推导 ActionBlock 的 startRowIndex 和 endRowIndex
     const actionBlocks = recipe.actionBlocks || []
+    const actionBlockMap = new Map(actionBlocks.map(block => [block.id, block]))
+    const originalOrder = new Map(actionBlocks.map((block, index) => [block.id, index]))
+
     const processedBlocks = actionBlocks.map(block => {
-        const ingIds = block.ingredientIds || []
-        let startRow = 0
-        let endRow = 0
-        let isEmpty = false
-
-        if (ingIds.length === 0) {
-            isEmpty = true
-            startRow = 0
-            endRow = 0
-        } else {
-            const rows = ingIds
-                .map(id => ingredientRowMap.get(id))
-                .filter((r): r is number => r !== undefined)
-
-            if (rows.length === 0) {
-                isEmpty = true
-                startRow = 0
-                endRow = 0
-            } else {
-                startRow = Math.min(...rows)
-                endRow = Math.max(...rows)
-            }
-        }
+        const rows = (block.ingredientIds || [])
+            .map(id => ingredientRowMap.get(id))
+            .filter((row): row is number => row !== undefined)
+        const isEmpty = rows.length === 0
+        const rawStage = Number.isFinite(block.stageIndex) ? Math.floor(block.stageIndex) : 0
 
         return {
             block,
-            stageIndex: block.stageIndex !== undefined ? block.stageIndex : 0,
-            startRow,
-            endRow,
-            isEmpty
+            stageIndex: Math.max(0, rawStage),
+            startRow: isEmpty ? 0 : Math.min(...rows),
+            endRow: isEmpty ? 0 : Math.max(...rows),
+            isEmpty,
         }
     })
+    const processedById = new Map(processedBlocks.map(item => [item.block.id, item]))
 
-    // 3. 同阶段工序碰撞规避与平移
+    // 依赖深度只提高最低列，不会把用户手动设置的更后阶段向左移动。
+    const preferredColumnMemo = new Map<string, number>()
+    const visiting = new Set<string>()
+    const getPreferredColumn = (blockId: string): number => {
+        const memo = preferredColumnMemo.get(blockId)
+        if (memo !== undefined) return memo
+        const item = processedById.get(blockId)
+        if (!item) return 0
+        if (visiting.has(blockId)) return item.stageIndex
+
+        visiting.add(blockId)
+        const dependencyColumns = (item.block.inputBlockIds || [])
+            .filter(id => id !== blockId && actionBlockMap.has(id))
+            .map(id => getPreferredColumn(id) + 1)
+        visiting.delete(blockId)
+
+        const preferred = Math.max(item.stageIndex, ...dependencyColumns, 0)
+        preferredColumnMemo.set(blockId, preferred)
+        return preferred
+    }
+    actionBlocks.forEach(block => getPreferredColumn(block.id))
+
+    type PlacedBlock = typeof processedBlocks[number] & { computedCol: number }
+    const occupiedRanges = new Map<number, Array<{ startRow: number; endRow: number }>>()
+    const placedById = new Map<string, PlacedBlock>()
     const collisionNotices: V3CollisionNotice[] = []
-    const stageMap = new Map<number, typeof processedBlocks>()
-    processedBlocks.forEach(item => {
-        const stage = item.stageIndex
-        if (!stageMap.has(stage)) {
-            stageMap.set(stage, [])
-        }
-        stageMap.get(stage)!.push(item)
+
+    const placementOrder = [...processedBlocks].sort((a, b) => {
+        const preferredDiff = getPreferredColumn(a.block.id) - getPreferredColumn(b.block.id)
+        if (preferredDiff !== 0) return preferredDiff
+        const rowDiff = a.startRow - b.startRow
+        if (rowDiff !== 0) return rowDiff
+        return (originalOrder.get(a.block.id) || 0) - (originalOrder.get(b.block.id) || 0)
     })
 
-    const finalPlacedBlocks: Array<typeof processedBlocks[0] & { computedCol: number }> = []
-    const sortedStages = Array.from(stageMap.keys()).sort((a, b) => a - b)
+    placementOrder.forEach(item => {
+        const placedDependencyColumns = (item.block.inputBlockIds || [])
+            .map(id => placedById.get(id)?.computedCol)
+            .filter((column): column is number => column !== undefined)
+        const dependencyColumn = Math.max(
+            getPreferredColumn(item.block.id),
+            ...placedDependencyColumns.map(column => column + 1),
+            0,
+        )
+        let targetColumn = dependencyColumn
 
-    sortedStages.forEach(stage => {
-        const itemsInStage = stageMap.get(stage)!
-        itemsInStage.sort((a, b) => a.startRow - b.startRow)
+        while ((occupiedRanges.get(targetColumn) || []).some(range =>
+            rangesOverlap(item.startRow, item.endRow, range.startRow, range.endRow)
+        )) {
+            targetColumn += 1
+        }
 
-        let currentStageCol = stage
-        let lastEndRow = -1
-
-        itemsInStage.forEach(item => {
-            let targetCol = item.stageIndex
-
-            if (lastEndRow !== -1 && item.startRow <= lastEndRow) {
-                targetCol = currentStageCol + 1
-                currentStageCol = targetCol
-                collisionNotices.push({
-                    blockId: item.block.id,
-                    blockLabel: item.block.label || '新工序',
-                    originalStage: item.stageIndex,
-                    adjustedStage: targetCol
-                })
-            } else {
-                currentStageCol = targetCol
-            }
-
-            lastEndRow = item.endRow
-            finalPlacedBlocks.push({
-                ...item,
-                computedCol: targetCol
+        if (targetColumn !== item.stageIndex) {
+            collisionNotices.push({
+                blockId: item.block.id,
+                blockLabel: item.block.label || '新工序',
+                originalStage: item.stageIndex,
+                adjustedStage: targetColumn,
+                reason: targetColumn > dependencyColumn ? 'collision' : 'dependency',
             })
+        }
+
+        const placed: PlacedBlock = { ...item, computedCol: targetColumn }
+        placedById.set(item.block.id, placed)
+        const ranges = occupiedRanges.get(targetColumn) || []
+        ranges.push({ startRow: item.startRow, endRow: item.endRow })
+        occupiedRanges.set(targetColumn, ranges)
+    })
+
+    const finalPlacedBlocks = actionBlocks
+        .map(block => placedById.get(block.id))
+        .filter((item): item is PlacedBlock => Boolean(item))
+    const maxColumn = finalPlacedBlocks.reduce((max, item) => Math.max(max, item.computedCol), 0)
+    const numActionCols = Math.max(maxColumn + 1, 1)
+
+    const actionColWidths = new Array<number>(numActionCols).fill(MIN_ACTION_COL_WIDTH)
+    const blockTextLines = new Map<string, { labelLines: string[]; sublabelLines: string[]; equipmentLines: string[] }>()
+
+    finalPlacedBlocks.forEach(item => {
+        if (item.isEmpty) {
+            blockTextLines.set(item.block.id, { labelLines: ['请选择相关食材'], sublabelLines: [], equipmentLines: [] })
+            return
+        }
+        const labelWidth = measureTextWidth(item.block.label || '', 13, true)
+        const sublabelWidth = measureTextWidth(item.block.sublabel || '', 11, false)
+        const heatText = `${item.block.heatLevel || ''} ${item.block.durationMinutes ? `${item.block.durationMinutes}m` : ''}`.trim()
+        const heatWidth = measureTextWidth(heatText, 10, false)
+        const equipmentWidth = measureTextWidth(item.block.equipment ? `器具 ${item.block.equipment}` : '', 10, false)
+        const requiredWidth = Math.min(
+            MAX_ACTION_COL_WIDTH,
+            Math.max(MIN_ACTION_COL_WIDTH, Math.max(labelWidth, sublabelWidth, heatWidth, equipmentWidth) + 24),
+        )
+        actionColWidths[item.computedCol] = Math.max(actionColWidths[item.computedCol], requiredWidth)
+    })
+
+    finalPlacedBlocks.forEach(item => {
+        const availableWidth = actionColWidths[item.computedCol] - 20
+        blockTextLines.set(item.block.id, {
+            labelLines: wrapTextToLines(item.block.label || '', availableWidth, 13, true),
+            sublabelLines: wrapTextToLines(item.block.sublabel || '', availableWidth, 11, false),
+            equipmentLines: item.block.equipment
+                ? wrapTextToLines(`器具 ${item.block.equipment}`, availableWidth, 10, false)
+                : [],
         })
     })
 
-    let maxCol = 0
-    finalPlacedBlocks.forEach(b => {
-        if (b.computedCol > maxCol) maxCol = b.computedCol
-    })
-
-    const numActionCols = Math.max(maxCol + 1, 1)
-
-    // 4. 计算工序列宽与文本自动折行 (受上限 MAX_ACTION_COL_WIDTH 约束)
-    const actionColWidths: number[] = new Array(numActionCols).fill(MIN_ACTION_COL_WIDTH)
-    const blockTextLines = new Map<string, { labelLines: string[]; sublabelLines: string[] }>()
-
-    finalPlacedBlocks.forEach(item => {
-        const col = item.computedCol
-        if (item.isEmpty) {
-            blockTextLines.set(item.block.id, { labelLines: ['请选择相关食材'], sublabelLines: [] })
-            return
-        }
-
-        const b = item.block
-        const labelW = measureTextWidth(b.label || '', 13, true)
-        const sublabelW = measureTextWidth(b.sublabel || '', 11, false)
-        const heatText = `${b.heatLevel || ''} ${b.durationMinutes ? `${b.durationMinutes}m` : ''}`.trim()
-        const heatW = measureTextWidth(heatText, 10, false)
-
-        const maxTextW = Math.max(labelW, sublabelW, heatW)
-        const requiredColW = Math.min(MAX_ACTION_COL_WIDTH, Math.max(MIN_ACTION_COL_WIDTH, maxTextW + 24))
-
-        if (requiredColW > actionColWidths[col]) {
-            actionColWidths[col] = requiredColW
-        }
-    })
-
-    // 根据最终确定的列宽，对超出宽度的文本进行折行
-    finalPlacedBlocks.forEach(item => {
-        const col = item.computedCol
-        const availableTextW = actionColWidths[col] - 20
-        const b = item.block
-
-        const labelLines = wrapTextToLines(b.label || '', availableTextW, 13, true)
-        const sublabelLines = wrapTextToLines(b.sublabel || '', availableTextW, 11, false)
-
-        blockTextLines.set(b.id, { labelLines, sublabelLines })
-    })
-
-    // 5. 校验各单元格折行后的最小渲染高度，若超出则调整基础 ROW_HEIGHT
     let dynamicRowHeight = BASE_ROW_HEIGHT
-
     finalPlacedBlocks.forEach(item => {
-        const linesInfo = blockTextLines.get(item.block.id)
-        if (!linesInfo) return
-
-        const labelCount = linesInfo.labelLines.length
-        const sublabelCount = linesInfo.sublabelLines.length
+        const lines = blockTextLines.get(item.block.id)
+        if (!lines) return
         const hasHeat = Boolean(item.block.heatLevel || item.block.durationMinutes)
-
-        // 估算折行后的文本高 (label每行15px, sublabel每行13px, heat 12px, 留边距20px)
-        const contentH = (labelCount * 16) + (sublabelCount * 14) + (hasHeat ? 14 : 0) + 20
+        const contentHeight = lines.labelLines.length * 16
+            + lines.sublabelLines.length * 14
+            + (hasHeat ? 14 : 0)
+            + lines.equipmentLines.length * 13
+            + 20
         const span = Math.max(1, item.endRow - item.startRow + 1)
-        const neededPerSpanRow = Math.ceil(contentH / span)
-
-        if (neededPerSpanRow > dynamicRowHeight) {
-            dynamicRowHeight = neededPerSpanRow
-        }
+        dynamicRowHeight = Math.max(dynamicRowHeight, Math.ceil(contentHeight / span))
     })
+    const rowHeight = dynamicRowHeight
 
-    const ROW_H = dynamicRowHeight
+    const ingredientRows: V3LayoutRow[] = ingredients.map((ingredient, index) => ({
+        ingredient,
+        rowIndex: index,
+        x: PADDING,
+        y: contentStartY + index * (rowHeight + GAP_Y),
+        w: INGREDIENT_COL_WIDTH,
+        h: rowHeight,
+    }))
 
-    // 食材行物理坐标重构
-    const ingredientRows: V3LayoutRow[] = ingredients.map((ing, idx) => {
-        const y = contentStartY + idx * (ROW_H + GAP_Y)
-        return {
-            ingredient: ing,
-            rowIndex: idx,
-            x: PADDING,
-            y,
-            w: INGREDIENT_COL_WIDTH,
-            h: ROW_H
-        }
-    })
-
-    // 6. 计算工序列前缀 X 偏移与 ActionBlock 的坐标
-    const actionColXOffsets: number[] = new Array(numActionCols).fill(0)
+    const actionColXOffsets = new Array<number>(numActionCols).fill(0)
     let currentX = PADDING + INGREDIENT_COL_WIDTH + GAP_X
-
-    for (let c = 0; c < numActionCols; c++) {
-        actionColXOffsets[c] = currentX
-        currentX += actionColWidths[c] + GAP_X
+    for (let column = 0; column < numActionCols; column += 1) {
+        actionColXOffsets[column] = currentX
+        currentX += actionColWidths[column] + GAP_X
     }
 
     const actionBlockLayouts: V3LayoutActionBlock[] = finalPlacedBlocks.map(item => {
-        const colIndex = item.computedCol
         const startRow = Math.max(0, item.startRow)
         const endRow = Math.min(numRows - 1, Math.max(startRow, item.endRow))
         const spanRows = endRow - startRow + 1
-
-        const x = actionColXOffsets[colIndex]
-        const y = contentStartY + startRow * (ROW_H + GAP_Y)
-        const w = actionColWidths[colIndex]
-        const h = spanRows * ROW_H + (spanRows - 1) * GAP_Y
-
-        const linesInfo = blockTextLines.get(item.block.id) || { labelLines: [item.block.label || ''], sublabelLines: [] }
-
+        const lines = blockTextLines.get(item.block.id) || { labelLines: [item.block.label || ''], sublabelLines: [], equipmentLines: [] }
         return {
             block: item.block,
             computedStartRow: startRow,
             computedEndRow: endRow,
-            computedColIndex: colIndex,
+            computedColIndex: item.computedCol,
             isEmptyPlaceholder: item.isEmpty,
-            labelLines: linesInfo.labelLines,
-            sublabelLines: linesInfo.sublabelLines,
-            x,
-            y,
-            w,
-            h
+            labelLines: lines.labelLines,
+            sublabelLines: lines.sublabelLines,
+            equipmentLines: lines.equipmentLines,
+            x: actionColXOffsets[item.computedCol],
+            y: contentStartY + startRow * (rowHeight + GAP_Y),
+            w: actionColWidths[item.computedCol],
+            h: spanRows * rowHeight + (spanRows - 1) * GAP_Y,
         }
     })
 
-    // 7. 计算 FinalBlock 终点列
-    const finalX = currentX
-    const finalY = contentStartY
-    const finalW = FINAL_COL_WIDTH
-    const finalH = numRows * ROW_H + (numRows - 1) * GAP_Y
-
-    const isFinalPlaceholder = !recipe.finalBlock
-    const finalBlockObj: V3FinalBlock = recipe.finalBlock || {
-        method: 'other',
-        label: '完成方式待补充',
-        instructions: '设定最终烹饪或装盘方式'
-    }
-
     const finalBlockLayout: V3LayoutFinalBlock = {
-        finalBlock: finalBlockObj,
-        isPlaceholder: isFinalPlaceholder,
-        x: finalX,
-        y: finalY,
-        w: finalW,
-        h: finalH
+        finalBlock: recipe.finalBlock || {
+            method: 'other',
+            label: '完成方式待补充',
+            instructions: '设定最终烹饪或装盘方式',
+        },
+        isPlaceholder: !recipe.finalBlock,
+        x: currentX,
+        y: contentStartY,
+        w: FINAL_COL_WIDTH,
+        h: numRows * rowHeight + (numRows - 1) * GAP_Y,
     }
 
-    // 8. 计算底图网格线
-    const gridLines: V3GridLine[] = []
-    const totalMatrixW = (finalX + FINAL_COL_WIDTH) - PADDING
-    const totalMatrixH = numRows * ROW_H + (numRows - 1) * GAP_Y
+    const layoutById = new Map(actionBlockLayouts.map(layout => [layout.block.id, layout]))
+    const explicitTargetsBySource = new Map<string, string[]>()
+    actionBlocks.forEach(targetBlock => {
+        for (const sourceId of targetBlock.inputBlockIds || []) {
+            if (!layoutById.has(sourceId) || sourceId === targetBlock.id) continue
+            const targets = explicitTargetsBySource.get(sourceId) || []
+            if (!targets.includes(targetBlock.id)) targets.push(targetBlock.id)
+            explicitTargetsBySource.set(sourceId, targets)
+        }
+    })
 
-    for (let i = 1; i < numRows; i++) {
-        const y = contentStartY + i * (ROW_H + GAP_Y) - GAP_Y / 2
-        gridLines.push({
-            x1: PADDING,
-            y1: y,
-            x2: PADDING + totalMatrixW,
-            y2: y
+    const connectorLayouts: V3FlowConnectorLayout[] = []
+    const addActionConnector = (source: V3LayoutActionBlock, target: V3LayoutActionBlock, explicit: boolean) => {
+        connectorLayouts.push({
+            id: `flow-${source.block.id}-${target.block.id}`,
+            sourceBlockId: source.block.id,
+            targetBlockId: target.block.id,
+            targetType: 'action',
+            explicit,
+            pathD: createConnectorPath(
+                source.x + source.w,
+                source.y + source.h / 2,
+                target.x,
+                target.y + target.h / 2,
+            ),
         })
     }
 
-    for (let c = 0; c <= numActionCols; c++) {
-        const x = c < numActionCols ? actionColXOffsets[c] - GAP_X / 2 : finalX - GAP_X / 2
+    actionBlockLayouts.forEach(source => {
+        const explicitTargetIds = explicitTargetsBySource.get(source.block.id) || []
+        const explicitTargets = explicitTargetIds
+            .map(id => layoutById.get(id))
+            .filter((target): target is V3LayoutActionBlock => Boolean(target))
+
+        if (explicitTargets.length > 0) {
+            explicitTargets.forEach(target => addActionConnector(source, target, true))
+            return
+        }
+
+        const laterOverlapping = actionBlockLayouts.filter(target =>
+            target.computedColIndex > source.computedColIndex
+            && (target.block.inputBlockIds || []).length === 0
+            && rangesOverlap(
+                source.computedStartRow,
+                source.computedEndRow,
+                target.computedStartRow,
+                target.computedEndRow,
+            )
+        )
+        const nextColumn = laterOverlapping.reduce(
+            (min, target) => Math.min(min, target.computedColIndex),
+            Number.POSITIVE_INFINITY,
+        )
+        const inferredTargets = laterOverlapping.filter(target => target.computedColIndex === nextColumn)
+
+        if (inferredTargets.length > 0) {
+            inferredTargets.forEach(target => addActionConnector(source, target, false))
+            return
+        }
+
+        connectorLayouts.push({
+            id: `flow-${source.block.id}-final`,
+            sourceBlockId: source.block.id,
+            targetType: 'final',
+            explicit: false,
+            pathD: createConnectorPath(
+                source.x + source.w,
+                source.y + source.h / 2,
+                finalBlockLayout.x,
+                finalBlockLayout.y + finalBlockLayout.h / 2,
+            ),
+        })
+    })
+
+    const gridLines: V3GridLine[] = []
+    const totalMatrixWidth = finalBlockLayout.x + FINAL_COL_WIDTH - PADDING
+    const totalMatrixHeight = numRows * rowHeight + (numRows - 1) * GAP_Y
+    for (let index = 1; index < numRows; index += 1) {
+        const y = contentStartY + index * (rowHeight + GAP_Y) - GAP_Y / 2
+        gridLines.push({ x1: PADDING, y1: y, x2: PADDING + totalMatrixWidth, y2: y })
+    }
+    for (let column = 0; column <= numActionCols; column += 1) {
+        const x = column < numActionCols
+            ? actionColXOffsets[column] - GAP_X / 2
+            : finalBlockLayout.x - GAP_X / 2
         gridLines.push({
             x1: x,
             y1: contentStartY,
             x2: x,
-            y2: contentStartY + totalMatrixH
+            y2: contentStartY + totalMatrixHeight,
         })
     }
 
-    const canvasWidth = finalX + finalW + PADDING
-    const canvasHeight = contentStartY + totalMatrixH + PADDING
-
     return {
-        canvasWidth,
-        canvasHeight,
+        canvasWidth: finalBlockLayout.x + finalBlockLayout.w + PADDING,
+        canvasHeight: contentStartY + totalMatrixHeight + PADDING,
         hasHeader,
         hasContainer,
         hasPreheat,
@@ -361,11 +419,12 @@ export function buildV3MatrixLayout(recipe: VisualRecipeV3): V3MatrixLayoutResul
         contentStartY,
         ingredientRows,
         actionBlockLayouts,
+        connectorLayouts,
         actionColWidths,
         finalBlockLayout,
         gridLines,
         collisionNotices,
         numRows,
-        numActionCols
+        numActionCols,
     }
 }

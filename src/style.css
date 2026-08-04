@@ -12,70 +12,244 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ─────────────────────────────────────────────────────────────
- * PostSoma Kitchen 设计 System Tokens
- * 核心审美：暖编辑感、安静手作感、清晰流程结构
- * ───────────────────────────────────────────────────────────── */
+/* PostSoma Kitchen · Editorial Minimal design tokens */
 :root {
-    --pk-bg-canvas: #FAF8F5;          /* 暖米白画布 */
-    --pk-bg-card: #FFFFFF;            /* 卡片白 */
-    --pk-bg-subtle: #F4F2EC;          /* 轻微淡灰绿/底衬 */
-    
-    --pk-brand-primary: #2D5A43;       /* 核心草本绿 */
-    --pk-brand-dark: #1F4030;          /* 深草本绿 */
-    --pk-brand-light: #EBF2ED;         /* 浅草本绿衬底 */
-    
-    --pk-text-primary: #1C2520;        /* 墨黑主字 */
-    --pk-text-secondary: #58605B;      /* 次级灰绿字 */
-    --pk-text-muted: #8A928C;          /* 弱化字 */
+    color-scheme: light;
 
-    --pk-border-stone: #E5E2DC;        /* 低对比米灰边框 */
-    --pk-border-dark: #1C2520;         /* 深色强调边框 */
-    
-    --pk-accent-amber: #D49B35;        /* 琥珀金/Formula酱汁 */
-    --pk-accent-red: #C84B31;          /* 辣椒红/食材重点 */
+    --pk-surface-page: #f7f4ee;
+    --pk-surface: #fffefa;
+    --pk-surface-muted: #efede7;
+    --pk-surface-accent: #e8f0ea;
+
+    --pk-ink: #19231e;
+    --pk-ink-secondary: #4f5a53;
+    --pk-ink-muted: #737c76;
+    --pk-ink-subtle: #979e99;
+    --pk-on-accent: #ffffff;
+
+    --pk-accent: #285840;
+    --pk-accent-hover: #1f4733;
+    --pk-accent-soft: #dce8df;
+    --pk-danger: #a33d32;
+
+    --pk-border: #dedbd3;
+    --pk-border-strong: #c9c5bb;
+    --pk-focus: rgba(40, 88, 64, 0.34);
+
+    --pk-radius-sm: 0.5rem;
+    --pk-radius-md: 0.75rem;
+    --pk-radius-lg: 1rem;
+    --pk-space-1: 0.25rem;
+    --pk-space-2: 0.5rem;
+    --pk-space-3: 0.75rem;
+    --pk-space-4: 1rem;
+    --pk-space-6: 1.5rem;
+    --pk-space-8: 2rem;
+    --pk-shadow-rest: 0 1px 2px rgba(25, 35, 30, 0.035);
+    --pk-shadow-raised: 0 10px 28px rgba(25, 35, 30, 0.075);
+
+    --pk-font-body: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --pk-font-display: 'Songti SC', 'STSong', 'Noto Serif CJK SC', serif;
+    --pk-motion-fast: 160ms;
+    --pk-motion-base: 220ms;
+
+    /* Legacy aliases kept so existing Admin/Flow surfaces inherit the same base. */
+    --pk-bg-canvas: var(--pk-surface-page);
+    --pk-bg-card: var(--pk-surface);
+    --pk-bg-subtle: var(--pk-surface-muted);
+    --pk-brand-primary: var(--pk-accent);
+    --pk-brand-dark: var(--pk-accent-hover);
+    --pk-brand-light: var(--pk-surface-accent);
+    --pk-text-primary: var(--pk-ink);
+    --pk-text-secondary: var(--pk-ink-secondary);
+    --pk-text-muted: var(--pk-ink-muted);
+    --pk-border-stone: var(--pk-border);
+    --pk-border-dark: var(--pk-ink);
+    --pk-accent-amber: #9b713b;
+    --pk-accent-red: var(--pk-danger);
+}
+
+html {
+    background: var(--pk-surface-page);
 }
 
 body {
-    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background-color: var(--pk-bg-canvas);
-    color: var(--pk-text-primary);
+    margin: 0;
+    min-width: 320px;
     min-height: 100vh;
+    background: var(--pk-surface-page);
+    color: var(--pk-ink);
+    font-family: var(--pk-font-body);
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
 }
 
-/* 渐进式渲染通用卡片类 */
+button,
+a,
+input,
+select,
+textarea {
+    touch-action: manipulation;
+}
+
+:focus-visible {
+    outline: 2px solid var(--pk-accent);
+    outline-offset: 3px;
+}
+
+.pk-page {
+    background: var(--pk-surface-page);
+    color: var(--pk-ink);
+}
+
+.pk-surface,
 .pk-card {
-    background-color: var(--pk-bg-card);
-    border: 1px solid var(--pk-border-stone);
-    border-radius: 1.25rem;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.02);
+    background: var(--pk-surface);
+    border: 1px solid var(--pk-border);
+    border-radius: var(--pk-radius-lg);
+    box-shadow: var(--pk-shadow-rest);
 }
 
 .pk-card-hover {
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.pk-card-hover:hover {
-    border-color: #D5D1C8;
-    box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.05);
+    transition: border-color var(--pk-motion-base) ease, box-shadow var(--pk-motion-base) ease;
 }
 
-/* 自定义轻量微动画 */
+.pk-card-hover:hover {
+    border-color: var(--pk-border-strong);
+    box-shadow: var(--pk-shadow-raised);
+}
+
+.pk-eyebrow {
+    color: var(--pk-accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.pk-display {
+    color: var(--pk-ink);
+    font-family: var(--pk-font-display);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+.pk-muted {
+    color: var(--pk-ink-secondary);
+}
+
+.pk-field {
+    min-height: 2.75rem;
+    border: 1px solid var(--pk-border-strong);
+    border-radius: var(--pk-radius-md);
+    background: var(--pk-surface);
+    color: var(--pk-ink);
+    transition: border-color var(--pk-motion-fast) ease, box-shadow var(--pk-motion-fast) ease;
+}
+
+.pk-field::placeholder {
+    color: var(--pk-ink-muted);
+}
+
+.pk-field:focus {
+    border-color: var(--pk-accent);
+    box-shadow: 0 0 0 3px var(--pk-focus);
+    outline: none;
+}
+
+.pk-button {
+    min-height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: var(--pk-radius-md);
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.25rem;
+    cursor: pointer;
+    transition: background-color var(--pk-motion-fast) ease, border-color var(--pk-motion-fast) ease, color var(--pk-motion-fast) ease;
+}
+
+.pk-button-primary {
+    border: 1px solid var(--pk-accent);
+    background: var(--pk-accent);
+    color: var(--pk-on-accent);
+}
+
+.pk-button-primary:hover {
+    border-color: var(--pk-accent-hover);
+    background: var(--pk-accent-hover);
+}
+
+.pk-button-secondary {
+    border: 1px solid var(--pk-border-strong);
+    background: var(--pk-surface);
+    color: var(--pk-ink);
+}
+
+.pk-button-secondary:hover {
+    border-color: var(--pk-accent);
+    background: var(--pk-surface-accent);
+}
+
+.pk-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.42;
+}
+
+.pk-filter-token {
+    min-height: 2.75rem;
+    border: 1px solid var(--pk-border);
+    border-radius: var(--pk-radius-sm);
+    background: var(--pk-surface);
+    color: var(--pk-ink-secondary);
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color var(--pk-motion-fast) ease, background-color var(--pk-motion-fast) ease;
+}
+
+.pk-filter-token:hover {
+    border-color: var(--pk-border-strong);
+    background: var(--pk-surface-muted);
+}
+
+.pk-filter-token-active,
+.pk-filter-token-active:hover {
+    border-color: var(--pk-accent);
+    background: var(--pk-accent);
+    color: var(--pk-on-accent);
+}
+
+.pk-skip-link {
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 1000;
+    transform: translateY(-160%);
+    border-radius: var(--pk-radius-sm);
+    background: var(--pk-ink);
+    color: #fff;
+    padding: 0.65rem 0.9rem;
+    font-weight: 700;
+    transition: transform var(--pk-motion-fast) ease;
+}
+
+.pk-skip-link:focus {
+    transform: translateY(0);
+}
+
 @keyframes steam {
-    0% {
-        opacity: 0.7;
-        transform: translateY(0px) scale(1);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-16px) scale(1.15);
-    }
+    0% { opacity: 0.7; transform: translateY(0) scale(1); }
+    100% { opacity: 0; transform: translateY(-16px) scale(1.15); }
 }
 
 .steam-animation {
     animation: steam 2s ease-out infinite;
 }
 
-/* 文本截断工具类 */
 .line-clamp-2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -88,4 +262,15 @@ body {
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }

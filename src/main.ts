@@ -4,15 +4,13 @@ import App from './App.vue'
 import { autoRefreshEnvSettings } from './utils/envWatcher'
 import './style.css'
 
-import RecipeEditorV3 from './views/RecipeEditorV3.vue'
-import MyRecipes from './views/MyRecipes.vue'
-import RecipeDetailV3 from './views/RecipeDetailV3.vue'
-import FridgeMatch from './views/FridgeMatch.vue'
-import PublishHome from './views/PublishHome.vue'
-import AdminLogin from './views/AdminLogin.vue'
-
-import { isSupabaseConfigured } from './services/supabaseClient'
-import { initAuth, isLoggedIn, isAdmin } from './services/authService'
+// 路由级懒加载：首页、详情、冰箱与 Admin Studio 按访问场景独立下载。
+const PublishHome = () => import('./views/PublishHome.vue')
+const RecipeDetailV3 = () => import('./views/RecipeDetailV3.vue')
+const FridgeMatch = () => import('./views/FridgeMatch.vue')
+const AdminLogin = () => import('./views/AdminLogin.vue')
+const MyRecipes = () => import('./views/MyRecipes.vue')
+const RecipeEditorV3 = () => import('./views/RecipeEditorV3.vue')
 
 const routes = [
     // 1. 公开视角 (Publish 视图 - 必须保证 100% 匿名可用)
@@ -42,13 +40,19 @@ const router = createRouter({
 // Kitchen Studio 路由导航守卫
 router.beforeEach(async (to, _from, next) => {
     const storageMode = import.meta.env.VITE_STORAGE_MODE || 'local'
+    const hasSupabaseConfig = Boolean(
+        import.meta.env.VITE_SUPABASE_URL
+        && import.meta.env.VITE_SUPABASE_ANON_KEY
+        && import.meta.env.VITE_SUPABASE_URL.startsWith('http')
+    )
 
     // 如果未要求 Admin 权限，或者是纯 Local 模式 / Supabase 未配置，直接放行
-    if (!to.meta.requiresAdmin || storageMode === 'local' || !isSupabaseConfigured) {
+    if (!to.meta.requiresAdmin || storageMode === 'local' || !hasSupabaseConfig) {
         return next()
     }
 
-    // 初始化 Auth 状态 (异步但不阻塞页面加载)
+    // 仅进入需要鉴权的 Studio 路由时加载 Supabase Auth。
+    const { initAuth, isLoggedIn, isAdmin } = await import('./services/authService')
     await initAuth()
 
     if (isLoggedIn.value && isAdmin.value) {

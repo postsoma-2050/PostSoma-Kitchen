@@ -109,6 +109,23 @@ export function validateRecipe(recipe: VisualRecipeV3): RecipeValidationResult {
       message: '食谱必须至少包含一项食材',
     })
   } else {
+    const ingredientIdCounts = new Map<string, number>()
+    recipe.ingredients.forEach(ingredient => {
+      ingredientIdCounts.set(ingredient.id, (ingredientIdCounts.get(ingredient.id) || 0) + 1)
+    })
+    const duplicateIngredientIds = [...ingredientIdCounts.entries()]
+      .filter(([, count]) => count > 1)
+      .map(([id]) => id)
+    if (duplicateIngredientIds.length > 0) {
+      issues.push({
+        severity: 'error',
+        code: 'DUPLICATE_INGREDIENT_ID',
+        field: 'ingredients.id',
+        message: `食材 ID 必须唯一，发现重复项：${duplicateIngredientIds.join('、')}`,
+        affectedIds: duplicateIngredientIds,
+      })
+    }
+
     // 2a. 检查无名食材
     const unnamedIds = recipe.ingredients
       .filter(i => !i.name || !i.name.trim())
@@ -170,6 +187,22 @@ export function validateRecipe(recipe: VisualRecipeV3): RecipeValidationResult {
     })
   } else {
     const ingredientIdSet = new Set((recipe.ingredients || []).map(i => i.id))
+    const blockIdCounts = new Map<string, number>()
+    recipe.actionBlocks.forEach(block => {
+      blockIdCounts.set(block.id, (blockIdCounts.get(block.id) || 0) + 1)
+    })
+    const duplicateBlockIds = [...blockIdCounts.entries()]
+      .filter(([, count]) => count > 1)
+      .map(([id]) => id)
+    if (duplicateBlockIds.length > 0) {
+      issues.push({
+        severity: 'error',
+        code: 'DUPLICATE_ACTION_BLOCK_ID',
+        field: 'actionBlocks.id',
+        message: `工序 ID 必须唯一，发现重复项：${duplicateBlockIds.join('、')}`,
+        affectedIds: duplicateBlockIds,
+      })
+    }
 
     // 3a. 孤立工序（无关联食材）—— 发布必须修复
     const isolatedBlockIds = recipe.actionBlocks
@@ -208,7 +241,72 @@ export function validateRecipe(recipe: VisualRecipeV3): RecipeValidationResult {
       })
     }
 
-    // 3c. 工序缺少标签名 —— 警告
+    // 3c. 工序依赖必须引用现存工序，不允许自引用
+    const actionBlockIdSet = new Set(recipe.actionBlocks.map(block => block.id))
+    const brokenDependencyBlocks: string[] = []
+    const selfDependencyBlocks: string[] = []
+    recipe.actionBlocks.forEach(block => {
+      const dependencies = block.inputBlockIds || []
+      if (dependencies.some(id => id === block.id)) selfDependencyBlocks.push(block.id)
+      if (dependencies.some(id => !actionBlockIdSet.has(id))) brokenDependencyBlocks.push(block.id)
+    })
+
+    if (brokenDependencyBlocks.length > 0) {
+      issues.push({
+        severity: 'error',
+        code: 'BROKEN_ACTION_DEPENDENCY',
+        field: 'actionBlocks.inputBlockIds',
+        message: '存在引用已删除或不存在上游工序的依赖关系',
+        affectedIds: [...new Set(brokenDependencyBlocks)],
+      })
+    }
+
+    if (selfDependencyBlocks.length > 0) {
+      issues.push({
+        severity: 'error',
+        code: 'SELF_ACTION_DEPENDENCY',
+        field: 'actionBlocks.inputBlockIds',
+        message: '工序不能把自身设置为上游依赖',
+        affectedIds: [...new Set(selfDependencyBlocks)],
+      })
+    }
+
+    // 3d. 检测工序依赖图中的循环，防止布局无法形成明确时序
+    const blockById = new Map(recipe.actionBlocks.map(block => [block.id, block]))
+    const visitState = new Map<string, 'visiting' | 'visited'>()
+    const cycleIds = new Set<string>()
+
+    function visitBlock(blockId: string, path: string[]) {
+      if (visitState.get(blockId) === 'visiting') {
+        const cycleStart = path.indexOf(blockId)
+        path.slice(cycleStart >= 0 ? cycleStart : 0).forEach(id => cycleIds.add(id))
+        cycleIds.add(blockId)
+        return
+      }
+      if (visitState.get(blockId) === 'visited') return
+
+      visitState.set(blockId, 'visiting')
+      const block = blockById.get(blockId)
+      for (const dependencyId of block?.inputBlockIds || []) {
+        if (dependencyId !== blockId && blockById.has(dependencyId)) {
+          visitBlock(dependencyId, [...path, blockId])
+        }
+      }
+      visitState.set(blockId, 'visited')
+    }
+
+    recipe.actionBlocks.forEach(block => visitBlock(block.id, []))
+    if (cycleIds.size > 0) {
+      issues.push({
+        severity: 'error',
+        code: 'CYCLIC_ACTION_DEPENDENCY',
+        field: 'actionBlocks.inputBlockIds',
+        message: '工序依赖形成循环，无法确定先后顺序',
+        affectedIds: [...cycleIds],
+      })
+    }
+
+    // 3e. 工序缺少标签名 —— 警告
     const unnamedBlockIds = recipe.actionBlocks
       .filter(b => !b.label || !b.label.trim())
       .map(b => b.id)

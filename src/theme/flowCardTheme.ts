@@ -22,9 +22,6 @@ export const flowCardTheme = {
         headerPreheatBodyFill: '#F9FBF7',
         headerPreheatBodyText: '#1B5E20',
 
-        // 辅助网格线色调
-        gridLine: '#E5E7EB',
-
         // 区段 1：左侧食材行 (方向 3 主辅料分级视效)
         ingredientFill: '#FAFAFA',      // 极淡微灰底
         ingredientStroke: '#E5E7EB',    // 细浅灰边框
@@ -44,10 +41,13 @@ export const flowCardTheme = {
         // 区段 2：中间工序块
         actionFill: '#FFFFFF',
         actionPlaceholderFill: '#F8FAFC',
-        actionStroke: '#D1D5DB',
-        actionLabelText: '#991B1B',
-        actionSublabelText: '#B91C1C',
-        actionHeatText: '#991B1B',
+        actionStroke: '#CBD5E1',
+        actionLabelText: '#1F2937',
+        actionSublabelText: '#64748B',
+        actionHeatText: '#B45309',
+        actionStageFills: ['#F0FDF4', '#EFF6FF', '#FFF7ED', '#F5F3FF'],
+        actionStageStrokes: ['#86B99A', '#93B4D8', '#E7B979', '#B9A7D4'],
+        actionStageAccents: ['#2D6A4F', '#3B6E9F', '#B86B24', '#735C96'],
 
         // 区段 3：最右侧终点 Cooking Method
         finalBakeFill: '#FEF3C7',
@@ -80,9 +80,7 @@ export const flowCardTheme = {
     // 4. 描边与线框 Token
     strokes: {
         paperWidth: 2.0,
-        blockWidth: 1.2,
-        gridWidth: 1.0,
-        dashArray: '3 3'
+        blockWidth: 1.2
     },
 
     // 5. 文字与排版 Token

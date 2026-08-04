@@ -132,6 +132,8 @@ export interface VisualRecipeV3 {
   tips?: string[]
   createdAt: string
   updatedAt: string
+  /** Repository 乐观锁版本；由持久化层注入，不参与食谱领域表达。 */
+  contentVersion?: number
 }
 
 export function isV3Recipe(obj: any): obj is VisualRecipeV3 {

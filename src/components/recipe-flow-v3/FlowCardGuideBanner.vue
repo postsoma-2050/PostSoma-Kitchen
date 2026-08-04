@@ -4,12 +4,15 @@
       <span class="text-base shrink-0 select-none">💡</span>
       <div class="space-y-1">
         <div class="font-bold text-amber-950 flex items-center gap-1.5">
-          <span>新手读图指南：怎么看懂这张 Visual Recipe Flow Card？</span>
+          <span class="sm:hidden">手机做菜模式读法</span>
+          <span class="hidden sm:inline">新手读图指南：怎么看懂这张 Visual Recipe Flow Card？</span>
         </div>
-        <p class="text-amber-800/90 leading-relaxed">
-          1. <strong>左侧</strong>是食材清单；<br class="hidden sm:inline" />
-          2. <strong>从左到右</strong>代表烹饪的时间推进阶段；<br class="hidden sm:inline" />
-          3. <strong>跨行卡片</strong>代表该工序具体合并与处理的食材（如“鸡丁蛋清上浆”只覆盖鸡丁行）。
+        <p class="sm:hidden text-amber-800/90 leading-relaxed">
+          按页面顺序<strong>向下阅读</strong>；同组卡片可以<strong>并行处理</strong>；点击「矩阵全图」查看完整横向结构。
+        </p>
+        <p class="hidden sm:block text-amber-800/90 leading-relaxed">
+          <strong>左侧</strong>是食材清单，<strong>从左到右</strong>是烹饪顺序；<br class="hidden sm:inline" />
+          <strong>跨行卡片</strong>表示该工序会合并与处理对应的多项食材。
         </p>
       </div>
     </div>

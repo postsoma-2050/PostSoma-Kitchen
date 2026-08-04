@@ -1,6 +1,7 @@
 import type { IRecipeRepository } from './IRecipeRepository'
 import { LocalRecipeRepository } from './LocalRecipeRepository'
 import { SupabaseRecipeRepository } from './SupabaseRecipeRepository'
+import { isSupabaseConfigured } from '@/services/supabaseClient'
 
 export * from './IRecipeRepository'
 export * from './LocalRecipeRepository'
@@ -13,11 +14,11 @@ export * from './SupabaseRecipeRepository'
 export function createRecipeRepository(): IRecipeRepository {
     const mode = import.meta.env.VITE_STORAGE_MODE || 'local'
 
-    if (mode === 'supabase') {
+    if (mode === 'supabase' && isSupabaseConfigured) {
         return new SupabaseRecipeRepository(false)
     }
 
-    if (mode === 'shadow_read') {
+    if (mode === 'shadow_read' && isSupabaseConfigured) {
         return new SupabaseRecipeRepository(true)
     }
 

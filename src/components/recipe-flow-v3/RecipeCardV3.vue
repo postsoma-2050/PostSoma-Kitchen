@@ -60,7 +60,8 @@
             查看
           </router-link>
           <router-link
-            :to="`/admin/edit/${recipe.id}`"
+            :to="{ path: `/admin/edit/${recipe.id}`, query: { returnTo: adminReturnTo } }"
+            @click="rememberAdminContext"
             class="px-2.5 py-1 bg-emerald-700 hover:bg-emerald-800 text-white rounded font-semibold transition-colors cursor-pointer"
           >
             编辑
@@ -69,10 +70,12 @@
           <button
             @click="handleSoftDelete"
             type="button"
-            class="px-2 py-1 text-stone-400 hover:text-rose-700 hover:bg-rose-50 rounded transition-colors cursor-pointer text-xs"
+            :disabled="pendingAction !== null"
+            class="px-2 py-1 text-stone-400 hover:text-rose-700 hover:bg-rose-50 disabled:cursor-wait disabled:opacity-50 rounded transition-colors cursor-pointer text-xs"
             title="把此食谱放入回收站 (可在已删除恢复)"
+            :aria-busy="pendingAction === 'soft-delete'"
           >
-            🗑️
+            {{ pendingAction === 'soft-delete' ? '确认中…' : '🗑️' }}
           </button>
         </template>
 
@@ -81,60 +84,193 @@
           <button
             @click="handleRestore"
             type="button"
-            class="px-2.5 py-1 bg-emerald-100 hover:bg-emerald-200 text-emerald-900 border border-emerald-300 rounded font-semibold transition-colors cursor-pointer"
+            :disabled="pendingAction !== null"
+            class="px-2.5 py-1 bg-emerald-100 hover:bg-emerald-200 disabled:cursor-wait disabled:opacity-50 text-emerald-900 border border-emerald-300 rounded font-semibold transition-colors cursor-pointer"
+            :aria-busy="pendingAction === 'restore'"
           >
-            ↩️ 恢复
+            {{ pendingAction === 'restore' ? '正在确认…' : '↩️ 恢复' }}
           </button>
           <button
-            @click="handlePermanentDelete"
+            @click="beginPermanentDelete"
             type="button"
-            class="px-2 py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-300 rounded font-semibold transition-colors cursor-pointer"
+            :disabled="pendingAction !== null"
+            class="px-2 py-1 bg-rose-50 hover:bg-rose-100 disabled:cursor-wait disabled:opacity-50 text-rose-700 border border-rose-300 rounded font-semibold transition-colors cursor-pointer"
+            :aria-busy="pendingAction === 'permanent-delete'"
           >
-            🔥 永久删除
+            {{ pendingAction === 'permanent-delete' ? '正在确认…' : '🔥 永久删除' }}
           </button>
         </template>
+      </div>
+    </div>
+
+    <div
+      v-if="recipe.deletedAt && permanentConfirmOpen"
+      class="space-y-2 border-t border-rose-200 bg-rose-50 px-4 py-3 text-xs"
+    >
+      <p class="font-semibold leading-relaxed text-rose-900">
+        永久删除不可恢复。请输入完整食谱名称《{{ recipe.title }}》确认。
+      </p>
+      <input
+        v-model="permanentConfirmText"
+        type="text"
+        :aria-label="`输入《${recipe.title}》确认永久删除`"
+        class="w-full rounded-lg border border-rose-300 bg-white px-2.5 py-2 text-stone-900 outline-none focus:border-rose-600"
+        autocomplete="off"
+      />
+      <div class="flex justify-end gap-2">
+        <button
+          type="button"
+          :disabled="pendingAction !== null"
+          class="rounded-lg border border-stone-300 bg-white px-3 py-1.5 font-semibold text-stone-700 disabled:opacity-50"
+          @click="cancelPermanentDelete"
+        >
+          取消
+        </button>
+        <button
+          type="button"
+          :disabled="permanentConfirmText !== recipe.title || pendingAction !== null"
+          class="rounded-lg bg-rose-700 px-3 py-1.5 font-bold text-white disabled:cursor-not-allowed disabled:opacity-40"
+          @click="handlePermanentDelete"
+        >
+          {{ pendingAction === 'permanent-delete' ? '正在确认云端状态…' : '确认永久删除' }}
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { computed, ref } from 'vue'
 import type { VisualRecipeV3 } from '@/types/recipeV3'
+import type { RecipeMutationAction, RecipeMutationResult } from '@/repositories/IRecipeRepository'
 import RecipeMiniCanvasV3 from './RecipeMiniCanvasV3.vue'
 import { softDeleteRecipe, restoreRecipe, permanentlyDeleteRecipe } from '@/services/v3RecipeStore'
+import { rememberAdminScrollPosition, resolveAdminReturnTarget } from '@/utils/adminNavigation'
 
 const props = defineProps<{
   recipe: VisualRecipeV3
+  adminReturnTo?: string
 }>()
+
+const adminReturnTo = computed(() => resolveAdminReturnTarget(props.adminReturnTo))
+
+function rememberAdminContext() {
+  rememberAdminScrollPosition(adminReturnTo.value, window.scrollY)
+}
 
 const emit = defineEmits<{
   (e: 'refresh'): void
+  (e: 'mutation-confirmed', result: RecipeMutationResult): void
 }>()
 
-function handleSoftDelete() {
+const pendingAction = ref<RecipeMutationAction | null>(null)
+const permanentConfirmOpen = ref(false)
+const permanentConfirmText = ref('')
+
+function handleMutationResult(result: RecipeMutationResult, title: string) {
+  if (result.status === 'confirmed') {
+    emit('mutation-confirmed', result)
+    if (result.action === 'soft-delete') alert(`《${title}》已移入回收站。`)
+    if (result.action === 'restore') alert(`《${title}》已恢复到食谱库。`)
+    if (result.action === 'permanent-delete') alert(`《${title}》已永久删除。`)
+    return
+  }
+
+  if (result.status === 'conflict') {
+    alert(`操作冲突：${result.message || '云端食谱版本已变化，请重新载入后再试。'}`)
+    emit('refresh')
+    return
+  }
+
+  if (result.status === 'unknown') {
+    alert(`操作结果暂时无法确认。系统已重新读取云端状态，但仍未获得明确结果。\n${result.message || '请保持当前页面并稍后重试刷新。'}`)
+    emit('refresh')
+    return
+  }
+
+  alert(result.message || '云端明确拒绝了该操作，页面状态未改变。')
+}
+
+function beginPermanentDelete() {
+  if (pendingAction.value) return
+  permanentConfirmText.value = ''
+  permanentConfirmOpen.value = true
+}
+
+function cancelPermanentDelete() {
+  if (pendingAction.value) return
+  permanentConfirmOpen.value = false
+  permanentConfirmText.value = ''
+}
+
+async function handleSoftDelete() {
+  if (pendingAction.value) return
   const title = props.recipe.title || '此食谱'
   if (confirm(`确认把《${title}》移入回收站吗？\n该操作不会删除底层数据，你随时可在“已删除食谱”中找回恢复。`)) {
-    softDeleteRecipe(props.recipe.id)
-    emit('refresh')
+    pendingAction.value = 'soft-delete'
+    try {
+      const result = await softDeleteRecipe(props.recipe.id, props.recipe.contentVersion)
+      handleMutationResult(result, title)
+    } catch (error) {
+      console.error('[RecipeCard] 软删除状态确认异常:', error)
+      handleMutationResult({
+        ok: false,
+        action: 'soft-delete',
+        id: props.recipe.id,
+        status: 'unknown',
+        message: '客户端未能完成状态确认，请稍后刷新。',
+      }, title)
+    } finally {
+      pendingAction.value = null
+    }
   }
 }
 
-function handleRestore() {
+async function handleRestore() {
+  if (pendingAction.value) return
   const title = props.recipe.title || '此食谱'
-  restoreRecipe(props.recipe.id)
-  alert(`🎉 《${title}》已成功恢复并回到你的食谱库！`)
-  emit('refresh')
+  pendingAction.value = 'restore'
+  try {
+    const result = await restoreRecipe(props.recipe.id, props.recipe.contentVersion)
+    handleMutationResult(result, title)
+  } catch (error) {
+    console.error('[RecipeCard] 恢复状态确认异常:', error)
+    handleMutationResult({
+      ok: false,
+      action: 'restore',
+      id: props.recipe.id,
+      status: 'unknown',
+      message: '客户端未能完成状态确认，请稍后刷新。',
+    }, title)
+  } finally {
+    pendingAction.value = null
+  }
 }
 
-function handlePermanentDelete() {
+async function handlePermanentDelete() {
+  if (pendingAction.value) return
   const title = props.recipe.title || '此食谱'
-  const userInput = prompt(`⚠️ 警告：永久删除后数据将物理物理彻底抹除，无法找回！\n如确需永久删除，请输入食谱名称《${title}》确认：`)
-  if (userInput === title) {
-    permanentlyDeleteRecipe(props.recipe.id)
-    alert(`已彻底物理清除《${title}》。`)
-    emit('refresh')
-  } else if (userInput !== null) {
-    alert('输入名称不匹配，操作已取消。')
+  if (permanentConfirmText.value !== title) return
+
+  pendingAction.value = 'permanent-delete'
+  try {
+    const result = await permanentlyDeleteRecipe(props.recipe.id, props.recipe.contentVersion)
+    handleMutationResult(result, title)
+    if (result.status === 'confirmed') {
+      permanentConfirmOpen.value = false
+      permanentConfirmText.value = ''
+    }
+  } catch (error) {
+    console.error('[RecipeCard] 永久删除状态确认异常:', error)
+    handleMutationResult({
+      ok: false,
+      action: 'permanent-delete',
+      id: props.recipe.id,
+      status: 'unknown',
+      message: '客户端未能完成状态确认，请稍后刷新。',
+    }, title)
+  } finally {
+    pendingAction.value = null
   }
 }
 

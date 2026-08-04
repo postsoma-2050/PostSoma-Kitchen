@@ -159,6 +159,7 @@ export const caesarSaladV3: VisualRecipeV3 = {
     cuisine: 'western',
     difficulty: 'easy',
     prerequisites: {
+        containerSize: '大号沙拉碗与手动打蛋器',
         servings: '2 人份 (无需预热与加热)'
     },
     ingredients: [

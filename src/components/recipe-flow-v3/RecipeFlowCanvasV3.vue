@@ -8,20 +8,6 @@
       class="v3-matrix-svg select-none mx-auto block shrink-0 rounded-xl"
       :style="`background-color: ${theme.colors.canvasBg}; font-family: ${theme.typography.fontFamily}; min-width: max-content; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.03));`"
     >
-      <defs>
-        <marker
-          id="v3-flow-arrow"
-          viewBox="0 0 10 10"
-          refX="6"
-          refY="5"
-          markerWidth="5"
-          markerHeight="5"
-          orient="auto-start-reverse"
-        >
-          <path d="M 0 1 L 8 5 L 0 9 z" fill="#94A3B8" />
-        </marker>
-      </defs>
-
       <!-- 0. 最外层纸张底板 -->
       <rect
         x="16"
@@ -121,22 +107,7 @@
         </g>
       </g>
 
-      <!-- 2. 网格背景线 -->
-      <g class="v3-grid-lines">
-        <line
-          v-for="(line, idx) in layout.gridLines"
-          :key="`gl-${idx}`"
-          :x1="line.x1"
-          :y1="line.y1"
-          :x2="line.x2"
-          :y2="line.y2"
-          :stroke="theme.colors.gridLine"
-          :stroke-width="theme.strokes.gridWidth"
-          :stroke-dasharray="theme.strokes.dashArray"
-        />
-      </g>
-
-      <!-- 3. 左侧食材行 (方向 3: 主料 vs 调料/辅料 分级视效) -->
+      <!-- 2. 左侧食材行 (方向 3: 主料 vs 调料/辅料 分级视效) -->
       <g class="v3-ingredients-group">
         <g
           v-for="row in layout.ingredientRows"
@@ -177,39 +148,32 @@
         </g>
       </g>
 
-      <!-- 流程指示连接箭头 -->
-      <g class="v3-flow-connectors">
-        <g v-for="lb in layout.actionBlockLayouts" :key="`arrow-${lb.block.id}`">
-          <line
-            v-if="lb.computedColIndex < layout.numActionCols - 1"
-            :x1="lb.x + lb.w + 0.5"
-            :y1="lb.y + lb.h / 2"
-            :x2="lb.x + lb.w + 2"
-            :y2="lb.y + lb.h / 2"
-            stroke="#94A3B8"
-            stroke-width="1.5"
-            marker-end="url(#v3-flow-arrow)"
-          />
-        </g>
-      </g>
-
-      <!-- 4. 中间矩阵工序块 -->
+      <!-- 3. 中间矩阵工序块：依靠列位置表达顺序，不叠加编号或路径 -->
       <g class="v3-actions-group">
         <g
           v-for="layoutBlock in layout.actionBlockLayouts"
           :key="layoutBlock.block.id"
           :transform="`translate(${layoutBlock.x}, ${layoutBlock.y})`"
         >
-          <title>{{ layoutBlock.block.label || '未命名工序' }}</title>
+          <title>{{ getActionTooltip(layoutBlock) }}</title>
 
           <rect
             :width="layoutBlock.w"
             :height="layoutBlock.h"
-            :fill="layoutBlock.isEmptyPlaceholder ? theme.colors.actionPlaceholderFill : theme.colors.actionFill"
-            :stroke="theme.colors.actionStroke"
-            :stroke-dasharray="layoutBlock.isEmptyPlaceholder ? theme.strokes.dashArray : 'none'"
+            :fill="layoutBlock.isEmptyPlaceholder ? theme.colors.actionPlaceholderFill : getActionFill(layoutBlock.computedColIndex)"
+            :stroke="layoutBlock.isEmptyPlaceholder ? theme.colors.actionStroke : getActionStroke(layoutBlock.computedColIndex)"
             :stroke-width="theme.strokes.blockWidth"
             :rx="theme.radii.block"
+          />
+
+          <rect
+            v-if="!layoutBlock.isEmptyPlaceholder"
+            x="0"
+            y="0"
+            width="4"
+            :height="layoutBlock.h"
+            :fill="getActionAccent(layoutBlock.computedColIndex)"
+            :rx="2"
           />
 
           <g :transform="`translate(${layoutBlock.w / 2}, ${layoutBlock.h / 2})`">
@@ -225,7 +189,7 @@
                   font-weight="bold"
                   :fill="theme.colors.actionLabelText"
                 >
-                  {{ lIdx === 0 ? `${getCircledNumber(layoutBlock.computedColIndex + 1)} ${line}` : line }}
+                  {{ line }}
                 </tspan>
 
                 <!-- 副标题 -->
@@ -251,6 +215,18 @@
                 >
                   {{ layoutBlock.block.heatLevel || '' }} {{ layoutBlock.block.durationMinutes ? `${layoutBlock.block.durationMinutes}m` : '' }}
                 </tspan>
+
+                <!-- 工序专用器具 -->
+                <tspan
+                  v-for="(equipmentLine, equipmentIndex) in layoutBlock.equipmentLines"
+                  :key="`equipment-${equipmentIndex}`"
+                  x="0"
+                  dy="1.3em"
+                  font-size="10"
+                  :fill="theme.colors.actionSublabelText"
+                >
+                  {{ equipmentLine }}
+                </tspan>
               </text>
             </template>
 
@@ -269,7 +245,7 @@
         </g>
       </g>
 
-      <!-- 5. 最右侧最终完成区 -->
+      <!-- 4. 最右侧最终完成区 -->
       <g
         class="v3-final-group"
         :transform="`translate(${layout.finalBlockLayout.x}, ${layout.finalBlockLayout.y})`"
@@ -281,7 +257,6 @@
           :height="layout.finalBlockLayout.h"
           :fill="layout.finalBlockLayout.isPlaceholder ? theme.colors.finalPlaceholderFill : (isColdFinal ? theme.colors.finalColdFill : theme.colors.finalBakeFill)"
           :stroke="layout.finalBlockLayout.isPlaceholder ? theme.colors.actionStroke : (isColdFinal ? theme.colors.finalColdStroke : theme.colors.finalBakeStroke)"
-          :stroke-dasharray="layout.finalBlockLayout.isPlaceholder ? theme.strokes.dashArray : 'none'"
           :stroke-width="1.8"
           :rx="theme.radii.block"
         />
@@ -420,9 +395,31 @@ function isMainIngredient(ing: V3Ingredient): boolean {
   return isMatchName || isLargeAmount
 }
 
-function getCircledNumber(n: number): string {
-  const circles = ['①', '②', '③', '④', '⑤', '⑥', '⑦', '⑧', '⑨', '⑩']
-  return circles[n - 1] || `${n}.`
+function getStageToken(tokens: readonly string[], stageIndex: number): string {
+  return tokens[stageIndex % tokens.length]
+}
+
+function getActionFill(stageIndex: number): string {
+  return getStageToken(theme.colors.actionStageFills, stageIndex)
+}
+
+function getActionStroke(stageIndex: number): string {
+  return getStageToken(theme.colors.actionStageStrokes, stageIndex)
+}
+
+function getActionAccent(stageIndex: number): string {
+  return getStageToken(theme.colors.actionStageAccents, stageIndex)
+}
+
+function getActionTooltip(layoutBlock: V3LayoutActionBlock): string {
+  const block = layoutBlock.block
+  return [
+    `工序：${block.label || '未命名工序'}`,
+    block.heatLevel,
+    block.durationMinutes ? `${block.durationMinutes} 分钟` : '',
+    block.equipment ? `器具：${block.equipment}` : '',
+    block.note,
+  ].filter(Boolean).join(' · ')
 }
 
 function getMethodIcon(method?: string): string {
@@ -464,8 +461,9 @@ function getFirstLineYOffset(block: V3LayoutActionBlock): string {
   const lCount = block.labelLines.length
   const sCount = block.sublabelLines.length
   const hasHeat = Boolean(block.block.heatLevel || block.block.durationMinutes)
+  const equipmentCount = block.equipmentLines.length
 
-  const totalLines = lCount + sCount + (hasHeat ? 1 : 0)
+  const totalLines = lCount + sCount + (hasHeat ? 1 : 0) + equipmentCount
   if (totalLines <= 1) return '0em'
   
   const startOffset = -((totalLines - 1) * 0.6)
