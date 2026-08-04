@@ -1,191 +1,187 @@
-# 🍳 What to Eat
+# PostSoma Kitchen
 
-> AI Recipe Generator & Personal Recipe Manager
+> 结构化食谱档案与可视化烹饪流程系统。
 
-A modern web application that helps you generate recipes using AI or create and manage your own custom recipes. All recipes are saved locally and can be easily managed in a unified collection.
+PostSoma Kitchen（Time_to_eat）用 **Visual Recipe Flow Card** 取代传统的长篇步骤说明：食材、复合配方、准备条件、操作阶段与成品按从左到右的矩阵关系呈现，让用户能够先看懂做菜路径，再进入实际烹饪。
 
-## ✨ Core Features
+它不是一个让 AI 自动发布食谱的工具。正式食谱由 Kitchen Studio 管理；AI 仅作为 `/fridge` 中用户主动触发的、临时且不可发布的料理建议。
 
-### 1. AI Recipe Generation
-- Generate complete recipes from ingredients and cuisine preferences
-- Support for multiple cuisines (Chinese Eight Great Cuisines + International)
-- Detailed cooking steps with time and temperature guidance
-- Professional cooking tips and techniques
+## 当前能力
 
-### 2. Manual Recipe Management
-- Create your own custom recipes with a comprehensive form
-- Edit and update your saved recipes
-- Add ingredients, steps, cooking tips, and images
-- Full control over recipe details
+- **公开食谱档案**：只展示已发布、未软删除且完成封面准备的 VisualRecipeV3 食谱；支持搜索、分类、分页、详情、移动端阅读与 Cook Mode。
+- **Matrix Flow 流程卡**：以食材、设备、准备、步骤、成品的结构化信息为核心，默认不显示流程箭头或步骤编号；支持全屏查看与 PNG 导出。
+- **Kitchen Studio**：提供草稿、发布、回收站、编辑、软删除、恢复与永久删除；云端写操作通过 Repository、revision 与状态确认链路执行。
+- **按食材找料理方向**：`/fridge` 使用独立食材归一台账与确定性匹配引擎，从已发布食谱中返回可解释的正式参考结果，不把字符串重合伪装成 AI 推荐。
+- **AI 即时建议（原型）**：仅在用户主动配置并发起请求后，通过浏览器内存中的 OpenAI-compatible BYOK Gateway 生成临时做法。结果不写入 Recipe Repository、Supabase、Admin、Matrix Flow 或公开列表；刷新页面即清除 Key。
+- **封面发布边界**：`recipe.coverImageUrl` 是公开封面的最高优先级。无手动封面时显示统一品牌 fallback；prototype 研究资料不参与公开页面渲染。
 
-### 3. Unified Recipe Collection
-- Save both AI-generated and manually created recipes
-- All recipes stored in a unified favorites list
-- Search and filter by name, ingredients, or cuisine
-- Organize and manage your personal recipe library
+## 数据与产品边界
 
-### 4. Local Storage Persistence
-- All recipes saved locally in your browser
-- No account required - your data stays private
-- Persistent storage across sessions
+项目内置 121 道 VisualRecipeV3 结构化食谱，来源位于：
 
-### 5. Dynamic Settings
-- Configure AI API endpoints and models at runtime
-- Switch between different AI service providers
-- No need to restart - settings apply immediately
-- Test API connections before saving
+- `src/data/chineseHealthyRecipes.ts`：中餐健康食谱
+- `src/data/homeSweetHomeRecipes.ts`：美式私房食谱
+- `src/data/v3Examples.ts`：V3 示例食谱
 
-## 🛠️ Tech Stack
+公开端永远以 Repository 返回的 **已发布且未删除** 记录为准；草稿和回收站记录不会进入公开档案或 `/fridge` 候选。原始食材文字、用量、份量、Formula、Action Blocks 和 Matrix Flow 语义都由 `VisualRecipeV3` 保留，不会被食材归一或 AI 建议改写。
 
-- **Frontend Framework:** Vue 3.4 (Composition API) + TypeScript 5.3+
-- **Styling:** Tailwind CSS 3.4+
-- **Build Tool:** Vite 5.0+
-- **State Management:** Pinia (via LocalStorage)
-- **Routing:** Vue Router 4.2+
+## 技术栈
 
-## 🚀 Quick Start
+- Vue 3 + Composition API + TypeScript
+- Vite + Tailwind CSS
+- Vue Router
+- Supabase（Postgres、RLS、RPC、revision）
+- Repository 模式：`IRecipeRepository`、`SupabaseRecipeRepository`、`LocalRecipeRepository`
+- SVG Matrix Flow 布局与浏览器端 PNG 导出
 
-### Prerequisites
+## 架构概览
 
-- Node.js 18+ 
-- npm or yarn
-
-### Installation
-
-```bash
-# Install dependencies
-npm install
-
-# Configure environment variables (optional)
-# Copy .env.example to .env and add your AI API keys if you want to use AI features
-cp .env.example .env
+```text
+Kitchen Studio (/admin)
+  └─ Admin 编辑、发布、回收站、revision 写操作
+             │
+             ▼
+      IRecipeRepository
+       ├─ SupabaseRecipeRepository（云端）
+       └─ LocalRecipeRepository（本地）
+             │
+             ▼
+       VisualRecipeV3（唯一食谱事实）
+             │
+      ┌──────┴─────────┐
+      ▼                ▼
+公开食谱档案 (/)   按食材找方向 (/fridge)
+                         ├─ 确定性食材匹配 → 正式 recipe 参考
+                         └─ 主动 AI 请求 → 临时建议（不入库）
 ```
 
-### Development
+## 快速开始
+
+### 环境要求
+
+- Node.js 18+
+- npm
+
+### 安装与本地运行
 
 ```bash
-# Start development server
+npm install
+cp .env.example .env
 npm run dev
 ```
 
-The application will be available at `http://localhost:5173`
+开发服务器默认运行在 `http://localhost:5173`。
 
-### Build
+### 存储模式
 
-```bash
-# Type check and build for production
-npm run build
-
-# Preview production build
-npm run preview
-```
-
-## 📖 Usage Guide
-
-### Creating Recipes Manually
-
-1. Navigate to "创建菜谱" (Create Recipe) from the navigation menu
-2. Fill in the recipe details:
-   - Recipe name and cuisine type
-   - Add ingredients (click "+ 添加食材")
-   - Add cooking steps (click "+ 添加步骤")
-   - Optionally add cooking tips and image URL
-3. Click "保存菜谱" to save to your collection
-
-### Generating Recipes with AI
-
-1. Go to the home page
-2. Select ingredients and choose cuisine preferences
-3. Click "开始生成菜谱" to generate recipes
-4. Generated recipes can be saved to your collection
-
-### Managing Your Recipes
-
-- View all saved recipes in "我的收藏" (My Favorites)
-- Search recipes by name or ingredients
-- Filter by cuisine type
-- Edit manual recipes (click ✏️ icon)
-- Add notes to any recipe
-
-### Configuring AI Settings
-
-1. Click the ⚙️ settings button in the navigation
-2. Configure your AI API endpoints and keys
-3. Test the connection before saving
-4. Settings are saved locally and persist across sessions
-
-## 📁 Project Structure
-
-```
-src/
-├── components/          # Reusable Vue components
-│   ├── RecipeCard.vue        # Recipe display card
-│   ├── GlobalNavigation.vue  # Navigation bar
-│   ├── SettingsModal.vue     # Settings configuration
-│   └── ...
-├── config/              # Configuration files
-│   ├── cuisines.ts           # Cuisine definitions
-│   ├── ingredients.ts        # Ingredient lists
-│   └── ...
-├── services/            # Business logic services
-│   ├── aiService.ts          # AI recipe generation
-│   ├── favoriteService.ts    # Recipe storage (LocalStorage)
-│   ├── imageService.ts       # Image generation
-│   └── ...
-├── stores/              # State management
-│   └── settings.js           # App settings
-├── types/               # TypeScript type definitions
-│   └── index.ts              # Shared Recipe interface
-├── views/               # Page components
-│   ├── Home.vue              # AI recipe generation
-│   ├── CreateRecipe.vue      # Manual recipe creation
-│   ├── Favorites.vue         # Recipe collection
-│   └── ...
-└── utils/               # Utility functions
-    └── apiConfig.js          # API configuration helpers
-```
-
-## 🔧 Environment Variables
-
-If you want to use AI features, configure these environment variables:
+`.env` 中只配置当前运行所需的存储模式：
 
 ```env
-# Text Generation API (Recipe generation)
-VITE_TEXT_GENERATION_BASE_URL=https://api.example.com/v1/
-VITE_TEXT_GENERATION_API_KEY=your_api_key_here
-VITE_TEXT_GENERATION_MODEL=your_model_name
-VITE_TEXT_GENERATION_TEMPERATURE=0.7
-VITE_TEXT_GENERATION_TIMEOUT=300000
+# local | shadow_read | supabase
+VITE_STORAGE_MODE=local
 
-# Image Generation API (Optional)
-VITE_IMAGE_GENERATION_BASE_URL=https://api.example.com/v1/images/generations
-VITE_IMAGE_GENERATION_API_KEY=your_api_key_here
-VITE_IMAGE_GENERATION_MODEL=your_image_model
+# 仅在 supabase / shadow_read 模式需要
+VITE_SUPABASE_URL=https://your-project.supabase.co
+VITE_SUPABASE_ANON_KEY=your_anon_key
 ```
 
-**Note:** The application works without AI features - you can use it purely as a manual recipe manager!
+- `local`：浏览器本地存储，适合离线开发与界面验证。
+- `shadow_read`：本地写入，同时读取云端用于比对。
+- `supabase`：使用 Supabase 作为持久化存储。
 
-## 📝 Development
+**不要**把 `SUPABASE_SERVICE_ROLE_KEY`、个人 API Key 或任何管理员凭据放进 `VITE_*`、源码或部署平台的客户端变量。Service Role Key 仅供本地受控 CLI 迁移使用。
 
-### Type Checking
+### `/fridge` 的 AI 原型说明
+
+AI 即时建议不读取 `.env` 中的 API Key。用户需要在页面中临时填写符合 OpenAI-compatible JSON 协议的 HTTPS Base URL、模型与 Key；配置仅保存在该页面 JavaScript 内存，刷新、离开或重新打开页面后立即清除。
+
+该能力是原型功能：建议内容必须标识为“AI 即时建议 · 临时生成”，不能保存或发布为正式食谱。
+
+## 常用命令
+
+| 命令 | 用途 |
+| --- | --- |
+| `npm run dev` | 启动 Vite 开发服务器 |
+| `npm run type-check` | Vue / TypeScript 类型检查 |
+| `npm run build` | 类型检查并构建生产包 |
+| `npm run preview` | 本地预览生产包 |
+| `npm run audit:presets` | 审计静态预置食谱规范 |
+| `node scripts/runTs.js scripts/verifyAllRecipesIntegrity.ts` | 执行全量食谱完整性巡检 |
+| `npm run test:domain` | 领域模型与 Repository 测试集合 |
+| `npm run test:flow` | Matrix Flow Graph 测试 |
+| `npm run test:repo` | Repository 测试 |
+| `npm run test:admin-nav` | Admin 导航上下文测试 |
+| `npm run test:fridge-foundation` | 食材归一与确定性匹配测试 |
+| `npm run test:fridge-page` | `/fridge` 页面集成测试 |
+| `npm run test:fridge-ai-channel` | AI 建议状态机与契约测试 |
+| `npm run test:fridge-ai-gateway` | OpenAI-compatible BYOK Gateway 测试 |
+| `npm run test:fridge-ai-safety` | AI 食品安全规则测试 |
+| `npm run test:cover-publication` | 封面发布边界测试 |
+| `npm run migrate:all` | 预览全量 Supabase 迁移（dry run） |
+| `npm run migrate:all -- --actual` | 执行全量 Supabase 迁移；仅在受控环境使用 |
+
+推荐在推送或部署前运行：
 
 ```bash
 npm run type-check
+npm run test:domain
+npm run test:flow
+npm run test:fridge-foundation
+npm run test:fridge-page
+npm run build
 ```
 
-### Adding New Features
+## 目录说明
 
-1. Create new components in `src/components/`
-2. Add new views in `src/views/`
-3. Update routes in `src/main.ts`
-4. Add navigation links in `src/components/GlobalNavigation.vue`
+```text
+src/
+├── components/
+│   ├── fridge/                    # 食材选择、匹配卡与 AI 临时建议 UI
+│   ├── publish/                   # 公开食谱卡与分页
+│   └── recipe-flow-v3/            # Flow Card、工作区与移动端呈现
+├── data/                          # 121 道静态食谱、封面清单
+├── domain/
+│   └── fridge/                    # 食材台账、确定性匹配、AI 契约与安全策略
+├── repositories/                  # 本地 / Supabase Recipe Repository
+├── services/                      # Store、normalizer、封面发布服务等
+├── types/recipeV3.ts              # VisualRecipeV3 类型定义
+├── utils/matrixFlowLayout.ts       # Matrix Flow 布局引擎
+└── views/
+    ├── PublishHome.vue             # 公开食谱档案
+    ├── RecipeDetailV3.vue          # 食谱详情与 Cook Mode
+    ├── FridgeMatch.vue             # 按食材找料理方向
+    ├── MyRecipes.vue               # Kitchen Studio 列表
+    └── RecipeEditorV3.vue          # Studio 编辑器
 
-## 📄 License
+supabase/migrations/               # Supabase schema / RPC 迁移
+scripts/                            # 审计、迁移和测试运行脚本
+tests/domain/                       # 领域、Repository、Flow、fridge 测试
+```
 
-MIT License - See LICENSE file for details
+## 部署
 
-## 🙏 Acknowledgments
+仓库包含 `vercel.json` 与 `netlify.toml`，可部署到 Vercel 或 Netlify。
 
-- [Vue.js](https://vuejs.org/) - Progressive JavaScript framework
-- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
-- [Vite](https://vitejs.dev/) - Next generation frontend tooling
+1. 连接 GitHub 仓库，选择 `main` 作为生产分支。
+2. 使用构建命令：
+
+   ```bash
+   npm run build
+   ```
+
+   Netlify 可使用 `npm run build:netlify`。
+
+3. 仅在需要云端数据时，在平台环境变量中配置 `VITE_STORAGE_MODE=supabase`、`VITE_SUPABASE_URL` 与 `VITE_SUPABASE_ANON_KEY`。
+4. 不配置 Service Role Key，也不要部署任何个人 BYOK Key。BYOK 由最终用户在浏览器会话内自行临时输入。
+
+部署前请确认 Supabase 已完成相应迁移、RLS 和公开读取策略；前端不会绕过 Repository 或 RLS。
+
+## 进一步文档
+
+- [AGENTS.md](./AGENTS.md)：架构、VisualRecipeV3 规范与开发交接
+- [PROJECT_HANDOVER.md](./PROJECT_HANDOVER.md)：项目历史与实现约束
+- [DEPLOYMENT.md](./DEPLOYMENT.md)：部署平台说明
+
+## License
+
+[MIT](./LICENSE)
