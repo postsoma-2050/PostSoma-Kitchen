@@ -1,287 +1,219 @@
 <template>
-    <div class="min-h-screen bg-[#FAF8F5] px-2 md:px-4 py-6">
-        <!-- 全局导航 -->
-        <GlobalNavigation />
+  <main id="main-content" class="pk-page min-h-screen px-4 py-6 font-sans md:px-8 md:py-10">
+    <div class="mx-auto max-w-5xl space-y-8">
+      
+      <!-- 1. Page Header -->
+      <section class="border-y border-[color:var(--pk-border)] py-8 md:py-10">
+        <div class="max-w-3xl">
+          <p class="pk-eyebrow">E-E-A-T 权威声明与系统架构</p>
+          <h1 class="pk-display mt-3 text-3xl leading-tight md:text-4xl">
+            PostSoma Kitchen
+          </h1>
+          <p class="text-sm font-semibold text-[color:var(--pk-accent)] mt-1">
+            多源健康食谱标准化建模引擎 (Visual Recipe Matrix V3.0)
+          </p>
+          <p class="pk-muted mt-3 text-sm leading-relaxed md:text-base">
+            PostSoma Kitchen 致力于把不同来源的健康食谱，整理成清晰、可执行、可沉淀的二维矩阵烹饪流程图 (Visual Recipe Flow Card)。平台不局限于单一配方，而是提供一套通用的食谱工程化与可视化计算框架。
+          </p>
+        </div>
+      </section>
 
-        <div class="max-w-7xl mx-auto space-y-6">
-            <!-- 项目简介 -->
-            <div class="relative">
-                <div class="bg-[#2D5A43] text-white px-4 py-2 rounded-t-lg border border-[#1F4030] border-b-0 inline-block mb-0">
-                    <span class="font-bold text-base">🎯 About PostSoma Kitchen</span>
-                </div>
-                <div class="bg-white border border-[#E5E2DC] rounded-lg rounded-tl-none p-6 shadow-sm">
-                    <div class="mt-2">
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center mb-6">
-                            <div>
-                                <h2 class="text-xl font-bold text-[#1C2520] mb-2">PostSoma Kitchen | Visual Cookbook</h2>
-                                <p class="text-[11px] text-[#2D5A43] font-bold mb-4 italic">A PostSoma Craft & Memory Workspace</p>
-                                <p class="text-gray-700 text-sm mb-4 leading-relaxed">
-                                    PostSoma Kitchen 致力于把每一道料理，整理成清晰、可执行、可沉淀的 Visual Recipe Flow Card。平台清晰呈现食材时序依赖与矩阵配方，下厨从容不慌乱。
-                                </p>
-                                <div class="space-y-2">
-                                    <div class="flex items-center gap-2">
-                                        <span class="text-green-500">✓</span>
-                                        <span class="text-sm">AI-powered recipe generation</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <span class="text-green-500">✓</span>
-                                        <span class="text-sm">Manual recipe creation and management</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <span class="text-green-500">✓</span>
-                                        <span class="text-sm">Unified recipe collection</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <span class="text-green-500">✓</span>
-                                        <span class="text-sm">Local storage for privacy</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <div class="bg-gradient-to-br from-[#1F4030] to-[#2D5A43] rounded-lg p-8 border border-[#1F4030] shadow-sm text-white">
-                                    <div class="text-6xl mb-4">🍳</div>
-                                    <h3 class="text-xl font-bold text-white mb-1">PostSoma Kitchen</h3>
-                                    <p class="text-emerald-100 text-xs font-medium">Visual Cookbook</p>
-                                </div>
-                            </div>
-                        </div>
+      <!-- 2. Core Positioning & Engine Capabilities -->
+      <section class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="pk-surface p-6 space-y-3">
+          <div class="text-3xl">📐</div>
+          <h2 class="text-base font-bold text-[color:var(--pk-ink)]">Matrix Flow 矩阵流程图</h2>
+          <p class="text-xs leading-relaxed text-[color:var(--pk-ink-secondary)]">
+            打破传统文本干瘪的排版，将食材准备、工序节点、火候控制与时间动态交织渲染为直观的可视化二维图表。
+          </p>
+        </div>
+        <div class="pk-surface p-6 space-y-3">
+          <div class="text-3xl">🧪</div>
+          <h2 class="text-base font-bold text-[color:var(--pk-ink)]">多源食谱转译与计算</h2>
+          <p class="text-xs leading-relaxed text-[color:var(--pk-ink-secondary)]">
+            支持万能酱汁与复合配方 (Formula Scaler) 动态倍率换算，自动计算用量并标注炊具规格与蒸/炖/炒分类码。
+          </p>
+        </div>
+        <div class="pk-surface p-6 space-y-3">
+          <div class="text-3xl">🔒</div>
+          <h2 class="text-base font-bold text-[color:var(--pk-ink)]">隐私优先与离线引擎</h2>
+          <p class="text-xs leading-relaxed text-[color:var(--pk-ink-secondary)]">
+            采用 Local-First 本地优先架构，支持无网离线运行；云端可选存储采用 Supabase Postgres RPC 乐观锁防冲突。
+          </p>
+        </div>
+      </section>
 
-                        <!-- 平台特色 -->
-                        <div>
-                            <div class="flex items-center gap-2 mb-4">
-                                <span class="text-2xl">✨</span>
-                                <h3 class="text-xl font-bold text-dark-800">Key Features</h3>
-                            </div>
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                <div class="text-center p-4 bg-gradient-to-br from-purple-50 to-pink-50 border-2 border-purple-200 rounded-lg">
-                                    <div class="text-3xl mb-2">🤖</div>
-                                    <h4 class="font-bold text-dark-800 mb-2 text-sm">AI Recipe Generation</h4>
-                                    <p class="text-xs text-gray-600">Generate complete recipes from ingredients and cuisine preferences using advanced AI technology</p>
-                                </div>
-                                <div class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 border-2 border-blue-200 rounded-lg">
-                                    <div class="text-3xl mb-2">✍️</div>
-                                    <h4 class="font-bold text-dark-800 mb-2 text-sm">Manual Recipe Creation</h4>
-                                    <p class="text-xs text-gray-600">Create and manage your own custom recipes with a comprehensive form</p>
-                                </div>
-                                <div class="text-center p-4 bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200 rounded-lg">
-                                    <div class="text-3xl mb-2">❤️</div>
-                                    <h4 class="font-bold text-dark-800 mb-2 text-sm">Recipe Collection</h4>
-                                    <p class="text-xs text-gray-600">Save, organize, and manage all your recipes in a unified favorites list</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 菜系大全 -->
-            <div class="relative">
-                <div class="bg-gradient-to-r from-red-500 to-green-500 text-white px-4 py-2 rounded-t-lg border-2 border-[#0A0910] border-b-0 inline-block mb-0">
-                    <span class="font-bold text-lg">👨‍🍳 大师介绍</span>
-                </div>
-                <div class="bg-white border-2 border-[#0A0910] rounded-lg rounded-tl-none p-6">
-                    <div class="mt-4">
-                        <!-- 中华八大菜系 -->
-                        <div class="mb-8">
-                            <div class="flex items-center gap-2 mb-4">
-                                <span class="text-2xl">🇨🇳</span>
-                                <h3 class="text-xl font-bold text-dark-800">中华八大菜系</h3>
-                            </div>
-                            <p class="text-gray-700 mb-4 text-sm">中华料理博大精深，八大菜系各具特色，代表了中国烹饪艺术的最高水准。</p>
-                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
-                                <div
-                                    v-for="cuisine in chineseCuisines"
-                                    :key="cuisine.id"
-                                    class="bg-gradient-to-br from-red-50 to-orange-50 border-2 border-red-200 rounded-lg p-3 hover:shadow-lg transition-all duration-200 transform hover:scale-105"
-                                >
-                                    <div class="text-center mb-2">
-                                        <div class="text-2xl mb-1">{{ cuisine.avatar }}</div>
-                                        <h4 class="font-bold text-dark-800 text-sm">{{ cuisine.name }}</h4>
-                                    </div>
-                                    <div class="space-y-1">
-                                        <div class="text-xs text-gray-600"><span class="font-medium">特色：</span>{{ cuisine.specialty }}</div>
-                                        <div class="text-xs text-gray-600"><span class="font-medium">代表菜：</span>{{ cuisine.dishes }}</div>
-                                        <div class="text-xs text-gray-600"><span class="font-medium">口味：</span>{{ cuisine.flavor }}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 国际菜系 -->
-                        <div>
-                            <div class="flex items-center gap-2 mb-4">
-                                <span class="text-2xl">🌍</span>
-                                <h3 class="text-xl font-bold text-dark-800">国际菜系</h3>
-                            </div>
-                            <p class="text-gray-700 mb-4 text-sm">融汇世界各地的经典料理，为您带来国际化的美食体验。</p>
-                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                                <div
-                                    v-for="cuisine in internationalCuisines"
-                                    :key="cuisine.id"
-                                    class="bg-gradient-to-br from-green-50 to-blue-50 border-2 border-green-200 rounded-lg p-3 hover:shadow-lg transition-all duration-200 transform hover:scale-105"
-                                >
-                                    <div class="text-center mb-2">
-                                        <div class="text-2xl mb-1">{{ cuisine.avatar }}</div>
-                                        <h4 class="font-bold text-dark-800 text-sm">{{ cuisine.name }}</h4>
-                                    </div>
-                                    <div class="space-y-1">
-                                        <div class="text-xs text-gray-600"><span class="font-medium">特色：</span>{{ cuisine.specialty }}</div>
-                                        <div class="text-xs text-gray-600"><span class="font-medium">代表菜：</span>{{ cuisine.dishes }}</div>
-                                        <div class="text-xs text-gray-600"><span class="font-medium">风格：</span>{{ cuisine.style }}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+      <!-- 3. Recipe Provenance & Knowledge Lineage Map -->
+      <section class="pk-surface p-6 md:p-8 space-y-5">
+        <div>
+          <h2 class="text-xl font-bold text-[color:var(--pk-ink)] flex items-center gap-2">
+            <span>🗺️</span>
+            <span>食谱来源与知识谱系 (Recipe Provenance Map)</span>
+          </h2>
+          <p class="text-sm leading-relaxed text-[color:var(--pk-ink-secondary)] mt-1">
+            PostSoma Kitchen 采用开放图谱架构，显式区分平台建模引擎与原始食谱出处。所有收录体系均具备可追溯的数据源标注：
+          </p>
         </div>
 
-        <!-- 底部 -->
-        <GlobalFooter />
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+          <!-- 首期示范数据集 1 -->
+          <div class="border border-[color:var(--pk-border)] p-4 rounded-lg bg-[color:var(--pk-surface-muted)] space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-sm text-[color:var(--pk-ink)]">🇨🇳 中餐健康营养首发示范库</span>
+              <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-emerald-100 text-emerald-800">首期示范数据集</span>
+            </div>
+            <p class="text-[color:var(--pk-ink-muted)] leading-relaxed">
+              <strong>原始参考</strong>：知名营养师张晔《蒸炖炒，营养师的健康食谱》。<br/>
+              <strong>工程验证目标</strong>：用于验证“蒸/炖/炒/拌”四类低油低盐中餐工序的量词标准化、火候节点与 7 维闭环巡检算法。
+            </p>
+          </div>
+
+          <!-- 首期示范数据集 2 -->
+          <div class="border border-[color:var(--pk-border)] p-4 rounded-lg bg-[color:var(--pk-surface-muted)] space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-sm text-[color:var(--pk-ink)]">🇺🇸 美式私房与烘焙示例库</span>
+              <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-blue-100 text-blue-800">首期示例数据集</span>
+            </div>
+            <p class="text-[color:var(--pk-ink-muted)] leading-relaxed">
+              <strong>原始参考</strong>：经典美式家庭私房烹饪与烘焙配方。<br/>
+              <strong>工程验证目标</strong>：用于验证烘焙干湿料分类、华氏/摄氏温度转换及复合酱汁 (Formula Scaler) 的倍率自动计算。
+            </p>
+          </div>
+        </div>
+
+        <!-- 未来拓展规划 -->
+        <div class="border-t border-[color:var(--pk-border)] pt-4">
+          <h3 class="text-xs font-bold text-[color:var(--pk-ink)] uppercase tracking-wider mb-2">开放图谱扩展规划 (Open Lineage Architecture)</h3>
+          <p class="text-xs leading-relaxed text-[color:var(--pk-ink-muted)]">
+            随着平台的演进，我们将持续引入多位专业营养师指南、名厨私房配方、传统烹饪图书及开源社区配方。每一道新食谱均会显式标注原作者、出处链接与转译适配说明，保持高度的版权尊重与数据透明。
+          </p>
+        </div>
+      </section>
+
+      <!-- 4. E-E-A-T & Quality Review Pipeline -->
+      <section class="pk-surface p-6 md:p-8 space-y-4">
+        <h2 class="text-xl font-bold text-[color:var(--pk-ink)] flex items-center gap-2">
+          <span>🩺</span>
+          <span>E-E-A-T 质量审查与数据透明度</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-[color:var(--pk-ink-muted)]">
+          <div class="border border-[color:var(--pk-border)] p-4 rounded-lg bg-[color:var(--pk-surface-muted)]">
+            <span class="font-bold text-sm text-[color:var(--pk-ink)] block mb-1">来源可追溯 (Provenance)</span>
+            <p>每道食谱在 JSON-LD 结构化数据与大模型喂料中，均明确区分平台（Publisher）与原始参考出处（isBasedOn / citation），确保归因准确。</p>
+          </div>
+          <div class="border border-[color:var(--pk-border)] p-4 rounded-lg bg-[color:var(--pk-surface-muted)]">
+            <span class="font-bold text-sm text-[color:var(--pk-ink)] block mb-1">7 维工程化校验</span>
+            <p>所有内置食谱均通过静态 TypeScript 类型审计与 7 维闭环巡检，保证食材与工序 100% 映射，排除悬空节点与逻辑死锁。</p>
+          </div>
+          <div class="border border-[color:var(--pk-border)] p-4 rounded-lg bg-[color:var(--pk-surface-muted)]">
+            <span class="font-bold text-sm text-[color:var(--pk-ink)] block mb-1">食品安全边界</span>
+            <p>清冰箱匹配与 AI 建议模块内置本地食品安全规则，自动干预生食风险、高危配伍与状态未明的食材。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Machine Feeds & AI Index (GEO) -->
+      <section class="pk-surface p-6 md:p-8 space-y-4">
+        <h2 class="text-xl font-bold text-[color:var(--pk-ink)] flex items-center gap-2">
+          <span>🤖</span>
+          <span>生成式引擎与 AI 机器知识入口 (LLM Feeds)</span>
+        </h2>
+        <p class="text-sm leading-relaxed text-[color:var(--pk-ink-secondary)]">
+          PostSoma Kitchen 原生支持 AI 搜索引擎（ChatGPT, Perplexity, Claude, Apple Intelligence, Google Gemini）零延迟提取与深度索引：
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 pt-2">
+          <a href="/llms.txt" target="_blank" class="p-3 border border-[color:var(--pk-border)] rounded-lg hover:border-[color:var(--pk-accent)] transition-colors block">
+            <div class="font-bold text-xs text-[color:var(--pk-ink)]">📄 llms.txt</div>
+            <div class="text-[11px] text-[color:var(--pk-ink-muted)] mt-1">精简版 Markdown 索引</div>
+          </a>
+          <a href="/llms-full.txt" target="_blank" class="p-3 border border-[color:var(--pk-border)] rounded-lg hover:border-[color:var(--pk-accent)] transition-colors block">
+            <div class="font-bold text-xs text-[color:var(--pk-ink)]">📦 llms-full.txt</div>
+            <div class="text-[11px] text-[color:var(--pk-ink-muted)] mt-1">全量食谱知识喂料</div>
+          </a>
+          <a href="/sitemap.xml" target="_blank" class="p-3 border border-[color:var(--pk-border)] rounded-lg hover:border-[color:var(--pk-accent)] transition-colors block">
+            <div class="font-bold text-xs text-[color:var(--pk-ink)]">🗺️ sitemap.xml</div>
+            <div class="text-[11px] text-[color:var(--pk-ink-muted)] mt-1">标准 XML 站点地图</div>
+          </a>
+          <a href="/robots.txt" target="_blank" class="p-3 border border-[color:var(--pk-border)] rounded-lg hover:border-[color:var(--pk-accent)] transition-colors block">
+            <div class="font-bold text-xs text-[color:var(--pk-ink)]">🤖 robots.txt</div>
+            <div class="text-[11px] text-[color:var(--pk-ink-muted)] mt-1">AI 爬虫开放许可</div>
+          </a>
+        </div>
+      </section>
+
+      <!-- 6. Academic & LLM Citation Guide -->
+      <section class="pk-surface p-6 md:p-8 space-y-4">
+        <h2 class="text-xl font-bold text-[color:var(--pk-ink)] flex items-center gap-2">
+          <span>📚</span>
+          <span>学术与 AI 引用规范 (Citation Guide)</span>
+        </h2>
+        <p class="text-sm leading-relaxed text-[color:var(--pk-ink-secondary)]">
+          在学术论文、技术报告或 LLM 输出中引用 PostSoma Kitchen 时，请参考以下格式：
+        </p>
+        <div class="bg-[color:var(--pk-surface-muted)] border border-[color:var(--pk-border)] p-4 rounded-lg text-xs font-mono overflow-x-auto text-[color:var(--pk-ink)]">
+<pre>@misc{postsoma_kitchen_2026,
+  author = {PostSoma Kitchen Team},
+  title = {PostSoma Kitchen: Visual Recipe Standardization & Health Modeling Engine},
+  year = {2026},
+  publisher = {PostSoma-2050},
+  url = {https://recipelab.cc/}
+}</pre>
+        </div>
+      </section>
+
     </div>
+  </main>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import GlobalNavigation from '@/components/GlobalNavigation.vue'
-import GlobalFooter from '@/components/GlobalFooter.vue'
+import { onMounted } from 'vue'
+import { updateSeoMeta } from '@/utils/seoHelper'
 
-// 中华八大菜系数据
-const chineseCuisines = ref([
-    {
-        id: 'sichuan',
-        name: '川菜大师',
-        avatar: '🌶️',
-        specialty: '麻辣鲜香，口味浓重',
-        dishes: '麻婆豆腐、宫保鸡丁、水煮鱼',
-        flavor: '麻辣、鲜香、回甜'
-    },
-    {
-        id: 'cantonese',
-        name: '粤菜大师',
-        avatar: '🦐',
-        specialty: '清淡鲜美，注重原味',
-        dishes: '白切鸡、蒸蛋羹、广式点心',
-        flavor: '清淡、鲜美、嫩滑'
-    },
-    {
-        id: 'shandong',
-        name: '鲁菜大师',
-        avatar: '🐟',
-        specialty: '咸鲜为主，突出本味',
-        dishes: '糖醋鲤鱼、九转大肠、葱爆海参',
-        flavor: '咸鲜、醇厚、清香'
-    },
-    {
-        id: 'jiangsu',
-        name: '苏菜大师',
-        avatar: '🦆',
-        specialty: '清淡微甜，精工细作',
-        dishes: '松鼠桂鱼、蟹粉狮子头、盐水鸭',
-        flavor: '清淡、微甜、鲜美'
-    },
-    {
-        id: 'zhejiang',
-        name: '浙菜大师',
-        avatar: '🐠',
-        specialty: '清香嫩滑，鲜美爽口',
-        dishes: '西湖醋鱼、龙井虾仁、东坡肉',
-        flavor: '清香、嫩滑、鲜美'
-    },
-    {
-        id: 'fujian',
-        name: '闽菜大师',
-        avatar: '🦀',
-        specialty: '鲜香清淡，重汤轻油',
-        dishes: '佛跳墙、荔枝肉、沙茶面',
-        flavor: '鲜香、清淡、醇厚'
-    },
-    {
-        id: 'hunan',
-        name: '湘菜大师',
-        avatar: '🌶️',
-        specialty: '香辣鲜浓，口味厚重',
-        dishes: '剁椒鱼头、麻辣子鸡、口味虾',
-        flavor: '香辣、鲜浓、酸辣'
-    },
-    {
-        id: 'anhui',
-        name: '徽菜大师',
-        avatar: '🐷',
-        specialty: '重油重色，朴实醇厚',
-        dishes: '红烧肉、毛豆腐、臭鳜鱼',
-        flavor: '醇厚、鲜美、微甜'
-    }
-])
-
-// 国际菜系数据
-const internationalCuisines = ref([
-    {
-        id: 'japanese',
-        name: '日式料理大师',
-        avatar: '🍣',
-        specialty: '新鲜食材，精致摆盘',
-        dishes: '寿司、拉面、天妇罗',
-        style: '清淡、精致、原味'
-    },
-    {
-        id: 'korean',
-        name: '韩式料理大师',
-        avatar: '🥢',
-        specialty: '发酵调味，营养均衡',
-        dishes: '泡菜、烤肉、石锅拌饭',
-        style: '酸辣、发酵、健康'
-    },
-    {
-        id: 'thai',
-        name: '泰式料理大师',
-        avatar: '🌶️',
-        specialty: '酸甜辣香，层次丰富',
-        dishes: '冬阴功汤、绿咖喱、芒果糯米饭',
-        style: '酸甜、香辣、清爽'
-    },
-    {
-        id: 'italian',
-        name: '意式料理大师',
-        avatar: '🍝',
-        specialty: '简单食材，经典搭配',
-        dishes: '意大利面、披萨、提拉米苏',
-        style: '简约、经典、浓郁'
-    },
-    {
-        id: 'french',
-        name: '法式料理大师',
-        avatar: '🥖',
-        specialty: '精致工艺，浪漫情调',
-        dishes: '法式焗蜗牛、鹅肝、马卡龙',
-        style: '精致、浪漫、优雅'
-    },
-    {
-        id: 'american',
-        name: '美式料理大师',
-        avatar: '🍔',
-        specialty: '分量丰富，口味浓郁',
-        dishes: '汉堡、炸鸡、牛排',
-        style: '丰富、浓郁、豪放'
-    }
-])
+onMounted(() => {
+  updateSeoMeta({
+    title: '关于 PostSoma Kitchen · 多源食谱建模引擎与 E-E-A-T 声明',
+    description: '了解 PostSoma Kitchen 的 Visual Recipe Matrix 标准化建模架构、首期示范数据集出处追溯、隐私合规声明与 LLM 知识喂料接口。',
+    canonicalUrl: 'https://recipelab.cc/about',
+    jsonLdSchemas: [
+      {
+        id: 'jsonld-aboutpage',
+        schema: {
+          '@context': 'https://schema.org',
+          '@type': 'AboutPage',
+          '@id': 'https://recipelab.cc/about#page',
+          'name': '关于 PostSoma Kitchen 多源食谱标准化建模引擎',
+          'url': 'https://recipelab.cc/about',
+          'description': 'PostSoma Kitchen E-E-A-T 权威声明、食谱知识谱系与 Visual Recipe Flow Card 系统架构介绍',
+          'publisher': {
+            '@type': 'Organization',
+            'name': 'PostSoma Kitchen',
+            'url': 'https://recipelab.cc/'
+          }
+        }
+      },
+      {
+        id: 'jsonld-about-breadcrumbs',
+        schema: {
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          '@id': 'https://recipelab.cc/about#breadcrumbs',
+          'itemListElement': [
+            {
+              '@type': 'ListItem',
+              'position': 1,
+              'name': '首页',
+              'item': 'https://recipelab.cc/'
+            },
+            {
+              '@type': 'ListItem',
+              'position': 2,
+              'name': '关于与 E-E-A-T 声明',
+              'item': 'https://recipelab.cc/about'
+            }
+          ]
+        }
+      }
+    ]
+  })
+})
 </script>
-
-<style scoped>
-@keyframes fade-in-up {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.animate-fade-in-up {
-    animation: fade-in-up 0.6s ease-out forwards;
-}
-</style>

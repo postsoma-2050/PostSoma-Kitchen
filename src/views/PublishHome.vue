@@ -177,6 +177,7 @@ import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import type { VisualRecipeV3 } from '@/types/recipeV3'
 import { getPublishedRecipes } from '@/services/v3RecipeStore'
+import { updateSeoMeta } from '@/utils/seoHelper'
 import PublishRecipeCard from '@/components/publish/PublishRecipeCard.vue'
 import RecipePagination from '@/components/publish/RecipePagination.vue'
 import {
@@ -436,9 +437,53 @@ async function applyRouteQuery(query: Record<string, unknown>) {
   if (!isLoading.value) normalizePageAndUrl()
 }
 
+function updatePageSeo() {
+  const count = publishedRecipes.value.length
+  const schemaItemList = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    '@id': 'https://recipelab.cc/#recipe-item-list',
+    'name': 'PostSoma Kitchen 结构化食谱库',
+    'numberOfItems': count,
+    'itemListElement': publishedRecipes.value.slice(0, 30).map((r, i) => ({
+      '@type': 'ListItem',
+      'position': i + 1,
+      'name': r.title,
+      'url': `https://recipelab.cc/recipe/${r.id}`
+    }))
+  }
+
+  const schemaBreadcrumbs = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    '@id': 'https://recipelab.cc/#breadcrumbs',
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': '首页',
+        'item': 'https://recipelab.cc/'
+      }
+    ]
+  }
+
+  updateSeoMeta({
+    title: searchQuery.value ? `搜索: ${searchQuery.value}` : '结构化食谱档案',
+    description: `收录 ${count} 道精细建模健康食谱，包含中餐营养与私房料理，用 Matrix Flow 流程图直观展示烹饪工序与食材配比。`,
+    canonicalUrl: 'https://recipelab.cc/',
+    jsonLdSchemas: [
+      { id: 'jsonld-itemlist', schema: schemaItemList },
+      { id: 'jsonld-breadcrumbs', schema: schemaBreadcrumbs }
+    ]
+  })
+}
+
 watch(
   () => route.query,
-  query => void applyRouteQuery(query),
+  query => {
+    void applyRouteQuery(query)
+    updatePageSeo()
+  },
   { deep: true },
 )
 
@@ -448,6 +493,7 @@ onMounted(async () => {
   } finally {
     isLoading.value = false
     normalizePageAndUrl()
+    updatePageSeo()
   }
 })
 
