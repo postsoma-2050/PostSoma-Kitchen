@@ -7,6 +7,7 @@ import './style.css'
 const PublishHome = () => import('./views/PublishHome.vue')
 const RecipeDetailV3 = () => import('./views/RecipeDetailV3.vue')
 const FridgeMatch = () => import('./views/FridgeMatch.vue')
+const About = () => import('./views/About.vue')
 const AdminLogin = () => import('./views/AdminLogin.vue')
 const MyRecipes = () => import('./views/MyRecipes.vue')
 const RecipeEditorV3 = () => import('./views/RecipeEditorV3.vue')
@@ -16,6 +17,7 @@ const routes = [
     { path: '/', component: PublishHome },                       // 公开食谱库首页
     { path: '/recipe/:id', component: RecipeDetailV3 },        // 食谱详情 (公开只读)
     { path: '/fridge', component: FridgeMatch },               // 清冰箱食材匹配
+    { path: '/about', component: About },                     // 关于与 E-E-A-T 权威页面
 
     // 2. 认证登录视图
     { path: '/admin/login', component: AdminLogin },
@@ -60,6 +62,15 @@ router.beforeEach(async (to, _from, next) => {
 
     // 未授权，自动携带原始 redirect 参数重定向至登录页
     next(`/admin/login?redirect=${encodeURIComponent(to.fullPath)}`)
+})
+
+// Google Analytics (GA4) 单页路由切换 Pageview 自动追踪
+router.afterEach((to) => {
+    if (typeof (window as any).gtag === 'function') {
+        ;(window as any).gtag('config', 'G-3JFCN7B1ZR', {
+            page_path: to.fullPath
+        })
+    }
 })
 
 const app = createApp(App).use(router)

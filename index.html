@@ -2,19 +2,50 @@
 <html lang="zh-CN">
     <head>
         <meta charset="UTF-8" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/svg+xml" href="/logo.svg" />
-        <link rel="shortcut icon" href="/logo.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/favicon.ico" />
+        <link rel="mask-icon" href="/logo.svg" color="#1f4d3d" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <!-- 基础SEO与品牌统一 -->
-        <title>PostSoma Kitchen | Visual Cookbook</title>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-3JFCN7B1ZR"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-3JFCN7B1ZR');
+        </script>
+
+        <!-- 规范域名与基础 SEO -->
+        <title>PostSoma Kitchen | Visual Cookbook & Healthy Recipe System</title>
         <meta
             name="description"
-            content="PostSoma Kitchen - 把每一道料理整理成清晰、可执行、可沉淀的 Visual Recipe Flow Card。"
+            content="PostSoma Kitchen - 把每一道料理整理成清晰、可执行、可沉淀的 Visual Recipe Flow Card。基于张晔中餐营养健康体系，提供矩阵烹饪流程图、酱汁倍率换算与智能清冰箱配菜。"
         />
-        <meta name="keywords" content="PostSoma Kitchen,Visual Cookbook,Visual Recipe Flow Card,cooking,recipe,cuisine,ingredients" />
+        <meta name="keywords" content="PostSoma Kitchen,Visual Cookbook,Visual Recipe Flow Card,健康食谱,烹饪流程图,清冰箱,张晔,中餐营养,Recipe Lab" />
         <meta name="author" content="PostSoma-2050" />
-        <meta name="robots" content="index, follow" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <link rel="canonical" href="https://recipelab.cc/" />
+
+        <!-- LLM & Machine Feed alternate links -->
+        <link rel="alternate" type="text/plain" href="https://recipelab.cc/llms.txt" title="LLM Directory Feed" />
+        <link rel="alternate" type="text/plain" href="https://recipelab.cc/llms-full.txt" title="LLM Full Knowledge Base Feed" />
+
+        <!-- OpenGraph & Social Sharing -->
+        <meta property="og:site_name" content="PostSoma Kitchen" />
+        <meta property="og:title" content="PostSoma Kitchen | Visual Cookbook & Healthy Recipe System" />
+        <meta property="og:description" content="把每一道料理整理成清晰、可执行、可沉淀的 Visual Recipe Flow Card。提供矩阵式烹饪流程图与智能清冰箱配菜。" />
+        <meta property="og:url" content="https://recipelab.cc/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://recipelab.cc/logo.svg" />
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="PostSoma Kitchen | Visual Cookbook" />
+        <meta name="twitter:description" content="把每一道料理整理成清晰、可执行、可沉淀的 Visual Recipe Flow Card。" />
+        <meta name="twitter:image" content="https://recipelab.cc/logo.svg" />
 
         <!-- 移动端与主题优化 -->
         <meta name="mobile-web-app-capable" content="yes" />
@@ -25,7 +56,7 @@
         <meta name="theme-color" content="#285840" />
         <meta name="msapplication-TileColor" content="#285840" />
 
-        <!-- 预连接与DNS预解析 -->
+        <!-- 预连接与 DNS 预解析 -->
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     </head>
     <body>

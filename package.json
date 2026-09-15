@@ -4,9 +4,10 @@
     "description": "AI Recipe Generator & Personal Recipe Manager - Generate recipes with AI or create your own custom recipes",
     "scripts": {
         "dev": "vite",
-        "build": "vue-tsc --noEmit && vite build",
-        "build:netlify": "vite build --config vite.config.prod.ts",
-        "build:simple": "vite build --config vite.config.prod.ts",
+        "generate:seo": "node scripts/runTs.js scripts/generateSeoFeeds.ts",
+        "build": "npm run generate:seo && vue-tsc --noEmit && vite build",
+        "build:netlify": "npm run generate:seo && vite build --config vite.config.prod.ts",
+        "build:simple": "npm run generate:seo && vite build --config vite.config.prod.ts",
         "preview": "vite preview",
         "type-check": "vue-tsc --noEmit",
         "audit:presets": "node scripts/runTs.js scripts/auditPresets.ts",

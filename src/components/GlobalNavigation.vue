@@ -26,6 +26,13 @@
         >
           按食材找方向
         </router-link>
+        <router-link
+          to="/about"
+          :class="navLinkClass(route.path === '/about')"
+          :aria-current="route.path === '/about' ? 'page' : undefined"
+        >
+          关于 & E-E-A-T
+        </router-link>
         <span class="mx-2 h-5 w-px bg-[color:var(--pk-border)]" aria-hidden="true"></span>
         <router-link to="/admin" class="pk-button pk-button-secondary">
           Kitchen Studio
@@ -64,6 +71,14 @@
         @click="showMobileMenu = false"
       >
         按食材找方向
+      </router-link>
+      <router-link
+        to="/about"
+        :class="navLinkClass(route.path === '/about')"
+        :aria-current="route.path === '/about' ? 'page' : undefined"
+        @click="showMobileMenu = false"
+      >
+        关于 & E-E-A-T
       </router-link>
       <router-link to="/admin" class="min-h-11 rounded-lg px-3 py-2.5 text-sm font-semibold text-[color:var(--pk-ink-secondary)] hover:bg-[color:var(--pk-surface-muted)]" @click="showMobileMenu = false">
         Kitchen Studio

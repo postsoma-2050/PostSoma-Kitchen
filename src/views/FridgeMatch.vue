@@ -391,6 +391,7 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
 import { getPublishedRecipes } from '@/services/v3RecipeStore'
+import { updateSeoMeta } from '@/utils/seoHelper'
 import {
   AiSuggestionChannel,
   MemoryOpenAiCompatibleByokGateway,
@@ -452,7 +453,51 @@ async function loadPublishedIngredientIndex() {
   }
 }
 
-onMounted(loadPublishedIngredientIndex)
+onMounted(() => {
+  void loadPublishedIngredientIndex()
+  updateSeoMeta({
+    title: '按食材找方向 · 清冰箱智能配菜',
+    description: '输入你手头的食材，自动检索 PostSoma Kitchen 121 道精细中餐与私房食谱，看哪些料理真正用得了这些食材。',
+    canonicalUrl: 'https://recipelab.cc/fridge',
+    jsonLdSchemas: [
+      {
+        id: 'jsonld-fridge-app',
+        schema: {
+          '@context': 'https://schema.org',
+          '@type': 'SoftwareApplication',
+          '@id': 'https://recipelab.cc/fridge#app',
+          'name': 'PostSoma Kitchen 清冰箱食材智能匹配器',
+          'applicationCategory': 'HealthApplication',
+          'operatingSystem': 'Web',
+          'url': 'https://recipelab.cc/fridge',
+          'description': '手边有什么食材，就从真实食谱库里找方向。'
+        }
+      },
+      {
+        id: 'jsonld-fridge-breadcrumbs',
+        schema: {
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          '@id': 'https://recipelab.cc/fridge#breadcrumbs',
+          'itemListElement': [
+            {
+              '@type': 'ListItem',
+              'position': 1,
+              'name': '首页',
+              'item': 'https://recipelab.cc/'
+            },
+            {
+              '@type': 'ListItem',
+              'position': 2,
+              'name': '按食材找方向',
+              'item': 'https://recipelab.cc/fridge'
+            }
+          ]
+        }
+      }
+    ]
+  })
+})
 
 const selectableConcepts = computed(() => ingredientIndex.value ? getPublicSelectableConcepts(ingredientIndex.value) : [])
 const ordinaryConcepts = computed(() => selectableConcepts.value.filter(concept => !concept.isBasicPantry))

@@ -1,0 +1,2363 @@
+# PostSoma Kitchen — Full LLM Knowledge Base Feed
+Canonical Domain: https://recipelab.cc/
+Generated Date: 2026-08-04T13:28:51.306Z
+
+---
+
+## System Overview
+PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source modeling engine. Each recipe is modeled as a directed step graph (Matrix Flow) with exact ingredients, container requirements, preheat instructions, heat levels, duration in minutes, and explicit dataset provenance metadata.
+
+## Core Features Breakdown
+1. **Matrix Flow Diagram**: Visualizes preparation -> action blocks -> heat adjustments -> final combination.
+2. **Formula Scaler**: Scalable sauce formulas (e.g. YuXiang sauce, Teriyaki sauce).
+3. **Multi-Source Dataset Provenance**: Phase-1 inaugural collection curated from Zhang Ye's nutrition guide, plus Western homemade specialties, reserving open architecture for upcoming sources.
+4. **Fridge Ingredients Matching**: Smart filtering based on user's available ingredients.
+
+---
+
+## Full Recipe Catalog (121 Structured V3 Recipes)
+
+### 1. 🥢 私房少油鱼香肉丝 (ID: cn-01-yuxiang-rousi)
+- **URL**: https://recipelab.cc/recipe/cn-01-yuxiang-rousi
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: medium
+- **Description**: 营养师少油改良款经典川菜。猪肉丝搭配冬笋丝与木耳丝，酸甜微辣，滋阴润燥、开胃健脾。
+- **Prerequisites**: Container: 中式炒锅 (Wok) | Servings: 3-4 人份 | Preheat: 准备鱼香芡汁与水淀粉上浆
+- **Ingredients**:
+  * 猪里脊肉丝: 200 g (main)
+  * 冬笋丝: 80 g (produce)
+  * 水发木耳丝: 50 g (produce)
+  * 泡椒末与葱姜蒜: 10g 泡椒 + 葱姜蒜末 (seasoning)
+  * 肉丝水淀粉滑嫩上浆料: 1 份 (formula)
+  * 私房经典鱼香糖醋芡汁: 1 碗 (formula)
+- **Formulas / Sauces**:
+  * 私房经典鱼香糖醋芡汁: 保宁香醋 (或四川陈醋), 白糖, 特级生抽酱油, 高汤或清水, 玉米淀粉
+  * 肉丝水淀粉滑嫩上浆料: 料酒, 玉米淀粉, 清水, 食盐
+- **Action Steps (Flow Blocks)**:
+  1. **肉丝水淀粉上浆**: 肉丝水淀粉上浆
+  2. **滑散肉丝与爆香泡椒** [Heat: 大火] [Time: 3 min]: 滑散肉丝与爆香泡椒
+  3. **倒入配料与淋鱼香汁** [Heat: 大火] [Time: 2 min]: 倒入配料与淋鱼香汁
+- **Final Plating / Instructions**: 大火爆炒 🍳 - 急火快炒勾芡，鱼香味浓郁，少油更健康
+
+---
+
+### 2. 🐚 蒜蓉粉丝蒸扇贝 (ID: cn-02-steamed-scallops)
+- **URL**: https://recipelab.cc/recipe/cn-02-steamed-scallops
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 粤式经典海鲜蒸菜。鲜美扇贝肉搭配吸饱汤汁的粉丝与特制金银蒜蓉酱，大火蒸5分钟锁住鲜甜。
+- **Prerequisites**: Container: 大号平底蒸盘 & 蒸锅 | Servings: 6 颗 (350g) | Preheat: 水烧开，大火上汽
+- **Ingredients**:
+  * 新鲜大扇贝 (带壳): 6 颗 (350 g) (main)
+  * 龙口细粉丝 (泡软): 50 g (grain)
+  * 特制金银蒜蓉末: 50 g (produce)
+  * 姜末与白糖盐: 姜末+糖+盐少许 (seasoning)
+  * 蒸鱼豉油与葱花: 豉油15g + 葱花 (liquid)
+  * 熟植物油 (浇淋): 2 汤匙 (热油) (liquid)
+- **Action Steps (Flow Blocks)**:
+  1. **粉丝泡软与扇贝取肉**: 粉丝泡软与扇贝取肉
+  2. **调制蒜蓉酱汁**: 调制蒜蓉酱汁
+  3. **码盘并淋酱汁**: 码盘并淋酱汁
+- **Final Plating / Instructions**: 大火清蒸 ♨️ - 上笼大火蒸 5 分钟，出锅撒葱花浇热油激发香味
+
+---
+
+### 3. 🍅 番茄炖牛腩煲 (ID: cn-03-tomato-beef-stew)
+- **URL**: https://recipelab.cc/recipe/cn-03-tomato-beef-stew
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: medium
+- **Description**: 酸甜开胃的经典营养炖菜。番茄一部分炒成浓郁底酱，一部分切块慢炖，促进牛腩胶原蛋白转化与铁吸收。
+- **Prerequisites**: Container: 砂锅 (Claypot) | Servings: 4-5 人份 | Preheat: 牛腩焯水，准备沸水
+- **Ingredients**:
+  * 牛腩块 (焯水): 400 g (main)
+  * 熟透大番茄 (去皮): 250 g (2颗) (produce)
+  * 姜末与葱末: 姜末5g + 葱末 (produce)
+  * 料酒与酱油: 料酒15g + 酱油 (liquid)
+  * 食盐与胡椒粉: 盐4g (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **牛腩焯水与番茄切块** [Time: 5 min]: 牛腩焯水与番茄切块
+  2. **炒制浓郁番茄酱底** [Heat: 中火] [Time: 6 min]: 炒制浓郁番茄酱底
+  3. **转砂锅加水焖炖** [Heat: 小火] [Time: 60 min]: 转砂锅加水焖炖
+- **Final Plating / Instructions**: 砂锅慢炖 🍲 - 小火慢炖至牛腩酥烂吸饱酸甜汤汁
+
+---
+
+### 4. 🥩 经典京味葱爆羊肉 (ID: cn-04-congbao-yangrou)
+- **URL**: https://recipelab.cc/recipe/cn-04-congbao-yangrou
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: medium
+- **Description**: 传统老北京爆炒菜。鲜嫩羊肉片搭配大量大葱段，10秒极速大火翻炒，沿着锅边烹入香醋与料酒，补阳强腰。
+- **Prerequisites**: Container: 大火热炒锅 | Servings: 2-3 人份 | Preheat: 锅烧至冒微烟，大火急炒
+- **Ingredients**:
+  * 鲜羊肉片: 300 g (main)
+  * 大葱段 (斜切): 150 g (produce)
+  * 蒜片: 5 g (produce)
+  * 酱油与料酒 (腌肉): 酱油10g + 料酒 (liquid)
+  * 香醋与香油 (烹边): 醋5g + 香油 (liquid)
+  * 白胡椒粉与水淀粉: 胡椒粉+水淀粉 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **羊肉片腌渍底味**: 羊肉片腌渍底味
+  2. **爆香蒜片与大火划散** [Heat: 大火] [Time: 1 min]: 爆香蒜片与大火划散
+  3. **下葱段与锅边烹醋** [Heat: 大火] [Time: 1 min]: 下葱段与锅边烹醋
+- **Final Plating / Instructions**: 极速爆炒 🍳 - 全程大火急炒，大葱断生即出锅，肉质极其鲜嫩
+
+---
+
+### 5. 🌶️ 宫保鸡丁 (ID: cn-05-gongbao-jiding)
+- **URL**: https://recipelab.cc/recipe/cn-05-gongbao-jiding
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: medium
+- **Description**: 名扬中外的传统川菜。鸡腿肉丁搭配冬笋丁与炸花生米，糊辣荔枝味型，红亮鲜香。
+- **Prerequisites**: Container: 中式炒锅 | Servings: 3-4 人份 | Preheat: 准备宫保糖醋碗汁与炸花生
+- **Ingredients**:
+  * 鸡腿肉丁: 250 g (main)
+  * 冬笋丁 (焯水): 75 g (produce)
+  * 去皮炸花生仁: 25 g (other)
+  * 干红辣椒段与花椒: 干椒10g + 花椒 (seasoning)
+  * 蛋清与水淀粉上浆: 1蛋清 + 水淀粉 (liquid)
+  * 宫保荔枝碗汁: 糖+醋+酱油+水淀粉 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **鸡丁蛋清上浆**: 鸡丁蛋清上浆
+  2. **炸香花椒干辣椒** [Heat: 中火] [Time: 2 min]: 炸香花椒干辣椒
+  3. **下鸡丁冬笋与烹碗汁** [Heat: 大火] [Time: 3 min]: 下鸡丁冬笋与烹碗汁
+- **Final Plating / Instructions**: 红亮爆炒 🌶️ - 糊辣荔枝味浓郁，鸡丁嫩滑，花生米酥脆
+
+---
+
+### 6. 🐟 奶白豆腐鲫鱼汤 (ID: cn-06-jiyu-tang)
+- **URL**: https://recipelab.cc/recipe/cn-06-jiyu-tang
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: medium
+- **Description**: 经典中式滋补高汤。鲫鱼两面煎至金黄后倒入开水大火剧烈沸腾，汤色如牛奶般白香，补脾利湿。
+- **Prerequisites**: Container: 深汤锅 / 炖锅 | Servings: 3-4 人份 | Preheat: 准备开水 (大火冲出奶白汤的核心)
+- **Ingredients**:
+  * 新鲜鲜活鲫鱼 (去鳞腮): 300 g (1条) (main)
+  * 嫩豆腐 (切方块): 200 g (produce)
+  * 葱段与姜片: 葱段+姜片 (produce)
+  * 料酒与植物油: 料酒10g + 煎鱼油 (liquid)
+  * 盐与香菜段: 盐+香菜 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **煎鱼至两面金黄** [Heat: 中火] [Time: 6 min]: 煎鱼至两面金黄
+  2. **倒入沸水大火冲汤** [Heat: 大火] [Time: 10 min]: 倒入沸水大火冲汤
+  3. **加入豆腐小火慢炖** [Heat: 小火] [Time: 30 min]: 加入豆腐小火慢炖
+- **Final Plating / Instructions**: 奶白高汤 🥣 - 汤色如浓奶，鱼肉鲜嫩，豆腐滑软
+
+---
+
+### 7. 🐉 豉汁蒸盘龙白鳝 (ID: cn-07-steamed-eel)
+- **URL**: https://recipelab.cc/recipe/cn-07-steamed-eel
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: hard
+- **Description**: 粤菜传统功夫名菜。白鳝背骨断而腹不断造型成盘龙，抹特制豉汁蒜蓉大火蒸8分钟，富含优质蛋白与胶原。
+- **Prerequisites**: Container: 圆边浅扣大蒸盘 & 蒸锅 | Servings: 4-6 人份 | Preheat: 准备大火沸水蒸锅
+- **Ingredients**:
+  * 白鳝 (盘龙切刀): 600 g (main)
+  * 阳江豆豉汁: 15 g (seasoning)
+  * 生熟蒜蓉与姜末: 生蒜蓉+熟蒜蓉+姜末 (produce)
+  * 红椒末与陈皮末: 红椒末+陈皮末 (produce)
+  * 生粉与香油酱油: 生粉+香油+酱油 (liquid)
+  * 胡椒粉与葱花 (滚油): 胡椒粉+葱花+熟油 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **盘龙改刀切背骨**: 盘龙改刀切背骨
+  2. **拌入双蒜豉汁料**: 拌入双蒜豉汁料
+  3. **盘龙造型码盘**: 盘龙造型码盘
+- **Final Plating / Instructions**: 大火极速蒸 ♨️ - 大火猛蒸 8 分钟，取出撒胡椒粉葱花，泼滚油即成
+
+---
+
+### 8. 🥕 蒜香粉蒸胡萝卜丝 (ID: cn-08-steamed-carrot-strips)
+- **URL**: https://recipelab.cc/recipe/cn-08-steamed-carrot-strips
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 北方经典养生粉蒸菜。胡萝卜丝裹上黄金玉米面蒸熟，泼入干辣椒蒜油，降胆固醇、护眼明目。
+- **Prerequisites**: Container: 蒸盘 & 蒸锅 | Servings: 2-3 人份 | Preheat: 准备水沸蒸锅与热油
+- **Ingredients**:
+  * 胡萝卜丝 (擦细丝): 200 g (produce)
+  * 细玉米面粉: 100 g (grain)
+  * 鸡蛋清: 1 颗 (main)
+  * 蒜末与葱末香菜: 蒜末+葱末+香菜段 (produce)
+  * 干红辣椒段: 3 g (seasoning)
+  * 植物油 (热油泼辣): 2 汤匙 (liquid)
+- **Action Steps (Flow Blocks)**:
+  1. **蛋清润湿与裹玉米面**: 蛋清润湿与裹玉米面
+  2. **上笼盖膜蒸熟** [Time: 10 min]: 上笼盖膜蒸熟
+  3. **码香菜蒜末与泼辣油**: 码香菜蒜末与泼辣油
+- **Final Plating / Instructions**: 香气泼油 ♨️ - 玉米粉香气与蒜辣交织，口感干爽松软
+
+---
+
+### 9. 🥢 私家京酱肉丝 (ID: cn-09-jingjiang-rousi)
+- **URL**: https://recipelab.cc/recipe/cn-09-jingjiang-rousi
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: medium
+- **Description**: 营养师改良版传统经典。猪里脊肉搭配甜面酱爆炒，特别加入焯熟的胡萝卜丝与黄豆芽衬底，荤素均衡、富含膳食纤维。
+- **Prerequisites**: Container: 中式炒锅 | Servings: 3-4 人份 | Preheat: 准备水淀粉上浆与特调酱汁
+- **Ingredients**:
+  * 猪里脊肉丝: 250 g (main)
+  * 胡萝卜丝: 100 g (produce)
+  * 黄豆芽 (焯熟): 100 g (produce)
+  * 葱白丝: 50 g (produce)
+  * 肉丝料酒水淀粉上浆包: 1 份 (formula)
+  * 特制香浓甜面酱汁: 1 碗 (80g) (formula)
+- **Formulas / Sauces**:
+  * 特制香浓甜面酱汁: 六必居甜面酱, 白糖, 料酒, 清水
+  * 肉丝料酒水淀粉上浆包: 料酒, 盐, 水淀粉
+- **Action Steps (Flow Blocks)**:
+  1. **蔬菜焯熟码盘**: 蔬菜焯熟码盘
+  2. **滑散肉丝与炒甜面酱** [Heat: 中火] [Time: 4 min]: 滑散肉丝与炒甜面酱
+- **Final Plating / Instructions**: 酱香码盘 🥢 - 将炒好的京酱肉丝倒在蔬菜盘中央，裹着葱丝与黄豆芽食用
+
+---
+
+### 10. 🍆 蒜蓉蒸茄子 (ID: cn-10-suanrong-qiezi)
+- **URL**: https://recipelab.cc/recipe/cn-10-suanrong-qiezi
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 少油健康护心蒸菜。紫茄子切片大火蒸熟，泼上爆香蒜蓉与红辣酱汁，富含维生素P与维生素E，软化血管。
+- **Prerequisites**: Container: 平底蒸盘 & 蒸锅 | Servings: 2-3 人份 | Preheat: 准备水沸大火蒸锅
+- **Ingredients**:
+  * 新鲜紫茄子: 400 g (produce)
+  * 大蒜末: 10 g (produce)
+  * 红辣椒丁: 20 g (produce)
+  * 葱花与食盐: 葱花5g + 盐5g (seasoning)
+  * 特级橄榄油: 5 g (liquid)
+- **Action Steps (Flow Blocks)**:
+  1. **茄子剖开切片码盘**: 茄子剖开切片码盘
+  2. **爆香蒜蓉红椒酱汁** [Heat: 中火] [Time: 2 min]: 爆香蒜蓉红椒酱汁
+  3. **淋酱汁大火蒸熟** [Heat: 大火] [Time: 10 min]: 淋酱汁大火蒸熟
+- **Final Plating / Instructions**: 蒜香软嫩 🍆 - 茄子鲜嫩多汁，蒜香浓郁，少油更健康
+
+---
+
+### 11. 🍲 胡萝卜洋葱炖牛腩煲 (ID: cn-11-luobo-niunan)
+- **URL**: https://recipelab.cc/recipe/cn-11-luobo-niunan
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: medium
+- **Description**: 营养师推介强身炖菜。牛腩搭配胡萝卜与洋葱在砂锅中慢炖，胡萝卜素溶于油脂极易吸收，大火转小火汤浓肉烂。
+- **Prerequisites**: Container: 深砂锅 (Claypot) | Servings: 4-5 人份 | Preheat: 牛腩洗净，准备沸水
+- **Ingredients**:
+  * 鲜牛腩块: 500 g (main)
+  * 胡萝卜 (滚刀块): 100 g (produce)
+  * 洋葱 (大块): 100 g (produce)
+  * 料酒与酱油: 料酒15g + 酱油15g (liquid)
+  * 蒜片与葱段白胡椒: 蒜片5g + 葱段 + 白胡椒粒 (seasoning)
+  * 食盐: 4 g (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **爆香洋葱与炒牛腩** [Heat: 中大火] [Time: 5 min]: 爆香洋葱与炒牛腩
+  2. **转砂锅小火焖炖** [Heat: 小火] [Time: 40 min]: 转砂锅小火焖炖
+- **Final Plating / Instructions**: 砂锅滋补 🍲 - 撒白胡椒粒与葱段调味，肉香浓郁，汤汁鲜美
+
+---
+
+### 12. 🍳 经典番茄炒鸡蛋 (ID: cn-12-xihongshi-jidan)
+- **URL**: https://recipelab.cc/recipe/cn-12-xihongshi-jidan
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 国民经典营养快手菜。番茄维C与鸡蛋维E黄金组合，炒出酸甜鲜美浓汁，护肤抗衰老。
+- **Prerequisites**: Container: 中式平底炒锅 | Servings: 2-3 人份 | Preheat: 鸡蛋打散，番茄切块
+- **Ingredients**:
+  * 新鲜红番茄 (切块): 250 g (2颗) (produce)
+  * 新鲜鸡蛋: 2 颗 (main)
+  * 葱花: 5 g (produce)
+  * 白糖与食盐: 糖5g + 盐4g (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **滑炒鸡蛋盛出** [Heat: 中大火] [Time: 2 min]: 滑炒鸡蛋盛出
+  2. **炒番茄出浓汁合炒** [Heat: 中火] [Time: 3 min]: 炒番茄出浓汁合炒
+- **Final Plating / Instructions**: 酸甜开胃 🍳 - 番茄浓汁包裹金黄鸡蛋，酸甜可口，汤汁拌饭绝佳
+
+---
+
+### 13. 🧄 蒜烧五花肉 (ID: cn-13-suan-shao-wuhuarou)
+- **URL**: https://recipelab.cc/recipe/cn-13-suan-shao-wuhuarou
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: medium
+- **Description**: 浓郁滋补炖菜。五花肉片大火煎出油脂，加入整头大蒜丁与味极鲜酱油慢炖收汁，大蒜消炎杀菌，肉质肥而不腻。
+- **Prerequisites**: Container: 平底煎锅 / 炖锅 | Servings: 3-4 人份 | Preheat: 准备卷心菜丝配餐
+- **Ingredients**:
+  * 五花肉片: 300 g (main)
+  * 大蒜 (切丁): 1 头 (produce)
+  * 卷心菜丝 (配餐): 30 g (produce)
+  * 特调蒜烧酱汁: 味极鲜25g + 料酒10g + 糖10g + 葱花 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **肉片腌渍底味**: 肉片腌渍底味
+  2. **煎至金黄与慢炖收汁** [Heat: 中火] [Time: 15 min]: 煎至金黄与慢炖收汁
+- **Final Plating / Instructions**: 蒜香浓郁 🧄 - 大蒜软糯甜润，五花肉香浓入味
+
+---
+
+### 14. 🍲 经典东北猪肉炖粉条 (ID: cn-14-zhurou-dun-fentiao)
+- **URL**: https://recipelab.cc/recipe/cn-14-zhurou-dun-fentiao
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: medium
+- **Description**: 传统东北名菜。五花肉块焯水炒出糖色，搭配红薯粉条与土豆块小火慢炖，粉条吸爽浓郁肉汤，热乎暖胃。
+- **Prerequisites**: Container: 深口炖锅 / 砂锅 | Servings: 4-5 人份 | Preheat: 红薯粉条提前泡软
+- **Ingredients**:
+  * 五花肉块 (焯水): 200 g (main)
+  * 红薯粉条 (泡软): 100 g (grain)
+  * 土豆 (切块): 100 g (produce)
+  * 酱油与料酒白糖: 酱油10g + 料酒10g + 糖10g (liquid)
+  * 葱段姜末花椒: 葱段5g + 姜末5g + 花椒 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **焯水与炒糖色** [Heat: 中火] [Time: 5 min]: 焯水与炒糖色
+  2. **下粉条土豆慢炖** [Heat: 小火] [Time: 30 min]: 下粉条土豆慢炖
+- **Final Plating / Instructions**: 红油软糯 🍲 - 粉条滑爽吸饱肉香，土豆软糯粉甜
+
+---
+
+### 15. 🥩 黑椒杏鲍菇牛肉粒 (ID: cn-15-xingbaogu-niurouli)
+- **URL**: https://recipelab.cc/recipe/cn-15-xingbaogu-niurouli
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: medium
+- **Description**: 高蛋白低脂养生炒菜。杏鲍菇方块小火慢煎至四面金黄，牛肉粒大火快炒断生，黑胡椒末提香，补充体力。
+- **Prerequisites**: Container: 平底炒锅 | Servings: 2-3 人份 | Preheat: 牛肉洗净血水切方块
+- **Ingredients**:
+  * 牛肉方块: 200 g (main)
+  * 杏鲍菇方块: 100 g (produce)
+  * 老抽与白糖食盐: 老抽+白糖+盐 (seasoning)
+  * 现磨黑胡椒末: 适量 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **小火煎香杏鲍菇** [Heat: 中火] [Time: 5 min]: 小火煎香杏鲍菇
+  2. **大火炒牛肉粒合炒** [Heat: 大火] [Time: 3 min]: 大火炒牛肉粒合炒
+- **Final Plating / Instructions**: 黑椒鲜香 🥩 - 杏鲍菇爽脆如鲍鱼，牛肉粒嫩滑鲜香
+
+---
+
+### 16. 🍲 酸辣金针肥牛 (ID: cn-16-jinzhen-feiniu)
+- **URL**: https://recipelab.cc/recipe/cn-16-jinzhen-feiniu
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 经典开胃快手菜。金针菇氨基酸丰富，搭配薄切肥牛片与高汤红尖椒大火翻炒，勾芡出锅，增强免疫力。
+- **Prerequisites**: Container: 炒锅 / 浅煲 | Servings: 3-4 人份 | Preheat: 准备高汤与红尖椒碎
+- **Ingredients**:
+  * 薄切肥牛片: 400 g (main)
+  * 金针菇 (去根洗净): 150 g (produce)
+  * 红尖椒碎: 15 g (produce)
+  * 高汤与水淀粉: 高汤50g + 水淀粉20g (liquid)
+  * 食盐与鸡精: 盐4g + 鸡精 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **肥牛上浆与爆香尖椒** [Heat: 中火] [Time: 2 min]: 肥牛上浆与爆香尖椒
+  2. **加高汤肥牛金针菇合炒** [Heat: 大火] [Time: 3 min]: 加高汤肥牛金针菇合炒
+- **Final Plating / Instructions**: 酸辣鲜嫩 🍲 - 肥牛鲜嫩不柴，金针菇吸满浓郁酸辣汤汁
+
+---
+
+### 17. 🐑 蒜香白萝卜羊肉卷 (ID: cn-17-bailuobo-yangroujuan)
+- **URL**: https://recipelab.cc/recipe/cn-17-bailuobo-yangroujuan
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: medium
+- **Description**: 中和温热的清淡蒸菜。白萝卜薄片焯软包裹腌渍羊肉末，牙签穿插固定大火蒸15分钟，去膻解腻。
+- **Prerequisites**: Container: 平底蒸盘 & 蒸锅 | Servings: 2 人份 | Preheat: 准备干净牙签固定
+- **Ingredients**:
+  * 新鲜羊肉末: 50 g (main)
+  * 白萝卜 (切薄片焯软): 100 g (produce)
+  * 姜末与蒜末: 姜末3g + 蒜末3g (produce)
+  * 食盐与酱油: 盐2g + 酱油 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **羊肉末腌渍与卷片**: 羊肉末腌渍与卷片
+  2. **大火蒸制15分钟** [Heat: 大火] [Time: 15 min]: 大火蒸制15分钟
+- **Final Plating / Instructions**: 清甜去膻 🐑 - 白萝卜清甜中和羊肉温热，汤汁鲜美
+
+---
+
+### 18. 🍲 枸杞羊肉炖胡萝卜煲 (ID: cn-18-yangrou-dun-hulabu)
+- **URL**: https://recipelab.cc/recipe/cn-18-yangrou-dun-hulabu
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: medium
+- **Description**: 秋冬祛寒补暖经典炖汤。羊肉块与胡萝卜大块、枸杞子在调料钢球香料中慢炖1小时，补气血强骨骼。
+- **Prerequisites**: Container: 砂锅 / 炖汤锅 | Servings: 4-5 人份 | Preheat: 准备调料钢球 (大料花椒桂皮香叶)
+- **Ingredients**:
+  * 鲜羊肉块: 150 g (main)
+  * 胡萝卜 (大块): 200 g (produce)
+  * 枸杞子: 10 g (produce)
+  * 调料钢球香料组: 大料+花椒+桂皮+小茴香+香叶 (seasoning)
+  * 葱段姜片料酒酱油盐: 葱姜+料酒+酱油+盐 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **羊肉冷水下锅撇血沫** [Heat: 大火] [Time: 5 min]: 羊肉冷水下锅撇血沫
+  2. **加胡萝卜枸杞慢炖** [Heat: 小火] [Time: 60 min]: 加胡萝卜枸杞慢炖
+- **Final Plating / Instructions**: 暖胃滋补 🍲 - 羊肉酥烂无膻味，胡萝卜甜润汤浓
+
+---
+
+### 19. 🍗 经典板栗烧土鸡 (ID: cn-19-banli-shaoji)
+- **URL**: https://recipelab.cc/recipe/cn-19-banli-shaoji
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: medium
+- **Description**: 强筋健骨传统炖菜。土鸡块煸干水分，搭配香菇与去壳板栗慢炖收汁，板栗粉甜，鸡肉鲜香。
+- **Prerequisites**: Container: 铸铁炖锅 / 炒锅 | Servings: 4-5 人份 | Preheat: 干香菇泡发，挽葱结
+- **Ingredients**:
+  * 土鸡块: 半只 (约500g) (main)
+  * 去壳板栗肉: 400 g (produce)
+  * 干香菇 (泡发): 10 朵 (produce)
+  * 老抽与料酒蚝油: 老抽15g + 料酒15g + 蚝油15g (liquid)
+  * 葱姜蒜与白糖食盐: 葱蒜+糖5g + 盐5g (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **煸炒鸡块干水分** [Heat: 中大火] [Time: 5 min]: 煸炒鸡块干水分
+  2. **加香菇大火烧开慢炖** [Heat: 小火] [Time: 30 min]: 加香菇大火烧开慢炖
+  3. **加入板栗收汁** [Heat: 中火] [Time: 20 min]: 加入板栗收汁
+- **Final Plating / Instructions**: 栗香肉软 🍗 - 板栗粉糯吸收鸡汤，鸡肉浓香软烂
+
+---
+
+### 20. 🍗 酱香板栗炒鸡丁 (ID: cn-20-banli-jiding)
+- **URL**: https://recipelab.cc/recipe/cn-20-banli-jiding
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 益气补肾快手炒菜。鸡腿肉丁腌渍后快速翻炒，加入对半切开的熟板栗块与蚝油大火爆炒，口感丰富。
+- **Prerequisites**: Container: 平底炒锅 | Servings: 2-3 人份 | Preheat: 板栗提前煮熟对切
+- **Ingredients**:
+  * 鸡腿肉丁: 200 g (main)
+  * 熟板栗 (对切): 200 g (produce)
+  * 酱油与蚝油: 酱油+蚝油 (liquid)
+  * 姜末与蒜末食盐: 姜末+蒜末+盐3g (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **鸡丁腌渍与爆香**: 鸡丁腌渍与爆香
+  2. **下熟板栗快速翻炒** [Heat: 大火] [Time: 3 min]: 下熟板栗快速翻炒
+- **Final Plating / Instructions**: 咸甜鲜香 🍗 - 鸡丁鲜嫩多汁，板栗甜软粉香
+
+---
+
+### 21. 🥚 高纤维豆渣水蒸蛋 (ID: cn-21-douzha-zhengdan)
+- **URL**: https://recipelab.cc/recipe/cn-21-douzha-zhengdan
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 高蛋白高纤维健康蒸蛋。利用豆浆机打完豆浆后的豆渣，与鸡蛋液温水混合中火蒸10分钟，淋香油，降胆固醇。
+- **Prerequisites**: Container: 蒸碗 & 蒸锅 | Servings: 2 人份 | Preheat: 豆渣沥干水分
+- **Ingredients**:
+  * 豆浆过滤豆渣 (沥干): 50 g (produce)
+  * 新鲜鸡蛋: 2 颗 (main)
+  * 温水与食盐: 温水适量 + 盐2g (liquid)
+  * 葱花与芝麻香油: 葱花+香油 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **打散鸡蛋混入豆渣**: 打散鸡蛋混入豆渣
+  2. **中火蒸10分钟** [Heat: 中火] [Time: 10 min]: 中火蒸10分钟
+- **Final Plating / Instructions**: 松软滑嫩 🥚 - 豆香与蛋香交融，口感细腻且富含膳食纤维
+
+---
+
+### 22. 🍆 经典东北地三鲜 (ID: cn-22-disanxian)
+- **URL**: https://recipelab.cc/recipe/cn-22-disanxian
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: medium
+- **Description**: 传统东北名菜。茄子块、土豆块与柿子椒片分别过油后大火合炒，老抽水淀粉勾芡，降血压、开胃消食。
+- **Prerequisites**: Container: 中式炒锅 | Servings: 3-4 人份 | Preheat: 准备水淀粉勾芡
+- **Ingredients**:
+  * 茄子块 (过油): 200 g (produce)
+  * 土豆块 (炸黄): 200 g (produce)
+  * 柿子椒片 (稍过油): 100 g (produce)
+  * 蒜末与葱末: 蒜末5g + 葱末3g (produce)
+  * 老抽与水淀粉: 老抽8g + 水淀粉10g (liquid)
+  * 白糖与食盐: 糖3g + 盐3g (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **食材分别过油** [Heat: 大火] [Time: 4 min]: 食材分别过油
+  2. **爆香蒜末焖烧勾芡** [Heat: 中火] [Time: 5 min]: 爆香蒜末焖烧勾芡
+- **Final Plating / Instructions**: 咸香浓郁 🍆 - 土豆面软，茄子吸香，柿子椒清脆
+
+---
+
+### 23. 🥫 纯手工秘制番茄酱 (ID: cn-23-mizhi-fanqiejiang)
+- **URL**: https://recipelab.cc/recipe/cn-23-mizhi-fanqiejiang
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 天然零添加养生甜酱。鲜番茄去皮榨汁，加冰糖小火慢熬至浓稠，挤入新鲜柠檬汁，番茄红素充分释放易吸收。
+- **Prerequisites**: Container: 不粘平底锅 / 酱锅 | Servings: 1 罐 (约250g) | Preheat: 准备干净密封玻璃瓶
+- **Ingredients**:
+  * 新鲜红番茄 (烫去皮): 2 颗 (produce)
+  * 冰糖: 50 g (seasoning)
+  * 新鲜柠檬汁: 50 g (半颗柠檬) (produce)
+- **Action Steps (Flow Blocks)**:
+  1. **烫皮榨汁**: 烫皮榨汁
+  2. **加冰糖小火慢熬** [Heat: 小火] [Time: 10 min]: 加冰糖小火慢熬
+- **Final Plating / Instructions**: 酸甜浓郁 🥫 - 天然无防腐剂，色泽红亮，番茄红素极易吸收
+
+---
+
+### 24. 🥣 减脂番茄内酯豆腐羹 (ID: cn-24-jianzhi-fanqie-doufugeng)
+- **URL**: https://recipelab.cc/recipe/cn-24-jianzhi-fanqie-doufugeng
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 低卡排毒健康羹汤。番茄炒出浓酸汁加水炖煮，手捏内酯豆腐与滑嫩蛋花合煮，清爽开胃，减脂期极佳。
+- **Prerequisites**: Container: 汤锅 | Servings: 2-3 人份 | Preheat: 准备内酯豆腐与打散鸡蛋
+- **Ingredients**:
+  * 新鲜红番茄 (切块): 2 颗 (produce)
+  * 内酯豆腐 (手捏小块): 1 盒 (produce)
+  * 鸡蛋: 2 颗 (main)
+  * 香菜末与葱末: 香菜末+葱末 (produce)
+  * 食盐与鸡精植物油: 盐+鸡精+少量油 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **爆香葱末炒番茄汁** [Heat: 中火] [Time: 5 min]: 爆香葱末炒番茄汁
+  2. **放豆腐与转圈倒入蛋液** [Heat: 中火] [Time: 5 min]: 放豆腐与转圈倒入蛋液
+- **Final Plating / Instructions**: 酸甜滑嫩 🥣 - 豆腐入口即化，蛋花絮状绵密，汤酸甜开胃
+
+---
+
+### 25. 🥩 辣椒粉萝卜丝蒸牛肉 (ID: cn-25-luobosi-zheng-niurou)
+- **URL**: https://recipelab.cc/recipe/cn-25-luobosi-zheng-niurou
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: medium
+- **Description**: 强筋健骨气血双补蒸菜。牛肉丝腌渍后与挤干白萝卜丝、米粉、辣椒粉拌匀，蒸锅大火蒸30分钟反扣泼茶油。
+- **Prerequisites**: Container: 蒸盘 & 屉布 & 浅口深口双碗 | Servings: 3-4 人份 | Preheat: 准备烧热茶油泼香
+- **Ingredients**:
+  * 牛肉丝 (腌渍): 200 g (main)
+  * 白萝卜丝 (盐腌挤汁): 300 g (produce)
+  * 米粉与辣椒粉: 米粉+辣椒粉 (grain)
+  * 黄酒老抽生抽白糖: 黄酒+老抽+生抽+糖 (liquid)
+  * 姜蒜末与葱花鸡精: 姜蒜末+葱花+鸡精 (seasoning)
+  * 茶油 (热油泼香): 2 汤匙 (liquid)
+- **Action Steps (Flow Blocks)**:
+  1. **牛肉腌渍与萝卜丝拌米粉**: 牛肉腌渍与萝卜丝拌米粉
+  2. **顺内壁围圈蒸30分钟** [Heat: 大火] [Time: 30 min]: 顺内壁围圈蒸30分钟
+  3. **反扣深碗泼热茶油**: 反扣深碗泼热茶油
+- **Final Plating / Instructions**: 辣香干爽 🥩 - 萝卜丝吸收牛肉鲜汁，米粉香辣可口
+
+---
+
+### 26. 🍲 冬瓜薏米排骨清润汤 (ID: cn-26-donggua-yimi-paigutang)
+- **URL**: https://recipelab.cc/recipe/cn-26-donggua-yimi-paigutang
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: medium
+- **Description**: 祛湿消肿经典中式高汤。焯水排骨与泡发薏米小火慢炖1小时，下冬瓜块续炖20分钟，高钾低钠润肤美容。
+- **Prerequisites**: Container: 大号砂锅 | Servings: 4-5 人份 | Preheat: 薏米提前泡一晚，排骨焯水
+- **Ingredients**:
+  * 猪排骨段 (焯水): 500 g (main)
+  * 带皮冬瓜块: 500 g (produce)
+  * 薏米 (泡一晚): 50 g (grain)
+  * 葱段姜片蒜瓣料酒: 葱姜蒜+料酒50g (seasoning)
+  * 食盐: 5 g (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **排骨焯水与砂锅慢炖** [Heat: 小火] [Time: 60 min]: 排骨焯水与砂锅慢炖
+  2. **下冬瓜块续炖20分钟** [Heat: 小火] [Time: 20 min]: 下冬瓜块续炖20分钟
+- **Final Plating / Instructions**: 清甜祛湿 🍲 - 汤清不油腻，冬瓜软烂，薏米祛湿消肿
+
+---
+
+### 27. 🎃 蜂蜜红枣百合蒸南瓜 (ID: cn-27-hongzao-baihe-zheng-nangua)
+- **URL**: https://recipelab.cc/recipe/cn-27-hongzao-baihe-zheng-nangua
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 养颜排毒甜品蒸菜。老南瓜挖出南瓜碗，填入去核红枣与鲜百合中火蒸20分钟，切开淋蜂蜜汁，补脾益气。
+- **Prerequisites**: Container: 蒸盘 & 蒸锅 | Servings: 3-4 人份 | Preheat: 鲜百合剥开洗净
+- **Ingredients**:
+  * 老南瓜 (做南瓜碗): 700 g (produce)
+  * 去核红枣: 40 g (produce)
+  * 鲜百合 (剥开): 40 g (produce)
+  * 纯蜂蜜: 20 g (liquid)
+- **Action Steps (Flow Blocks)**:
+  1. **制作南瓜碗与填料**: 制作南瓜碗与填料
+  2. **中火蒸20分钟淋蜂蜜** [Heat: 中火] [Time: 20 min]: 中火蒸20分钟淋蜂蜜
+- **Final Plating / Instructions**: 香甜粉糯 🎃 - 南瓜甜软粉糯，百合清香，红枣补气血
+
+---
+
+### 28. 🥒 双色甜椒炒黄瓜 (ID: cn-28-huanggua-chao-tianjiao)
+- **URL**: https://recipelab.cc/recipe/cn-28-huanggua-chao-tianjiao
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 减脂抗衰老清脆快手菜。黄瓜片与红黄双色甜椒片大火快炒3分钟，富含维生素E与辣椒素，解热镇痛。
+- **Prerequisites**: Container: 平底炒锅 | Servings: 2 人份 | Preheat: 黄瓜与彩椒切片
+- **Ingredients**:
+  * 黄瓜片: 250 g (produce)
+  * 红甜椒片: 50 g (produce)
+  * 黄甜椒片: 50 g (produce)
+  * 葱花与食盐鸡精: 葱花5g + 盐2g + 鸡精1g (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **爆香葱花大火快炒** [Heat: 大火] [Time: 3 min]: 爆香葱花大火快炒
+- **Final Plating / Instructions**: 清脆爽口 🥒 - 色彩绚丽清脆多汁，低热量无负担
+
+---
+
+### 29. 🥣 苦瓜冬菇黄豆山药排骨汤 (ID: cn-29-kugua-donggu-gutang)
+- **URL**: https://recipelab.cc/recipe/cn-29-kugua-donggu-gutang
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: medium
+- **Description**: 防病毒降血糖养生浓汤。排骨炖40分钟后加入苦瓜、泡发冬菇、黄豆与山药续炖40分钟，清热解毒。
+- **Prerequisites**: Container: 煲锅 / 大砂锅 | Servings: 4-5 人份 | Preheat: 黄豆浸泡 3 小时，冬菇泡发
+- **Ingredients**:
+  * 排骨块 (清洗去血水): 200 g (main)
+  * 苦瓜块 (去瓤): 200 g (produce)
+  * 水发冬菇: 100 g (produce)
+  * 山药块与浸泡黄豆: 山药20g + 黄豆20g (produce)
+  * 姜片蒜瓣香菜盐: 姜蒜+香菜+盐 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **排骨炖煮40分钟** [Heat: 小火] [Time: 40 min]: 排骨炖煮40分钟
+  2. **加入苦瓜冬菇黄豆山药** [Heat: 小火] [Time: 40 min]: 加入苦瓜冬菇黄豆山药
+- **Final Plating / Instructions**: 甘苦回甜 🥣 - 苦瓜苦味被排骨与冬菇稀释，汤甘甜回味
+
+---
+
+### 30. 🥚 咸蛋黄酿苦瓜圈 (ID: cn-30-kugua-zheng-xiandan)
+- **URL**: https://recipelab.cc/recipe/cn-30-kugua-zheng-xiandan
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 创意清热蒸菜。苦瓜切厚圈抠孔，填入熟咸鸭蛋黄与蚝油拌成的金黄馅料，蒸10分钟淋水淀粉芡汁。
+- **Prerequisites**: Container: 平底蒸盘 & 蒸锅 | Servings: 2 人份 | Preheat: 咸鸭蛋提前蒸熟取黄
+- **Ingredients**:
+  * 苦瓜 (切厚圈抠孔): 200 g (produce)
+  * 熟咸鸭蛋黄 (碾碎): 1 颗 (main)
+  * 蚝油与香油: 蚝油10g + 香油4g (liquid)
+  * 盐与鸡粉水淀粉葱花: 盐2g + 鸡粉2g + 水淀粉 + 葱花 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **咸蛋黄拌蚝油填入苦瓜**: 咸蛋黄拌蚝油填入苦瓜
+  2. **蒸10分钟与淋芡汁** [Heat: 中火] [Time: 10 min]: 蒸10分钟与淋芡汁
+- **Final Plating / Instructions**: 咸香甘苦 🥚 - 咸蛋黄沙软咸香，苦瓜甘凉脆嫩
+
+---
+
+### 31. 🥩 豆豉苦瓜炒牛肉片 (ID: cn-31-kugua-roupian)
+- **URL**: https://recipelab.cc/recipe/cn-31-kugua-roupian
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 开胃促进铁吸收家常炒菜。牛肉片腌渍划散，苦瓜片盐腌挤水，搭配豆豉蒜末大火快炒，平稳血糖。
+- **Prerequisites**: Container: 中式炒锅 | Servings: 3 人份 | Preheat: 苦瓜去瓤切片用盐腌10分钟
+- **Ingredients**:
+  * 牛肉片 (腌渍): 250 g (main)
+  * 苦瓜片 (挤水分): 200 g (produce)
+  * 豆豉与蒜末姜末: 豆豉15g + 蒜末5g + 姜末5g (seasoning)
+  * 料酒酱油胡椒粉水淀粉: 料酒+酱油+胡椒粉+水淀粉 (liquid)
+- **Action Steps (Flow Blocks)**:
+  1. **牛肉片划散炒变色** [Heat: 大火] [Time: 2 min]: 牛肉片划散炒变色
+  2. **爆香豆豉与倒苦瓜牛肉** [Heat: 大火] [Time: 3 min]: 爆香豆豉与倒苦瓜牛肉
+- **Final Plating / Instructions**: 豉香鲜爽 🥩 - 豆豉咸香掩盖苦味，牛肉鲜嫩
+
+---
+
+### 32. 🐟 翡翠丝瓜黑鱼蓉卷 (ID: cn-32-feicui-siguajuan)
+- **URL**: https://recipelab.cc/recipe/cn-32-feicui-siguajuan
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: hard
+- **Description**: 养颜护肤精致粤式蒸菜。丝瓜大片焯软抹蛋清淀粉，裹入打发鲜黑鱼蓉卷起，大火蒸10分钟扣盘。
+- **Prerequisites**: Container: 平底蒸盘 & 蒸锅 | Servings: 3-4 人份 | Preheat: 黑鱼肉剁成细蓉
+- **Ingredients**:
+  * 鲜丝瓜 (去皮切大片): 300 g (3条) (produce)
+  * 黑鱼蓉 (剁碎): 300 g (main)
+  * 鸡蛋清与淀粉: 蛋清100g + 淀粉50g (liquid)
+  * 葱姜末与鸡精食盐: 葱姜末+鸡精+盐 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **丝瓜焯软抹鱼蓉卷起**: 丝瓜焯软抹鱼蓉卷起
+  2. **大火蒸10分钟扣盘** [Heat: 大火] [Time: 10 min]: 大火蒸10分钟扣盘
+- **Final Plating / Instructions**: 清嫩翡翠 🐟 - 丝瓜翠绿清甜，黑鱼蓉高蛋白紧实嫩滑
+
+---
+
+### 33. 🐖 洋葱爆炒猪肝 (ID: cn-33-yangcong-chao-zhugan)
+- **URL**: https://recipelab.cc/recipe/cn-33-yangcong-chao-zhugan
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 明目补血养生炒菜。猪肝薄片用料酒水淀粉腌渍滑熟，搭配洋葱方片大火爆炒，富含维A与铁质，降压降脂。
+- **Prerequisites**: Container: 中式炒锅 | Servings: 2-3 人份 | Preheat: 猪肝去筋膜切薄片腌渍
+- **Ingredients**:
+  * 新鲜猪肝 (切薄片): 50 g (main)
+  * 洋葱 (切方片): 100 g (produce)
+  * 料酒与水淀粉: 料酒+水淀粉 (liquid)
+  * 葱花花椒粉盐鸡精: 葱花+花椒粉+盐+鸡精 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **猪肝滑熟与爆香洋葱** [Heat: 大火] [Time: 4 min]: 猪肝滑熟与爆香洋葱
+- **Final Plating / Instructions**: 鲜嫩补血 🐖 - 猪肝鲜嫩无异味，洋葱甜脆开胃
+
+---
+
+### 34. 🥬 飘香手撕圆白菜 (ID: cn-34-piaoxiang-shousi-yuanbaicai)
+- **URL**: https://recipelab.cc/recipe/cn-34-piaoxiang-shousi-yuanbaicai
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 天然护胃酸甜快手菜。圆白菜手撕成片，爆香蒜末姜末花椒粒，大火炒至微软，淋香醋与香油出锅。
+- **Prerequisites**: Container: 平底炒锅 | Servings: 2-3 人份 | Preheat: 圆白菜手撕成大片
+- **Ingredients**:
+  * 圆白菜 (手撕片): 300 g (produce)
+  * 蒜末与姜末花椒粒: 蒜末5g + 姜末5g + 花椒3g (produce)
+  * 香醋与香油: 醋8g + 香油5g (liquid)
+  * 食盐: 3 g (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **爆香花椒与手撕菜爆炒** [Heat: 大火] [Time: 3 min]: 爆香花椒与手撕菜爆炒
+- **Final Plating / Instructions**: 酸脆开胃 🥬 - 脆嫩爽口，对胃溃疡有良好辅助调养作用
+
+---
+
+### 35. 🥬 海米清炒油菜 (ID: cn-35-haimi-youcai)
+- **URL**: https://recipelab.cc/recipe/cn-35-haimi-youcai
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 高钙高维C清爽炒菜。油菜焯水过凉，与泡发海米大火翻炒，海米鲜香松软，油菜鲜绿理气消肿。
+- **Prerequisites**: Container: 中式炒锅 | Servings: 2 人份 | Preheat: 海米温水泡发洗净
+- **Ingredients**:
+  * 新鲜油菜 (切段焯水): 200 g (produce)
+  * 淡干海米 (泡发): 30 g (main)
+  * 葱花与食盐鸡精: 葱花+盐+鸡精 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **油菜焯水过凉**: 油菜焯水过凉
+  2. **炒香海米与下油菜** [Heat: 大火] [Time: 3 min]: 炒香海米与下油菜
+- **Final Plating / Instructions**: 鲜绿高钙 🥬 - 海米鲜香，油菜脆嫩多汁
+
+---
+
+### 36. 🥬 蒜香蚝油生菜 (ID: cn-36-haoyou-shengcai)
+- **URL**: https://recipelab.cc/recipe/cn-36-haoyou-shengcai
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 减脂催眠经典粤式快手菜。生菜大片焯水摆盘，爆香葱姜蒜淋特调蚝油芡汁，清脆爽口低热量。
+- **Prerequisites**: Container: 平底盘 & 炒锅 | Servings: 2 人份 | Preheat: 准备水淀粉勾芡
+- **Ingredients**:
+  * 新鲜生菜 (大片焯水): 300 g (produce)
+  * 李锦记蚝油: 15 g (liquid)
+  * 葱姜蒜末与生抽: 葱姜蒜末各3g + 生抽3g (produce)
+  * 水淀粉: 适量 (liquid)
+- **Action Steps (Flow Blocks)**:
+  1. **生菜焯水控干摆盘**: 生菜焯水控干摆盘
+  2. **爆香蒜末勾蚝油芡汁** [Heat: 中火] [Time: 2 min]: 爆香蒜末勾蚝油芡汁
+- **Final Plating / Instructions**: 鲜咸清脆 🥬 - 生菜翠绿清脆，蚝油酱汁浓郁
+
+---
+
+### 37. 🥓 芹菜爆炒腊肉丁 (ID: cn-37-qincai-larouding)
+- **URL**: https://recipelab.cc/recipe/cn-37-qincai-larouding
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 平肝降压香浓家常菜。芹菜段与腊肉先焯水，腊肉切丁煸炒出油，搭配干红辣椒段大火翻炒，香气扑鼻。
+- **Prerequisites**: Container: 中式炒锅 | Servings: 3 人份 | Preheat: 芹菜腊肉先焯水
+- **Ingredients**:
+  * 鲜芹菜 (切段焯水): 200 g (produce)
+  * 熟腊肉 (切丁焯水): 100 g (main)
+  * 姜末与干红辣椒段: 姜末2g + 干椒5g (seasoning)
+  * 料酒与食盐: 料酒5g + 盐2g (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **腊肉煸炒出油下芹菜** [Heat: 大火] [Time: 4 min]: 腊肉煸炒出油下芹菜
+- **Final Plating / Instructions**: 腊香脆嫩 🥓 - 芹菜清脆利尿，腊肉醇香咸美
+
+---
+
+### 38. 🥬 粤式白灼芥蓝 (ID: cn-38-baizhuo-jielan)
+- **URL**: https://recipelab.cc/recipe/cn-38-baizhuo-jielan
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 粤港经典清爽名菜。芥蓝去粗皮焯至断生，浇上白糖、豉汁、香油兑成的白灼汁与热油葱丝，清心明目。
+- **Prerequisites**: Container: 大号平盘 & 炒锅 | Servings: 2-3 人份 | Preheat: 芥蓝去根部粗皮
+- **Ingredients**:
+  * 新鲜芥蓝 (去粗皮): 300 g (produce)
+  * 葱丝: 15 g (produce)
+  * 特制白灼酱汁: 酱油5g + 糖3g + 盐3g + 香油 + 鸡精 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **芥蓝焯水断生摆盘**: 芥蓝焯水断生摆盘
+  2. **煮白灼汁浇上撒葱丝** [Heat: 中火] [Time: 2 min]: 煮白灼汁浇上撒葱丝
+- **Final Plating / Instructions**: 清甜爽脆 🥬 - 芥蓝微甜清脆，极具粤菜原本鲜味
+
+---
+
+### 39. 🥬 熟咸蛋黄炒苋菜 (ID: cn-39-danhuang-xiancai)
+- **URL**: https://recipelab.cc/recipe/cn-39-danhuang-xiancai
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 强健骨骼补血家常菜。熟咸鸭蛋黄捣碎炒出金黄沙香，放入苋菜段大火翻炒至变软，蒜香四溢，清热解毒。
+- **Prerequisites**: Container: 平底炒锅 | Servings: 2-3 人份 | Preheat: 咸鸭蛋提前煮熟取黄捣碎
+- **Ingredients**:
+  * 新鲜红苋菜 (切段): 400 g (produce)
+  * 熟咸鸭蛋黄 (捣碎末): 1 颗 (main)
+  * 蒜末与食盐: 蒜末5g + 盐3g (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **爆蒜末炒香咸蛋黄末** [Heat: 中火] [Time: 2 min]: 爆蒜末炒香咸蛋黄末
+  2. **下苋菜大火炒软** [Heat: 大火] [Time: 3 min]: 下苋菜大火炒软
+- **Final Plating / Instructions**: 咸香补血 🥬 - 苋菜软滑汤紫红，咸蛋黄起沙咸香
+
+---
+
+### 40. 🥦 鲜虾仁清蒸西蓝花 (ID: cn-40-xiaren-zheng-xilanhua)
+- **URL**: https://recipelab.cc/recipe/cn-40-xiaren-zheng-xilanhua
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 防癌抗癌高蛋白清淡蒸菜。西蓝花围圈装盘中间放清理好的虾仁，蒸10分钟，淋少许蚝油勾芡，消除疲劳。
+- **Prerequisites**: Container: 大号平底盘 & 蒸锅 | Servings: 2-3 人份 | Preheat: 虾仁挑去虾线洗净
+- **Ingredients**:
+  * 西蓝花 (撕小朵): 250 g (produce)
+  * 鲜虾仁: 150 g (main)
+  * 蚝油水淀粉盐鸡精: 蚝油+水淀粉+盐+鸡精 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **西蓝花围圈码盘**: 西蓝花围圈码盘
+  2. **蒸10分钟淋芡汁** [Heat: 大火] [Time: 10 min]: 蒸10分钟淋芡汁
+- **Final Plating / Instructions**: 鲜美防癌 🥦 - 虾仁鲜弹，西蓝花翠绿富含维生素C
+
+---
+
+### 41. 🥗 四蔬聚会蘸汁蒸菜 (莴笋聚会) (ID: cn-41-wosun-juhui)
+- **URL**: https://recipelab.cc/recipe/cn-41-wosun-juhui
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 高钾防癌健康蒸菜。莴笋、竹笋、芋头与土豆去皮切块，大火转小火蒸20分钟，蘸干红辣椒花椒蒜汁食用。
+- **Prerequisites**: Container: 大号蒸盘 & 蒸锅 | Servings: 3-4 人份 | Preheat: 准备麻辣香蒜蘸汁
+- **Ingredients**:
+  * 莴笋块: 200 g (produce)
+  * 竹笋块: 150 g (produce)
+  * 芋头块与土豆块: 芋头100g + 土豆100g (produce)
+  * 特制花椒蒜辣蘸汁: 干椒3g + 花椒粉 + 蒜末 + 盐 + 酱油 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **四蔬切块大火蒸20分钟** [Heat: 中火] [Time: 20 min]: 四蔬切块大火蒸20分钟
+  2. **制作麻辣蒜汁浇上** [Heat: 中火] [Time: 3 min]: 制作麻辣蒜汁浇上
+- **Final Plating / Instructions**: 麻辣粉糯 🥗 - 四蔬口感各异，芋头粉糯，双笋爽脆
+
+---
+
+### 42. 🍲 香辣莴笋烧猪肉煲 (ID: cn-42-wosun-shaorou)
+- **URL**: https://recipelab.cc/recipe/cn-42-wosun-shaorou
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 去油腻滋补炖菜。猪肉片腌渍后与红辣椒段姜片煸炒加水焖沸，下莴笋片炖至熟透，富含微量元素。
+- **Prerequisites**: Container: 平底炖锅 | Servings: 3 人份 | Preheat: 猪肉切片用盐酱油淀粉腌渍
+- **Ingredients**:
+  * 莴笋片: 250 g (produce)
+  * 猪肉片 (腌渍): 100 g (main)
+  * 红辣椒段与姜片: 红辣椒段+姜片 (produce)
+  * 料酒醋糖盐酱油淀粉: 料酒+醋+糖+盐3g+酱油+淀粉 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **煸炒肉片加水焖沸** [Heat: 中大火] [Time: 5 min]: 煸炒肉片加水焖沸
+  2. **下莴笋片炖熟** [Heat: 中火] [Time: 10 min]: 下莴笋片炖熟
+- **Final Plating / Instructions**: 鲜香不腻 🍲 - 莴笋吸收肉香且去除油腻，汤汁浓郁
+
+---
+
+### 43. 🥒 清爽开胃姜汁莴笋 (ID: cn-43-jiangzhi-wosun)
+- **URL**: https://recipelab.cc/recipe/cn-43-jiangzhi-wosun
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 高钾利尿降压凉爽快手菜。莴笋条用白醋与盐腌10分钟沥干，浇上鲜捣姜汁白糖与香油，点缀红彩椒丝。
+- **Prerequisites**: Container: 凉拌盘 | Servings: 2 人份 | Preheat: 鲜姜捣烂制成姜汁
+- **Ingredients**:
+  * 莴笋条 (醋盐腌渍): 400 g (produce)
+  * 红甜椒丝: 20 g (produce)
+  * 鲜姜汁 (生姜捣烂): 20 g (produce)
+  * 白醋白糖香油盐: 白醋15g + 糖10g + 香油3g + 盐3g (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **醋盐腌莴笋沥干**: 醋盐腌莴笋沥干
+  2. **淋姜汁白糖香油拌匀**: 淋姜汁白糖香油拌匀
+- **Final Plating / Instructions**: 辛香清脆 🥒 - 姜汁辛辣清香，莴笋冰脆解腻
+
+---
+
+### 44. 🍳 瓜氨酸西葫芦炒鸡蛋 (ID: cn-44-xihulu-chao-jidan)
+- **URL**: https://recipelab.cc/recipe/cn-44-xihulu-chao-jidan
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 平稳血糖补维C经典快手菜。蛋液先滑炒盛出，西葫芦片爆葱花炒至八成熟，倒鸡蛋合炒加盐出锅。
+- **Prerequisites**: Container: 平底炒锅 | Servings: 2 人份 | Preheat: 鸡蛋打散加少许盐
+- **Ingredients**:
+  * 西葫芦 (切片): 150 g (produce)
+  * 新鲜鸡蛋: 120 g (2颗) (main)
+  * 葱花与食盐: 葱花3g + 盐2g (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **滑炒鸡蛋盛出** [Heat: 中大火] [Time: 2 min]: 滑炒鸡蛋盛出
+  2. **炒西葫芦合炒鸡蛋** [Heat: 大火] [Time: 3 min]: 炒西葫芦合炒鸡蛋
+- **Final Plating / Instructions**: 清甜多汁 🍳 - 西葫芦促进胰岛素分泌，鸡蛋补蛋白
+
+---
+
+### 45. 🍡 鲜香菇莲藕猪肉丸 (ID: cn-45-xianggu-ouwan)
+- **URL**: https://recipelab.cc/recipe/cn-45-xianggu-ouwan
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: medium
+- **Description**: 降血脂健脾胃养生蒸丸。猪瘦肉碎、切碎香菇与磨成擦丝挤干的藕蓉加淀粉捏丸，大火蒸20分钟。
+- **Prerequisites**: Container: 蒸盘 & 擦丝器 | Servings: 3-4 人份 | Preheat: 莲藕擦丝磨成藕蓉挤水
+- **Ingredients**:
+  * 水发香菇 (切碎): 200 g (produce)
+  * 莲藕 (磨藕蓉挤水): 100 g (produce)
+  * 猪瘦肉 (剁肉末): 100 g (main)
+  * 淀粉葱花香油盐: 淀粉+葱花+香油+盐2g (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **三种食材捏成小丸**: 三种食材捏成小丸
+  2. **蒸20分钟撒葱花** [Heat: 大火] [Time: 20 min]: 蒸20分钟撒葱花
+- **Final Plating / Instructions**: 清脆弹牙 🍡 - 藕蓉清脆，香菇鲜美，肉丸软嫩
+
+---
+
+### 46. 🥓 培根金针菇卷 (ID: cn-46-jinzhengu-peigenjuan)
+- **URL**: https://recipelab.cc/recipe/cn-46-jinzhengu-peigenjuan
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 开胃促进新陈代谢快手蒸菜。培根片包裹焯水金针菇牙签固定，大火蒸5分钟，淋生抽胡椒粉芡汁。
+- **Prerequisites**: Container: 平底蒸盘 & 蒸锅 | Servings: 2-3 人份 | Preheat: 准备牙签固定培根卷
+- **Ingredients**:
+  * 培根片: 150 g (main)
+  * 金针菇 (焯水半分钟): 100 g (produce)
+  * 生抽胡椒粉鸡精水淀粉: 生抽+胡椒粉+鸡精+水淀粉 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **培根裹金针菇卷成卷**: 培根裹金针菇卷成卷
+  2. **蒸5分钟淋鲜浓芡汁** [Heat: 大火] [Time: 5 min]: 蒸5分钟淋鲜浓芡汁
+- **Final Plating / Instructions**: 咸香爽滑 🥓 - 培根咸香熏美，金针菇吸汁爽滑
+
+---
+
+### 47. 🥗 醋熘四宝素什锦 (ID: cn-47-culiu-sushijin)
+- **URL**: https://recipelab.cc/recipe/cn-47-culiu-sushijin
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 降糖降脂多膳食纤维清爽炒菜。水发木耳、胡萝卜片、山药片与芹菜段爆炒，浇上醋糖盐水淀粉芡汁。
+- **Prerequisites**: Container: 中式炒锅 | Servings: 3 人份 | Preheat: 山药去皮切片焯水
+- **Ingredients**:
+  * 水发黑木耳 (撕小朵): 20 g (produce)
+  * 胡萝卜片: 40 g (produce)
+  * 山药片 (焯水): 60 g (produce)
+  * 芹菜段: 60 g (produce)
+  * 特制醋糖水淀粉芡汁: 盐2g + 姜片 + 葱末 + 糖 + 醋 + 水淀粉 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **爆姜片炒胡萝卜木耳** [Heat: 中火] [Time: 2 min]: 爆姜片炒胡萝卜木耳
+  2. **放山药芹菜浇酸甜芡汁** [Heat: 大火] [Time: 3 min]: 放山药芹菜浇酸甜芡汁
+- **Final Plating / Instructions**: 酸甜清脆 🥗 - 四色丰富清脆酸甜，维护肠道健康
+
+---
+
+### 48. 🍐 银耳百合雪梨润肺汤 (ID: cn-48-yiner-baihe-xuelitang)
+- **URL**: https://recipelab.cc/recipe/cn-48-yiner-baihe-xuelitang
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 滋阴润肤经典养生甜汤。泡发银耳小火炖至软烂出胶，加入雪梨块、干百合与枸杞子续炖30分钟，冰糖甜润。
+- **Prerequisites**: Container: 砂锅 / 炖汤锅 | Servings: 3-4 人份 | Preheat: 银耳泡发撕小朵，百合泡软
+- **Ingredients**:
+  * 雪梨块 (去皮核): 2 颗 (produce)
+  * 干银耳 (泡发撕小朵): 20 g (produce)
+  * 干百合与枸杞子: 百合10g + 枸杞10g (produce)
+  * 多晶冰糖: 适量 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **银耳小火炖至软烂出胶** [Heat: 小火] [Time: 30 min]: 银耳小火炖至软烂出胶
+  2. **加百合枸杞雪梨冰糖慢炖** [Heat: 小火] [Time: 30 min]: 加百合枸杞雪梨冰糖慢炖
+- **Final Plating / Instructions**: 润清甜润 🍐 - 银耳胶质丰富，雪梨清甜，润肺止咳
+
+---
+
+### 49. 🍠 荷香小米裹蒸红薯条 (ID: cn-49-hexiang-xiaomi-zheng-hongshu)
+- **URL**: https://recipelab.cc/recipe/cn-49-hexiang-xiaomi-zheng-hongshu
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 养胃维护肠道粗粮蒸菜。红薯条裹满浸泡小米排在荷叶上，大火蒸30分钟，小米养胃红薯富含膳食纤维。
+- **Prerequisites**: Container: 荷叶铺蒸屉 & 蒸锅 | Servings: 3 人份 | Preheat: 小米提前浸泡 1 小时
+- **Ingredients**:
+  * 红薯条 (去皮): 250 g (produce)
+  * 黄小米 (泡1小时): 80 g (grain)
+  * 鲜荷叶: 1 张 (produce)
+  * 食盐与葱花植物油: 盐2g + 葱花 + 植物油 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **红薯条裹小米排荷叶上**: 红薯条裹小米排荷叶上
+  2. **大火蒸30分钟** [Heat: 大火] [Time: 30 min]: 大火蒸30分钟
+- **Final Plating / Instructions**: 荷香粉糯 🍠 - 荷叶清香融入小米与红薯，甜软易消化
+
+---
+
+### 50. 🍣 蒸山药胡萝卜海苔卷 (ID: cn-50-shanyao-shousi)
+- **URL**: https://recipelab.cc/recipe/cn-50-shanyao-shousi
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: medium
+- **Description**: 创意健脾胃低脂粗粮寿司。蒸山药捣泥混入碎胡萝卜，海苔卷紧切段蒸15分钟，蘸寿司酱油，补肾益肺。
+- **Prerequisites**: Container: 寿司帘 & 蒸盘 & 蒸锅 | Servings: 2-3 人份 | Preheat: 山药蒸熟捣泥
+- **Ingredients**:
+  * 铁棍山药 (蒸熟捣泥): 300 g (produce)
+  * 胡萝卜碎: 100 g (produce)
+  * 寿司海苔: 1 片 (grain)
+  * 特制寿司酱油: 适量 (蘸食) (liquid)
+- **Action Steps (Flow Blocks)**:
+  1. **山药泥混胡萝卜卷海苔**: 山药泥混胡萝卜卷海苔
+  2. **蒸15分钟蘸酱油** [Heat: 中火] [Time: 15 min]: 蒸15分钟蘸酱油
+- **Final Plating / Instructions**: 糯咸鲜香 🍣 - 山药绵密粉糯，海苔鲜美，营养丰富
+
+---
+
+### 51. 🍢 日式关东煮 (芋头山药苹果高汤) (ID: cn-51-guandongzhu)
+- **URL**: https://recipelab.cc/recipe/cn-51-guandongzhu
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: japanese_korean
+- **Difficulty**: medium
+- **Description**: 丰富多蔬养胃日式炖煲。苹果白萝卜海带木耳香菇慢炖2小时汤底，放入芋头山药片与娃娃菜鱼豆腐煮熟，甜辣滋味。
+- **Prerequisites**: Container: 大炖锅 | Servings: 4-5 人份 | Preheat: 海带木耳泡发，苹果白萝卜切片
+- **Ingredients**:
+  * 芋头片与山药片: 芋头300g + 山药适量 (produce)
+  * 鱼豆腐与娃娃菜圆白菜: 鱼豆腐+娃娃菜+圆白菜40g (main)
+  * 海带木耳香菇白萝卜苹果汤底: 海带+木耳+香菇+白萝卜+苹果片 (produce)
+  * 甜辣酱与生抽盐: 甜辣酱+生抽+盐2g (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **苹果白萝卜海带炖汤底** [Heat: 小火] [Time: 120 min]: 苹果白萝卜海带炖汤底
+  2. **下芋头山药鱼豆腐煮熟** [Heat: 中火] [Time: 15 min]: 下芋头山药鱼豆腐煮熟
+- **Final Plating / Instructions**: 热气腾腾 🍢 - 汤头清甜鲜美，芋头山药面软入味
+
+---
+
+### 52. 🥔 奶香浓郁鸡汤土豆泥 (ID: cn-52-naixiang-tudouni)
+- **URL**: https://recipelab.cc/recipe/cn-52-naixiang-tudouni
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 养胃通便补虚蒸菜。土豆去皮蒸熟压泥加奶酪与鲜牛奶搅匀，灌入煮好的花椒黑胡椒鸡汤，增强脾胃消化。
+- **Prerequisites**: Container: 小碗 & 蒸锅 | Servings: 2 人份 | Preheat: 准备煮好的花椒鸡汤
+- **Ingredients**:
+  * 土豆 (去皮蒸熟压泥): 200 g (produce)
+  * 奶酪与鲜牛奶: 奶酪20g + 牛奶100mL (dairy)
+  * 花椒黑胡椒鸡汤: 鸡汤+花椒+黑胡椒+盐 (liquid)
+- **Action Steps (Flow Blocks)**:
+  1. **土豆蒸熟捣泥混牛奶**: 土豆蒸熟捣泥混牛奶
+  2. **煮花椒鸡汤灌入土豆泥** [Heat: 中火] [Time: 5 min]: 煮花椒鸡汤灌入土豆泥
+- **Final Plating / Instructions**: 奶香绵密 🥔 - 口感极度细腻绵密，奶香与鸡汤鲜香交融
+
+---
+
+### 53. 🌸 茉莉花清炒有机菜花 (ID: cn-53-moli-huacai)
+- **URL**: https://recipelab.cc/recipe/cn-53-moli-huacai
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 理气开胃舒郁清香炒菜。新鲜茉莉花瓣淡盐水泡净，与焯水有机菜花大火快炒2分钟，芳香化湿，清肝明目。
+- **Prerequisites**: Container: 平底炒锅 | Servings: 2 人份 | Preheat: 茉莉花瓣淡盐水浸泡
+- **Ingredients**:
+  * 有机菜花 (切小朵焯水): 250 g (produce)
+  * 新鲜茉莉花瓣: 20 g (produce)
+  * 蒜片与食盐鸡精: 蒜片+盐2g+鸡精 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **爆蒜片炒菜花撒茉莉花** [Heat: 大火] [Time: 2 min]: 爆蒜片炒菜花撒茉莉花
+- **Final Plating / Instructions**: 花香清爽 🌸 - 茉莉淡雅花香融入爽脆菜花，舒缓情绪
+
+---
+
+### 54. 🥒 酸辣生拌西葫芦丝 (ID: cn-54-liangban-xihulu)
+- **URL**: https://recipelab.cc/recipe/cn-54-liangban-xihulu
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 生津止渴高水分清爽凉菜。嫩西葫芦擦细丝，浇入算末香醋、生抽、蒜泥与辣椒油，清热解毒，平稳血糖。
+- **Prerequisites**: Container: 凉拌大碗 | Servings: 2 人份 | Preheat: 准备擦丝器擦细丝
+- **Ingredients**:
+  * 嫩西葫芦 (擦细丝): 300 g (produce)
+  * 熟花生碎: 15 g (produce)
+  * 算末生抽香醋红油盐: 蒜泥+生抽+香醋+红油+盐 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **调酸辣汁浇西葫芦丝**: 调酸辣汁浇西葫芦丝
+- **Final Plating / Instructions**: 酸辣冰脆 🥒 - 口感极度清脆，保留最大量维生素与水份
+
+---
+
+### 55. 🍲 西葫芦鲜虾豆腐煲 (ID: cn-55-xihulu-shrimp)
+- **URL**: https://recipelab.cc/recipe/cn-55-xihulu-shrimp
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 高蛋白低卡滋补炖煲。鲜虾炒出红油，加高汤下内酯豆腐与西葫芦片小火慢炖10分钟，鲜美开胃。
+- **Prerequisites**: Container: 砂锅煲 | Servings: 3 人份 | Preheat: 鲜虾去虾线开背
+- **Ingredients**:
+  * 西葫芦 (切厚片): 200 g (produce)
+  * 鲜基围虾: 200 g (main)
+  * 内酯豆腐: 1 盒 (produce)
+  * 姜片葱段盐胡椒粉: 姜葱+盐3g+胡椒粉 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **煎虾头炒出红油** [Heat: 中火] [Time: 3 min]: 煎虾头炒出红油
+  2. **下豆腐西葫芦炖10分钟** [Heat: 小火] [Time: 10 min]: 下豆腐西葫芦炖10分钟
+- **Final Plating / Instructions**: 鲜甜汤浓 🍲 - 虾油让汤头呈金黄色，豆腐软滑吸满鲜味
+
+---
+
+### 56. 🍐 冰糖川贝独目雪梨盅 (ID: cn-56-bingtang-dumu-xuelitang)
+- **URL**: https://recipelab.cc/recipe/cn-56-bingtang-dumu-xuelitang
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: medium
+- **Description**: 化痰止咳经典疗效炖品。雪梨掏空做盅，装入川贝母粉、独颗蒜与冰糖蒸炖45分钟，清热润肺。
+- **Prerequisites**: Container: 深碗 & 蒸锅 | Servings: 1 人份 | Preheat: 川贝母研磨成细粉
+- **Ingredients**:
+  * 雪梨 (挖空梨心做盅): 1 颗 (produce)
+  * 川贝母粉: 3 g (produce)
+  * 独头大蒜 (去皮): 1 颗 (produce)
+  * 多晶冰糖: 15 g (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **雪梨掏心装入川贝冰糖**: 雪梨掏心装入川贝冰糖
+  2. **隔水慢炖45分钟** [Heat: 小火] [Time: 45 min]: 隔水慢炖45分钟
+- **Final Plating / Instructions**: 润肺化痰 🍐 - 梨肉酥烂如软膏，汤汁甜润带微苦川贝香
+
+---
+
+### 57. 🌵 食用仙人掌爆炒猪肉片 (ID: cn-57-xianrenzhang-chao-roupian)
+- **URL**: https://recipelab.cc/recipe/cn-57-xianrenzhang-chao-roupian
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: medium
+- **Description**: 降血糖行气活血特色菜。食用仙人掌去刺切条焯水，与腌渍猪肉片、红椒丝大火爆炒，口感酸爽粘滑。
+- **Prerequisites**: Container: 中式炒锅 | Servings: 2-3 人份 | Preheat: 仙人掌小心刮净边缘小刺
+- **Ingredients**:
+  * 食用仙人掌条 (去刺焯水): 150 g (produce)
+  * 猪里脊肉片 (腌渍): 150 g (main)
+  * 红甜椒丝与葱姜末: 红椒丝+葱姜末 (produce)
+  * 料酒生抽盐鸡精淀粉: 料酒+生抽+盐+鸡精+淀粉 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **仙人掌焯水去粘液**: 仙人掌焯水去粘液
+  2. **肉片滑熟与仙人掌合炒** [Heat: 大火] [Time: 3 min]: 肉片滑熟与仙人掌合炒
+- **Final Plating / Instructions**: 微酸粘滑 🌵 - 仙人掌微酸清脆，富含多糖与黄酮类抗氧化物质
+
+---
+
+### 58. 🥟 酵母三鲜牛肉面蒸包 (ID: cn-58-sanxian-niurou-baoshe)
+- **URL**: https://recipelab.cc/recipe/cn-58-sanxian-niurou-baoshe
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: hard
+- **Description**: 补气养血主食蒸包。发面皮包裹牛肉末、虾仁碎与木耳丝组成的三鲜馅，大火蒸20分钟，松软多汁。
+- **Prerequisites**: Container: 大蒸笼 & 醒发箱 | Servings: 6-8 个包子 | Preheat: 面团提前发酵至两倍大
+- **Ingredients**:
+  * 发酵面团: 400 g (grain)
+  * 牛后腿肉馅: 200 g (main)
+  * 鲜虾仁碎与木耳丝: 虾仁50g + 木耳50g (produce)
+  * 姜水酱油香油盐胡椒粉: 姜水+酱油+香油+盐+胡椒粉 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **搅拌牛肉三鲜馅与包包子**: 搅拌牛肉三鲜馅与包包子
+  2. **醒发15分钟大火蒸20分钟** [Heat: 大火] [Time: 20 min]: 醒发15分钟大火蒸20分钟
+- **Final Plating / Instructions**: 皮软馅鲜 🥟 - 包子皮暄软蓬松，馅料汤汁鲜浓
+
+---
+
+### 59. 🥩 经典平肝芹菜炒牛肉丝 (ID: cn-59-qincai-niurou)
+- **URL**: https://recipelab.cc/recipe/cn-59-qincai-niurou
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: medium
+- **Description**: 强筋健骨降血压经典菜。牛肉丝加老抽水淀粉上浆滑熟，搭配清脆芹菜段与野山椒大火爆炒。
+- **Prerequisites**: Container: 中式炒锅 | Servings: 3 人份 | Preheat: 牛肉切细丝上浆
+- **Ingredients**:
+  * 嫩牛肉丝 (上浆): 200 g (main)
+  * 香芹菜段: 200 g (produce)
+  * 泡野山椒碎与姜丝: 野山椒+姜丝 (produce)
+  * 老抽料酒盐鸡精水淀粉: 老抽+料酒+盐+鸡精+水淀粉 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **牛肉丝滑油变色盛出** [Heat: 大火] [Time: 2 min]: 牛肉丝滑油变色盛出
+  2. **爆香野山椒炒芹菜合炒** [Heat: 大火] [Time: 2 min]: 爆香野山椒炒芹菜合炒
+- **Final Plating / Instructions**: 辣香鲜嫩 🥩 - 牛肉滑嫩，芹菜清脆微辣开胃
+
+---
+
+### 60. 🐑 葱姜原味清蒸羊肉 (ID: cn-60-zheng-yangrou)
+- **URL**: https://recipelab.cc/recipe/cn-60-zheng-yangrou
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 温补脾肾原汁原味蒸菜。羊肉切薄片加葱段姜片与料酒大火蒸30分钟，蘸香菜蒜泥椒盐食之。
+- **Prerequisites**: Container: 深底蒸盘 & 蒸锅 | Servings: 3 人份 | Preheat: 准备香菜蒜泥椒盐蘸碟
+- **Ingredients**:
+  * 鲜羊肉薄片: 300 g (main)
+  * 大葱段与生姜片: 葱段30g + 姜片20g (produce)
+  * 料酒与黄酒: 料酒15g (liquid)
+  * 椒盐与蒜泥香菜: 椒盐+蒜泥+香菜 (蘸料) (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **铺葱姜摆羊肉片大火蒸30分钟** [Heat: 大火] [Time: 30 min]: 铺葱姜摆羊肉片大火蒸30分钟
+- **Final Plating / Instructions**: 原汁鲜香 🐑 - 蒸出清淡羊汤可做高汤，肉质极度鲜嫩
+
+---
+
+### 61. 🥩 汉民风味清蒸嫩牛肉 (ID: cn-61-zheng-niurou)
+- **URL**: https://recipelab.cc/recipe/cn-61-zheng-niurou
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 补气养血低脂蒸菜。牛肉片用生抽蚝油香油姜末腌透，平铺盘中大火蒸12分钟，撒鲜葱花。
+- **Prerequisites**: Container: 平底蒸盘 | Servings: 2-3 人份 | Preheat: 牛肉逆纹理切薄片
+- **Ingredients**:
+  * 嫩牛肉薄片: 250 g (main)
+  * 生姜末与葱花: 姜末10g + 葱花 (produce)
+  * 生抽蚝油芝麻香油淀粉: 生抽+蚝油+香油+淀粉 (liquid)
+- **Action Steps (Flow Blocks)**:
+  1. **牛肉腌渍上浆**: 牛肉腌渍上浆
+  2. **大火蒸12分钟** [Heat: 大火] [Time: 12 min]: 大火蒸12分钟
+- **Final Plating / Instructions**: 滑嫩多汁 🥩 - 不加一滴额外油，牛肉汁水丰盈
+
+---
+
+### 62. 🥬 粤式生炒芥蓝猪肉片 (ID: cn-62-jielan-chao-roupian)
+- **URL**: https://recipelab.cc/recipe/cn-62-jielan-chao-roupian
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 清热解毒利水炒菜。芥蓝茎切斜片，与腌渍猪里脊肉片、蒜末大火爆炒，淋少许绍兴黄酒，清香诱人。
+- **Prerequisites**: Container: 中式炒锅 | Servings: 2-3 人份 | Preheat: 芥蓝去粗皮切斜片
+- **Ingredients**:
+  * 芥蓝茎片: 200 g (produce)
+  * 猪里脊肉片 (腌渍): 100 g (main)
+  * 蒜末与绍兴黄酒: 蒜末5g + 黄酒10g (seasoning)
+  * 食盐与鸡精生抽: 盐2g + 鸡精 + 生抽 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **爆香蒜末滑肉片** [Heat: 中火] [Time: 2 min]: 爆香蒜末滑肉片
+  2. **下芥蓝大火爆炒烹黄酒** [Heat: 大火] [Time: 2 min]: 下芥蓝大火爆炒烹黄酒
+- **Final Plating / Instructions**: 脆嫩甘甜 🥬 - 芥蓝梗爽脆甘甜，肉片鲜嫩
+
+---
+
+### 63. 🍅 冰糖松子秘制蒸番茄盅 (ID: cn-63-mizhi-fanqie)
+- **URL**: https://recipelab.cc/recipe/cn-63-mizhi-fanqie
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 养颜抗衰老创新甜品蒸菜。大红番茄去顶做盅，放入炒香松仁、蜂蜜与冰糖，中火蒸15分钟。
+- **Prerequisites**: Container: 蒸盘 & 蒸锅 | Servings: 2 人份 | Preheat: 松子仁小火烘香
+- **Ingredients**:
+  * 红番茄 (切顶掏盅): 2 颗 (produce)
+  * 炒香松子仁: 20 g (produce)
+  * 纯蜂蜜与碎冰糖: 蜂蜜15g + 冰糖10g (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **番茄做盅填入松子蜂蜜**: 番茄做盅填入松子蜂蜜
+  2. **中火蒸15分钟** [Heat: 中火] [Time: 15 min]: 中火蒸15分钟
+- **Final Plating / Instructions**: 酸甜香浓 🍅 - 番茄红素经过蒸煮释放极易吸收，松仁润醇
+
+---
+
+### 64. 🥒 经典清爽黄瓜炒虾仁 (ID: cn-64-huanggua-chao-xiaren)
+- **URL**: https://recipelab.cc/recipe/cn-64-huanggua-chao-xiaren
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 低卡清淡高蛋白快手菜。鲜虾仁蛋清淀粉上浆滑熟，黄瓜丁爆蒜末大火翻炒，勾薄芡，利水消肿。
+- **Prerequisites**: Container: 平底炒锅 | Servings: 2 人份 | Preheat: 黄瓜去籽切丁
+- **Ingredients**:
+  * 新鲜黄瓜 (切丁): 200 g (produce)
+  * 鲜虾仁 (上浆): 150 g (main)
+  * 蒜片蛋清淀粉水淀粉: 蒜片+蛋清+淀粉+水淀粉 (liquid)
+  * 食盐与鸡精: 盐2g + 鸡精 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **虾仁滑油炒变色** [Heat: 中火] [Time: 2 min]: 虾仁滑油炒变色
+  2. **爆蒜炒黄瓜丁合炒勾芡** [Heat: 大火] [Time: 2 min]: 爆蒜炒黄瓜丁合炒勾芡
+- **Final Plating / Instructions**: 清脆鲜弹 🥒 - 虾仁鲜嫩弹牙，黄瓜清香爽口
+
+---
+
+### 65. 🫛 芹菜叶拌粉蒸茧豆 (蚕豆) (ID: cn-65-qincai-zheng-jiandou)
+- **URL**: https://recipelab.cc/recipe/cn-65-qincai-zheng-jiandou
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 降血压高纤维农家蒸菜。鲜蚕豆与芹菜叶裹上面粉与玉米面，大火蒸15分钟，倒蒜泥香油凉拌。
+- **Prerequisites**: Container: 蒸屉 & 屉布 | Servings: 3 人份 | Preheat: 鲜蚕豆剥去外壳
+- **Ingredients**:
+  * 鲜蚕豆 (茧豆): 200 g (produce)
+  * 嫩芹菜叶: 50 g (produce)
+  * 中筋面粉与玉米面: 面粉30g + 玉米面30g (grain)
+  * 蒜泥香油盐泼辣子: 蒜泥+香油+盐+泼辣子 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **蚕豆芹菜叶裹双面粉**: 蚕豆芹菜叶裹双面粉
+  2. **大火蒸15分钟拌蒜泥** [Heat: 大火] [Time: 15 min]: 大火蒸15分钟拌蒜泥
+- **Final Plating / Instructions**: 粉糯麦香 🫛 - 蚕豆面软，芹菜叶清香，粗粮健康
+
+---
+
+### 66. 🌱 冰镇蜂蜜甜酸拌芦荟丁 (ID: cn-66-liangban-luhui)
+- **URL**: https://recipelab.cc/recipe/cn-66-liangban-luhui
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 通便美容排毒开胃凉菜。食用库拉索芦荟去外皮切丁焯水半分钟过冰水，加蜂蜜与白醋拌匀。
+- **Prerequisites**: Container: 冰镇玻璃碗 | Servings: 2 人份 | Preheat: 准备冰水浴过凉
+- **Ingredients**:
+  * 库拉索食用芦荟肉 (切丁): 150 g (produce)
+  * 枸杞子 (泡软): 5 g (produce)
+  * 纯蜂蜜与白醋: 蜂蜜20g + 白醋5g (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **芦荟丁焯水半分钟过冰水** [Heat: 大火] [Time: 1 min]: 芦荟丁焯水半分钟过冰水
+  2. **拌蜂蜜白醋缀枸杞**: 拌蜂蜜白醋缀枸杞
+- **Final Plating / Instructions**: 冰爽滑脆 🌱 - 晶莹剔透，清热泻火，改善肠道蠕动
+
+---
+
+### 67. 🍲 白萝卜猪排骨顺气清汤 (ID: cn-67-luobo-paigu-tang)
+- **URL**: https://recipelab.cc/recipe/cn-67-luobo-paigu-tang
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 下气消食经典家常炖汤。焯水排骨加葱姜小火炖1小时，下白萝卜大块炖20分钟，汤清甜，顺气化痰。
+- **Prerequisites**: Container: 砂锅 | Servings: 4 人份 | Preheat: 排骨冷水焯水去血沫
+- **Ingredients**:
+  * 猪肋排 (焯水): 400 g (main)
+  * 白萝卜 (切滚刀块): 300 g (produce)
+  * 葱段与生姜片料酒: 葱段+姜片+料酒10g (seasoning)
+  * 食盐与白胡椒粉香菜: 盐4g + 白胡椒粉 + 香菜 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **排骨砂锅炖1小时** [Heat: 小火] [Time: 60 min]: 排骨砂锅炖1小时
+  2. **下白萝卜块炖20分钟** [Heat: 小火] [Time: 20 min]: 下白萝卜块炖20分钟
+- **Final Plating / Instructions**: 汤清甜润 🍲 - 萝卜通气消食，排骨肉质酥烂
+
+---
+
+### 68. 🥣 冰糖银耳莲子百合甜羹 (ID: cn-68-bingtang-yiner-baihe)
+- **URL**: https://recipelab.cc/recipe/cn-68-bingtang-yiner-baihe
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 安神养心经典中式甜羹。银耳莲子慢炖40分钟至胶质粘稠，放百合冰糖炖20分钟，清心润肺。
+- **Prerequisites**: Container: 慢炖锅 / 砂锅 | Servings: 3-4 人份 | Preheat: 莲耳百合提前浸泡
+- **Ingredients**:
+  * 干银耳 (泡发剪碎): 15 g (produce)
+  * 去芯莲子与干百合: 莲子20g + 百合15g (produce)
+  * 多晶冰糖: 40 g (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **银耳莲子慢炖40分钟** [Heat: 小火] [Time: 40 min]: 银耳莲子慢炖40分钟
+  2. **放百合冰糖炖20分钟** [Heat: 小火] [Time: 20 min]: 放百合冰糖炖20分钟
+- **Final Plating / Instructions**: 浓稠润滑 🥣 - 银耳浓稠如胶，莲子面糯百合甜润
+
+---
+
+### 69. 🥚 鲜番茄汁水蒸蛋 (ID: cn-69-xihongshi-zheng-dan)
+- **URL**: https://recipelab.cc/recipe/cn-69-xihongshi-zheng-dan
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 开胃易消化高蛋白蒸蛋。番茄去皮榨纯汁与打散蛋液温水混合，中火蒸10分钟，淋少许生抽香油。
+- **Prerequisites**: Container: 蒸碗 & 滤网 | Servings: 2 人份 | Preheat: 番茄开水烫去皮榨汁
+- **Ingredients**:
+  * 新鲜红番茄汁: 80 mL (produce)
+  * 新鲜鸡蛋: 2 颗 (main)
+  * 温水与生抽香油盐: 温水+生抽+香油+盐1g (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **蛋液混番茄汁过滤网**: 蛋液混番茄汁过滤网
+  2. **中火蒸10分钟** [Heat: 中火] [Time: 10 min]: 中火蒸10分钟
+- **Final Plating / Instructions**: 粉红开胃 🥚 - 呈粉红色，兼具番茄酸甜与鸡蛋滑嫩
+
+---
+
+### 70. 🥩 鲁味传统浓香把子肉 (ID: cn-70-bazi-rou)
+- **URL**: https://recipelab.cc/recipe/cn-70-bazi-rou
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: medium
+- **Description**: 补虚强身传统名菜。厚切五花肉大条煎香，搭配海带结、百叶结与酱油冰糖砂锅慢炖1.5小时，入口即化。
+- **Prerequisites**: Container: 大砂锅 | Servings: 4-5 人份 | Preheat: 五花肉切1厘米厚长条
+- **Ingredients**:
+  * 带皮五花肉 (厚长条): 500 g (main)
+  * 海带结与百叶结: 海带100g + 百叶100g (produce)
+  * 老抽生抽料酒冰糖: 老抽20g + 生抽30g + 料酒20g + 冰糖20g (liquid)
+  * 葱姜八角桂皮草果: 葱姜+八角2个+桂皮1块+草果 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **肉条煎出油脂** [Heat: 中火] [Time: 5 min]: 肉条煎出油脂
+  2. **砂锅加海带百叶慢炖90分钟** [Heat: 小火] [Time: 90 min]: 砂锅加海带百叶慢炖90分钟
+- **Final Plating / Instructions**: 肥而不腻 🥩 - 肉皮软糯，瘦肉香浓脱骨，拌饭神菜
+
+---
+
+### 71. 🍢 鲁菜名菜葱烧高汤海参 (ID: cn-71-cong-shao-haishen)
+- **URL**: https://recipelab.cc/recipe/cn-71-cong-shao-haishen
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: hard
+- **Description**: 滋阴补肾提高免疫名菜。大葱段用猪油炸出金黄葱油，泡发海参在葱油高汤中大火烧开小火慢炖收汁。
+- **Prerequisites**: Container: 平底炒锅 | Servings: 2-3 人份 | Preheat: 海参提前彻底泡发洗净
+- **Ingredients**:
+  * 水发刺海参: 4 根 (约200g) (main)
+  * 章丘大葱白段: 150 g (produce)
+  * 高汤与猪油: 高汤150g + 猪油20g (liquid)
+  * 老抽蚝油糖盐水淀粉: 老抽+蚝油+糖+盐+水淀粉 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **猪油炸大葱段炼葱油** [Heat: 中火] [Time: 5 min]: 猪油炸大葱段炼葱油
+  2. **海参入高汤慢炖勾芡** [Heat: 中火] [Time: 8 min]: 海参入高汤慢炖勾芡
+- **Final Plating / Instructions**: 葱香浓郁 🍢 - 海参软嫩滑润，大葱香甜，红亮光泽
+
+---
+
+### 72. 🍯 桂花蜜汁浇清蒸铁棍山药 (ID: cn-72-shanyu-mizhi)
+- **URL**: https://recipelab.cc/recipe/cn-72-shanyu-mizhi
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 健脾补肺养生甜品。铁棍山药去皮切长条大火蒸20分钟，浇上桂花酱与纯蜂蜜调成的金色蜜汁。
+- **Prerequisites**: Container: 长平盘 & 蒸锅 | Servings: 3 人份 | Preheat: 山药去皮带手套防痒
+- **Ingredients**:
+  * 铁棍山药 (去皮切长条): 300 g (produce)
+  * 糖桂花酱: 20 g (seasoning)
+  * 纯蜂蜜: 20 g (liquid)
+- **Action Steps (Flow Blocks)**:
+  1. **山药条蒸20分钟** [Heat: 大火] [Time: 20 min]: 山药条蒸20分钟
+  2. **淋桂花蜜汁**: 淋桂花蜜汁
+- **Final Plating / Instructions**: 甜蜜粉糯 🍯 - 山药绵软，桂花清香甜美，平补脾胃
+
+---
+
+### 73. 🍡 传统老北京冰糖山楂葫芦 (ID: cn-73-bingtang-hulu)
+- **URL**: https://recipelab.cc/recipe/cn-73-bingtang-hulu
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: medium
+- **Description**: 开胃消食传统甜品。鲜山楂去核串串，冰糖与水小火慢熬至琥珀色拔丝状态，山楂蘸糖冷却结晶。
+- **Prerequisites**: Container: 不粘酱锅 & 竹签 | Servings: 5 串 | Preheat: 准备抹油平盘冷却
+- **Ingredients**:
+  * 新鲜山楂 (去核串串): 250 g (约200g) (produce)
+  * 多晶冰糖: 150 g (seasoning)
+  * 清水: 75 mL (liquid)
+- **Action Steps (Flow Blocks)**:
+  1. **熬冰糖至琥珀拔丝色** [Heat: 小火] [Time: 10 min]: 熬冰糖至琥珀拔丝色
+  2. **山楂串快速裹糖液冷却**: 山楂串快速裹糖液冷却
+- **Final Plating / Instructions**: 酸甜脆硬 🍡 - 糖壳晶莹冰脆，山楂酸甜生津消食
+
+---
+
+### 74. 🍲 无花果南北杏猪排骨润喉汤 (ID: cn-74-wuhua-guo-dun-paigu)
+- **URL**: https://recipelab.cc/recipe/cn-74-wuhua-guo-dun-paigu
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 润肺止咳健脾开胃炖汤。干无花果与南北杏仁、焯水排骨砂锅慢炖1.5小时，自然甜美无须多加糖。
+- **Prerequisites**: Container: 砂锅 | Servings: 4 人份 | Preheat: 无花果洗净切半
+- **Ingredients**:
+  * 猪肋排 (焯水): 400 g (main)
+  * 干无花果: 50 g (produce)
+  * 南杏仁与北杏仁: 南杏10g + 北杏5g (produce)
+  * 姜片与食盐: 姜片3片 + 盐3g (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **砂锅全料慢炖90分钟** [Heat: 小火] [Time: 90 min]: 砂锅全料慢炖90分钟
+- **Final Plating / Instructions**: 清甜润喉 🍲 - 汤色清亮甜美，对咽干咳嗽有显著调理效果
+
+---
+
+### 75. 🥚 鲜桑椹干补血水蒸蛋 (ID: cn-75-sangren-zheng-dan)
+- **URL**: https://recipelab.cc/recipe/cn-75-sangren-zheng-dan
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 补肝肾明目乌发滋补蒸蛋。鲜桑椹（或干桑椹）与打散鸡蛋液温水搅匀，中火蒸10分钟，甜咸风味。
+- **Prerequisites**: Container: 蒸碗 | Servings: 2 人份 | Preheat: 干桑椹提前温水泡软
+- **Ingredients**:
+  * 干桑椹 (泡软): 20 g (produce)
+  * 新鲜鸡蛋: 2 颗 (main)
+  * 温水与纯蜂蜜香油: 温水+蜂蜜10g+香油 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **蛋液混桑椹蒸10分钟** [Heat: 中火] [Time: 10 min]: 蛋液混桑椹蒸10分钟
+- **Final Plating / Instructions**: 紫甜滑嫩 🥚 - 蛋羹带天然紫红色，桑椹酸甜滋补
+
+---
+
+### 76. 🎃 去核红枣清蒸甜南瓜 (ID: cn-76-hongzao-zheng-nangua)
+- **URL**: https://recipelab.cc/recipe/cn-76-hongzao-zheng-nangua
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 补中益气安神脾胃蒸菜。老南瓜切月牙块装盘，上面铺满满去核红枣，大火蒸20分钟，自然甜润。
+- **Prerequisites**: Container: 平底蒸盘 | Servings: 3 人份 | Preheat: 红枣去核切半
+- **Ingredients**:
+  * 老南瓜 (切月牙块): 300 g (produce)
+  * 去核红枣: 50 g (produce)
+- **Action Steps (Flow Blocks)**:
+  1. **南瓜码盘铺红枣蒸20分钟** [Heat: 大火] [Time: 20 min]: 南瓜码盘铺红枣蒸20分钟
+- **Final Plating / Instructions**: 香甜粉软 🎃 - 不放一粒糖，南瓜吸收枣香天然甘甜
+
+---
+
+### 77. 🎃 鲜百合蜂蜜蒸板栗南瓜 (ID: cn-77-baihe-zheng-nangua)
+- **URL**: https://recipelab.cc/recipe/cn-77-baihe-zheng-nangua
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 润肺止咳美容养颜蒸菜。板栗南瓜块与鲜百合片交错码盘，大火蒸18分钟，淋少许纯蜂蜜出锅。
+- **Prerequisites**: Container: 平底蒸盘 | Servings: 3 人份 | Preheat: 鲜百合剥开洗净
+- **Ingredients**:
+  * 板栗南瓜块: 300 g (produce)
+  * 鲜百合片: 50 g (produce)
+  * 纯蜂蜜: 15 g (liquid)
+- **Action Steps (Flow Blocks)**:
+  1. **南瓜百合交错码盘蒸18分钟** [Heat: 大火] [Time: 18 min]: 南瓜百合交错码盘蒸18分钟
+  2. **淋纯蜂蜜**: 淋纯蜂蜜
+- **Final Plating / Instructions**: 清香粉糯 🎃 - 南瓜如板栗般干粉香甜，百合清润
+
+---
+
+### 78. 🎃 老南瓜炖猪排骨浓汤 (ID: cn-78-nangua-paigu-tang)
+- **URL**: https://recipelab.cc/recipe/cn-78-nangua-paigu-tang
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 补中益气通便养生汤。老南瓜块与焯水猪排骨慢炖1小时，南瓜自然化在汤里使汤呈浓郁金黄，润肠通便。
+- **Prerequisites**: Container: 大砂锅 | Servings: 4 人份 | Preheat: 排骨焯水去血沫
+- **Ingredients**:
+  * 猪排骨块 (焯水): 400 g (main)
+  * 老南瓜块 (带皮洗净): 300 g (produce)
+  * 葱段与生姜片: 葱段+姜片 (seasoning)
+  * 食盐: 4 g (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **排骨砂锅慢炖45分钟** [Heat: 小火] [Time: 45 min]: 排骨砂锅慢炖45分钟
+  2. **下老南瓜块续炖20分钟** [Heat: 小火] [Time: 20 min]: 下老南瓜块续炖20分钟
+- **Final Plating / Instructions**: 金黄甜润 🎃 - 汤头金黄甜润，南瓜软糯，排骨酥烂
+
+---
+
+### 79. 🌱 朝鲜蓟嫩芹菜爆炒猪肉片 (ID: cn-79-qincai-chaoxian-chao-roupian)
+- **URL**: https://recipelab.cc/recipe/cn-79-qincai-chaoxian-chao-roupian
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: medium
+- **Description**: 保肝利胆高纤特色菜。朝鲜蓟嫩芯与芹菜段、腌渍猪肉片大火爆炒，富含洋蓟素，促进胆汁分泌、降胆固醇。
+- **Prerequisites**: Container: 中式炒锅 | Servings: 2-3 人份 | Preheat: 朝鲜蓟切开水焯软
+- **Ingredients**:
+  * 朝鲜蓟嫩芯 (焯水切片): 150 g (produce)
+  * 芹菜段: 100 g (produce)
+  * 猪里脊肉片 (腌渍): 150 g (main)
+  * 蒜末料酒盐生抽: 蒜末+料酒+盐+生抽 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **蒜末爆炒肉片** [Heat: 中火] [Time: 2 min]: 蒜末爆炒肉片
+  2. **倒朝鲜蓟芹菜大火爆炒** [Heat: 大火] [Time: 3 min]: 倒朝鲜蓟芹菜大火爆炒
+- **Final Plating / Instructions**: 草本回甘 🌱 - 朝鲜蓟微苦回甘，芹菜清脆，保肝护胆
+
+---
+
+### 80. 🌸 鲜百合清蒸山药片 (ID: cn-80-baihe-zheng-shanyao)
+- **URL**: https://recipelab.cc/recipe/cn-80-baihe-zheng-shanyao
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 润肺安神补脾胃养生蒸菜。铁棍山药斜切片与鲜百合瓣层层相间摆盘，大火蒸15分钟，淋蜂蜜或直接食之。
+- **Prerequisites**: Container: 圆形蒸盘 | Servings: 2-3 人份 | Preheat: 山药切片防止氧化泡水
+- **Ingredients**:
+  * 铁棍山药片: 250 g (produce)
+  * 鲜百合瓣: 50 g (produce)
+  * 纯蜂蜜: 15 g (可选) (liquid)
+- **Action Steps (Flow Blocks)**:
+  1. **山药百合相间摆盘蒸15分钟** [Heat: 大火] [Time: 15 min]: 山药百合相间摆盘蒸15分钟
+  2. **淋蜂蜜**: 淋蜂蜜
+- **Final Plating / Instructions**: 洁白甜软 🌸 - 山药绵糯，百合清甜，滋阴润肺
+
+---
+
+### 81. 🥣 冰糖枸杞炖芦荟饮 (ID: cn-81-bingtang-luhui)
+- **URL**: https://recipelab.cc/recipe/cn-81-bingtang-luhui
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 清热泻火通便排毒甜品。库拉索芦荟去皮切大块焯水，加冰糖枸杞慢炖20分钟，冷却冰镇后口感极佳。
+- **Prerequisites**: Container: 不粘炖锅 | Servings: 2 人份 | Preheat: 芦荟去皮切块
+- **Ingredients**:
+  * 食用芦荟块 (焯水): 200 g (produce)
+  * 枸杞子: 10 g (produce)
+  * 多晶冰糖: 30 g (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **芦荟冰糖枸杞慢炖20分钟** [Heat: 小火] [Time: 20 min]: 芦荟冰糖枸杞慢炖20分钟
+- **Final Plating / Instructions**: 晶莹清爽 🥣 - 芦荟极度爽滑，冰糖甜润，润肠排毒
+
+---
+
+### 82. 🍜 手工风干瘦肉蒸丝面 (ID: cn-82-zizhi-ganshou-mian)
+- **URL**: https://recipelab.cc/recipe/cn-82-zizhi-ganshou-mian
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: hard
+- **Description**: 高蛋白低脂手工干粮面。猪瘦肉剁细加全麦粉捏面条风干，放蒸笼大火蒸15分钟，配鲜高汤食用。
+- **Prerequisites**: Container: 蒸屉 & 屉布 | Servings: 2 人份 | Preheat: 瘦肉面条提前晾干
+- **Ingredients**:
+  * 风干猪瘦肉面条: 200 g (main)
+  * 清鸡汤高汤: 300 mL (liquid)
+  * 葱花与芝麻香油食盐: 葱花+香油+盐2g (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **风干肉面大火蒸15分钟** [Heat: 大火] [Time: 15 min]: 风干肉面大火蒸15分钟
+  2. **浇滚烫鸡汤**: 浇滚烫鸡汤
+- **Final Plating / Instructions**: 肉香劲道 🍜 - 面条富含蛋白质，嚼劲十足，汤鲜味美
+
+---
+
+### 83. 🧅 蒜香清炒紫洋葱 (ID: cn-83-chao-yangcong)
+- **URL**: https://recipelab.cc/recipe/cn-83-chao-yangcong
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 杀菌降血压低热量快手菜。紫皮洋葱切丝，爆香蒜末大火快炒2分钟，淋少许生抽盐出锅，保持清脆。
+- **Prerequisites**: Container: 平底炒锅 | Servings: 2 人份 | Preheat: 洋葱切丝泡水防辣眼
+- **Ingredients**:
+  * 紫皮洋葱 (切丝): 250 g (produce)
+  * 蒜末与生抽: 蒜末5g + 生抽5g (seasoning)
+  * 食盐与鸡精: 盐2g + 鸡精 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **爆蒜末大火快炒洋葱丝** [Heat: 大火] [Time: 2 min]: 爆蒜末大火快炒洋葱丝
+- **Final Plating / Instructions**: 甜脆杀菌 🧅 - 洋葱甜脆微辣，富含前列腺素A与槲皮素
+
+---
+
+### 84. 🍳 甜美洋葱炒滑蛋 (ID: cn-84-yangcong-chao-jidan)
+- **URL**: https://recipelab.cc/recipe/cn-84-yangcong-chao-jidan
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 降脂护心经典家常菜。鸡蛋打散滑炒凝固，洋葱丝大火炒至甜软，合炒调盐出锅，营养均衡。
+- **Prerequisites**: Container: 中式炒锅 | Servings: 2-3 人份 | Preheat: 鸡蛋打散加少许盐
+- **Ingredients**:
+  * 洋葱丝: 200 g (produce)
+  * 新鲜鸡蛋: 3 颗 (main)
+  * 葱花与食盐生抽: 葱花+盐3g+生抽 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **滑炒鸡蛋盛出** [Heat: 中大火] [Time: 2 min]: 滑炒鸡蛋盛出
+  2. **炒软洋葱合炒鸡蛋** [Heat: 大火] [Time: 3 min]: 炒软洋葱合炒鸡蛋
+- **Final Plating / Instructions**: 甜润咸香 🍳 - 洋葱甜软，鸡蛋金黄滑嫩
+
+---
+
+### 85. 🍆 原味蒜泥泼油清蒸长紫茄 (ID: cn-85-zheng-qiezi)
+- **URL**: https://recipelab.cc/recipe/cn-85-zheng-qiezi
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 少油健康软化血管蒸菜。长紫茄切长条大火蒸10分钟，泼上爆香蒜泥生抽香醋，口感绵软。
+- **Prerequisites**: Container: 长平蒸盘 | Servings: 2 人份 | Preheat: 长茄子洗净切长条
+- **Ingredients**:
+  * 长紫茄 (切长条): 300 g (produce)
+  * 大量蒜泥: 20 g (produce)
+  * 生抽香醋香油盐红油: 生抽10g+香醋5g+香油+盐+红油 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **茄子条大火蒸10分钟** [Heat: 大火] [Time: 10 min]: 茄子条大火蒸10分钟
+  2. **泼蒜泥生抽料汁**: 泼蒜泥生抽料汁
+- **Final Plating / Instructions**: 软烂蒜香 🍆 - 热量极低，富含生物碱与芦丁，保护心血管
+
+---
+
+### 86. 🥒 剁椒热油清蒸莴笋片 (ID: cn-86-zheng-wosun)
+- **URL**: https://recipelab.cc/recipe/cn-86-zheng-wosun
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 高钾降压利尿清淡蒸菜。莴笋削皮切薄片装盘，铺少许湖南剁椒蒸8分钟，出锅泼热香油。
+- **Prerequisites**: Container: 平底蒸盘 | Servings: 2 人份 | Preheat: 莴笋去外皮硬筋切片
+- **Ingredients**:
+  * 嫩莴笋片: 250 g (produce)
+  * 红剁椒: 15 g (produce)
+  * 蒸鱼豉油与香油: 豉油10g + 香油5g (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **莴笋码盘铺剁椒蒸8分钟** [Heat: 大火] [Time: 8 min]: 莴笋码盘铺剁椒蒸8分钟
+  2. **淋蒸鱼豉油与热香油**: 淋蒸鱼豉油与热香油
+- **Final Plating / Instructions**: 鲜辣清脆 🥒 - 保留莴笋原汁翠绿与微辣咸香
+
+---
+
+### 87. 🥒 蒜香清炒西葫芦片 (ID: cn-87-chao-xihulu)
+- **URL**: https://recipelab.cc/recipe/cn-87-chao-xihulu
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 生津止渴低热量极速菜。西葫芦半月片爆香蒜末大火翻炒2分钟，淋少许香醋出锅。
+- **Prerequisites**: Container: 平底炒锅 | Servings: 2 人份 | Preheat: 西葫芦切半月薄片
+- **Ingredients**:
+  * 西葫芦 (切半月片): 250 g (produce)
+  * 蒜末与香醋: 蒜末5g + 醋3g (seasoning)
+  * 食盐: 2 g (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **爆蒜末大火炒2分钟** [Heat: 大火] [Time: 2 min]: 爆蒜末大火炒2分钟
+- **Final Plating / Instructions**: 清甜多汁 🥒 - 极度快手，口感清爽水灵
+
+---
+
+### 88. 🍅 经典浓酸番茄炒猪肉片 (ID: cn-88-fanqie-chao-roupian)
+- **URL**: https://recipelab.cc/recipe/cn-88-fanqie-chao-roupian
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 开胃促进铁吸收家常菜。猪瘦肉片腌渍滑熟，番茄切块大火炒出红浓汤汁，合炒收汁，汤汁拌饭极佳。
+- **Prerequisites**: Container: 中式炒锅 | Servings: 2-3 人份 | Preheat: 番茄去皮切块
+- **Ingredients**:
+  * 熟红番茄 (切块): 250 g (produce)
+  * 猪里脊肉片 (腌渍): 150 g (main)
+  * 葱花蒜末糖盐生抽: 葱蒜+糖5g+盐3g+生抽 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **肉片滑熟盛出** [Heat: 中火] [Time: 2 min]: 肉片滑熟盛出
+  2. **炒番茄浓汁合炒肉片** [Heat: 大火] [Time: 3 min]: 炒番茄浓汁合炒肉片
+- **Final Plating / Instructions**: 酸甜浓郁 🍅 - 番茄红素与油脂结合极易吸收，肉片鲜嫩
+
+---
+
+### 89. 🍅 秘制番茄酸甜蒸山药 (ID: cn-89-mizhi-fanqie-shanyao)
+- **URL**: https://recipelab.cc/recipe/cn-89-mizhi-fanqie-shanyao
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 健脾养胃开胃创新甜菜。蒸熟铁棍山药段浇上手工炒熬浓番茄冰糖酱，酸甜粉糯，降脂排毒。
+- **Prerequisites**: Container: 蒸盘 & 不粘酱锅 | Servings: 3 人份 | Preheat: 番茄去皮切碎
+- **Ingredients**:
+  * 铁棍山药 (去皮切段): 300 g (produce)
+  * 新鲜番茄碎与冰糖: 番茄150g + 冰糖20g (produce)
+- **Action Steps (Flow Blocks)**:
+  1. **山药大火蒸20分钟** [Heat: 大火] [Time: 20 min]: 山药大火蒸20分钟
+  2. **小火熬番茄酱浇山药上** [Heat: 小火] [Time: 5 min]: 小火熬番茄酱浇山药上
+- **Final Plating / Instructions**: 酸甜面软 🍅 - 红白相间美丽，番茄浓酱包裹绵软山药
+
+---
+
+### 90. 🫘 香芹爆炒五香豆腐干 (ID: cn-90-chao-doufogan)
+- **URL**: https://recipelab.cc/recipe/cn-90-chao-doufogan
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 高钙高蛋白清爽家常菜。五香豆腐干切丝，搭配香芹菜段与蒜末大火快炒，补充异黄酮与植物蛋白。
+- **Prerequisites**: Container: 中式炒锅 | Servings: 2-3 人份 | Preheat: 豆腐干切细丝
+- **Ingredients**:
+  * 五香豆腐干 (切丝): 200 g (main)
+  * 香芹菜段: 100 g (produce)
+  * 蒜末生抽盐鸡精: 蒜末+生抽+盐2g+鸡精 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **爆蒜末炒香豆干丝芹菜** [Heat: 大火] [Time: 3 min]: 爆蒜末炒香豆干丝芹菜
+- **Final Plating / Instructions**: 豆香清脆 🫘 - 豆干咸香嚼劲，芹菜清香利尿
+
+---
+
+### 91. 🥔 椒盐蒜香清蒸小土豆 (ID: cn-91-zheng-tudou)
+- **URL**: https://recipelab.cc/recipe/cn-91-zheng-tudou
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 高钾低钠天然主食蒸菜。小土豆带皮洗净对切，大火蒸20分钟，蘸自制椒盐蒜泥香油食用。
+- **Prerequisites**: Container: 蒸盘 & 蒸锅 | Servings: 2-3 人份 | Preheat: 土豆皮用刷子彻底刷净
+- **Ingredients**:
+  * 小黄心土豆 (带皮对切): 350 g (produce)
+  * 椒盐与蒜泥芝麻香油: 椒盐+蒜泥+香油 (蘸料) (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **带皮对切土豆蒸20分钟** [Heat: 大火] [Time: 20 min]: 带皮对切土豆蒸20分钟
+  2. **蘸椒盐蒜泥香油**: 蘸椒盐蒜泥香油
+- **Final Plating / Instructions**: 粉软沙香 🥔 - 保留土豆原汁面软，替代精米面主食健康
+
+---
+
+### 92. 🎃 冰糖桂花清蒸贝贝南瓜 (ID: cn-92-zheng-nangua-2)
+- **URL**: https://recipelab.cc/recipe/cn-92-zheng-nangua-2
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 排毒养颜天然甜品蒸菜。贝贝南瓜切瓣去籽，撒碎冰糖大火蒸15分钟，出锅撒干桂花。
+- **Prerequisites**: Container: 圆形蒸盘 | Servings: 2 人份 | Preheat: 贝贝南瓜外皮刷洗干净
+- **Ingredients**:
+  * 贝贝南瓜 (切小瓣): 300 g (produce)
+  * 碎冰糖与干桂花: 冰糖10g + 干桂花2g (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **南瓜撒冰糖蒸15分钟撒桂花** [Heat: 大火] [Time: 15 min]: 南瓜撒冰糖蒸15分钟撒桂花
+- **Final Plating / Instructions**: 栗香甜面 🎃 - 贝贝南瓜口感干面如栗子，桂花香气宜人
+
+---
+
+### 93. 🥬 蒜香清炒绿菠菜 (ID: cn-93-chao-baocai)
+- **URL**: https://recipelab.cc/recipe/cn-93-chao-baocai
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 补铁补叶酸经典绿叶菜。菠菜先焯水去除草酸，爆香蒜末大火快炒1分钟加盐出锅，护眼润肠。
+- **Prerequisites**: Container: 中式炒锅 | Servings: 2 人份 | Preheat: 准备开水焯菠菜去草酸
+- **Ingredients**:
+  * 新鲜菠菜 (焯水): 300 g (produce)
+  * 大量蒜末: 15 g (produce)
+  * 食盐与鸡精: 盐2g + 鸡精 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **菠菜沸水焯30秒** [Heat: 大火] [Time: 1 min]: 菠菜沸水焯30秒
+  2. **爆蒜末大火炒1分钟** [Heat: 大火] [Time: 1 min]: 爆蒜末大火炒1分钟
+- **Final Plating / Instructions**: 鲜绿多汁 🥬 - 焯水后口感不涩口，富含胡萝卜素与铁质
+
+---
+
+### 94. 🫛 葱油爆炒鲜蚕豆 (茧豆) (ID: cn-94-chao-jiandou)
+- **URL**: https://recipelab.cc/recipe/cn-94-chao-jiandou
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 健脑补锌时令鲜菜。鲜蚕豆去壳焯水，用香葱炼出葱油后大火快炒3分钟，放盐出锅，粉甜脆嫩。
+- **Prerequisites**: Container: 平底炒锅 | Servings: 2 人份 | Preheat: 鲜蚕豆剥皮焯水
+- **Ingredients**:
+  * 鲜蚕豆仁 (焯水): 250 g (produce)
+  * 香葱段: 20 g (produce)
+  * 食盐与白糖: 盐2g + 糖2g (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **炼葱油炒蚕豆** [Heat: 大火] [Time: 3 min]: 炼葱油炒蚕豆
+- **Final Plating / Instructions**: 葱香甜粉 🫛 - 蚕豆翠绿粉糯，葱香扑鼻
+
+---
+
+### 95. 🥒 蒜蓉肉末蒸黄瓜酿 (ID: cn-95-zheng-huanggua)
+- **URL**: https://recipelab.cc/recipe/cn-95-zheng-huanggua
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: medium
+- **Description**: 清热利尿创新清淡菜。黄瓜切厚段挖去中间瓜瓤，填入调味猪肉末大火蒸10分钟，淋少许生抽。
+- **Prerequisites**: Container: 平底蒸盘 | Servings: 2 人份 | Preheat: 黄瓜切段用小勺挖空中间
+- **Ingredients**:
+  * 黄瓜厚段 (挖空做杯): 2 根 (约250g) (produce)
+  * 调味猪肉末: 100 g (main)
+  * 蒜泥与生抽香油: 蒜泥+生抽+香油 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **黄瓜酿肉末大火蒸10分钟** [Heat: 大火] [Time: 10 min]: 黄瓜酿肉末大火蒸10分钟
+- **Final Plating / Instructions**: 清香肉鲜 🥒 - 黄瓜软嫩清香，蒸出的汁水极度鲜美
+
+---
+
+### 96. 🥒 蒜香豆豉清炒苦瓜片 (ID: cn-96-chao-kugua)
+- **URL**: https://recipelab.cc/recipe/cn-96-chao-kugua
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 清热解毒平稳血糖家常菜。苦瓜去瓤切薄片用盐腌挤出苦水，爆蒜末豆豉大火快炒2分钟。
+- **Prerequisites**: Container: 平底炒锅 | Servings: 2 人份 | Preheat: 苦瓜刮净白膜切薄片盐腌
+- **Ingredients**:
+  * 苦瓜薄片 (盐腌挤水): 200 g (produce)
+  * 豆豉与蒜末红椒丝: 豆豉10g+蒜末5g+红椒丝 (seasoning)
+  * 食盐与白糖: 盐2g + 糖2g (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **爆豆豉蒜末炒苦瓜** [Heat: 大火] [Time: 2 min]: 爆豆豉蒜末炒苦瓜
+- **Final Plating / Instructions**: 甘苦回甜 🥒 - 豆豉咸香掩盖苦味，清热祛火
+
+---
+
+### 97. 🫘 剁椒蒸五香豆腐干 (ID: cn-97-zheng-doufugan)
+- **URL**: https://recipelab.cc/recipe/cn-97-zheng-doufugan
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 高蛋白低脂香辣蒸菜。五香豆腐干切厚片码盘，铺上面豉酱与红剁椒大火蒸10分钟，淋香油葱花。
+- **Prerequisites**: Container: 平底蒸盘 | Servings: 2 人份 | Preheat: 豆腐干斜切厚片
+- **Ingredients**:
+  * 五香豆腐干 (切片): 250 g (main)
+  * 红剁椒与面豉酱: 剁椒15g + 面豉酱10g (seasoning)
+  * 葱花与芝麻香油: 葱花 + 香油5g (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **豆干码盘铺剁椒蒸10分钟** [Heat: 大火] [Time: 10 min]: 豆干码盘铺剁椒蒸10分钟
+- **Final Plating / Instructions**: 咸辣软韧 🫘 - 豆干吸收剁椒香味，软韧有嚼劲
+
+---
+
+### 98. 🥕 葱花炝锅清炒白萝卜丝 (ID: cn-98-chao-luobo)
+- **URL**: https://recipelab.cc/recipe/cn-98-chao-luobo
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 下气消食低卡清甜快手菜。白萝卜擦细丝，葱花炝锅大火翻炒2分钟至微软，放盐淋少许香醋。
+- **Prerequisites**: Container: 平底炒锅 | Servings: 2 人份 | Preheat: 白萝卜擦细丝
+- **Ingredients**:
+  * 白萝卜 (擦细丝): 300 g (produce)
+  * 大葱花与生姜丝: 葱花10g + 姜丝3g (produce)
+  * 食盐与香醋: 盐2g + 香醋3g (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **葱花炝锅炒萝卜丝** [Heat: 大火] [Time: 2 min]: 葱花炝锅炒萝卜丝
+- **Final Plating / Instructions**: 清甜顺气 🥕 - 萝卜丝清甜多汁，顺气助消化
+
+---
+
+### 99. 🌸 蜂蜜枸杞蒸鲜百合 (ID: cn-99-zheng-baihe)
+- **URL**: https://recipelab.cc/recipe/cn-99-zheng-baihe
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 润肺止咳宁心安神甜品蒸菜。鲜百合剥瓣洗净码盘，铺枸杞子大火蒸10分钟，出锅淋纯蜂蜜。
+- **Prerequisites**: Container: 小蒸盘 | Servings: 2 人份 | Preheat: 鲜百合剥瓣去杂质
+- **Ingredients**:
+  * 新鲜百合瓣: 150 g (produce)
+  * 枸杞子: 10 g (produce)
+  * 纯蜂蜜: 20 g (liquid)
+- **Action Steps (Flow Blocks)**:
+  1. **百合铺枸杞大火蒸10分钟** [Heat: 大火] [Time: 10 min]: 百合铺枸杞大火蒸10分钟
+  2. **淋纯蜂蜜**: 淋纯蜂蜜
+- **Final Plating / Instructions**: 清甜粉糯 🌸 - 百合片片面糯甘甜，润肺改善失眠
+
+---
+
+### 100. 🍄 蚝油蒜香清炒鲜香菇 (ID: cn-100-chao-xianggu)
+- **URL**: https://recipelab.cc/recipe/cn-100-chao-xianggu
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 提高免疫防癌抗癌鲜味菜。鲜香菇切厚片焯水，爆香蒜末大火翻炒，调李锦记蚝油勾薄芡。
+- **Prerequisites**: Container: 平底炒锅 | Servings: 2 人份 | Preheat: 鲜香菇洗净切厚片焯水
+- **Ingredients**:
+  * 鲜香菇 (切厚片焯水): 250 g (produce)
+  * 蒜末与李锦记蚝油: 蒜末10g + 蚝油15g (seasoning)
+  * 水淀粉与食盐: 水淀粉 + 盐2g (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **爆蒜末炒香菇勾芡** [Heat: 大火] [Time: 3 min]: 爆蒜末炒香菇勾芡
+- **Final Plating / Instructions**: 滑嫩鲜香 🍄 - 香菇口感滑嫩如鲍鱼，浓郁鲜美
+
+---
+
+### 101. 🍠 原味清蒸红心红薯 (ID: cn-101-zheng-hongshu)
+- **URL**: https://recipelab.cc/recipe/cn-101-zheng-hongshu
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 通便抗癌天然粗粮蒸菜。红心红薯去皮切长滚刀块，大火蒸20分钟至软糯面甜。
+- **Prerequisites**: Container: 蒸盘 & 蒸锅 | Servings: 2-3 人份 | Preheat: 红薯去皮切滚刀块
+- **Ingredients**:
+  * 红心蜜红薯 (去皮块): 400 g (produce)
+- **Action Steps (Flow Blocks)**:
+  1. **红薯块大火蒸20分钟** [Heat: 大火] [Time: 20 min]: 红薯块大火蒸20分钟
+- **Final Plating / Instructions**: 蜜甜粉软 🍠 - 原汁原味香甜，富含胡萝卜素与脱氢表雄酮
+
+---
+
+### 102. 🥒 蒜香清炒翠绿丝瓜 (ID: cn-102-chao-siguajuan)
+- **URL**: https://recipelab.cc/recipe/cn-102-chao-siguajuan
+- **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
+- **Cuisine Style**: chinese
+- **Difficulty**: easy
+- **Description**: 美容护肤清热解毒快手菜。鲜丝瓜去皮切滚刀块，爆香蒜末大火快炒2分钟加盐出锅，保持鲜绿不黑。
+- **Prerequisites**: Container: 平底炒锅 | Servings: 2 人份 | Preheat: 丝瓜去皮切滚刀块用少许盐抓匀
+- **Ingredients**:
+  * 鲜丝瓜 (切滚刀块): 300 g (produce)
+  * 蒜末与食盐鸡精: 蒜末10g + 盐2g + 鸡精 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **爆蒜末大火快炒丝瓜** [Heat: 大火] [Time: 2 min]: 爆蒜末大火快炒丝瓜
+- **Final Plating / Instructions**: 翠绿滑嫩 🥒 - 丝瓜软滑多汁，汤汁清甜
+
+---
+
+### 103. 🏆 榛果摩卡特饮干粉 (Hazelnut Mocha Mix) (ID: hsh-01-hazelnut-mocha)
+- **URL**: https://recipelab.cc/recipe/hsh-01-hazelnut-mocha
+- **Dataset Provenance**: Homemade Specialty Collection (PostSoma Home Sweet Home Cooking System)
+- **Cuisine Style**: western
+- **Difficulty**: easy
+- **Description**: 2003 Home Sweet Home 获奖饮品！Delora Bright 妈妈寄给 Tech 学子的温暖家乡味，香浓热可可与榛果咖啡的完美融合。
+- **Prerequisites**: Container: 大号密封容器 / 塑胶袋 | Servings: 约 18 杯 | Preheat: 准备 10 oz 沸水
+- **Ingredients**:
+  * nonfat dry milk 脱脂奶粉: 1 pkg (440 g) (dairy)
+  * confectioners sugar 糖粉 (过筛): 1 pkg (450 g) (seasoning)
+  * chocolate mix for milk 巧克力冲饮粉: 1 pkg (425 g) (other)
+  * non-dairy creamer 无乳奶精: 1 jar (310 g) (dairy)
+  * hazelnut creamer 榛果味奶精: 2 jars (450 g) (dairy)
+  * cocoa powder 纯可可粉: 1/2 cup (50 g) (other)
+  * instant coffee granules 即溶咖啡颗粒: 1/4 cup (25 g) (liquid)
+- **Action Steps (Flow Blocks)**:
+  1. **充分混合**: 充分混合
+  2. **密封装袋**: 密封装袋
+- **Final Plating / Instructions**: 热水冲泡 ☕ - 取 3 满匙干粉，倒入 10 oz 沸水搅拌溶解即享
+
+---
+
+### 104. 🏆 塔可墨西哥风味浓汤 (Taco Soup) (ID: hsh-02-taco-soup)
+- **URL**: https://recipelab.cc/recipe/hsh-02-taco-soup
+- **Dataset Provenance**: Homemade Specialty Collection (PostSoma Home Sweet Home Cooking System)
+- **Cuisine Style**: western
+- **Difficulty**: easy
+- **Description**: 2003 Home Sweet Home 获奖汤品！Lou Pape 妈妈的健康蔬菜肉汤，非常适合搭配面包或饼干。
+- **Prerequisites**: Container: 大号汤锅 / 慢炖锅 (Crockpot) | Servings: 12 人份 (1杯/份) | Preheat: 准备四种豆罐头与番茄罐
+- **Ingredients**:
+  * ground turkey 火鸡绞肉: 1 lb (450 g) (main)
+  * large onion 洋葱 (切碎): 1 颗 (produce)
+  * ranch dressing mix Ranch香调料包: 1 pkg (seasoning)
+  * taco seasoning 塔可香料包: 1 pkg (seasoning)
+  * pinto & chili beans 斑豆与辣豆罐头: 2 罐 (main)
+  * corn & stewed tomatoes 玉米与炖番茄罐: 2 罐 (produce)
+  * crushed tomatoes 碎番茄罐头: 28 oz (800 g) (produce)
+- **Action Steps (Flow Blocks)**:
+  1. **煸炒洋葱** [Heat: 中火] [Time: 5 min]: 煸炒洋葱
+  2. **炒香火鸡肉** [Heat: 中大火] [Time: 8 min]: 炒香火鸡肉
+  3. **倒入罐头与调料**: 倒入罐头与调料
+- **Final Plating / Instructions**: 慢炖浓汤 🍲 - 小火慢炖 1 小时，或放慢炖锅低火滚煮一整天
+
+---
+
+### 105. 🏆 Ritz饼干金黄烤鸡 (Chicken Ritz) (ID: hsh-03-chicken-ritz)
+- **URL**: https://recipelab.cc/recipe/hsh-03-chicken-ritz
+- **Dataset Provenance**: Homemade Specialty Collection (PostSoma Home Sweet Home Cooking System)
+- **Cuisine Style**: western
+- **Difficulty**: easy
+- **Description**: 2003 Home Sweet Home 获奖主菜！Linda Parson 的暖心家常烤鸡，浓郁奶油与酥脆饼干的绝妙结合。
+- **Prerequisites**: Container: 9x13 吋烤盘 | Servings: 4 人份 | Preheat: 预热烤箱至 350°F (175°C)
+- **Ingredients**:
+  * cooked chicken breast 熟鸡胸肉 (切块): 3 cups (450 g) (main)
+  * cream of chicken soup 浓缩鸡汤罐头: 1 can (300 g) (liquid)
+  * sour cream 酸奶油: 8 oz (225 g) (dairy)
+  * green peas 青豌豆 (沥干): 1 can (选填) (produce)
+  * crushed Ritz crackers Ritz饼干碎: 30 块 (压碎) (grain)
+- **Action Steps (Flow Blocks)**:
+  1. **底盘铺鸡肉**: 底盘铺鸡肉
+  2. **调调制汤酱**: 调调制汤酱
+  3. **浇酱并撒饼干碎**: 浇酱并撒饼干碎
+- **Final Plating / Instructions**: 金黄烘焙 🍗 - 入烤箱烘焙至表面金黄酥脆、内部冒泡 bubbling
+
+---
+
+### 106. 🏆 墨西哥风味千层饼 (Mexican Lasagna) (ID: hsh-04-mexican-lasagna)
+- **URL**: https://recipelab.cc/recipe/hsh-04-mexican-lasagna
+- **Dataset Provenance**: Homemade Specialty Collection (PostSoma Home Sweet Home Cooking System)
+- **Cuisine Style**: western
+- **Difficulty**: medium
+- **Description**: 2003 Home Sweet Home 获奖主菜！Gale Moore 妈妈的经典菜，孩子在学校念念不忘的丰盛午晚餐。
+- **Prerequisites**: Container: 大号方形深烤盘 | Servings: 8 人份 | Preheat: 预热烤箱至 350°F (175°C)
+- **Ingredients**:
+  * lasagna noodles 千层面面条: 9 片 (1/2盒) (grain)
+  * ground beef 牛肉碎: 1 lb (450 g) (main)
+  * salsa 墨西哥莎莎酱: 8 oz (225 g) (produce)
+  * spaghetti sauce 意面红酱: 16 oz (450 g) (liquid)
+  * mozzarella cheese 马苏里拉芝士碎: 1 lb (450 g) (dairy)
+  * cheddar cheese 车达芝士碎: 1 lb (450 g) (dairy)
+  * taco seasoning 塔可香料包: 1 pkg (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **煮千层面** [Heat: 大火] [Time: 10 min]: 煮千层面
+  2. **炒牛肉加调料** [Heat: 中火] [Time: 12 min]: 炒牛肉加调料
+  3. **交替铺层**: 交替铺层
+- **Final Plating / Instructions**: 熔岩烘焙 🧀 - 烘焙 30 分钟至顶层芝士完全融化冒泡
+
+---
+
+### 107. 🏆 祖母秘制面条库格尔 (Grandma’s Noodle Kugel) (ID: hsh-05-noodle-kugel)
+- **URL**: https://recipelab.cc/recipe/hsh-05-noodle-kugel
+- **Dataset Provenance**: Homemade Specialty Collection (PostSoma Home Sweet Home Cooking System)
+- **Cuisine Style**: western
+- **Difficulty**: medium
+- **Description**: 2003 Home Sweet Home 获奖副菜！Sara Cunningham 家族传承几代人的节庆必吃金黄烤面条。
+- **Prerequisites**: Container: 9x13 吋玻璃烤盘 | Servings: 8-10 人份 | Preheat: 预热烤箱至 350°F (175°C)
+- **Ingredients**:
+  * fine egg noodles 细蛋面: 1/2 lb (225 g) (grain)
+  * cream cheese 奶油芝士 (软化): 1/2 lb (225 g) (dairy)
+  * cottage cheese 农夫鲜芝士: 1 lb (450 g) (dairy)
+  * eggs 鸡蛋: 4 颗 (main)
+  * sugar 砂糖: 3/4 cup (150 g) (seasoning)
+  * sour cream 酸奶油: 6 cups (600 g) (dairy)
+  * vanilla extract 香草精: 7 tsp (seasoning)
+  * graham crackers 全麦饼干碎: 1 pkg (10片压碎) (grain)
+- **Action Steps (Flow Blocks)**:
+  1. **煮蛋面** [Time: 8 min]: 煮蛋面
+  2. **搅打双重芝士**: 搅打双重芝士
+  3. **混合液与面条**: 混合液与面条
+  4. **铺上饼干酥顶**: 铺上饼干酥顶
+- **Final Plating / Instructions**: 金黄烘焙 🥧 - 烘焙 1 小时至凝固金黄，稍放凉 15 分钟后切块食用
+
+---
+
+### 108. 🏆 烧烤黄油豆 (Barbecued Butter Beans) (ID: hsh-06-bbq-butter-beans)
+- **URL**: https://recipelab.cc/recipe/hsh-06-bbq-butter-beans
+- **Dataset Provenance**: Homemade Specialty Collection (PostSoma Home Sweet Home Cooking System)
+- **Cuisine Style**: western
+- **Difficulty**: easy
+- **Description**: 2003 Home Sweet Home 获奖副菜！Sandy Mackie 妈妈野餐与尾门派对最受欢迎的浓郁烘焙豆。
+- **Prerequisites**: Container: 敞口大烤盘 / 铸铁锅 | Servings: 10-12 人份 | Preheat: 预热烤箱至 350°F (175°C)
+- **Ingredients**:
+  * butter beans 沥干黄油豆罐头: 6 罐 (每罐1lb) (main)
+  * brown sugar 红糖: 1.5 盒 (约600g) (seasoning)
+  * catsup 番茄酱: 1 瓶 (36 oz/1 kg) (liquid)
+  * bacon 培根 (切小块): 1 lb (450 g) (main)
+- **Action Steps (Flow Blocks)**:
+  1. **混合全部食材**: 混合全部食材
+- **Final Plating / Instructions**: 慢烤收汁 🫘 - 入烤箱烘烤 2.5 小时，期间偶尔翻动，至培根香酥、酱汁浓稠
+
+---
+
+### 109. 🏆 菠萝香面包填料 (Pineapple Stuffing) (ID: hsh-07-pineapple-stuffing)
+- **URL**: https://recipelab.cc/recipe/hsh-07-pineapple-stuffing
+- **Dataset Provenance**: Homemade Specialty Collection (PostSoma Home Sweet Home Cooking System)
+- **Cuisine Style**: western
+- **Difficulty**: easy
+- **Description**: 2003 Home Sweet Home 获奖副菜！Carol Carson 的复活节与火腿绝配甜美填料。
+- **Prerequisites**: Container: 1.5 夸脱烤盘 (或9x13大盘) | Servings: 6 人份 | Preheat: 预热烤箱至 350°F (175°C)
+- **Ingredients**:
+  * butter 无盐黄油 (软化): 1/2 cup (115 g) (dairy)
+  * sugar 砂糖: 1/2 cup (100 g) (seasoning)
+  * eggs 鸡蛋: 4 颗 (main)
+  * white bread 白面包丁: 5 片 (切方块) (grain)
+  * crushed pineapple 沥干碎菠萝罐头: 20 oz (560 g) (produce)
+- **Action Steps (Flow Blocks)**:
+  1. **打发黄油砂糖**: 打发黄油砂糖
+  2. **逐个搅入鸡蛋**: 逐个搅入鸡蛋
+  3. **折叠面包与菠萝**: 折叠面包与菠萝
+- **Final Plating / Instructions**: 香甜烘焙 🍍 - 烤箱烘焙 1 小时至表面金黄蓬松
+
+---
+
+### 110. 🏆 碧根果果仁米饭 (Pecan Rice) (ID: hsh-08-pecan-rice)
+- **URL**: https://recipelab.cc/recipe/hsh-08-pecan-rice
+- **Dataset Provenance**: Homemade Specialty Collection (PostSoma Home Sweet Home Cooking System)
+- **Cuisine Style**: western
+- **Difficulty**: medium
+- **Description**: 2003 Home Sweet Home 获奖副菜！Patti Faulkner 妈妈感恩节的招牌美洲山核桃香米饭。
+- **Prerequisites**: Container: 深平底锅与焗烤盘 | Servings: 10-12 人份 | Preheat: 预热烤箱至 350°F (175°C)
+- **Ingredients**:
+  * converted rice 长粒米: 2 cups (360 g) (grain)
+  * olive oil & butter 橄榄油与黄油: 1 T. 油 + 2 T. 黄油 (dairy)
+  * chicken broth 鸡汤: 4 cups (950 mL) (liquid)
+  * mushrooms 蘑菇 (切碎): 8 oz (225 g) (produce)
+  * pecans 碧根果碎: 1/2 cup (60 g) (other)
+  * green onions 葱花/青葱: 4 根 (切碎) (produce)
+  * parmesan cheese 帕玛森芝士碎: 6 oz (170 g) (dairy)
+- **Action Steps (Flow Blocks)**:
+  1. **炒香米粒** [Heat: 中大火] [Time: 3 min]: 炒香米粒
+  2. **鸡汤焖煮** [Heat: 小火] [Time: 20 min]: 鸡汤焖煮
+  3. **拌入果仁与芝士**: 拌入果仁与芝士
+- **Final Plating / Instructions**: 焗烤果仁饭 🍚 - 入烤箱 350°F 烘烤 20 分钟至香味溢出
+
+---
+
+### 111. 🏆 酥脆花生酱大理石布朗尼 (Crunchy PB Brownies) (ID: hsh-09-peanut-butter-brownie)
+- **URL**: https://recipelab.cc/recipe/hsh-09-peanut-butter-brownie
+- **Dataset Provenance**: Homemade Specialty Collection (PostSoma Home Sweet Home Cooking System)
+- **Cuisine Style**: western
+- **Difficulty**: medium
+- **Description**: 2003 Home Sweet Home 获奖甜品！Pam Pillmore 妈妈聚餐秒光的花生酱布朗尼大理石蛋糕。
+- **Prerequisites**: Container: 9x13 吋烤盘 (抹油底盘) | Servings: 24 块 | Preheat: 预热烤箱至 350°F (175°C)
+- **Ingredients**:
+  * cream cheese 奶油芝士 (软化): 3 oz (85 g) (dairy)
+  * peanut butter 柔滑花生酱: 1/3 cup (80 g) (other)
+  * sugar & vanilla 砂糖与香草精: 1/4c 糖 + 1tsp 香草 (seasoning)
+  * brownie mix 布朗尼预拌粉: 1 pkg (22.5 oz) (grain)
+  * hot water & oil 热水与植物油: 1/3c 水 + 1/2c 油 (liquid)
+  * eggs 鸡蛋: 2 颗 (分两部分) (main)
+  * cocktail peanuts 鸡尾酒花生 (切碎): 1/2 cup (60 g) (other)
+- **Action Steps (Flow Blocks)**:
+  1. **打发花生酱夹心**: 打发花生酱夹心
+  2. **调制布朗尼面糊**: 调制布朗尼面糊
+  3. **铺层拉花与撒花生**: 铺层拉花与撒花生
+- **Final Plating / Instructions**: 香浓布朗尼 🍫 - 烤箱烘焙 28-33 分钟，切勿过烤，完全冷却后切块冷藏
+
+---
+
+### 112. 👨‍🍳 主厨意式酿烤蘑菇 (Italian Mushrooms) (ID: hsh-10-italian-mushrooms)
+- **URL**: https://recipelab.cc/recipe/hsh-10-italian-mushrooms
+- **Dataset Provenance**: Homemade Specialty Collection (PostSoma Home Sweet Home Cooking System)
+- **Cuisine Style**: western
+- **Difficulty**: medium
+- **Description**: Virginia Tech 行政总厨 Chad Brodkin (国际烹饪奥林匹克金奖主厨) 特别献贡献的招牌迎宾菜。
+- **Prerequisites**: Container: 平底烘焙烤盘 | Servings: 8 人份 | Preheat: 预热烤箱至 350°F (175°C)
+- **Ingredients**:
+  * large fresh mushrooms 大鲜蘑菇: 12 oz (340 g) (produce)
+  * mozzarella cheese 马苏里拉芝士碎: 2.75 oz (80 g) (dairy)
+  * parmesan cheese 帕玛森芝士粉: 2 T. (30 g) (dairy)
+  * pimiento & parsley 甜椒丁与鲜欧芹: 1/4 oz 甜椒丁 (produce)
+  * breadcrumbs 碎面包屑: 1/2 oz (15 g) (grain)
+  * roasted garlic & herbs 烤大蒜与牛至罗勒: 蒜瓣+牛至+罗勒 (seasoning)
+  * softened butter 软化黄油: 2 tsp (dairy)
+- **Action Steps (Flow Blocks)**:
+  1. **切茎与炒碎蘑菇** [Heat: 中火] [Time: 4 min]: 切茎与炒碎蘑菇
+  2. **烤大蒜与调制填料**: 烤大蒜与调制填料
+  3. **填入蘑菇伞**: 填入蘑菇伞
+- **Final Plating / Instructions**: 金黄酿烤 🍄 - 入烤箱 350°F 烘烤 14 分钟至馅料融化金黄、蘑菇鲜嫩
+
+---
+
+### 113. 🥐 过夜美洲山核桃肉桂卷 (Overnight Pecan Rolls) (ID: hsh-11-pecan-rolls)
+- **URL**: https://recipelab.cc/recipe/hsh-11-pecan-rolls
+- **Dataset Provenance**: Homemade Specialty Collection (PostSoma Home Sweet Home Cooking System)
+- **Cuisine Style**: western
+- **Difficulty**: hard
+- **Description**: Kalene Orndorff 妈妈平安夜准备、圣诞早晨烘焙的香甜面包卷，满屋肉桂与核桃甜香。
+- **Prerequisites**: Container: 玻璃矩形烤盘 | Servings: 4 人份 (15个卷) | Preheat: 平安夜发酵冷藏，早晨取出静置1小时
+- **Ingredients**:
+  * yeast & warm milk/water 酵母与温水温奶: 1T酵母+1/4c水奶 (liquid)
+  * sugar & salt & egg 砂糖盐与鸡蛋: 1/4c糖+1/2tsp盐+1蛋 (main)
+  * flour 面粉: 3 cups (360 g) (grain)
+  * butter & cinnamon 软黄油与肉桂糖: 2T黄油+2tsp肉桂糖 (seasoning)
+  * honey & brown sugar 蜂蜜与红糖: 1/4c蜂蜜+1/4c红糖 (seasoning)
+  * chopped pecans 碧根果碎: 3/4 cup (90 g) (other)
+- **Action Steps (Flow Blocks)**:
+  1. **和面与首次发酵** [Time: 60 min]: 和面与首次发酵
+  2. **擀开抹肉桂卷起**: 擀开抹肉桂卷起
+  3. **铺焦糖底盘冷藏**: 铺焦糖底盘冷藏
+- **Final Plating / Instructions**: 焦糖香烤 🍞 - 早晨拿出室温放置 1 小时，烘烤 25 分钟后倒扣入大盘
+
+---
+
+### 114. 🍰 老式酸奶油磅蛋糕 (Sour Cream Pound Cake) (ID: hsh-12-pound-cake)
+- **URL**: https://recipelab.cc/recipe/hsh-12-pound-cake
+- **Dataset Provenance**: Homemade Specialty Collection (PostSoma Home Sweet Home Cooking System)
+- **Cuisine Style**: western
+- **Difficulty**: medium
+- **Description**: Kathy P. Evans 妈妈的传统手作磅蛋糕，手工打发，糕体细腻绵密、奶香浓郁。
+- **Prerequisites**: Container: 铝制圆环中空蛋糕模 (Tube Pan) | Servings: 15-20 人份 | Preheat: 预热烤箱至 325°F (165°C)
+- **Ingredients**:
+  * butter & shortening 黄油与起酥油: 2支黄油+1/2c起酥油 (dairy)
+  * sugar 砂糖: 3 cups (600 g) (seasoning)
+  * eggs 鸡蛋: 6 颗 (main)
+  * vanilla & lemon extract 香草与柠檬精: 各 2 tsp (seasoning)
+  * flour & baking powder 面粉与泡打粉: 2c面粉+1/2tsp泡打粉 (grain)
+  * sour cream 酸奶油: 8 oz (225 g) (dairy)
+- **Action Steps (Flow Blocks)**:
+  1. **手工打发油脂砂糖**: 手工打发油脂砂糖
+  2. **分次加入鸡蛋香精**: 分次加入鸡蛋香精
+  3. **过筛面粉与翻拌酸奶油**: 过筛面粉与翻拌酸奶油
+- **Final Plating / Instructions**: 慢烤磅蛋糕 🎂 - 放烤箱底层烘烤 1 小时 15 分钟，插入竹签无粘连即成
+
+---
+
+### 115. 🍲 牛肉大麦蔬菜浓汤 (Beef & Barley Vegetable Soup) (ID: hsh-13-beef-barley-soup)
+- **URL**: https://recipelab.cc/recipe/hsh-13-beef-barley-soup
+- **Dataset Provenance**: Homemade Specialty Collection (PostSoma Home Sweet Home Cooking System)
+- **Cuisine Style**: western
+- **Difficulty**: medium
+- **Description**: Margaret Hardage 妈妈在寒冷秋冬为全家准备的暖心健康浓汤，新鲜蔬菜与丰富大麦、豌豆粒极具饱腹感。
+- **Prerequisites**: Container: 大号炖汤锅 | Servings: 6-8 人份 | Preheat: 牛肉切碎，蔬菜切丁
+- **Ingredients**:
+  * lean ground chuck 瘦牛肉绞肉: 1 lb (450 g) (main)
+  * barley & split peas 大麦与干豌豆仁: 各 1/3 cup (grain)
+  * stewed tomatoes 炖番茄罐头: 14 oz (400 g) (produce)
+  * vegetable juice 蔬菜汁: 6 oz (180 mL) (liquid)
+  * onion & celery & carrots 洋葱芹菜胡萝卜: 洋葱1/2c + 芹菜3/4c + 胡萝卜1/2c (produce)
+  * beef bouillon & herbs 牛肉高汤粉与香草: 高汤粉1T + 月桂叶 + 罗勒 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **炒香碎牛肉** [Heat: 中大火] [Time: 5 min]: 炒香碎牛肉
+  2. **加水大麦焖炖** [Heat: 小火] [Time: 30 min]: 加水大麦焖炖
+  3. **下胡萝卜芹菜** [Heat: 小火] [Time: 30 min]: 下胡萝卜芹菜
+- **Final Plating / Instructions**: 丰盛浓汤 🍲 - 热气腾腾，搭配烤芝士三明治或热比司吉极其美味
+
+---
+
+### 116. 🥐 祖母天使比司吉饼干 (Angel Biscuits) (ID: hsh-14-angel-biscuits)
+- **URL**: https://recipelab.cc/recipe/hsh-14-angel-biscuits
+- **Dataset Provenance**: Homemade Specialty Collection (PostSoma Home Sweet Home Cooking System)
+- **Cuisine Style**: western
+- **Difficulty**: medium
+- **Description**: Nancy Robeson 祖母每逢感恩节与圣诞节必做的爱心面点，酵母与泡打粉结合，松软如羽毛。
+- **Prerequisites**: Container: 烘焙烤盘 & 圆形切模 | Servings: 约 30 个 | Preheat: 预热烤箱至 400°F (200°C)
+- **Ingredients**:
+  * yeast & warm water 酵母与温水: 1包酵母 + 2T温水 (liquid)
+  * flour 面粉: 5 cups (600 g) (grain)
+  * baking powder & soda 泡打粉与小苏打: 泡打粉1T + 苏打1tsp (seasoning)
+  * sugar & salt 砂糖与食盐: 糖2T + 盐1.5tsp (seasoning)
+  * shortening 起酥油/起酥黄油: 1 cup (220 g) (dairy)
+  * buttermilk 酪乳/酸奶: 2 cups (480 mL) (liquid)
+- **Action Steps (Flow Blocks)**:
+  1. **溶解酵母与筛干粉**: 溶解酵母与筛干粉
+  2. **搓入起酥油与和面**: 搓入起酥油与和面
+  3. **揉面压模成型**: 揉面压模成型
+- **Final Plating / Instructions**: 金黄烘焙 🥯 - 入烤箱 400°F 烘烤 12-15 分钟至表面金黄蓬松
+
+---
+
+### 117. 🍲 家常美式鸡肉炖面团 (Chicken & Dumplings) (ID: hsh-15-chicken-dumplings)
+- **URL**: https://recipelab.cc/recipe/hsh-15-chicken-dumplings
+- **Dataset Provenance**: Homemade Specialty Collection (PostSoma Home Sweet Home Cooking System)
+- **Cuisine Style**: western
+- **Difficulty**: medium
+- **Description**: Marion MacLeod Caudle 妈妈传下的经典主菜。鲜嫩鸡肉配软糯面团，搭配土豆泥与豌豆，温暖满足。
+- **Prerequisites**: Container: 深口汤锅 (5夸脱以上) | Servings: 6-8 人份 | Preheat: 准备 Bisquick 预拌粉与鲜奶
+- **Ingredients**:
+  * boneless chicken breasts 熟无骨鸡胸肉: 1.5 lbs (680 g) (main)
+  * chicken broth & herbs 鸡汤与月桂叶: 鸡汤2c + 禽类香料 + 月桂叶 (liquid)
+  * cream of chicken soup 浓缩鸡汤罐头: 2 罐 (liquid)
+  * milk & petite peas 牛奶与青豌豆: 牛奶2罐 + 豌豆1c (produce)
+  * bisquick & milk 烘焙预拌粉与牛奶: Bisquick 2c + 牛奶2/3c (grain)
+- **Action Steps (Flow Blocks)**:
+  1. **煮鸡肉与过滤汤底** [Heat: 中火] [Time: 10 min]: 煮鸡肉与过滤汤底
+  2. **加入浓汤与青豌豆** [Heat: 中火] [Time: 10 min]: 加入浓汤与青豌豆
+  3. **调制面团并舀入滚汤** [Heat: 大火] [Time: 20 min]: 调制面团并舀入滚汤
+- **Final Plating / Instructions**: 软糯面团 🍲 - 汤汁浓郁，面团吸饱鸡汤香气
+
+---
+
+### 118. 🥔 橄榄球硬汉土豆饼芝士焗煲 (Hashbrown Casserole) (ID: hsh-16-hashbrown-casserole)
+- **URL**: https://recipelab.cc/recipe/hsh-16-hashbrown-casserole
+- **Dataset Provenance**: Homemade Specialty Collection (PostSoma Home Sweet Home Cooking System)
+- **Cuisine Style**: western
+- **Difficulty**: easy
+- **Description**: Donna Weatherford 妈妈为 Hokie 橄榄球运动员儿子准备的丰盛蛋白质能量副菜，浓郁奶油与酥脆面包渣。
+- **Prerequisites**: Container: 大号方形焗烤盘 | Servings: 8 人份 | Preheat: 预热烤箱至 300°F (150°C)
+- **Ingredients**:
+  * hashbrowns 土豆饼/薯丁: 2 lbs (900 g) (main)
+  * margarine 融化植物黄油: 1 支 (115 g) (dairy)
+  * grated cheese 车达芝士碎: 3 cups (分两份) (dairy)
+  * sour cream 酸奶油: 1 cup (225 g) (dairy)
+  * cream of chicken soup 浓缩鸡汤罐头: 1 罐 (liquid)
+  * onion flakes & seasonings 洋葱碎与盐胡椒: 洋葱2T + 盐1T + 胡椒 (seasoning)
+  * breadcrumbs 面包渣: 适量 (撒顶层) (grain)
+- **Action Steps (Flow Blocks)**:
+  1. **融化黄油润抹烤盘**: 融化黄油润抹烤盘
+  2. **混合芝士酸奶油酱**: 混合芝士酸奶油酱
+  3. **加入薯丁与撒顶层**: 加入薯丁与撒顶层
+- **Final Plating / Instructions**: 香浓焗烤 🧀 - 入烤箱 300°F 烘烤 20 分钟至顶层芝士融化金黄
+
+---
+
+### 119. Espresso Brownies 意式浓缩布朗尼 (ID: v3-espresso-brownies)
+- **URL**: https://recipelab.cc/recipe/v3-espresso-brownies
+- **Dataset Provenance**: V3 Reference Prototype (PostSoma Kitchen Standard Example)
+- **Cuisine Style**: western
+- **Difficulty**: medium
+- **Description**: 浓郁醇厚、外脆内软的经典意式浓缩咖啡布朗尼
+- **Prerequisites**: Container: 8x8-in 方模 (抹油防沾) | Servings: 9 切块 | Preheat: 预热烤箱至 350°F (170°C)
+- **Ingredients**:
+  * unsalted butter 无盐黄油: 4 oz (115 g) (dairy)
+  * sugar 细砂糖: 1 cup (200 g) (seasoning)
+  * vanilla extract 香草精: 1/4 tsp. (2.5 mL) (liquid)
+  * fresh brewed espresso 意式浓缩咖啡: 1 shot (60 mL) (liquid)
+  * eggs 鸡蛋: 2 large (100 g) (main)
+  * all-purpose flour 中筋面粉: 1/2 cup (80 g) (grain)
+  * Hershey's cocoa powder 可可粉: 1/3 cup (80 g) (grain)
+  * baking soda 小苏打: 1/4 tsp. (1.3 g) (seasoning)
+  * table salt 食盐: 1/4 tsp. (1.5 g) (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **融化**: melt
+  2. **混合**: mix
+  3. **混合**: mix
+  4. **翻拌**: fold_in
+- **Final Plating / Instructions**: 烘焙 bake - 倒入抹油防沾的 8x8 寸方模中，烘焙至表面结壳牙签插入微湿。
+- **Tips**: 使用现磨意式浓缩咖啡能极大提升风味层次; 加入干粉后切勿过度搅拌，翻拌至无干粉即可
+
+---
+
+### 120. 毛氏红烧肉 (ID: v3-hong-shao-rou)
+- **URL**: https://recipelab.cc/recipe/v3-hong-shao-rou
+- **Dataset Provenance**: V3 Reference Prototype (PostSoma Kitchen Standard Example)
+- **Cuisine Style**: chinese
+- **Difficulty**: medium
+- **Description**: 肥而不腻、香浓红亮的经典家常红烧肉
+- **Prerequisites**: Container: 砂锅 / 铸铁锅 | Servings: 3~4 人份 | Preheat: 准备一锅沸水
+- **Ingredients**:
+  * 带皮五花肉: 500 g (main)
+  * 生姜片 & 葱段: 20 g (produce)
+  * 料酒: 30 mL (liquid)
+  * 黄冰糖: 30 g (seasoning)
+  * 植物油: 15 mL (liquid)
+  * 八角 & 桂皮: 2 朵 / 1 块 (seasoning)
+  * 生抽 & 老抽: 20 mL / 10 mL (liquid)
+  * 沸水: 500 mL (liquid)
+- **Action Steps (Flow Blocks)**:
+  1. **冷水焯水** [Heat: 大火] [Time: 5 min]: blanch
+  2. **小火炒糖色** [Heat: 小火]: caramelize
+  3. **合锅翻炒** [Heat: 中火]: combine
+- **Final Plating / Instructions**: 慢炖 Stew - 小火盖盖慢炖 45 分钟后，开大火收汁至汤汁浓稠红亮装盘。
+- **Tips**: 炒糖色时一定要用小火，避免炒焦发苦; 加水时务必使用沸水，冷水会使肉质紧缩不收味
+
+---
+
+### 121. Classic Caesar Salad 经典凯撒沙拉 (ID: v3-caesar-salad)
+- **URL**: https://recipelab.cc/recipe/v3-caesar-salad
+- **Dataset Provenance**: V3 Reference Prototype (PostSoma Kitchen Standard Example)
+- **Cuisine Style**: western
+- **Difficulty**: easy
+- **Description**: 清脆爽口、蒜香乳化酱汁的经典冷食沙拉
+- **Prerequisites**: Container: 大号沙拉碗与手动打蛋器 | Servings: 2 人份 (无需预热与加热)
+- **Ingredients**:
+  * 罗马生菜 (洗净吸干切块): 1 颗 (约 250g) (produce)
+  * 烤面包丁 (Croutons): 1/2 cup (50g) (grain)
+  * 帕玛森芝士碎 (Parmesan): 1/3 cup (30g) (dairy)
+  * 大蒜 (压泥): 2 瓣 (produce)
+  * 鳀鱼酱 (Anchovy paste): 1 tsp (5g) (liquid)
+  * 新鲜蛋黄: 1 个 (main)
+  * 新鲜柠檬汁: 1.5 Tbs (22 mL) (liquid)
+  * 特级初榨橄榄油: 1/3 cup (80 mL) (liquid)
+  * 现磨黑胡椒 & 食盐: 适量 (seasoning)
+- **Action Steps (Flow Blocks)**:
+  1. **乳化搅拌酱汁**: emulsify
+  2. **充分抓拌均匀**: toss
+- **Final Plating / Instructions**: 装盘即享 Direct Serve - 将充分挂汁的生菜装盘，撒上烤面包丁、现磨黑胡椒与帕玛森芝士碎即可享用。
+- **Tips**: 生菜洗净后务必彻底吸干水分，否则酱汁无法挂附; 传统酱汁使用新鲜蛋黄与橄榄油充分打发乳化
+
+---
+

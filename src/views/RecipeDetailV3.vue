@@ -258,6 +258,7 @@ import { useRoute } from 'vue-router'
 import type { VisualRecipeV3 } from '@/types/recipeV3'
 import type { SubRecipeFormula } from '@/types/formula'
 import { getPublishedRecipeById, getLocalPresetRecipeById } from '@/services/v3RecipeStore'
+import { updateSeoMeta } from '@/utils/seoHelper'
 import RecipeFlowWorkspaceV3 from '@/components/recipe-flow-v3/RecipeFlowWorkspaceV3.vue'
 import FormulaDetailModal from '@/components/recipe-flow-v3/FormulaDetailModal.vue'
 import { resolveRecipeCover } from '@/utils/recipeCoverAsset'
@@ -284,6 +285,93 @@ const isLocalSource = computed(() => {
 const activeFormula = ref<SubRecipeFormula | null>(null)
 const servingsPresentation = computed(() => getRecipeServingsPresentation(recipe.value?.prerequisites?.servings))
 
+function updateRecipeSeo(rec: VisualRecipeV3) {
+  const canonicalUrl = `https://recipelab.cc/recipe/${rec.id}`
+  const displayTitle = getRecipeDisplayTitle(rec.title)
+  
+  const ingredientsList = rec.ingredients.map(ing => 
+    ing.amountText ? `${ing.name} ${ing.amountText}` : ing.name
+  )
+
+  const instructionsList = rec.actionBlocks.map((block, idx) => ({
+    '@type': 'HowToStep',
+    'position': idx + 1,
+    'name': block.label,
+    'text': block.note || block.action || block.label
+  }))
+
+  if (rec.finalBlock) {
+    const instrText = Array.isArray(rec.finalBlock.instructions)
+      ? rec.finalBlock.instructions.join('; ')
+      : (rec.finalBlock.instructions || rec.finalBlock.label || '')
+    if (instrText) {
+      instructionsList.push({
+        '@type': 'HowToStep',
+        'position': instructionsList.length + 1,
+        'name': rec.finalBlock.label || '装盘成型',
+        'text': instrText
+      })
+    }
+  }
+
+  const sourceRef = rec.id.startsWith('cn-')
+    ? "Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide (Phase-1 Collection)"
+    : rec.id.startsWith('hsh-')
+    ? 'PostSoma Home Sweet Home Cooking System'
+    : 'PostSoma Kitchen Standard Prototype'
+
+  const recipeSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Recipe',
+    '@id': `${canonicalUrl}#recipe`,
+    'name': displayTitle,
+    'description': rec.description || `${displayTitle} - 结构化烹饪流程图与食材配比。`,
+    'url': canonicalUrl,
+    'image': coverAsset.value?.url ? [coverAsset.value.url] : ['https://recipelab.cc/logo.svg'],
+    'publisher': {
+      '@type': 'Organization',
+      'name': 'PostSoma Kitchen',
+      'url': 'https://recipelab.cc/'
+    },
+    'isBasedOn': sourceRef,
+    'recipeCuisine': rec.cuisine || 'Chinese',
+    'recipeYield': rec.prerequisites?.servings || '2-3 人份',
+    'recipeIngredient': ingredientsList,
+    'recipeInstructions': instructionsList
+  }
+
+  const breadcrumbsSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    '@id': `${canonicalUrl}#breadcrumbs`,
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': '首页',
+        'item': 'https://recipelab.cc/'
+      },
+      {
+        '@type': 'ListItem',
+        'position': 2,
+        'name': displayTitle,
+        'item': canonicalUrl
+      }
+    ]
+  }
+
+  updateSeoMeta({
+    title: displayTitle,
+    description: rec.description || `查看 ${displayTitle} 的 Visual Recipe Flow Card，掌握完整食材清单、步骤工序、火候与最佳炊具规格。`,
+    canonicalUrl,
+    ogImage: coverAsset.value?.url || 'https://recipelab.cc/logo.svg',
+    jsonLdSchemas: [
+      { id: 'jsonld-recipe', schema: recipeSchema },
+      { id: 'jsonld-breadcrumbs', schema: breadcrumbsSchema }
+    ]
+  })
+}
+
 async function loadRecipe() {
   isLoading.value = true
   const id = (route.params.id as string) || (route.query.id as string)
@@ -309,7 +397,7 @@ async function loadRecipe() {
     if (found) {
       recipe.value = found
       notFound.value = false
-      imgError.value = false
+      updateRecipeSeo(found)
     } else {
       const localFallback = await getLocalPresetRecipeById(id)
       if (localFallback) {
