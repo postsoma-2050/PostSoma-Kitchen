@@ -36,11 +36,11 @@ function run() {
   const index = buildFridgeIngredientIndex(ALL_RECIPES)
   assert.equal(JSON.stringify(RAW_RECIPES), sourceSnapshot, '建立索引不得改写任何原始 recipe 数据')
   assert.equal(index.audit.recipeCount, 121)
-  assert.equal(index.audit.ingredientSourceCount, 515)
-  assert.equal(index.audit.formulaItemSourceCount, 16)
+  assert.equal(index.audit.ingredientSourceCount, 517)
+  assert.equal(index.audit.formulaItemSourceCount, 21)
   assert.equal(
     index.audit.safelyNormalizedSourceCount + index.audit.needsReviewSourceCount + index.audit.unresolvedSourceCount,
-    531,
+    538,
     '每一条 ingredients / Formula item 来源都必须具有可追溯状态',
   )
   assert.equal(
@@ -109,7 +109,7 @@ function run() {
     customInputs: ['紫苏叶'],
   })
   assert.equal(snapshotResult.ok, true)
-  if (!snapshotResult.ok) throw new Error(snapshotResult.errors.join('；'))
+  if (!snapshotResult.ok) throw new Error((snapshotResult as any).errors.join('；'))
   const snapshot = snapshotResult.value
   assert.equal(snapshot.customIngredients[0].status, 'unrecognized')
   assert.ok(snapshot.relatedRecipeIds.every(id => chickenMatches.results.some(result => result.recipe.id === id)), 'AI 相关正式食谱只能来自本地匹配结果')
@@ -146,7 +146,7 @@ function run() {
 
   const changedSnapshotResult = createAiIngredientSnapshot(index, { conceptIds: [tomatoId] })
   assert.equal(changedSnapshotResult.ok, true)
-  if (!changedSnapshotResult.ok) throw new Error(changedSnapshotResult.errors.join('；'))
+  if (!changedSnapshotResult.ok) throw new Error((changedSnapshotResult as any).errors.join('；'))
   const stale = reconcileAiSuggestionSnapshot(completed, changedSnapshotResult.value, true)
   assert.equal(stale.status, 'stale', '食材变化后旧 AI 结果必须失效')
 

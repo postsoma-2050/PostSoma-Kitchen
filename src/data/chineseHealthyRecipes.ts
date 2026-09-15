@@ -20,10 +20,10 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
     },
     ingredients: [
       { id: 'i1', name: '猪里脊肉丝', amountText: '200 g', category: 'main' },
+      { id: 'i5', name: '肉丝水淀粉滑嫩上浆料', amountText: '1 份', category: 'formula', formulaId: 'formula-yuxiang-marinade' },
+      { id: 'i4', name: '泡椒末与葱姜蒜', amountText: '10g 泡椒 + 葱姜蒜末', category: 'seasoning' },
       { id: 'i2', name: '冬笋丝', amountText: '80 g', category: 'produce' },
       { id: 'i3', name: '水发木耳丝', amountText: '50 g', category: 'produce' },
-      { id: 'i4', name: '泡椒末与葱姜蒜', amountText: '10g 泡椒 + 葱姜蒜末', category: 'seasoning' },
-      { id: 'i5', name: '肉丝水淀粉滑嫩上浆料', amountText: '1 份', category: 'formula', formulaId: 'formula-yuxiang-marinade' },
       { id: 'i6', name: '私房经典鱼香糖醋芡汁', amountText: '1 碗', category: 'formula', formulaId: 'formula-yuxiang-sauce' }
     ],
     formulas: [
@@ -244,11 +244,11 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
     },
     ingredients: [
       { id: 'i1', name: '鲜羊肉片', amountText: '300 g', category: 'main' },
-      { id: 'i2', name: '大葱段 (斜切)', amountText: '150 g', category: 'produce' },
-      { id: 'i3', name: '蒜片', amountText: '5 g', category: 'produce' },
       { id: 'i4', name: '酱油与料酒 (腌肉)', amountText: '酱油10g + 料酒', category: 'liquid' },
-      { id: 'i5', name: '香醋与香油 (烹边)', amountText: '醋5g + 香油', category: 'liquid' },
-      { id: 'i6', name: '白胡椒粉与水淀粉', amountText: '胡椒粉+水淀粉', category: 'seasoning' }
+      { id: 'i6', name: '白胡椒粉与水淀粉', amountText: '胡椒粉+水淀粉', category: 'seasoning' },
+      { id: 'i3', name: '蒜片', amountText: '5 g', category: 'produce' },
+      { id: 'i2', name: '大葱段 (斜切)', amountText: '150 g', category: 'produce' },
+      { id: 'i5', name: '香醋与香油 (烹边)', amountText: '醋5g + 香油', category: 'liquid' }
     ],
     actionBlocks: [
       {
@@ -305,10 +305,10 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
     },
     ingredients: [
       { id: 'i1', name: '鸡腿肉丁', amountText: '250 g', category: 'main' },
+      { id: 'i5', name: '蛋清与水淀粉上浆', amountText: '1蛋清 + 水淀粉', category: 'liquid' },
+      { id: 'i4', name: '干红辣椒段与花椒', amountText: '干椒10g + 花椒', category: 'seasoning' },
       { id: 'i2', name: '冬笋丁 (焯水)', amountText: '75 g', category: 'produce' },
       { id: 'i3', name: '去皮炸花生仁', amountText: '25 g', category: 'other' },
-      { id: 'i4', name: '干红辣椒段与花椒', amountText: '干椒10g + 花椒', category: 'seasoning' },
-      { id: 'i5', name: '蛋清与水淀粉上浆', amountText: '1蛋清 + 水淀粉', category: 'liquid' },
       { id: 'i6', name: '宫保荔枝碗汁', amountText: '糖+醋+酱油+水淀粉', category: 'seasoning' }
     ],
     actionBlocks: [
@@ -335,6 +335,7 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
         label: '下鸡丁冬笋与烹碗汁',
         sublabel: 'Stir-Fry & Sauce',
         ingredientIds: ['i1', 'i2', 'i3', 'i6'],
+        inputBlockIds: ['b1', 'b2'],
         stageIndex: 2,
         heatLevel: '大火',
         durationMinutes: 3,
@@ -366,9 +367,9 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
     },
     ingredients: [
       { id: 'i1', name: '新鲜鲜活鲫鱼 (去鳞腮)', amountText: '300 g (1条)', category: 'main' },
-      { id: 'i2', name: '嫩豆腐 (切方块)', amountText: '200 g', category: 'produce' },
       { id: 'i3', name: '葱段与姜片', amountText: '葱段+姜片', category: 'produce' },
       { id: 'i4', name: '料酒与植物油', amountText: '料酒10g + 煎鱼油', category: 'liquid' },
+      { id: 'i2', name: '嫩豆腐 (切方块)', amountText: '200 g', category: 'produce' },
       { id: 'i5', name: '盐与香菜段', amountText: '盐+香菜', category: 'seasoning' }
     ],
     actionBlocks: [
@@ -544,10 +545,10 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
       servings: '3-4 人份'
     },
     ingredients: [
-      { id: 'i1', name: '猪里脊肉丝', amountText: '250 g', category: 'main' },
       { id: 'i2', name: '胡萝卜丝', amountText: '100 g', category: 'produce' },
       { id: 'i3', name: '黄豆芽 (焯熟)', amountText: '100 g', category: 'produce' },
       { id: 'i4', name: '葱白丝', amountText: '50 g', category: 'produce' },
+      { id: 'i1', name: '猪里脊肉丝', amountText: '250 g', category: 'main' },
       { id: 'i5', name: '肉丝料酒水淀粉上浆包', amountText: '1 份', category: 'formula', formulaId: 'formula-jj-marinade' },
       { id: 'i6', name: '特制香浓甜面酱汁', amountText: '1 碗 (80g)', category: 'formula', formulaId: 'formula-jj-sauce' }
     ],
@@ -686,10 +687,10 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
     },
     ingredients: [
       { id: 'i1', name: '鲜牛腩块', amountText: '500 g', category: 'main' },
-      { id: 'i2', name: '胡萝卜 (滚刀块)', amountText: '100 g', category: 'produce' },
       { id: 'i3', name: '洋葱 (大块)', amountText: '100 g', category: 'produce' },
-      { id: 'i4', name: '料酒与酱油', amountText: '料酒15g + 酱油15g', category: 'liquid' },
       { id: 'i5', name: '蒜片与葱段白胡椒', amountText: '蒜片5g + 葱段 + 白胡椒粒', category: 'seasoning' },
+      { id: 'i2', name: '胡萝卜 (滚刀块)', amountText: '100 g', category: 'produce' },
+      { id: 'i4', name: '料酒与酱油', amountText: '料酒15g + 酱油15g', category: 'liquid' },
       { id: 'i6', name: '食盐', amountText: '4 g', category: 'seasoning' }
     ],
     actionBlocks: [
@@ -739,8 +740,8 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
       servings: '2-3 人份'
     },
     ingredients: [
-      { id: 'i1', name: '新鲜红番茄 (切块)', amountText: '250 g (2颗)', category: 'produce' },
       { id: 'i2', name: '新鲜鸡蛋', amountText: '2 颗', category: 'main' },
+      { id: 'i1', name: '新鲜红番茄 (切块)', amountText: '250 g (2颗)', category: 'produce' },
       { id: 'i3', name: '葱花', amountText: '5 g', category: 'produce' },
       { id: 'i4', name: '白糖与食盐', amountText: '糖5g + 盐4g', category: 'seasoning' }
     ],
@@ -748,28 +749,45 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
       {
         id: 'b1',
         label: '滑炒鸡蛋盛出',
-        sublabel: 'Scramble Eggs',
+        sublabel: 'Scramble & Set Aside',
         ingredientIds: ['i2'],
         stageIndex: 0,
         heatLevel: '中大火',
         durationMinutes: 2,
-        notes: '蛋液入热油炒至金黄蓬松炒散盛出'
+        notes: '蛋液入热油炒至金黄蓬松炒散盛出备用，产生暂存鸡蛋支线'
       },
       {
         id: 'b2',
-        label: '炒番茄出浓汁合炒',
-        sublabel: 'Sauté Tomato & Combine',
-        ingredientIds: ['i1', 'i2', 'i3', 'i4'],
+        label: '爆葱花炒番茄出浓汁',
+        sublabel: 'Sauté Tomato to Sauce',
+        dependencies: [
+          { sourceBlockId: 'b1', type: 'order', label: '同锅留底油' }
+        ],
+        ingredientIds: ['i1', 'i3'],
         stageIndex: 1,
         heatLevel: '中火',
-        durationMinutes: 3,
-        notes: '爆葱花倒番茄炒出红汁，加糖盐与鸡蛋炒匀'
+        durationMinutes: 2,
+        notes: '锅留底油爆香葱花，下番茄块大火炒出红润酸香浓汁'
+      },
+      {
+        id: 'b3',
+        label: '鸡蛋回锅加调味合炒',
+        sublabel: 'Combine & Season',
+        dependencies: [
+          { sourceBlockId: 'b1', type: 'material', label: '滑散鸡蛋' },
+          { sourceBlockId: 'b2', type: 'material', label: '番茄浓汁' }
+        ],
+        ingredientIds: ['i4'],
+        stageIndex: 2,
+        heatLevel: '中火',
+        durationMinutes: 1,
+        notes: '将盘中鸡蛋倒回锅中与番茄浓汁合炒，调入白糖与食盐大火翻炒均匀出锅'
       }
     ],
     finalBlock: {
       method: 'fry',
-      label: '酸甜开胃 🍳',
-      durationText: '5 min',
+      label: '出锅装盘 🍳',
+      durationText: '趁热享用',
       instructions: '番茄浓汁包裹金黄鸡蛋，酸甜可口，汤汁拌饭绝佳'
     },
     createdAt: '2016-09-01T00:00:00Z',
@@ -793,8 +811,8 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
     ingredients: [
       { id: 'i1', name: '五花肉片', amountText: '300 g', category: 'main' },
       { id: 'i2', name: '大蒜 (切丁)', amountText: '1 头', category: 'produce' },
-      { id: 'i3', name: '卷心菜丝 (配餐)', amountText: '30 g', category: 'produce' },
-      { id: 'i4', name: '特调蒜烧酱汁', amountText: '味极鲜25g + 料酒10g + 糖10g + 葱花', category: 'seasoning' }
+      { id: 'i4', name: '特调蒜烧酱汁', amountText: '味极鲜25g + 料酒10g + 糖10g + 葱花', category: 'seasoning' },
+      { id: 'i3', name: '卷心菜丝 (配餐)', amountText: '30 g', category: 'produce' }
     ],
     actionBlocks: [
       {
@@ -829,52 +847,117 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
   {
     id: 'cn-14-zhurou-dun-fentiao',
     version: '3.0',
-    status: 'complete',
+    status: 'draft',
     title: '🍲 经典东北猪肉炖粉条',
-    description: '传统东北名菜。五花肉块焯水炒出糖色，搭配红薯粉条与土豆块小火慢炖，粉条吸爽浓郁肉汤，热乎暖胃。',
+    description: '传统东北名菜。食材清单与基础做法源自张晔《蒸炖炒，营养师的健康食谱》（原著共2步工序、总耗时约35分钟）。【事实澄清与改编候选】：① 原著记载五花肉200g、红薯粉条100g、土豆100g、葱段5g、姜末5g、料酒10g、酱油10g（初版报告误作15g已纠正）、白糖10g（初版录入值，待核查原著是否为少许）、花椒若干（恢复原著未量化状态）；② 炖肉水为操作用水，使用“适量”表达，区别于焯水废弃水；③ 原著未加八角与食盐，八角1枚与食盐2~3g移为出锅调味改编候选记录，不默认指示用户加入；④ 锅内5步操作加收汁耗时共约52分钟（4m+3m+2m+25m+15m+3m），温水泡粉条30分钟为准备时间，不混入操作总耗时。',
     cuisine: 'chinese',
     difficulty: 'medium',
     prerequisites: {
       containerSize: '深口炖锅 / 砂锅',
-      preheat: '红薯粉条提前泡软',
+      preheat: '红薯粉条提前温水泡软约30分钟（准备时间，不计入锅中操作耗时）',
       servings: '4-5 人份'
     },
     ingredients: [
-      { id: 'i1', name: '五花肉块 (焯水)', amountText: '200 g', category: 'main' },
-      { id: 'i2', name: '红薯粉条 (泡软)', amountText: '100 g', category: 'grain' },
-      { id: 'i3', name: '土豆 (切块)', amountText: '100 g', category: 'produce' },
-      { id: 'i4', name: '酱油与料酒白糖', amountText: '酱油10g + 料酒10g + 糖10g', category: 'liquid' },
-      { id: 'i5', name: '葱段姜末花椒', amountText: '葱段5g + 姜末5g + 花椒', category: 'seasoning' }
+      { id: 'i1', name: '带皮五花肉 (切厚块)', amountText: '200 g', category: 'main', note: '原著明确记载，冷水下锅焯透沥干，焯水倒弃不进入后序物料流' },
+      { id: 'i2', name: '白糖 (炒糖色)', amountText: '10 g (来源未核实)', category: 'seasoning', note: '初版录入值10g，原著字样待核实是否为少许' },
+      { id: 'i3', name: '植物油 (润锅底油)', amountText: '适量 (润锅估)', category: 'liquid', note: '原著未量化具体油脂克数，润锅慢炒糖色' },
+      { id: 'i4', name: '生姜片', amountText: '5 g', category: 'produce', note: '原著明确记载（姜末5g），切片去腥提鲜' },
+      { id: 'i5', name: '大葱段', amountText: '5 g', category: 'produce', note: '原著明确记载（葱段5g），增香炝锅' },
+      { id: 'i6', name: '花椒', amountText: '若干 (原著未量化)', category: 'seasoning', note: '原著明确记载“花椒若干”，未标死克重' },
+      { id: 'i8', name: '料酒 (去腥)', amountText: '10 g', category: 'liquid', note: '原著明确记载（料酒10g），炝锅烹入' },
+      { id: 'i9', name: '生抽酱油 (负责底味)', amountText: '10 g (原著酱油调味估)', category: 'liquid', note: '原著明确记载酱油10g，负责基础咸鲜底味' },
+      { id: 'i10', name: '老抽酱油 (负责调色)', amountText: '5 g (调色改编候选)', category: 'liquid', note: '红烧调色改编，原著未区分生抽老抽' },
+      { id: 'i11', name: '温开水 (炖肉高汤)', amountText: '适量 (没过肉块)', category: 'liquid', note: '烹饪食用加水，需没过肉块并预留粉条吸水，原著未标注毫升数' },
+      { id: 'i12', name: '红薯粉条 (提前泡软)', amountText: '100 g', category: 'grain', note: '原著明确记载，温水泡软备用' },
+      { id: 'i13', name: '土豆 (切滚刀块)', amountText: '100 g', category: 'produce', note: '原著明确记载，去皮切滚刀块' }
     ],
     actionBlocks: [
       {
         id: 'b1',
-        label: '焯水与炒糖色',
-        sublabel: 'Blanch & Caramelize',
-        ingredientIds: ['i1', 'i4'],
+        label: '冷水焯肉',
+        sublabel: 'Blanch Pork',
+        ingredientIds: ['i1'],
         stageIndex: 0,
-        heatLevel: '中火',
-        durationMinutes: 5,
-        notes: '五花肉焯水洗净，油烧热放白糖炒出糖色，下肉块炒匀'
+        heatLevel: '大火',
+        durationMinutes: 4,
+        equipment: '焯水锅',
+        outputItem: '焯透五花肉',
+        completionState: '大火沸腾撇净浮沫，肉块断生捞出',
+        note: '五花肉冷水下锅大火烧开撇沫，捞出温水洗净沥干 (焯水倒弃不进入后续物料流；时长4m为建模推断)'
       },
       {
         id: 'b2',
-        label: '下粉条土豆慢炖',
-        sublabel: 'Stew Noodles & Potato',
-        ingredientIds: ['i1', 'i2', 'i3', 'i4', 'i5'],
+        label: '煸炒上色',
+        sublabel: 'Caramelize & Brown',
+        ingredientIds: ['i1', 'i2', 'i3'],
+        dependencies: [
+          { sourceBlockId: 'b1', type: 'material', label: '焯透五花肉' }
+        ],
         stageIndex: 1,
+        heatLevel: '小火融糖转中火上色',
+        durationMinutes: 3,
+        equipment: '深口炖锅',
+        outputItem: '糖色五花肉',
+        completionState: '小火糖液起琥珀微泡，下肉转中火煸炒挂霜',
+        note: '锅中倒油下白糖，先小火慢炒出微泡琥珀色，下入焯好肉块转中火翻炒上色微煸出油 (时长3m为建模推断)'
+      },
+      {
+        id: 'b3',
+        label: '炝锅加汤',
+        sublabel: 'Aromatics & Broth',
+        ingredientIds: ['i1', 'i4', 'i5', 'i6', 'i8', 'i9', 'i10', 'i11'],
+        dependencies: [
+          { sourceBlockId: 'b2', type: 'material', label: '糖色五花肉' }
+        ],
+        stageIndex: 2,
+        heatLevel: '中火爆香转大火烧沸',
+        durationMinutes: 2,
+        equipment: '深口炖锅',
+        outputItem: '浓醇炖肉汤底',
+        completionState: '中火爆出香气，冲入开水转大火烧沸',
+        note: '中火下葱姜花椒爆出香气，淋生抽老抽料酒，冲入开水转大火烧沸 (时长2m为建模推断)'
+      },
+      {
+        id: 'b4',
+        label: '慢火焖炖',
+        sublabel: 'Simmer Pork',
+        ingredientIds: ['i1'],
+        dependencies: [
+          { sourceBlockId: 'b3', type: 'material', label: '浓醇炖肉汤底' }
+        ],
+        stageIndex: 3,
         heatLevel: '小火',
-        durationMinutes: 30,
-        notes: '加姜末花椒酱油水烧开，放粉条土豆炖至肉熟透收汁'
+        durationMinutes: 25,
+        equipment: '深口炖锅',
+        outputItem: '酥软五花肉',
+        completionState: '盖盖小火慢煨，肉酥汤浓红亮',
+        note: '盖上锅盖转小火慢炖 25 分钟，让五花肉酥软透味 (原著统称炖熟，时长25m为推断)'
+      },
+      {
+        id: 'b5',
+        label: '汇入同炖',
+        sublabel: 'Stew with Noodles & Potato',
+        ingredientIds: ['i1', 'i12', 'i13'],
+        dependencies: [
+          { sourceBlockId: 'b4', type: 'material', label: '酥软五花肉' }
+        ],
+        stageIndex: 4,
+        heatLevel: '小火',
+        durationMinutes: 15,
+        equipment: '深口炖锅',
+        outputItem: '炖透粉条五花肉',
+        completionState: '粉条滑爽透亮，土豆软糯粉甜',
+        note: '加入土豆块与泡软粉条轻推入浓汤，小火慢炖 15 分钟至粉条透亮、土豆粉糯 (时长15m为推断；出锅前可依个人咸淡尝味自选补盐)'
       }
     ],
     finalBlock: {
       method: 'stew',
-      label: '红油软糯 🍲',
-      instructions: '粉条滑爽吸饱肉香，土豆软糯粉甜'
+      label: '大火收汁装盘 🍲',
+      durationText: '收汁约3m / 操作耗时约52m (估)',
+      instructions: '开大火收浓汤汁至挂勺裹料，盛入砂锅大碗趁热享用。粉条滑爽透亮吸饱肉汤，土豆软糯粉甜，五花肉酥烂不腻。'
     },
     createdAt: '2016-09-01T00:00:00Z',
-    updatedAt: '2026-08-03T12:00:00Z'
+    updatedAt: '2026-09-15T00:00:00Z'
   },
 
   // 15. 杏鲍菇牛肉粒 (炒)
@@ -892,8 +975,8 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
       servings: '2-3 人份'
     },
     ingredients: [
-      { id: 'i1', name: '牛肉方块', amountText: '200 g', category: 'main' },
       { id: 'i2', name: '杏鲍菇方块', amountText: '100 g', category: 'produce' },
+      { id: 'i1', name: '牛肉方块', amountText: '200 g', category: 'main' },
       { id: 'i3', name: '老抽与白糖食盐', amountText: '老抽+白糖+盐', category: 'seasoning' },
       { id: 'i4', name: '现磨黑胡椒末', amountText: '适量', category: 'seasoning' }
     ],
@@ -944,10 +1027,10 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
     },
     ingredients: [
       { id: 'i1', name: '薄切肥牛片', amountText: '400 g', category: 'main' },
-      { id: 'i2', name: '金针菇 (去根洗净)', amountText: '150 g', category: 'produce' },
       { id: 'i3', name: '红尖椒碎', amountText: '15 g', category: 'produce' },
       { id: 'i4', name: '高汤与水淀粉', amountText: '高汤50g + 水淀粉20g', category: 'liquid' },
-      { id: 'i5', name: '食盐与鸡精', amountText: '盐4g + 鸡精', category: 'seasoning' }
+      { id: 'i5', name: '食盐与鸡精', amountText: '盐4g + 鸡精', category: 'seasoning' },
+      { id: 'i2', name: '金针菇 (去根洗净)', amountText: '150 g', category: 'produce' }
     ],
     actionBlocks: [
       {
@@ -1045,10 +1128,10 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
     },
     ingredients: [
       { id: 'i1', name: '鲜羊肉块', amountText: '150 g', category: 'main' },
+      { id: 'i5', name: '葱段姜片料酒酱油盐', amountText: '葱姜+料酒+酱油+盐', category: 'seasoning' },
       { id: 'i2', name: '胡萝卜 (大块)', amountText: '200 g', category: 'produce' },
       { id: 'i3', name: '枸杞子', amountText: '10 g', category: 'produce' },
-      { id: 'i4', name: '调料钢球香料组', amountText: '大料+花椒+桂皮+小茴香+香叶', category: 'seasoning' },
-      { id: 'i5', name: '葱段姜片料酒酱油盐', amountText: '葱姜+料酒+酱油+盐', category: 'seasoning' }
+      { id: 'i4', name: '调料钢球香料组', amountText: '大料+花椒+桂皮+小茴香+香叶', category: 'seasoning' }
     ],
     actionBlocks: [
       {
@@ -1097,10 +1180,10 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
     },
     ingredients: [
       { id: 'i1', name: '土鸡块', amountText: '半只 (约500g)', category: 'main' },
-      { id: 'i2', name: '去壳板栗肉', amountText: '400 g', category: 'produce' },
       { id: 'i3', name: '干香菇 (泡发)', amountText: '10 朵', category: 'produce' },
       { id: 'i4', name: '老抽与料酒蚝油', amountText: '老抽15g + 料酒15g + 蚝油15g', category: 'liquid' },
-      { id: 'i5', name: '葱姜蒜与白糖食盐', amountText: '葱蒜+糖5g + 盐5g', category: 'seasoning' }
+      { id: 'i5', name: '葱姜蒜与白糖食盐', amountText: '葱蒜+糖5g + 盐5g', category: 'seasoning' },
+      { id: 'i2', name: '去壳板栗肉', amountText: '400 g', category: 'produce' }
     ],
     actionBlocks: [
       {
@@ -1159,34 +1242,46 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
     },
     ingredients: [
       { id: 'i1', name: '鸡腿肉丁', amountText: '200 g', category: 'main' },
-      { id: 'i2', name: '熟板栗 (对切)', amountText: '200 g', category: 'produce' },
       { id: 'i3', name: '酱油与蚝油', amountText: '酱油+蚝油', category: 'liquid' },
-      { id: 'i4', name: '姜末与蒜末食盐', amountText: '姜末+蒜末+盐3g', category: 'seasoning' }
+      { id: 'i4', name: '姜末与蒜末食盐', amountText: '姜末+蒜末+盐3g', category: 'seasoning' },
+      { id: 'i2', name: '熟板栗 (对切)', amountText: '200 g', category: 'produce' }
     ],
     actionBlocks: [
       {
         id: 'b1',
-        label: '鸡丁腌渍与爆香',
-        sublabel: 'Marinate & Saute Garlic',
+        label: '腌渍鸡丁入味',
+        sublabel: 'Marinate Chicken',
         ingredientIds: ['i1', 'i3', 'i4'],
         stageIndex: 0,
-        notes: '鸡丁加盐酱油蚝油腌3分钟，油爆姜蒜末下鸡丁'
+        notes: '鸡腿肉丁加姜末蒜末、盐3g、酱油与蚝油抓拌均匀腌制入味'
       },
       {
         id: 'b2',
-        label: '下熟板栗快速翻炒',
-        sublabel: 'Stir-Fry Chestnuts',
-        ingredientIds: ['i1', 'i2', 'i3'],
+        label: '滑炒鸡丁变色',
+        sublabel: 'Sear Chicken',
+        ingredientIds: ['i1'],
+        dependencies: [{ sourceBlockId: 'b1', type: 'material' }],
         stageIndex: 1,
+        heatLevel: '中大火',
+        durationMinutes: 2,
+        notes: '锅中热油，倒入腌好的鸡丁快速滑散翻炒至肉色发白'
+      },
+      {
+        id: 'b3',
+        label: '下熟板栗合炒',
+        sublabel: 'Stir-Fry Chestnuts',
+        ingredientIds: ['i2'],
+        dependencies: [{ sourceBlockId: 'b2', type: 'material' }],
+        stageIndex: 2,
         heatLevel: '大火',
         durationMinutes: 3,
-        notes: '鸡丁变色后下板栗块，大火快炒至熟透出锅'
+        notes: '倒入对半切开的熟板栗块，与鸡丁一同大火翻炒至熟透裹汁'
       }
     ],
     finalBlock: {
       method: 'fry',
-      label: '咸甜鲜香 🍗',
-      instructions: '鸡丁鲜嫩多汁，板栗甜软粉香'
+      label: '出锅装盘 🍗',
+      instructions: '出锅装盘趁热享用。鸡丁鲜嫩多汁，板栗甜软粉香'
     },
     createdAt: '2016-09-01T00:00:00Z',
     updatedAt: '2026-08-03T12:00:00Z'
@@ -1352,46 +1447,50 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
     cuisine: 'chinese',
     difficulty: 'easy',
     prerequisites: {
-      containerSize: '汤锅',
-      preheat: '准备内酯豆腐与打散鸡蛋',
+      containerSize: '中号汤锅',
+      preheat: '番茄切块，内酯豆腐手捏小块，鸡蛋打散',
       servings: '2-3 人份'
     },
     ingredients: [
       { id: 'i1', name: '新鲜红番茄 (切块)', amountText: '2 颗', category: 'produce' },
+      { id: 'i4', name: '葱末 (炝锅)', amountText: '10 g', category: 'produce' },
+      { id: 'i5', name: '植物油与食盐', amountText: '油10g + 盐适量', category: 'seasoning' },
       { id: 'i2', name: '内酯豆腐 (手捏小块)', amountText: '1 盒', category: 'produce' },
-      { id: 'i3', name: '鸡蛋', amountText: '2 颗', category: 'main' },
-      { id: 'i4', name: '香菜末与葱末', amountText: '香菜末+葱末', category: 'produce' },
-      { id: 'i5', name: '食盐与鸡精植物油', amountText: '盐+鸡精+少量油', category: 'seasoning' }
+      { id: 'i3', name: '鸡蛋液 (打散)', amountText: '2 颗', category: 'main' }
     ],
     actionBlocks: [
       {
         id: 'b1',
-        label: '爆香葱末炒番茄汁',
-        sublabel: 'Sauté Tomato Base',
+        label: '爆香炒汁',
+        sublabel: 'Sauté',
         ingredientIds: ['i1', 'i4', 'i5'],
         stageIndex: 0,
         heatLevel: '中火',
         durationMinutes: 5,
-        notes: '油热爆葱末下番茄炒出浓汁，倒入水大火烧开小火炖5分钟'
+        notes: '油热爆葱末下番茄炒出红油浓汁，加水大火烧开，产生开水番茄汤底'
       },
       {
         id: 'b2',
-        label: '放豆腐与转圈倒入蛋液',
-        sublabel: 'Add Tofu & Egg Swirl',
-        ingredientIds: ['i2', 'i3', 'i4', 'i5'],
+        label: '合煮蛋花',
+        sublabel: 'Egg Drop',
+        dependencies: [
+          { sourceBlockId: 'b1', type: 'material', label: '开水番茄汤底' }
+        ],
+        ingredientIds: ['i2', 'i3'],
         stageIndex: 1,
-        heatLevel: '中火',
+        heatLevel: '小火',
         durationMinutes: 5,
-        notes: '捏入豆腐块大火烧开，关火沿锅边转圈倒蛋液盖盖闷5分钟，撒香菜末'
+        notes: '捏入豆腐块大火烧开，关火沿锅边转圈倒蛋液盖盖焖5分钟'
       }
     ],
     finalBlock: {
       method: 'stew',
-      label: '酸甜滑嫩 🥣',
+      label: '出锅装盘',
+      durationText: '趁热享用',
       instructions: '豆腐入口即化，蛋花絮状绵密，汤酸甜开胃'
     },
     createdAt: '2016-09-01T00:00:00Z',
-    updatedAt: '2026-08-03T12:00:00Z'
+    updatedAt: '2026-09-14T10:00:00Z'
   },
 
   // 25. 萝卜丝蒸牛肉 (蒸)
@@ -1469,9 +1568,9 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
     },
     ingredients: [
       { id: 'i1', name: '猪排骨段 (焯水)', amountText: '500 g', category: 'main' },
-      { id: 'i2', name: '带皮冬瓜块', amountText: '500 g', category: 'produce' },
       { id: 'i3', name: '薏米 (泡一晚)', amountText: '50 g', category: 'grain' },
       { id: 'i4', name: '葱段姜片蒜瓣料酒', amountText: '葱姜蒜+料酒50g', category: 'seasoning' },
+      { id: 'i2', name: '带皮冬瓜块', amountText: '500 g', category: 'produce' },
       { id: 'i5', name: '食盐', amountText: '5 g', category: 'seasoning' }
     ],
     actionBlocks: [
@@ -1712,9 +1811,9 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
     },
     ingredients: [
       { id: 'i1', name: '牛肉片 (腌渍)', amountText: '250 g', category: 'main' },
+      { id: 'i4', name: '料酒酱油胡椒粉水淀粉', amountText: '料酒+酱油+胡椒粉+水淀粉', category: 'liquid' },
       { id: 'i2', name: '苦瓜片 (挤水分)', amountText: '200 g', category: 'produce' },
-      { id: 'i3', name: '豆豉与蒜末姜末', amountText: '豆豉15g + 蒜末5g + 姜末5g', category: 'seasoning' },
-      { id: 'i4', name: '料酒酱油胡椒粉水淀粉', amountText: '料酒+酱油+胡椒粉+水淀粉', category: 'liquid' }
+      { id: 'i3', name: '豆豉与蒜末姜末', amountText: '豆豉15g + 蒜末5g + 姜末5g', category: 'seasoning' }
     ],
     actionBlocks: [
       {
@@ -2080,9 +2179,9 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
       servings: '2-3 人份'
     },
     ingredients: [
-      { id: 'i1', name: '新鲜红苋菜 (切段)', amountText: '400 g', category: 'produce' },
       { id: 'i2', name: '熟咸鸭蛋黄 (捣碎末)', amountText: '1 颗', category: 'main' },
-      { id: 'i3', name: '蒜末与食盐', amountText: '蒜末5g + 盐3g', category: 'seasoning' }
+      { id: 'i3', name: '蒜末与食盐', amountText: '蒜末5g + 盐3g', category: 'seasoning' },
+      { id: 'i1', name: '新鲜红苋菜 (切段)', amountText: '400 g', category: 'produce' }
     ],
     actionBlocks: [
       {
@@ -2229,10 +2328,10 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
       servings: '3 人份'
     },
     ingredients: [
-      { id: 'i1', name: '莴笋片', amountText: '250 g', category: 'produce' },
       { id: 'i2', name: '猪肉片 (腌渍)', amountText: '100 g', category: 'main' },
       { id: 'i3', name: '红辣椒段与姜片', amountText: '红辣椒段+姜片', category: 'produce' },
-      { id: 'i4', name: '料酒醋糖盐酱油淀粉', amountText: '料酒+醋+糖+盐3g+酱油+淀粉', category: 'seasoning' }
+      { id: 'i4', name: '料酒醋糖盐酱油淀粉', amountText: '料酒+醋+糖+盐3g+酱油+淀粉', category: 'seasoning' },
+      { id: 'i1', name: '莴笋片', amountText: '250 g', category: 'produce' }
     ],
     actionBlocks: [
       {
@@ -2281,9 +2380,9 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
     },
     ingredients: [
       { id: 'i1', name: '莴笋条 (醋盐腌渍)', amountText: '400 g', category: 'produce' },
+      { id: 'i4', name: '白醋白糖香油盐', amountText: '白醋15g + 糖10g + 香油3g + 盐3g', category: 'seasoning' },
       { id: 'i2', name: '红甜椒丝', amountText: '20 g', category: 'produce' },
-      { id: 'i3', name: '鲜姜汁 (生姜捣烂)', amountText: '20 g', category: 'produce' },
-      { id: 'i4', name: '白醋白糖香油盐', amountText: '白醋15g + 糖10g + 香油3g + 盐3g', category: 'seasoning' }
+      { id: 'i3', name: '鲜姜汁 (生姜捣烂)', amountText: '20 g', category: 'produce' }
     ],
     actionBlocks: [
       {
@@ -2327,8 +2426,8 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
       servings: '2 人份'
     },
     ingredients: [
-      { id: 'i1', name: '西葫芦 (切片)', amountText: '150 g', category: 'produce' },
       { id: 'i2', name: '新鲜鸡蛋', amountText: '120 g (2颗)', category: 'main' },
+      { id: 'i1', name: '西葫芦 (切片)', amountText: '150 g', category: 'produce' },
       { id: 'i3', name: '葱花与食盐', amountText: '葱花3g + 盐2g', category: 'seasoning' }
     ],
     actionBlocks: [
@@ -2476,9 +2575,9 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
     ingredients: [
       { id: 'i1', name: '水发黑木耳 (撕小朵)', amountText: '20 g', category: 'produce' },
       { id: 'i2', name: '胡萝卜片', amountText: '40 g', category: 'produce' },
+      { id: 'i5', name: '特制醋糖水淀粉芡汁', amountText: '盐2g + 姜片 + 葱末 + 糖 + 醋 + 水淀粉', category: 'seasoning' },
       { id: 'i3', name: '山药片 (焯水)', amountText: '60 g', category: 'produce' },
-      { id: 'i4', name: '芹菜段', amountText: '60 g', category: 'produce' },
-      { id: 'i5', name: '特制醋糖水淀粉芡汁', amountText: '盐2g + 姜片 + 葱末 + 糖 + 醋 + 水淀粉', category: 'seasoning' }
+      { id: 'i4', name: '芹菜段', amountText: '60 g', category: 'produce' }
     ],
     actionBlocks: [
       {
@@ -2526,8 +2625,8 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
       servings: '3-4 人份'
     },
     ingredients: [
-      { id: 'i1', name: '雪梨块 (去皮核)', amountText: '2 颗', category: 'produce' },
       { id: 'i2', name: '干银耳 (泡发撕小朵)', amountText: '20 g', category: 'produce' },
+      { id: 'i1', name: '雪梨块 (去皮核)', amountText: '2 颗', category: 'produce' },
       { id: 'i3', name: '干百合与枸杞子', amountText: '百合10g + 枸杞10g', category: 'produce' },
       { id: 'i4', name: '多晶冰糖', amountText: '适量', category: 'seasoning' }
     ],
@@ -2675,10 +2774,10 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
       servings: '4-5 人份'
     },
     ingredients: [
-      { id: 'i1', name: '芋头片与山药片', amountText: '芋头300g + 山药适量', category: 'produce' },
-      { id: 'i2', name: '鱼豆腐与娃娃菜圆白菜', amountText: '鱼豆腐+娃娃菜+圆白菜40g', category: 'main' },
       { id: 'i3', name: '海带木耳香菇白萝卜苹果汤底', amountText: '海带+木耳+香菇+白萝卜+苹果片', category: 'produce' },
-      { id: 'i4', name: '甜辣酱与生抽盐', amountText: '甜辣酱+生抽+盐2g', category: 'seasoning' }
+      { id: 'i4', name: '甜辣酱与生抽盐', amountText: '甜辣酱+生抽+盐2g', category: 'seasoning' },
+      { id: 'i1', name: '芋头片与山药片', amountText: '芋头300g + 山药适量', category: 'produce' },
+      { id: 'i2', name: '鱼豆腐与娃娃菜圆白菜', amountText: '鱼豆腐+娃娃菜+圆白菜40g', category: 'main' }
     ],
     actionBlocks: [
       {
@@ -2853,10 +2952,10 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
       servings: '3 人份'
     },
     ingredients: [
-      { id: 'i1', name: '西葫芦 (切厚片)', amountText: '200 g', category: 'produce' },
       { id: 'i2', name: '鲜基围虾', amountText: '200 g', category: 'main' },
-      { id: 'i3', name: '内酯豆腐', amountText: '1 盒', category: 'produce' },
-      { id: 'i4', name: '姜片葱段盐胡椒粉', amountText: '姜葱+盐3g+胡椒粉', category: 'seasoning' }
+      { id: 'i4', name: '姜片葱段盐胡椒粉', amountText: '姜葱+盐3g+胡椒粉', category: 'seasoning' },
+      { id: 'i1', name: '西葫芦 (切厚片)', amountText: '200 g', category: 'produce' },
+      { id: 'i3', name: '内酯豆腐', amountText: '1 盒', category: 'produce' }
     ],
     actionBlocks: [
       {
@@ -3042,49 +3141,106 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
     version: '3.0',
     status: 'complete',
     title: '🥩 经典平肝芹菜炒牛肉丝',
-    description: '强筋健骨降血压经典菜。牛肉丝加老抽水淀粉上浆滑熟，搭配清脆芹菜段与野山椒大火爆炒。',
+    description: '强筋健骨降血压经典菜。参考张晔原著老抽水淀粉上浆滑熟做法。注：调料克数、烹调油分配与单锅工序耗时属建模草稿，待厨房实测验证。',
     cuisine: 'chinese',
     difficulty: 'medium',
     prerequisites: {
-      containerSize: '中式炒锅',
-      preheat: '牛肉切细丝上浆',
+      containerSize: '中式炒锅 & 腌肉碗',
+      preheat: '牛肉横切细丝，上浆封油静置',
       servings: '3 人份'
     },
     ingredients: [
-      { id: 'i1', name: '嫩牛肉丝 (上浆)', amountText: '200 g', category: 'main' },
-      { id: 'i2', name: '香芹菜段', amountText: '200 g', category: 'produce' },
-      { id: 'i3', name: '泡野山椒碎与姜丝', amountText: '野山椒+姜丝', category: 'produce' },
-      { id: 'i4', name: '老抽料酒盐鸡精水淀粉', amountText: '老抽+料酒+盐+鸡精+水淀粉', category: 'seasoning' }
+      { id: 'i1', name: '牛里脊细丝', amountText: '200 g', category: 'main', note: '横丝切成细丝' },
+      { id: 'i4', name: '牛肉滑嫩上浆料', amountText: '1 碗', category: 'formula', formulaId: 'formula-niurou-shangjiang', note: '老抽水淀粉上浆封油' },
+      { id: 'i-oil', name: '烹调油', amountText: '20 ml', category: 'liquid', note: '滑炒牛肉用约15ml，盛出后锅留底油约5ml炒芹菜，合炒不再新增用油' },
+      { id: 'i2', name: '香芹菜段', amountText: '200 g', category: 'produce', note: '摘叶洗净切4cm长段' },
+      { id: 'i3', name: '泡野山椒碎与姜丝', amountText: '山椒15g + 姜丝10g', category: 'produce' },
+      { id: 'i5', name: '炒制定味调料', amountText: '盐2g + 鸡精1g', category: 'seasoning' }
+    ],
+    formulas: [
+      {
+        id: 'formula-niurou-shangjiang',
+        name: '牛肉滑嫩上浆料',
+        category: 'marinade',
+        yieldText: '适用于 200g 牛肉丝 (草稿比例)',
+        baseServings: 3,
+        items: [
+          { name: '料酒', baseAmount: 10, unit: 'ml', note: '去腥增香' },
+          { name: '老抽', baseAmount: 5, unit: 'ml', note: '调色增香底味' },
+          { name: '玉米淀粉', baseAmount: 10, unit: 'g', note: '上浆锁水' },
+          { name: '清水', baseAmount: 15, unit: 'ml', note: '水淀粉调和水分' },
+          { name: '食用油', baseAmount: 5, unit: 'ml', note: '封油防粘防脱浆' }
+        ],
+        steps: [
+          '1. 碗中加入玉米淀粉与清水调匀成水淀粉，加入料酒、老抽顺一个方向抓匀至完全吸收',
+          '2. 抓至牛肉起胶上劲，最后淋入食用油5ml封住水分静置备用'
+        ],
+        prepActionBlockId: 'b1',
+        usedActionBlockIds: ['b1']
+      }
     ],
     actionBlocks: [
       {
         id: 'b1',
-        label: '牛肉丝滑油变色盛出',
-        sublabel: 'Flash Sear Beef',
+        label: '牛肉上浆抓匀',
         ingredientIds: ['i1', 'i4'],
         stageIndex: 0,
-        heatLevel: '大火',
-        durationMinutes: 2,
-        notes: '牛肉丝加料酒老抽水淀粉抓匀，热油滑散变色捞出'
+        equipment: '腌肉碗',
+        durationMinutes: 3,
+        note: '牛肉丝加老抽料酒与水淀粉抓匀上劲，封油静置备用'
       },
       {
         id: 'b2',
-        label: '爆香野山椒炒芹菜合炒',
-        sublabel: 'Stir-Fry Celery & Combine',
-        ingredientIds: ['i1', 'i2', 'i3', 'i4'],
+        label: '热锅滑油盛出牛肉',
+        dependencies: [
+          { sourceBlockId: 'b1', type: 'material', label: '上浆牛肉' }
+        ],
+        inputBlockIds: ['b1'],
+        ingredientIds: ['i1', 'i-oil'],
         stageIndex: 1,
         heatLevel: '大火',
+        equipment: '中式炒锅',
+        durationMinutes: 1,
+        note: '炒锅烧热下烹调油，下入牛肉丝大火快速滑散变色盛出沥油，产生暂存牛肉支线'
+      },
+      {
+        id: 'b3',
+        label: '锅留底油爆炒芹菜',
+        dependencies: [
+          { sourceBlockId: 'b2', type: 'order', label: '同锅留底油' }
+        ],
+        afterBlockIds: ['b2'],
+        ingredientIds: ['i-oil', 'i2', 'i3'],
+        stageIndex: 2,
+        heatLevel: '大火',
+        equipment: '中式炒锅',
         durationMinutes: 2,
-        notes: '爆姜丝野山椒下芹菜段大火炒断生，倒入牛肉加盐鸡精翻匀'
+        note: '炒锅留滑肉底油烧热，爆香姜丝与野山椒碎，下芹菜段大火快速翻炒至断生清脆'
+      },
+      {
+        id: 'b4',
+        label: '牛肉回锅合炒定味',
+        dependencies: [
+          { sourceBlockId: 'b2', type: 'material', label: '暂存牛肉' },
+          { sourceBlockId: 'b3', type: 'material', label: '炒好芹菜' }
+        ],
+        inputBlockIds: ['b2', 'b3'],
+        ingredientIds: ['i5'],
+        stageIndex: 3,
+        heatLevel: '大火',
+        equipment: '中式炒锅',
+        durationMinutes: 1,
+        note: '将盘中滑熟牛肉丝倒回炒锅与芹菜合炒，撒入盐与鸡精快速翻炒均匀出锅'
       }
     ],
     finalBlock: {
       method: 'fry',
-      label: '辣香鲜嫩 🥩',
-      instructions: '牛肉滑嫩，芹菜清脆微辣开胃'
+      label: '出锅装盘 🥩',
+      durationText: '趁热享用',
+      instructions: '牛肉滑嫩爽口，芹菜清脆鲜香，微辣酸爽平肝开胃'
     },
     createdAt: '2016-09-01T00:00:00Z',
-    updatedAt: '2026-08-03T12:00:00Z'
+    updatedAt: '2026-09-14T10:00:00Z'
   },
 
   // 60. 清蒸羊肉 (蒸)
@@ -3191,9 +3347,9 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
       servings: '2-3 人份'
     },
     ingredients: [
-      { id: 'i1', name: '芥蓝茎片', amountText: '200 g', category: 'produce' },
       { id: 'i2', name: '猪里脊肉片 (腌渍)', amountText: '100 g', category: 'main' },
       { id: 'i3', name: '蒜末与绍兴黄酒', amountText: '蒜末5g + 黄酒10g', category: 'seasoning' },
+      { id: 'i1', name: '芥蓝茎片', amountText: '200 g', category: 'produce' },
       { id: 'i4', name: '食盐与鸡精生抽', amountText: '盐2g + 鸡精 + 生抽', category: 'seasoning' }
     ],
     actionBlocks: [
@@ -3290,9 +3446,9 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
       servings: '2 人份'
     },
     ingredients: [
-      { id: 'i1', name: '新鲜黄瓜 (切丁)', amountText: '200 g', category: 'produce' },
       { id: 'i2', name: '鲜虾仁 (上浆)', amountText: '150 g', category: 'main' },
       { id: 'i3', name: '蒜片蛋清淀粉水淀粉', amountText: '蒜片+蛋清+淀粉+水淀粉', category: 'liquid' },
+      { id: 'i1', name: '新鲜黄瓜 (切丁)', amountText: '200 g', category: 'produce' },
       { id: 'i4', name: '食盐与鸡精', amountText: '盐2g + 鸡精', category: 'seasoning' }
     ],
     actionBlocks: [
@@ -3439,8 +3595,8 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
     },
     ingredients: [
       { id: 'i1', name: '猪肋排 (焯水)', amountText: '400 g', category: 'main' },
-      { id: 'i2', name: '白萝卜 (切滚刀块)', amountText: '300 g', category: 'produce' },
       { id: 'i3', name: '葱段与生姜片料酒', amountText: '葱段+姜片+料酒10g', category: 'seasoning' },
+      { id: 'i2', name: '白萝卜 (切滚刀块)', amountText: '300 g', category: 'produce' },
       { id: 'i4', name: '食盐与白胡椒粉香菜', amountText: '盐4g + 白胡椒粉 + 香菜', category: 'seasoning' }
     ],
     actionBlocks: [
@@ -3638,9 +3794,9 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
       servings: '2-3 人份'
     },
     ingredients: [
-      { id: 'i1', name: '水发刺海参', amountText: '4 根 (约200g)', category: 'main' },
       { id: 'i2', name: '章丘大葱白段', amountText: '150 g', category: 'produce' },
       { id: 'i3', name: '高汤与猪油', amountText: '高汤150g + 猪油20g', category: 'liquid' },
+      { id: 'i1', name: '水发刺海参', amountText: '4 根 (约200g)', category: 'main' },
       { id: 'i4', name: '老抽蚝油糖盐水淀粉', amountText: '老抽+蚝油+糖+盐+水淀粉', category: 'seasoning' }
     ],
     actionBlocks: [
@@ -3737,9 +3893,9 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
       servings: '5 串'
     },
     ingredients: [
-      { id: 'i1', name: '新鲜山楂 (去核串串)', amountText: '250 g (约200g)', category: 'produce' },
       { id: 'i2', name: '多晶冰糖', amountText: '150 g', category: 'seasoning' },
-      { id: 'i3', name: '清水', amountText: '75 mL', category: 'liquid' }
+      { id: 'i3', name: '清水', amountText: '75 mL', category: 'liquid' },
+      { id: 'i1', name: '新鲜山楂 (去核串串)', amountText: '250 g (约200g)', category: 'produce' }
     ],
     actionBlocks: [
       {
@@ -3955,8 +4111,8 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
     },
     ingredients: [
       { id: 'i1', name: '猪排骨块 (焯水)', amountText: '400 g', category: 'main' },
-      { id: 'i2', name: '老南瓜块 (带皮洗净)', amountText: '300 g', category: 'produce' },
       { id: 'i3', name: '葱段与生姜片', amountText: '葱段+姜片', category: 'seasoning' },
+      { id: 'i2', name: '老南瓜块 (带皮洗净)', amountText: '300 g', category: 'produce' },
       { id: 'i4', name: '食盐', amountText: '4 g', category: 'seasoning' }
     ],
     actionBlocks: [
@@ -4005,10 +4161,10 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
       servings: '2-3 人份'
     },
     ingredients: [
-      { id: 'i1', name: '朝鲜蓟嫩芯 (焯水切片)', amountText: '150 g', category: 'produce' },
-      { id: 'i2', name: '芹菜段', amountText: '100 g', category: 'produce' },
       { id: 'i3', name: '猪里脊肉片 (腌渍)', amountText: '150 g', category: 'main' },
-      { id: 'i4', name: '蒜末料酒盐生抽', amountText: '蒜末+料酒+盐+生抽', category: 'seasoning' }
+      { id: 'i4', name: '蒜末料酒盐生抽', amountText: '蒜末+料酒+盐+生抽', category: 'seasoning' },
+      { id: 'i1', name: '朝鲜蓟嫩芯 (焯水切片)', amountText: '150 g', category: 'produce' },
+      { id: 'i2', name: '芹菜段', amountText: '100 g', category: 'produce' }
     ],
     actionBlocks: [
       {
@@ -4232,8 +4388,8 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
       servings: '2-3 人份'
     },
     ingredients: [
-      { id: 'i1', name: '洋葱丝', amountText: '200 g', category: 'produce' },
       { id: 'i2', name: '新鲜鸡蛋', amountText: '3 颗', category: 'main' },
+      { id: 'i1', name: '洋葱丝', amountText: '200 g', category: 'produce' },
       { id: 'i3', name: '葱花与食盐生抽', amountText: '葱花+盐3g+生抽', category: 'seasoning' }
     ],
     actionBlocks: [
@@ -4418,9 +4574,9 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
       servings: '2-3 人份'
     },
     ingredients: [
-      { id: 'i1', name: '熟红番茄 (切块)', amountText: '250 g', category: 'produce' },
       { id: 'i2', name: '猪里脊肉片 (腌渍)', amountText: '150 g', category: 'main' },
-      { id: 'i3', name: '葱花蒜末糖盐生抽', amountText: '葱蒜+糖5g+盐3g+生抽', category: 'seasoning' }
+      { id: 'i3', name: '葱花蒜末糖盐生抽', amountText: '葱蒜+糖5g+盐3g+生抽', category: 'seasoning' },
+      { id: 'i1', name: '熟红番茄 (切块)', amountText: '250 g', category: 'produce' }
     ],
     actionBlocks: [
       {
@@ -4735,27 +4891,36 @@ export const CHINESE_HEALTHY_RECIPES: VisualRecipeV3[] = [
     ingredients: [
       { id: 'i1', name: '黄瓜厚段 (挖空做杯)', amountText: '2 根 (约250g)', category: 'produce' },
       { id: 'i2', name: '调味猪肉末', amountText: '100 g', category: 'main' },
-      { id: 'i3', name: '蒜泥与生抽香油', amountText: '蒜泥+生抽+香油', category: 'seasoning' }
+      { id: 'i3', name: '蒜泥生抽香油淋汁', amountText: '蒜泥10g + 生抽10ml + 香油5ml', category: 'seasoning' }
     ],
     actionBlocks: [
       {
         id: 'b1',
         label: '黄瓜酿肉末大火蒸10分钟',
-        sublabel: 'Stuff Pork & Steam Cucumber',
-        ingredientIds: ['i1', 'i2', 'i3'],
+        ingredientIds: ['i1', 'i2'],
         stageIndex: 0,
         heatLevel: '大火',
         durationMinutes: 10,
-        notes: '肉末填入黄瓜环中装盘，水沸入蒸锅大火蒸10分钟，淋蒜泥生抽香油'
+        note: '肉末填入黄瓜环中平铺装盘，水沸入蒸锅大火蒸10分钟至肉末熟透'
+      },
+      {
+        id: 'b2',
+        label: '出锅淋上蒜香生抽汁',
+        inputBlockIds: ['b1'],
+        ingredientIds: ['i3'],
+        stageIndex: 1,
+        durationMinutes: 1,
+        note: '端出蒸盘，将调好的蒜泥生抽香油趁热淋在黄瓜酿肉上'
       }
     ],
     finalBlock: {
       method: 'steam',
       label: '清香肉鲜 🥒',
+      durationText: '趁热享用',
       instructions: '黄瓜软嫩清香，蒸出的汁水极度鲜美'
     },
     createdAt: '2016-09-01T00:00:00Z',
-    updatedAt: '2026-08-03T12:00:00Z'
+    updatedAt: '2026-09-14T10:00:00Z'
   },
 
   // 96. 清炒苦瓜 (炒)

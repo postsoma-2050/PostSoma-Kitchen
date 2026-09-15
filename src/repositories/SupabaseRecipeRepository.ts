@@ -308,6 +308,8 @@ export class SupabaseRecipeRepository implements IRecipeRepository {
         }
 
         try {
+            const localPreset = await this.localFallback.getPublishedRecipeById(id)
+
             const { data, error } = await supabase!
                 .from('recipes')
                 .select('content, content_version, deleted_at')
@@ -317,12 +319,26 @@ export class SupabaseRecipeRepository implements IRecipeRepository {
                 .is('deleted_at', null)
                 .maybeSingle()
 
-            if (error || !data) return null
-            return this.normalizeRow(data as RecipeRow)
+            if (error || !data) return localPreset
+            const cloudRecipe = this.normalizeRow(data as RecipeRow)
+            if (this.shouldPreferLocalPreset(localPreset, cloudRecipe)) {
+                return localPreset!
+            }
+            return cloudRecipe
         } catch (error) {
             console.error('[SupabaseRepo] 读取公开食谱详情失败:', error)
-            return null
+            return this.localFallback.getPublishedRecipeById(id)
         }
+    }
+
+    private shouldPreferLocalPreset(local: VisualRecipeV3 | null | undefined, cloud: VisualRecipeV3 | null | undefined): boolean {
+        if (!local) return false
+        if (!cloud) return true
+        const CODEBASE_AUDIT_EPOCH = new Date('2026-09-14T00:00:00.000Z').getTime()
+        const localTime = local.updatedAt ? new Date(local.updatedAt).getTime() : CODEBASE_AUDIT_EPOCH
+        const effectiveLocalTime = Math.max(localTime, CODEBASE_AUDIT_EPOCH)
+        const cloudTime = cloud.updatedAt ? new Date(cloud.updatedAt).getTime() : 0
+        return effectiveLocalTime >= cloudTime
     }
 
     async getAllRecipes(): Promise<VisualRecipeV3[]> {
@@ -331,6 +347,9 @@ export class SupabaseRecipeRepository implements IRecipeRepository {
         }
 
         try {
+            const localRecipes = await this.localFallback.getAllRecipes()
+            const localMap = new Map(localRecipes.map(r => [r.id, r]))
+
             const { data, error } = await supabase!
                 .from('recipes')
                 .select('content, content_version, deleted_at')
@@ -341,10 +360,17 @@ export class SupabaseRecipeRepository implements IRecipeRepository {
                 throw new Error(error?.message || '云端未返回 Admin 食谱列表')
             }
 
-            return data.map(row => this.normalizeRow(row as RecipeRow))
+            return data.map(row => {
+                const cloud = this.normalizeRow(row as RecipeRow)
+                const local = localMap.get(cloud.id)
+                if (this.shouldPreferLocalPreset(local, cloud)) {
+                    return local!
+                }
+                return cloud
+            })
         } catch (e) {
             console.error('[SupabaseRepo] Admin 食谱列表读取失败:', e)
-            throw e instanceof Error ? e : new Error('Admin 食谱列表读取失败')
+            return this.localFallback.getAllRecipes()
         }
     }
 
@@ -377,6 +403,8 @@ export class SupabaseRecipeRepository implements IRecipeRepository {
         }
 
         try {
+            const localPreset = await this.localFallback.getRecipeById(id)
+
             const { data, error } = await supabase!
                 .from('recipes')
                 .select('content, content_version, deleted_at')
@@ -384,13 +412,22 @@ export class SupabaseRecipeRepository implements IRecipeRepository {
                 .maybeSingle()
 
             if (error || !data) {
+                if (localPreset) return localPreset
                 if (!error && !data) return null
                 throw new Error(error?.message || '云端未返回食谱详情')
             }
 
-            return this.normalizeRow(data as RecipeRow)
+            const cloudRecipe = this.normalizeRow(data as RecipeRow)
+            if (this.shouldPreferLocalPreset(localPreset, cloudRecipe)) {
+                return localPreset!
+            }
+            return cloudRecipe
         } catch (e) {
             console.error('[SupabaseRepo] Admin 食谱详情读取失败:', e)
+            if (this.localFallback) {
+                const local = await this.localFallback.getRecipeById(id)
+                if (local) return local
+            }
             throw e instanceof Error ? e : new Error('Admin 食谱详情读取失败')
         }
     }

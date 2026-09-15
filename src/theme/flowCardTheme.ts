@@ -3,64 +3,57 @@
  */
 
 export const flowCardTheme = {
-    // 1. 色彩 Token 体系 (Color Palette)
+    // 1. 色彩 Token 体系 (Color Palette - 连续工序表与分支流程图统一共享)
     colors: {
         // 全局底板与纸张色调
         workspaceBg: '#FAF8F5',       // 页面外层暖杏米色背景
-        canvasBg: '#FDFBF7',          // SVG 容器底色
+        canvasBg: '#FAF8F5',          // SVG 容器底色
         paperBg: '#FFFFFF',           // 纸张主体纯白
-        paperStroke: '#2D5A37',       // 柔和深森林绿外描边
+        paperStroke: '#CBD5E1',       // 中性建筑感外边框 (废弃旧森林绿)
+        outerBorder: '#CBD5E1',       // 统一外围实线边框
+        gridLine: '#E2E8F0',          // 统一单元格/卡片内部细线
 
-        // 顶栏 Header 区分色调 (设备 / 准备)
-        headerEquipmentFill: '#E0F2FE', // 浅天空蓝 (设备)
-        headerEquipmentText: '#0369A1',
-        headerEquipmentBodyFill: '#F8FAFC',
-        headerEquipmentBodyText: '#0C4A6E',
+        // 顶栏 Header 区分色调 (材料 / 容器 / 预备)
+        headerFill: '#F8FAFC',
+        headerText: '#334155',
+        headerContainerTag: '#0F766E',
+        headerPreheatTag: '#B45309',
 
-        headerPreheatFill: '#E8F5E9',   // 嫩芽绿 (准备)
-        headerPreheatText: '#2E7D32',
-        headerPreheatBodyFill: '#F9FBF7',
-        headerPreheatBodyText: '#1B5E20',
+        // 区段 1：左侧食材行 (中性整洁表格)
+        ingredientFill: '#FFFFFF',
+        ingredientStroke: '#E2E8F0',
+        ingredientAmountText: '#047857',   // 份量深绿加粗
+        ingredientNameText: '#0F172A',     // 食材名称中性深黑
+        ingredientPrepText: '#64748B',     // 预备说明次级灰
 
-        // 区段 1：左侧食材行 (方向 3 主辅料分级视效)
-        ingredientFill: '#FAFAFA',      // 极淡微灰底
-        ingredientStroke: '#E5E7EB',    // 细浅灰边框
-
-        // 主料 (Main Ingredient) Token
-        ingredientMainAccent: '#059669',   // 翡翠深绿点睛条 (主料)
-        ingredientMainAmountText: '#047857',
-        ingredientMainNameText: '#111827', // 粗黑高亮
-
-        // 调料/辅料 (Seasoning Ingredient) Token
-        ingredientSeasoningAccent: '#94A3B8', // 柔和蓝灰点睛条 (调料)
-        ingredientSeasoningAmountText: '#475569',
-        ingredientSeasoningNameText: '#374151',// 稍浅灰
-
-        ingredientSubText: '#6B7280',
-
-        // 区段 2：中间工序块
+        // 区段 2：中间工序块 (简短动作与必要参数)
         actionFill: '#FFFFFF',
         actionPlaceholderFill: '#F8FAFC',
-        actionStroke: '#CBD5E1',
-        actionLabelText: '#1F2937',
-        actionSublabelText: '#64748B',
-        actionHeatText: '#B45309',
+        actionStroke: '#E2E8F0',
+        actionLabelText: '#0F172A',        // 动作标题中性深黑加粗 (废弃大红)
+        actionSublabelText: '#64748B',     // 英文副标弱化灰调
+        actionHeatText: '#B45309',         // 火候与时间暖琥珀色
+        actionEquipmentText: '#64748B',
         actionStageFills: ['#F0FDF4', '#EFF6FF', '#FFF7ED', '#F5F3FF'],
         actionStageStrokes: ['#86B99A', '#93B4D8', '#E7B979', '#B9A7D4'],
         actionStageAccents: ['#2D6A4F', '#3B6E9F', '#B86B24', '#735C96'],
 
+        // 暂存与回锅走廊
+        holdAsideFill: '#F0FDF4',
+        holdAsideStroke: '#059669',
+        holdAsideText: '#059669',
+
+        // 显式依赖连线 (分支模式)
+        materialLine: '#059669',          // 物料流向深绿实线
+        orderLine: '#64748B',             // 纯时序/等待灰蓝虚线
+        legacyLine: '#94A3B8',            // 未分类依赖淡灰虚线
+
         // 区段 3：最右侧终点 Cooking Method
-        finalBakeFill: '#FEF3C7',
-        finalBakeBadge: '#F59E0B',
-        finalBakeStroke: '#D97706',
-        finalBakeText: '#92400E',
-
-        finalColdFill: '#D1FAE5',
-        finalColdBadge: '#10B981',
-        finalColdStroke: '#059669',
-        finalColdText: '#047857',
-
-        finalPlaceholderFill: '#F3F4F6'
+        finalFill: '#FFFFFF',
+        finalStroke: '#CBD5E1',
+        finalMethodText: '#065F46',       // 终点动作深翡翠绿
+        finalDurationText: '#047857',
+        finalInstText: '#475569',
     },
 
     // 2. 圆角 Token
@@ -73,25 +66,26 @@ export const flowCardTheme = {
 
     // 3. 阴影 Token
     shadows: {
-        cardShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03)',
-        blockShadow: '0 2px 4px rgba(0, 0, 0, 0.02)'
+        cardShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.05)',
+        blockShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.02)'
     },
 
     // 4. 描边与线框 Token
     strokes: {
-        paperWidth: 2.0,
+        paperWidth: 1.5,
         blockWidth: 1.2
     },
 
     // 5. 文字与排版 Token
     typography: {
         fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", sans-serif',
-        headerTitleSize: 12,
-        headerTitleWeight: '900',
-        ingredientSize: 11.5,
-        actionTitleSize: 13,
-        actionTitleWeight: 'bold',
-        actionSublabelSize: 11,
-        finalTitleSize: 14
+        headerTitleSize: 13.5,
+        headerTitleWeight: '700',
+        ingredientSize: 12,
+        actionTitleSize: 13.5,
+        actionTitleWeight: '800',
+        actionSublabelSize: 10.5,
+        finalTitleSize: 14,
+        finalTitleWeight: '800'
     }
 }

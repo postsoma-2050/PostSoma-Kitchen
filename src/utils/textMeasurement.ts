@@ -77,8 +77,8 @@ export function wrapTextToLines(
     }
 
     const lines: string[] = []
-    // 区分英文/空格单词与中文单字
-    const tokens = text.match(/[\u4e00-\u9fa5]|\S+|\s+/g) || [text]
+    // 区分英文/数字单词、空白、中文单字与中英文标点符号
+    const tokens = text.match(/[a-zA-Z0-9_.-]+|\s+|[^\x00-\x7F]|[\x00-\x7F]/g) || [text]
 
     let currentLine = ''
     for (const token of tokens) {
@@ -88,8 +88,15 @@ export function wrapTextToLines(
         if (testW <= maxWidth || currentLine === '') {
             currentLine += token
         } else {
-            lines.push(currentLine.trim())
-            currentLine = token.trimStart()
+            // 避头法则：若 token 为标点符号，优先吸附在上一行行末，避免行首出现孤立标点
+            if (/^[，,、。；;！？!?:：）)\]】》”’]/.test(token)) {
+                currentLine += token
+                lines.push(currentLine.trim())
+                currentLine = ''
+            } else {
+                lines.push(currentLine.trim())
+                currentLine = token.trimStart()
+            }
         }
     }
 

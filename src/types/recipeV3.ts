@@ -66,11 +66,27 @@ export interface V3Ingredient {
   notes?: string
 }
 
+/**
+ * 工序依赖关系分类：
+ * - 'material': 实体物料流转（上游工序的半成品/产物作为本工序原料输入）
+ * - 'order': 纯操作时序/资源约束（同锅先后、器具释放、时间等待等，无实体物料直接转入）
+ * - 'legacy': 历史未分类依赖（旧数据仅有 inputBlockIds 时保留，禁止臆测为物料边）
+ */
+export type V3DependencyType = 'material' | 'order' | 'legacy'
+
+export interface V3ActionDependency {
+  sourceBlockId: string
+  type: V3DependencyType
+  label?: string // 边语义说明，如 "暂存牛肉", "同锅留底油"
+}
+
 export interface V3ActionBlock {
   id: string
   stageIndex: number       // 横向阶段 (0=第一阶段, 1=第二阶段...)
   ingredientIds: string[]  // 【语义】本工序关联的食材 ID 列表
-  inputBlockIds?: string[] // 【语义】本工序承接的上游工序 ID 列表
+  inputBlockIds?: string[] // 【语义向后兼容】本工序承接的上游工序 ID 列表 (物料输入或旧依赖)
+  afterBlockIds?: string[] // 【语义】操作先后/前置等待工序 ID 列表 (无物料流转，如器具等待)
+  dependencies?: V3ActionDependency[] // 【精准语义】带类型的显式依赖声明 (最高优先级)
 
   colIndex?: number
   startRowIndex?: number
@@ -82,6 +98,8 @@ export interface V3ActionBlock {
   durationMinutes?: number // 耗时 (分钟)
   heatLevel?: string       // 火候/温度，如 "小火"
   equipment?: string       // 器具/容器，如 "耐热碗"
+  completionState?: string // 【关键状态/准出条件】如 "大火沸腾撇净浮沫，肉块断生捞出"
+  outputItem?: string      // 【半成品产物】如 "焯透五花肉", "糖色五花肉"
   note?: string            // 备注 (统一使用 note，废弃 notes)
   /** @deprecated 请使用 note 字段，此字段仅为向后兼容保留，normalizeRecipe 会自动合并 */
   notes?: string

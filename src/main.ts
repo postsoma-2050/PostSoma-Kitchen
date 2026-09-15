@@ -1,7 +1,6 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import App from './App.vue'
-import { autoRefreshEnvSettings } from './utils/envWatcher'
 import './style.css'
 
 // 路由级懒加载：首页、详情、冰箱与 Admin Studio 按访问场景独立下载。
@@ -64,7 +63,5 @@ router.beforeEach(async (to, _from, next) => {
 })
 
 const app = createApp(App).use(router)
-
-autoRefreshEnvSettings()
 
 app.mount('#app')

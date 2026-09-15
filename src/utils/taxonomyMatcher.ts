@@ -241,12 +241,72 @@ export function validateRecipe(recipe: VisualRecipeV3): RecipeValidationResult {
       })
     }
 
-    // 3c. 工序依赖必须引用现存工序，不允许自引用
+    // 3c. 工序依赖结构格式校验 (直接检查依赖结构，不依赖注入假节点)
+    const malformedDependencyDetails: { blockId: string; blockLabel: string; fieldPath: string; message: string }[] = []
+
+    recipe.actionBlocks.forEach((block, blockIndex) => {
+      if (Array.isArray(block.dependencies)) {
+        block.dependencies.forEach((d: any, depIndex) => {
+          const fieldPath = `actionBlocks[${blockIndex}].dependencies[${depIndex}]`
+          if (!d || typeof d !== 'object') {
+            malformedDependencyDetails.push({
+              blockId: block.id,
+              blockLabel: block.label || block.id,
+              fieldPath,
+              message: `依赖项必须为非空对象 (实际为 ${d === null ? 'null' : typeof d})`,
+            })
+          } else if (d.targetBlockId !== undefined) {
+            malformedDependencyDetails.push({
+              blockId: block.id,
+              blockLabel: block.label || block.id,
+              fieldPath: `${fieldPath}.targetBlockId`,
+              message: `依赖项包含非法字段 targetBlockId，现代依赖契约要求必须使用 sourceBlockId`,
+            })
+          } else if (typeof d.sourceBlockId !== 'string' || d.sourceBlockId.trim() === '') {
+            malformedDependencyDetails.push({
+              blockId: block.id,
+              blockLabel: block.label || block.id,
+              fieldPath: `${fieldPath}.sourceBlockId`,
+              message: `依赖项缺少必填的有效 sourceBlockId 字符串`,
+            })
+          }
+        })
+      }
+    })
+
+    if (malformedDependencyDetails.length > 0) {
+      issues.push({
+        severity: 'error',
+        code: 'MALFORMED_ACTION_DEPENDENCY',
+        field: 'actionBlocks.dependencies',
+        message: `存在格式错误的工序依赖声明：\n${malformedDependencyDetails.map(m => `[${m.fieldPath}] 工序「${m.blockLabel}」: ${m.message}`).join('\n')}`,
+        affectedIds: [...new Set(malformedDependencyDetails.map(m => m.blockId))],
+      })
+    }
+
+    // 3d. 工序依赖引用有效性校验 (悬空引用与自引用)
     const actionBlockIdSet = new Set(recipe.actionBlocks.map(block => block.id))
     const brokenDependencyBlocks: string[] = []
     const selfDependencyBlocks: string[] = []
+    const getAllUpstreamIds = (block: typeof recipe.actionBlocks[number]): string[] => {
+      const ids = new Set<string>()
+      block.dependencies?.forEach((d: any) => {
+        // 仅提取格式合法且非空的 sourceBlockId（格式错误已由 MALFORMED_ACTION_DEPENDENCY 独立阻断，不注入假节点）
+        if (d && typeof d === 'object' && typeof d.sourceBlockId === 'string' && d.sourceBlockId.trim() !== '' && d.targetBlockId === undefined) {
+          ids.add(d.sourceBlockId.trim())
+        }
+      })
+      block.inputBlockIds?.forEach(id => {
+        if (typeof id === 'string' && id.trim() !== '') ids.add(id.trim())
+      })
+      block.afterBlockIds?.forEach(id => {
+        if (typeof id === 'string' && id.trim() !== '') ids.add(id.trim())
+      })
+      return [...ids]
+    }
+
     recipe.actionBlocks.forEach(block => {
-      const dependencies = block.inputBlockIds || []
+      const dependencies = getAllUpstreamIds(block)
       if (dependencies.some(id => id === block.id)) selfDependencyBlocks.push(block.id)
       if (dependencies.some(id => !actionBlockIdSet.has(id))) brokenDependencyBlocks.push(block.id)
     })
@@ -255,7 +315,7 @@ export function validateRecipe(recipe: VisualRecipeV3): RecipeValidationResult {
       issues.push({
         severity: 'error',
         code: 'BROKEN_ACTION_DEPENDENCY',
-        field: 'actionBlocks.inputBlockIds',
+        field: 'actionBlocks.dependencies',
         message: '存在引用已删除或不存在上游工序的依赖关系',
         affectedIds: [...new Set(brokenDependencyBlocks)],
       })
@@ -265,7 +325,7 @@ export function validateRecipe(recipe: VisualRecipeV3): RecipeValidationResult {
       issues.push({
         severity: 'error',
         code: 'SELF_ACTION_DEPENDENCY',
-        field: 'actionBlocks.inputBlockIds',
+        field: 'actionBlocks.dependencies',
         message: '工序不能把自身设置为上游依赖',
         affectedIds: [...new Set(selfDependencyBlocks)],
       })
@@ -287,9 +347,11 @@ export function validateRecipe(recipe: VisualRecipeV3): RecipeValidationResult {
 
       visitState.set(blockId, 'visiting')
       const block = blockById.get(blockId)
-      for (const dependencyId of block?.inputBlockIds || []) {
-        if (dependencyId !== blockId && blockById.has(dependencyId)) {
-          visitBlock(dependencyId, [...path, blockId])
+      if (block) {
+        for (const dependencyId of getAllUpstreamIds(block)) {
+          if (dependencyId !== blockId && blockById.has(dependencyId)) {
+            visitBlock(dependencyId, [...path, blockId])
+          }
         }
       }
       visitState.set(blockId, 'visited')

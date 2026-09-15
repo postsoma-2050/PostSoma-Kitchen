@@ -10,8 +10,13 @@
         "preview": "vite preview",
         "type-check": "vue-tsc --noEmit",
         "audit:presets": "node scripts/runTs.js scripts/auditPresets.ts",
+        "audit:framework": "node scripts/runTsHermetic.js scripts/auditStepFramework.ts",
         "test:domain": "node scripts/runTs.js scripts/testDomain.ts",
         "test:flow": "node scripts/runTs.js tests/domain/flowGraph.test.ts",
+        "test:ingredient-regions": "node scripts/runTsHermetic.js tests/domain/ingredientRegions.test.ts",
+        "test:flow-linkage": "node scripts/runTs.js tests/domain/flowLinkageIntegrity.test.ts",
+        "test:continuous-table": "node scripts/runTsHermetic.js tests/domain/continuousTable.test.ts",
+        "test:round-trip": "node scripts/runTsHermetic.js tests/domain/fieldRoundTrip.test.ts",
         "test:browse": "node scripts/runTs.js tests/domain/recipeBrowseState.test.ts",
         "test:card": "node scripts/runTs.js tests/domain/recipeCardPresentation.test.ts",
         "test:admin-nav": "node scripts/runTs.js tests/domain/adminNavigation.test.ts",
@@ -28,9 +33,6 @@
     "dependencies": {
         "@supabase/supabase-js": "^2.109.0",
         "@vueuse/core": "^10.7.0",
-        "axios": "^1.6.0",
-        "markdown-it": "^14.1.0",
-        "party-js": "^2.2.0",
         "vue": "^3.4.0",
         "vue-router": "^4.2.0"
     },

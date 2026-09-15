@@ -5,14 +5,14 @@
       <div class="space-y-1">
         <div class="font-bold text-amber-950 flex items-center gap-1.5">
           <span class="sm:hidden">手机做菜模式读法</span>
-          <span class="hidden sm:inline">新手读图指南：怎么看懂这张 Visual Recipe Flow Card？</span>
+          <span class="hidden sm:inline">流程速览：沿食材行，从左向右阅读</span>
         </div>
         <p class="sm:hidden text-amber-800/90 leading-relaxed">
-          按页面顺序<strong>向下阅读</strong>；同组卡片可以<strong>并行处理</strong>；点击「矩阵全图」查看完整横向结构。
+          按页面顺序<strong>向下阅读</strong>；按工序的<strong>先后与等待关系</strong>操作；点击「矩阵全图」查看完整横向结构。
         </p>
         <p class="hidden sm:block text-amber-800/90 leading-relaxed">
           <strong>左侧</strong>是食材清单，<strong>从左到右</strong>是烹饪顺序；<br class="hidden sm:inline" />
-          <strong>跨行卡片</strong>表示该工序会合并与处理对应的多项食材。
+          食材行进入<strong>加工区域</strong>后汇合；继续延伸的行表示稍后加入。
         </p>
       </div>
     </div>

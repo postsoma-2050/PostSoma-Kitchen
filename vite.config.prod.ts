@@ -6,8 +6,6 @@ function manualChunks(id: string): string | undefined {
     if (!id.includes('node_modules')) return undefined
     if (id.includes('/@supabase/')) return 'vendor-supabase'
     if (id.includes('/vue/') || id.includes('/vue-router/') || id.includes('/@vue/')) return 'vendor-vue'
-    if (id.includes('/axios/')) return 'vendor-http'
-    if (id.includes('/markdown-it/') || id.includes('/party-js/')) return 'vendor-content'
     return 'vendor-misc'
 }
 

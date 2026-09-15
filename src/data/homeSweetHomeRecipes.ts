@@ -73,8 +73,8 @@ export const HOME_SWEET_HOME_RECIPES: VisualRecipeV3[] = [
       prepNotes: '肉类炒熟后加入全部罐头汁水慢炖'
     },
     ingredients: [
-      { id: 'i1', name: 'ground turkey 火鸡绞肉', amountText: '1 lb (450 g)', category: 'main' },
       { id: 'i2', name: 'large onion 洋葱 (切碎)', amountText: '1 颗', category: 'produce' },
+      { id: 'i1', name: 'ground turkey 火鸡绞肉', amountText: '1 lb (450 g)', category: 'main' },
       { id: 'i3', name: 'ranch dressing mix Ranch香调料包', amountText: '1 pkg', category: 'seasoning' },
       { id: 'i4', name: 'taco seasoning 塔可香料包', amountText: '1 pkg', category: 'seasoning' },
       { id: 'i5', name: 'pinto & chili beans 斑豆与辣豆罐头', amountText: '2 罐', category: 'main' },
@@ -137,9 +137,9 @@ export const HOME_SWEET_HOME_RECIPES: VisualRecipeV3[] = [
     },
     ingredients: [
       { id: 'i1', name: 'cooked chicken breast 熟鸡胸肉 (切块)', amountText: '3 cups (450 g)', category: 'main' },
+      { id: 'i4', name: 'green peas 青豌豆 (沥干)', amountText: '1 can (选填)', category: 'produce' },
       { id: 'i2', name: 'cream of chicken soup 浓缩鸡汤罐头', amountText: '1 can (300 g)', category: 'liquid' },
       { id: 'i3', name: 'sour cream 酸奶油', amountText: '8 oz (225 g)', category: 'dairy' },
-      { id: 'i4', name: 'green peas 青豌豆 (沥干)', amountText: '1 can (选填)', category: 'produce' },
       { id: 'i5', name: 'crushed Ritz crackers Ritz饼干碎', amountText: '30 块 (压碎)', category: 'grain' }
     ],
     actionBlocks: [
@@ -164,6 +164,7 @@ export const HOME_SWEET_HOME_RECIPES: VisualRecipeV3[] = [
         label: '浇酱并撒饼干碎',
         sublabel: 'Topping Ritz',
         ingredientIds: ['i1', 'i2', 'i5'],
+        inputBlockIds: ['b1', 'b2'],
         stageIndex: 2,
         notes: '擀面杖碾碎饼干均匀撒在表面'
       }
@@ -199,10 +200,10 @@ export const HOME_SWEET_HOME_RECIPES: VisualRecipeV3[] = [
       { id: 'i1', name: 'lasagna noodles 千层面面条', amountText: '9 片 (1/2盒)', category: 'grain' },
       { id: 'i2', name: 'ground beef 牛肉碎', amountText: '1 lb (450 g)', category: 'main' },
       { id: 'i3', name: 'salsa 墨西哥莎莎酱', amountText: '8 oz (225 g)', category: 'produce' },
+      { id: 'i7', name: 'taco seasoning 塔可香料包', amountText: '1 pkg', category: 'seasoning' },
       { id: 'i4', name: 'spaghetti sauce 意面红酱', amountText: '16 oz (450 g)', category: 'liquid' },
       { id: 'i5', name: 'mozzarella cheese 马苏里拉芝士碎', amountText: '1 lb (450 g)', category: 'dairy' },
-      { id: 'i6', name: 'cheddar cheese 车达芝士碎', amountText: '1 lb (450 g)', category: 'dairy' },
-      { id: 'i7', name: 'taco seasoning 塔可香料包', amountText: '1 pkg', category: 'seasoning' }
+      { id: 'i6', name: 'cheddar cheese 车达芝士碎', amountText: '1 lb (450 g)', category: 'dairy' }
     ],
     actionBlocks: [
       {
@@ -504,9 +505,9 @@ export const HOME_SWEET_HOME_RECIPES: VisualRecipeV3[] = [
       { id: 'i1', name: 'cream cheese 奶油芝士 (软化)', amountText: '3 oz (85 g)', category: 'dairy' },
       { id: 'i2', name: 'peanut butter 柔滑花生酱', amountText: '1/3 cup (80 g)', category: 'other' },
       { id: 'i3', name: 'sugar & vanilla 砂糖与香草精', amountText: '1/4c 糖 + 1tsp 香草', category: 'seasoning' },
+      { id: 'i6', name: 'eggs 鸡蛋', amountText: '2 颗 (分两部分)', category: 'main' },
       { id: 'i4', name: 'brownie mix 布朗尼预拌粉', amountText: '1 pkg (22.5 oz)', category: 'grain' },
       { id: 'i5', name: 'hot water & oil 热水与植物油', amountText: '1/3c 水 + 1/2c 油', category: 'liquid' },
-      { id: 'i6', name: 'eggs 鸡蛋', amountText: '2 颗 (分两部分)', category: 'main' },
       { id: 'i7', name: 'cocktail peanuts 鸡尾酒花生 (切碎)', amountText: '1/2 cup (60 g)', category: 'other' }
     ],
     actionBlocks: [
@@ -564,12 +565,12 @@ export const HOME_SWEET_HOME_RECIPES: VisualRecipeV3[] = [
     },
     ingredients: [
       { id: 'i1', name: 'large fresh mushrooms 大鲜蘑菇', amountText: '12 oz (340 g)', category: 'produce' },
+      { id: 'i7', name: 'softened butter 软化黄油', amountText: '2 tsp', category: 'dairy' },
       { id: 'i2', name: 'mozzarella cheese 马苏里拉芝士碎', amountText: '2.75 oz (80 g)', category: 'dairy' },
       { id: 'i3', name: 'parmesan cheese 帕玛森芝士粉', amountText: '2 T. (30 g)', category: 'dairy' },
       { id: 'i4', name: 'pimiento & parsley 甜椒丁与鲜欧芹', amountText: '1/4 oz 甜椒丁', category: 'produce' },
       { id: 'i5', name: 'breadcrumbs 碎面包屑', amountText: '1/2 oz (15 g)', category: 'grain' },
-      { id: 'i6', name: 'roasted garlic & herbs 烤大蒜与牛至罗勒', amountText: '蒜瓣+牛至+罗勒', category: 'seasoning' },
-      { id: 'i7', name: 'softened butter 软化黄油', amountText: '2 tsp', category: 'dairy' }
+      { id: 'i6', name: 'roasted garlic & herbs 烤大蒜与牛至罗勒', amountText: '蒜瓣+牛至+罗勒', category: 'seasoning' }
     ],
     actionBlocks: [
       {
@@ -754,8 +755,8 @@ export const HOME_SWEET_HOME_RECIPES: VisualRecipeV3[] = [
       { id: 'i2', name: 'barley & split peas 大麦与干豌豆仁', amountText: '各 1/3 cup', category: 'grain' },
       { id: 'i3', name: 'stewed tomatoes 炖番茄罐头', amountText: '14 oz (400 g)', category: 'produce' },
       { id: 'i4', name: 'vegetable juice 蔬菜汁', amountText: '6 oz (180 mL)', category: 'liquid' },
-      { id: 'i5', name: 'onion & celery & carrots 洋葱芹菜胡萝卜', amountText: '洋葱1/2c + 芹菜3/4c + 胡萝卜1/2c', category: 'produce' },
-      { id: 'i6', name: 'beef bouillon & herbs 牛肉高汤粉与香草', amountText: '高汤粉1T + 月桂叶 + 罗勒', category: 'seasoning' }
+      { id: 'i6', name: 'beef bouillon & herbs 牛肉高汤粉与香草', amountText: '高汤粉1T + 月桂叶 + 罗勒', category: 'seasoning' },
+      { id: 'i5', name: 'onion & celery & carrots 洋葱芹菜胡萝卜', amountText: '洋葱1/2c + 芹菜3/4c + 胡萝卜1/2c', category: 'produce' }
     ],
     actionBlocks: [
       {
@@ -938,12 +939,12 @@ export const HOME_SWEET_HOME_RECIPES: VisualRecipeV3[] = [
       servings: '8 人份'
     },
     ingredients: [
-      { id: 'i1', name: 'hashbrowns 土豆饼/薯丁', amountText: '2 lbs (900 g)', category: 'main' },
       { id: 'i2', name: 'margarine 融化植物黄油', amountText: '1 支 (115 g)', category: 'dairy' },
       { id: 'i3', name: 'grated cheese 车达芝士碎', amountText: '3 cups (分两份)', category: 'dairy' },
       { id: 'i4', name: 'sour cream 酸奶油', amountText: '1 cup (225 g)', category: 'dairy' },
       { id: 'i5', name: 'cream of chicken soup 浓缩鸡汤罐头', amountText: '1 罐', category: 'liquid' },
       { id: 'i6', name: 'onion flakes & seasonings 洋葱碎与盐胡椒', amountText: '洋葱2T + 盐1T + 胡椒', category: 'seasoning' },
+      { id: 'i1', name: 'hashbrowns 土豆饼/薯丁', amountText: '2 lbs (900 g)', category: 'main' },
       { id: 'i7', name: 'breadcrumbs 面包渣', amountText: '适量 (撒顶层)', category: 'grain' }
     ],
     actionBlocks: [

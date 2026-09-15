@@ -109,7 +109,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { VisualRecipeV3 } from '@/types/recipeV3'
-import { buildV3MatrixLayout, type V3MatrixLayoutResult } from '@/utils/matrixFlowLayout'
+import { buildV3MatrixLayout, type V3MatrixLayoutResult, isColdFinalBlock } from '@/utils/matrixFlowLayout'
 
 const props = defineProps<{
   recipe: VisualRecipeV3
@@ -120,8 +120,6 @@ const layout = computed<V3MatrixLayoutResult>(() => {
 })
 
 const isColdFinal = computed(() => {
-  if (!props.recipe.finalBlock) return false
-  const m = props.recipe.finalBlock.method
-  return m === 'raw' || m === 'serve'
+  return isColdFinalBlock(props.recipe)
 })
 </script>

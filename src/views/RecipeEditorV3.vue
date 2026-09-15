@@ -388,13 +388,25 @@
                 <span>⚙️</span>
                 <span>3. 工序节点 (关联食材与阶段)</span>
               </h3>
-              <button
-                @click="handleAddActionBlock"
-                type="button"
-                class="px-2.5 py-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 rounded text-xs font-semibold transition-colors"
-              >
-                + 新增工序
-              </button>
+              <div class="flex items-center gap-2">
+                <button
+                  @click="handleAutoSortIngredients"
+                  type="button"
+                  :disabled="recipe.ingredients.length <= 1 || recipe.actionBlocks.length === 0"
+                  class="px-2.5 py-1 bg-amber-50 hover:bg-amber-100 disabled:opacity-40 text-amber-900 border border-amber-300 rounded text-xs font-semibold transition-colors flex items-center gap-1 shadow-sm"
+                  title="根据工序进入顺序自动排列食材，从根本上确保工序块紧密咬合、零空白死区"
+                >
+                  <span>✨</span>
+                  <span>按工序时序重排食材</span>
+                </button>
+                <button
+                  @click="handleAddActionBlock"
+                  type="button"
+                  class="px-2.5 py-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 rounded text-xs font-semibold transition-colors"
+                >
+                  + 新增工序
+                </button>
+              </div>
             </div>
 
             <div class="space-y-4">
@@ -405,20 +417,27 @@
               >
                 <!-- 头部：名称、阶段控制与删除 -->
                 <div class="flex items-center justify-between gap-2 border-b border-stone-200 pb-2">
-                  <div class="flex items-center gap-2">
+                  <div class="flex items-center gap-2 flex-wrap">
                     <span class="text-xs font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded">
                       第 {{ block.stageIndex + 1 }} 阶段
                     </span>
                     <input
                       v-model="block.label"
-                      placeholder="工序名称 (如: 融化)"
+                      placeholder="工序名称 (如: 爆香炒汁)"
                       class="text-xs font-bold text-stone-900 border-b border-stone-300 focus:border-emerald-600 focus:outline-none bg-transparent"
                     />
                     <input
                       v-model="block.sublabel"
-                      placeholder="英文 (如: melt)"
-                      class="text-xs text-stone-500 border-b border-stone-300 focus:border-emerald-600 focus:outline-none bg-transparent w-20"
+                      placeholder="英文 (如: Sauté)"
+                      class="text-xs text-stone-500 border-b border-stone-300 focus:border-emerald-600 focus:outline-none bg-transparent w-24"
                     />
+                    <!-- 动词精炼建议 -->
+                    <span
+                      v-if="block.label && block.label.length > 4"
+                      class="text-[10.5px] text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200"
+                    >
+                      💡 建议精炼为 2~4 字动词（如：爆香炒汁），操作长句请写入下方“操作说明”
+                    </span>
                   </div>
 
                   <div class="flex items-center gap-1">
@@ -447,6 +466,20 @@
                   </div>
                 </div>
 
+                <!-- 常用烹饪技法快捷选择 -->
+                <div class="flex items-center gap-1 flex-wrap pt-0.5 pb-1">
+                  <span class="text-[10px] text-stone-500 font-medium mr-1">快捷技法:</span>
+                  <button
+                    v-for="sk in quickSkills"
+                    :key="sk.code"
+                    type="button"
+                    @click="selectSkillPreset(block, sk)"
+                    class="px-1.5 py-0.5 bg-white hover:bg-emerald-50 text-stone-700 hover:text-emerald-800 border border-stone-200 rounded text-[10.5px] transition-colors"
+                  >
+                    {{ sk.zhLabel }}
+                  </button>
+                </div>
+
                 <!-- 关联食材多选框 -->
                 <div class="space-y-1">
                   <label class="block text-xs font-semibold text-stone-700">勾选本工序处理的食材：</label>
@@ -466,6 +499,30 @@
                     </label>
                   </div>
                   <div v-else class="text-xs text-stone-400 italic">请先在上方添加食材</div>
+
+                  <!-- 食材排布优化辅助提示面板 -->
+                  <div
+                    v-if="!checkStepIngredientContiguity(block.ingredientIds, recipe.ingredients).isContiguous"
+                    class="p-2.5 bg-blue-50/70 border border-blue-200 rounded-lg text-xs space-y-1.5 mt-1.5"
+                  >
+                    <div class="flex items-center justify-between gap-2">
+                      <span class="font-bold text-blue-900 flex items-center gap-1.5">
+                        <span>💡</span>
+                        <span>食材排布优化建议：检测到当前工序勾选的食材在列表中非连续</span>
+                      </span>
+                      <button
+                        type="button"
+                        @click="handleAutoSortIngredients"
+                        class="px-2.5 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded text-xs font-bold transition-colors whitespace-nowrap cursor-pointer shadow-xs"
+                        title="可选：自动按时序重排食材清单为连续阶梯"
+                      >
+                        ⚡️ 优化食材排列为阶梯
+                      </button>
+                    </div>
+                    <p class="text-blue-800 text-[11px] leading-relaxed">
+                      当前工序包含跨行食材：<strong>{{ checkStepIngredientContiguity(block.ingredientIds, recipe.ingredients).missingIngredientNames.join('、') }}</strong>。当前渲染系统已支持非连续食材与导轨表达，卡片高度由内容决定（不再暴力拉通）。如需在二维网格中呈现连续阶梯，可点击优化按钮辅助调整。
+                    </p>
+                  </div>
                 </div>
 
                 <!-- 工序执行参数 -->
@@ -499,27 +556,79 @@
                   </label>
                 </div>
 
+                <!-- 关键产出与准出状态 (支撑连续工序表与矩阵图事实表达) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2 border-t border-stone-200">
+                  <label class="space-y-1 text-[11px] font-semibold text-stone-600">
+                    <div class="flex items-center justify-between">
+                      <span>产出半成品物料名称</span>
+                      <span class="text-[10px] text-stone-400">供下游工序显式承接</span>
+                    </div>
+                    <input
+                      v-model="block.outputItem"
+                      placeholder="如：焯透五花肉 / 上浆牛肉丝"
+                      class="w-full px-2.5 py-2 bg-white border border-stone-300 rounded-md text-xs text-stone-800 focus:outline-none focus:border-emerald-600"
+                    />
+                  </label>
+                  <label class="space-y-1 text-[11px] font-semibold text-stone-600">
+                    <div class="flex items-center justify-between">
+                      <span>准出条件 / 达成关键状态</span>
+                      <span class="text-[10px] text-stone-400">达到该状态方可进入下一步</span>
+                    </div>
+                    <input
+                      v-model="block.completionState"
+                      placeholder="如：大火沸腾撇净浮沫，肉块断生捞出"
+                      class="w-full px-2.5 py-2 bg-white border border-stone-300 rounded-md text-xs text-stone-800 focus:outline-none focus:border-emerald-600"
+                    />
+                  </label>
+                </div>
+
+                <!-- 操作要点说明 (完整指导，呈现于详情展开、移动端及无障碍面板) -->
+                <div class="pt-2 border-t border-stone-200">
+                  <label class="space-y-1 text-[11px] font-semibold text-stone-600 block">
+                    <div class="flex items-center justify-between">
+                      <span>操作要点说明 (完整步骤指导，呈现于移动端、点击详情与步骤清单)</span>
+                      <span class="text-[10px] text-stone-400">悬浮或点击卡片均可查看</span>
+                    </div>
+                    <input
+                      v-model="block.notes"
+                      placeholder="如：油热爆葱末下番茄炒出红油浓汁，加水大火烧开..."
+                      class="w-full px-2.5 py-2 bg-white border border-stone-300 rounded-md text-xs text-stone-800 focus:outline-none focus:border-emerald-600"
+                    />
+                  </label>
+                </div>
+
                 <!-- 上游工序依赖：只允许选择物理顺序在前的节点，从编辑器层避免产生循环 -->
                 <div class="space-y-1.5 pt-2 border-t border-stone-200">
                   <div class="flex items-center justify-between gap-3">
                     <label class="text-xs font-semibold text-stone-700">承接哪些上游工序：</label>
-                    <span class="text-[10px] text-stone-400">依赖用于确定布局顺序，预览不绘制箭头</span>
+                    <span class="text-[10px] text-stone-400">用于先后时序约束与分支连接箭头指示</span>
                   </div>
                   <div v-if="bIndex > 0" class="flex flex-wrap gap-2">
-                    <label
+                    <div
                       v-for="upstream in recipe.actionBlocks.slice(0, bIndex)"
                       :key="upstream.id"
-                      class="inline-flex items-center gap-1.5 px-2 py-1 bg-white rounded border border-stone-300 text-xs text-stone-700 cursor-pointer hover:bg-blue-50"
+                      class="inline-flex items-center gap-1.5 px-2 py-1 bg-white rounded border text-xs text-stone-700"
+                      :class="isUpstreamSelected(block, upstream.id) ? 'border-emerald-500 bg-emerald-50/50' : 'border-stone-300'"
                     >
-                      <input
-                        v-model="block.inputBlockIds"
-                        :value="upstream.id"
-                        type="checkbox"
-                        class="rounded text-blue-600 focus:ring-blue-500"
-                        @change="syncBlockStageFromDependencies(block)"
-                      />
-                      <span>{{ upstream.label || `工序 ${bIndex}` }}</span>
-                    </label>
+                      <label class="inline-flex items-center gap-1 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          :checked="isUpstreamSelected(block, upstream.id)"
+                          @change="toggleUpstreamDependency(block, upstream.id, ($event.target as HTMLInputElement).checked)"
+                          class="rounded text-emerald-600 focus:ring-emerald-500"
+                        />
+                        <span class="font-medium">{{ upstream.label || `工序 ${bIndex}` }}</span>
+                      </label>
+                      <select
+                        v-if="isUpstreamSelected(block, upstream.id)"
+                        :value="getUpstreamDependencyType(block, upstream.id)"
+                        @change="setUpstreamDependencyType(block, upstream.id, ($event.target as HTMLSelectElement).value as 'material' | 'order')"
+                        class="ml-1 text-[10px] py-0.5 px-1 bg-white border border-stone-300 rounded text-stone-600 focus:outline-none"
+                      >
+                        <option value="material">物料流入 (实线)</option>
+                        <option value="order">同锅等待 (虚线)</option>
+                      </select>
+                    </div>
                   </div>
                   <div v-else class="text-[11px] text-stone-400 italic">首个工序直接承接食材，无需选择上游节点</div>
                 </div>
@@ -699,6 +808,12 @@ import { findMatchingIngredients, addAlias } from '@/services/ingredientRegistry
 import type { IngredientEntry } from '@/types/ingredientRegistry'
 import RecipeFlowWorkspaceV3 from '@/components/recipe-flow-v3/RecipeFlowWorkspaceV3.vue'
 import { resolveAdminReturnTarget } from '@/utils/adminNavigation'
+import {
+  STANDARD_COOKING_SKILLS,
+  type CookingSkillDefinition,
+  checkStepIngredientContiguity,
+  autoSortIngredientsByFlow,
+} from '@/types/recipeStepFramework'
 
 const route = useRoute()
 const router = useRouter()
@@ -978,6 +1093,33 @@ function removeIngredient(index: number) {
   })
 }
 
+// 常用标准烹饪技法动词预设 (用于一键设定，保持命名纯正)
+const quickSkills = computed<CookingSkillDefinition[]>(() => [
+  STANDARD_COOKING_SKILLS.marinate,
+  STANDARD_COOKING_SKILLS.sear,
+  STANDARD_COOKING_SKILLS.stir_fry,
+  STANDARD_COOKING_SKILLS.saute,
+  STANDARD_COOKING_SKILLS.simmer,
+  STANDARD_COOKING_SKILLS.boil,
+  STANDARD_COOKING_SKILLS.steam,
+  STANDARD_COOKING_SKILLS.combine,
+  STANDARD_COOKING_SKILLS.mix,
+  STANDARD_COOKING_SKILLS.fold_in,
+  STANDARD_COOKING_SKILLS.melt,
+  STANDARD_COOKING_SKILLS.bake,
+])
+
+function selectSkillPreset(block: V3ActionBlock, skill: CookingSkillDefinition) {
+  block.action = skill.code
+  block.label = skill.zhLabel
+  block.sublabel = skill.enLabel
+}
+
+function handleAutoSortIngredients() {
+  recipe.value.ingredients = autoSortIngredientsByFlow(recipe.value.ingredients, recipe.value.actionBlocks)
+  toastMessage.value = '✨ 已按烹饪工序进入时序自动优化食材顺序！矩阵图将呈现严密咬合的阶梯。'
+}
+
 // 工序逻辑
 function handleAddActionBlock() {
   const newId = `b_${Date.now()}`
@@ -986,22 +1128,116 @@ function handleAddActionBlock() {
     id: newId,
     stageIndex: previousBlock ? previousBlock.stageIndex + 1 : 0,
     ingredientIds: [],
+    dependencies: previousBlock ? [{ sourceBlockId: previousBlock.id, type: 'material' }] : [],
     inputBlockIds: previousBlock ? [previousBlock.id] : [],
     action: 'mix',
     label: '混合',
-    sublabel: 'mix'
+    sublabel: 'mix',
+    outputItem: '',
+    completionState: ''
   })
+}
+
+function isUpstreamSelected(block: V3ActionBlock, upstreamId: string): boolean {
+  if (block.dependencies && block.dependencies.some(d => d.sourceBlockId === upstreamId)) {
+    return true
+  }
+  if (block.inputBlockIds && block.inputBlockIds.includes(upstreamId)) {
+    return true
+  }
+  if (block.afterBlockIds && block.afterBlockIds.includes(upstreamId)) {
+    return true
+  }
+  return false
+}
+
+function getUpstreamDependencyType(block: V3ActionBlock, upstreamId: string): 'material' | 'order' {
+  const dep = block.dependencies?.find(d => d.sourceBlockId === upstreamId)
+  if (dep) {
+    return dep.type === 'order' ? 'order' : 'material'
+  }
+  if (block.afterBlockIds && block.afterBlockIds.includes(upstreamId)) {
+    return 'order'
+  }
+  return 'material'
+}
+
+function toggleUpstreamDependency(block: V3ActionBlock, upstreamId: string, checked: boolean) {
+  if (!block.dependencies) block.dependencies = []
+  if (!block.inputBlockIds) block.inputBlockIds = []
+  if (!block.afterBlockIds) block.afterBlockIds = []
+
+  if (checked) {
+    if (!block.dependencies.some(d => d.sourceBlockId === upstreamId)) {
+      block.dependencies.push({ sourceBlockId: upstreamId, type: 'material' })
+    }
+    if (!block.inputBlockIds.includes(upstreamId)) {
+      block.inputBlockIds.push(upstreamId)
+    }
+    block.afterBlockIds = block.afterBlockIds.filter(id => id !== upstreamId)
+  } else {
+    block.dependencies = block.dependencies.filter(d => d.sourceBlockId !== upstreamId)
+    block.inputBlockIds = block.inputBlockIds.filter(id => id !== upstreamId)
+    block.afterBlockIds = block.afterBlockIds.filter(id => id !== upstreamId)
+  }
+  syncBlockStageFromDependencies(block)
+}
+
+function setUpstreamDependencyType(block: V3ActionBlock, upstreamId: string, type: 'material' | 'order') {
+  if (!block.dependencies) block.dependencies = []
+  if (!block.inputBlockIds) block.inputBlockIds = []
+  if (!block.afterBlockIds) block.afterBlockIds = []
+
+  let dep = block.dependencies.find(d => d.sourceBlockId === upstreamId)
+  if (!dep) {
+    dep = { sourceBlockId: upstreamId, type }
+    block.dependencies.push(dep)
+  } else {
+    dep.type = type
+  }
+
+  if (type === 'material') {
+    if (!block.inputBlockIds.includes(upstreamId)) {
+      block.inputBlockIds.push(upstreamId)
+    }
+    block.afterBlockIds = block.afterBlockIds.filter(id => id !== upstreamId)
+  } else {
+    if (!block.afterBlockIds.includes(upstreamId)) {
+      block.afterBlockIds.push(upstreamId)
+    }
+    block.inputBlockIds = block.inputBlockIds.filter(id => id !== upstreamId)
+  }
+}
+
+function getUpstreamBlockIds(block: V3ActionBlock): string[] {
+  const set = new Set<string>()
+  for (const d of block.dependencies || []) {
+    if (d?.sourceBlockId) set.add(d.sourceBlockId)
+  }
+  for (const id of block.inputBlockIds || []) {
+    if (id) set.add(id)
+  }
+  for (const id of block.afterBlockIds || []) {
+    if (id) set.add(id)
+  }
+  return [...set]
 }
 
 function removeActionBlock(index: number) {
   const [removed] = recipe.value.actionBlocks.splice(index, 1)
+  if (!removed) return
   recipe.value.actionBlocks.forEach(block => {
     block.inputBlockIds = (block.inputBlockIds || []).filter(id => id !== removed.id)
+    block.afterBlockIds = (block.afterBlockIds || []).filter(id => id !== removed.id)
+    if (block.dependencies) {
+      block.dependencies = block.dependencies.filter(d => d.sourceBlockId !== removed.id)
+    }
   })
+  normalizeDependentStages()
 }
 
 function changeBlockStage(block: V3ActionBlock, delta: number) {
-  const dependencyStages = (block.inputBlockIds || [])
+  const dependencyStages = getUpstreamBlockIds(block)
     .map(id => recipe.value.actionBlocks.find(item => item.id === id)?.stageIndex)
     .filter((stage): stage is number => stage !== undefined)
   const minimumStage = dependencyStages.length > 0 ? Math.max(...dependencyStages) + 1 : 0
@@ -1010,7 +1246,7 @@ function changeBlockStage(block: V3ActionBlock, delta: number) {
 }
 
 function syncBlockStageFromDependencies(block: V3ActionBlock) {
-  const dependencyStages = (block.inputBlockIds || [])
+  const dependencyStages = getUpstreamBlockIds(block)
     .map(id => recipe.value.actionBlocks.find(item => item.id === id)?.stageIndex)
     .filter((stage): stage is number => stage !== undefined)
   if (dependencyStages.length > 0) {
@@ -1022,7 +1258,7 @@ function syncBlockStageFromDependencies(block: V3ActionBlock) {
 function normalizeDependentStages() {
   // 编辑器只允许选择列表中更早的工序，因此按顺序单次传播即可保证下游阶段合法。
   recipe.value.actionBlocks.forEach(current => {
-    const dependencyStages = (current.inputBlockIds || [])
+    const dependencyStages = getUpstreamBlockIds(current)
       .map(id => recipe.value.actionBlocks.find(item => item.id === id)?.stageIndex)
       .filter((stage): stage is number => stage !== undefined)
     if (dependencyStages.length > 0) {

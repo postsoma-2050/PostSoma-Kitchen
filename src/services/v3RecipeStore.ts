@@ -6,6 +6,26 @@ import { normalizeRecipe } from './recipeNormalizer'
 export { normalizeRecipe, mapLegacyCuisineToTaxonomy, mapLegacyMethodToTaxonomy } from './recipeNormalizer'
 
 /**
+ * 获取本地静态预置食谱 (隔离预览模式使用，不经过云端或缓存)
+ */
+export async function getLocalPresetRecipeById(id: string): Promise<VisualRecipeV3 | null> {
+  const [chineseModule, homeModule, examplesModule] = await Promise.all([
+    import('@/data/chineseHealthyRecipes'),
+    import('@/data/homeSweetHomeRecipes'),
+    import('@/data/v3Examples'),
+  ])
+  const allPresets = [
+    ...chineseModule.CHINESE_HEALTHY_RECIPES,
+    ...homeModule.HOME_SWEET_HOME_RECIPES,
+    examplesModule.espressoBrowniesV3,
+    examplesModule.hongShaoRouV3,
+    examplesModule.caesarSaladV3,
+  ]
+  const found = allPresets.find(r => r.id === id)
+  return found ? normalizeRecipe(found) : null
+}
+
+/**
  * 页面层唯一的食谱数据入口。
  * 所有持久化操作统一交给根据 VITE_STORAGE_MODE 注入的 Repository。
  */

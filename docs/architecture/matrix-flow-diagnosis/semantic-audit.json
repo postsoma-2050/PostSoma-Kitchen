@@ -1,0 +1,4022 @@
+{
+  "scope": "Local static presets only; heuristic review candidates, not cooking verification",
+  "summary": {
+    "recipes": 102,
+    "ingredients": 389,
+    "actions": 192,
+    "recipesWithFormulas": 2,
+    "recipesWithDependencies": 0,
+    "recipesWithFullSpanActions": 98,
+    "currentCanPublish": 102,
+    "counts": {
+      "COMPOSITE_REVIEW": {
+        "findings": 146,
+        "recipes": 89
+      },
+      "ENGLISH_SUBLABEL": {
+        "findings": 192,
+        "recipes": 102
+      },
+      "DEPENDENCY_REVIEW": {
+        "findings": 90,
+        "recipes": 79
+      },
+      "QUANTITY_REVIEW": {
+        "findings": 44,
+        "recipes": 34
+      },
+      "DUPLICATE_NAME_AMOUNT": {
+        "findings": 21,
+        "recipes": 18
+      }
+    }
+  },
+  "details": [
+    {
+      "id": "cn-01-yuxiang-rousi",
+      "ingredients": 6,
+      "actions": 3,
+      "formulas": 2,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b3"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "泡椒末与葱姜蒜 | 10g 泡椒 + 葱姜蒜末"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Marinate Pork"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Stir-Fry Meat"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "滑散肉丝与爆香泡椒"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[2].sublabel",
+          "evidence": "Combine & Sauce"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[2].inputBlockIds",
+          "evidence": "倒入配料与淋鱼香汁"
+        }
+      ]
+    },
+    {
+      "id": "cn-02-steamed-scallops",
+      "ingredients": 6,
+      "actions": 3,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 0,
+      "fullSpanActions": [
+        "b3"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "姜末与白糖盐 | 姜末+糖+盐少许"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[4]",
+          "evidence": "蒸鱼豉油与葱花 | 豉油15g + 葱花"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Prep Scallops"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Mix Garlic Sauce"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "调制蒜蓉酱汁"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[2].sublabel",
+          "evidence": "Assemble Discs"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[2].inputBlockIds",
+          "evidence": "码盘并淋酱汁"
+        }
+      ]
+    },
+    {
+      "id": "cn-03-tomato-beef-stew",
+      "ingredients": 5,
+      "actions": 3,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 0,
+      "fullSpanActions": [
+        "b3"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "姜末与葱末 | 姜末5g + 葱末"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "料酒与酱油 | 料酒15g + 酱油"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[4]",
+          "evidence": "食盐与胡椒粉 | 盐4g"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Blanch Beef"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Make Tomato Sauce"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "炒制浓郁番茄酱底"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[2].sublabel",
+          "evidence": "Stew in Claypot"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[2].inputBlockIds",
+          "evidence": "转砂锅加水焖炖"
+        }
+      ]
+    },
+    {
+      "id": "cn-04-congbao-yangrou",
+      "ingredients": 6,
+      "actions": 3,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "酱油与料酒 (腌肉) | 酱油10g + 料酒"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[4]",
+          "evidence": "香醋与香油 (烹边) | 醋5g + 香油"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[5]",
+          "evidence": "白胡椒粉与水淀粉 | 胡椒粉+水淀粉"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[5].amountText",
+          "evidence": "胡椒粉+水淀粉"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Marinate Mutton"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Flash Fry Meat"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "爆香蒜片与大火划散"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[2].sublabel",
+          "evidence": "Add Scallion & Vinegar"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[2].inputBlockIds",
+          "evidence": "下葱段与锅边烹醋"
+        }
+      ]
+    },
+    {
+      "id": "cn-05-gongbao-jiding",
+      "ingredients": 6,
+      "actions": 3,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b3"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "干红辣椒段与花椒 | 干椒10g + 花椒"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[4]",
+          "evidence": "蛋清与水淀粉上浆 | 1蛋清 + 水淀粉"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[5]",
+          "evidence": "宫保荔枝碗汁 | 糖+醋+酱油+水淀粉"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[5].amountText",
+          "evidence": "糖+醋+酱油+水淀粉"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Coat Chicken"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Fry Chili & Sichuan Pepper"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "炸香花椒干辣椒"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[2].sublabel",
+          "evidence": "Stir-Fry & Sauce"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[2].inputBlockIds",
+          "evidence": "下鸡丁冬笋与烹碗汁"
+        }
+      ]
+    },
+    {
+      "id": "cn-06-jiyu-tang",
+      "ingredients": 5,
+      "actions": 3,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 0,
+      "fullSpanActions": [
+        "b3"
+      ],
+      "findings": [
+        {
+          "code": "DUPLICATE_NAME_AMOUNT",
+          "field": "ingredients[2]",
+          "evidence": "葱段与姜片 | 葱段+姜片"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "葱段与姜片 | 葱段+姜片"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[2].amountText",
+          "evidence": "葱段+姜片"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "料酒与植物油 | 料酒10g + 煎鱼油"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[4]",
+          "evidence": "盐与香菜段 | 盐+香菜"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[4].amountText",
+          "evidence": "盐+香菜"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Sear Fish"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Boil Milky Broth"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "倒入沸水大火冲汤"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[2].sublabel",
+          "evidence": "Add Tofu & Simmer"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[2].inputBlockIds",
+          "evidence": "加入豆腐小火慢炖"
+        }
+      ]
+    },
+    {
+      "id": "cn-07-steamed-eel",
+      "ingredients": 6,
+      "actions": 3,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 0,
+      "fullSpanActions": [
+        "b3"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "生熟蒜蓉与姜末 | 生蒜蓉+熟蒜蓉+姜末"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[2].amountText",
+          "evidence": "生蒜蓉+熟蒜蓉+姜末"
+        },
+        {
+          "code": "DUPLICATE_NAME_AMOUNT",
+          "field": "ingredients[3]",
+          "evidence": "红椒末与陈皮末 | 红椒末+陈皮末"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "红椒末与陈皮末 | 红椒末+陈皮末"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[3].amountText",
+          "evidence": "红椒末+陈皮末"
+        },
+        {
+          "code": "DUPLICATE_NAME_AMOUNT",
+          "field": "ingredients[4]",
+          "evidence": "生粉与香油酱油 | 生粉+香油+酱油"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[4]",
+          "evidence": "生粉与香油酱油 | 生粉+香油+酱油"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[4].amountText",
+          "evidence": "生粉+香油+酱油"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[5]",
+          "evidence": "胡椒粉与葱花 (滚油) | 胡椒粉+葱花+熟油"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[5].amountText",
+          "evidence": "胡椒粉+葱花+熟油"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Dragon Slice Eel"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Season Eel"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "拌入双蒜豉汁料"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[2].sublabel",
+          "evidence": "Plate Dragon Shape"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[2].inputBlockIds",
+          "evidence": "盘龙造型码盘"
+        }
+      ]
+    },
+    {
+      "id": "cn-08-steamed-carrot-strips",
+      "ingredients": 6,
+      "actions": 3,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b3"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "蒜末与葱末香菜 | 蒜末+葱末+香菜段"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[3].amountText",
+          "evidence": "蒜末+葱末+香菜段"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Coat Cornmeal"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Steam 10 Mins"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "上笼盖膜蒸熟"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[2].sublabel",
+          "evidence": "Hot Oil Splash"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[2].inputBlockIds",
+          "evidence": "码香菜蒜末与泼辣油"
+        }
+      ]
+    },
+    {
+      "id": "cn-09-jingjiang-rousi",
+      "ingredients": 6,
+      "actions": 2,
+      "formulas": 2,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Blanch Veggies & Plate"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Stir-Fry Pork & Sauce"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "滑散肉丝与炒甜面酱"
+        }
+      ]
+    },
+    {
+      "id": "cn-10-suanrong-qiezi",
+      "ingredients": 5,
+      "actions": 3,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 0,
+      "fullSpanActions": [],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "葱花与食盐 | 葱花5g + 盐5g"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Slice & Plate Eggplant"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Saute Garlic Sauce"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "爆香蒜蓉红椒酱汁"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[2].sublabel",
+          "evidence": "Steam 10 Mins"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[2].inputBlockIds",
+          "evidence": "淋酱汁大火蒸熟"
+        }
+      ]
+    },
+    {
+      "id": "cn-11-luobo-niunan",
+      "ingredients": 6,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 0,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "料酒与酱油 | 料酒15g + 酱油15g"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[4]",
+          "evidence": "蒜片与葱段白胡椒 | 蒜片5g + 葱段 + 白胡椒粒"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Sear Beef & Onion"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Stew 40 Mins"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "转砂锅小火焖炖"
+        }
+      ]
+    },
+    {
+      "id": "cn-12-xihongshi-jidan",
+      "ingredients": 4,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 0,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "白糖与食盐 | 糖5g + 盐4g"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Scramble Eggs"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Sauté Tomato & Combine"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "炒番茄出浓汁合炒"
+        }
+      ]
+    },
+    {
+      "id": "cn-13-suan-shao-wuhuarou",
+      "ingredients": 4,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1",
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "特调蒜烧酱汁 | 味极鲜25g + 料酒10g + 糖10g + 葱花"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Marinate Pork"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Sear & Simmer Sauce"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "煎至金黄与慢炖收汁"
+        }
+      ]
+    },
+    {
+      "id": "cn-14-zhurou-dun-fentiao",
+      "ingredients": 5,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "酱油与料酒白糖 | 酱油10g + 料酒10g + 糖10g"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[4]",
+          "evidence": "葱段姜末花椒 | 葱段5g + 姜末5g + 花椒"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Blanch & Caramelize"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Stew Noodles & Potato"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "下粉条土豆慢炖"
+        }
+      ]
+    },
+    {
+      "id": "cn-15-xingbaogu-niurouli",
+      "ingredients": 4,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "老抽与白糖食盐 | 老抽+白糖+盐"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[2].amountText",
+          "evidence": "老抽+白糖+盐"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Sear Mushroom Cubes"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Flash Fry Beef Cubes"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "大火炒牛肉粒合炒"
+        }
+      ]
+    },
+    {
+      "id": "cn-16-jinzhen-feiniu",
+      "ingredients": 5,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1",
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "高汤与水淀粉 | 高汤50g + 水淀粉20g"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[4]",
+          "evidence": "食盐与鸡精 | 盐4g + 鸡精"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Marinate & Saute Chili"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Stir-Fry Beef & Mushroom"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "加高汤肥牛金针菇合炒"
+        }
+      ]
+    },
+    {
+      "id": "cn-17-bailuobo-yangroujuan",
+      "ingredients": 4,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "姜末与蒜末 | 姜末3g + 蒜末3g"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "食盐与酱油 | 盐2g + 酱油"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Season Meat & Roll"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Steam 15 Mins"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "大火蒸制15分钟"
+        }
+      ]
+    },
+    {
+      "id": "cn-18-yangrou-dun-hulabu",
+      "ingredients": 5,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1",
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "调料钢球香料组 | 大料+花椒+桂皮+小茴香+香叶"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[3].amountText",
+          "evidence": "大料+花椒+桂皮+小茴香+香叶"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[4]",
+          "evidence": "葱段姜片料酒酱油盐 | 葱姜+料酒+酱油+盐"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[4].amountText",
+          "evidence": "葱姜+料酒+酱油+盐"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Skim Mutton Broth"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Simmer 60 Mins"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "加胡萝卜枸杞慢炖"
+        }
+      ]
+    },
+    {
+      "id": "cn-19-banli-shaoji",
+      "ingredients": 5,
+      "actions": 3,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2",
+        "b3"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "老抽与料酒蚝油 | 老抽15g + 料酒15g + 蚝油15g"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[4]",
+          "evidence": "葱姜蒜与白糖食盐 | 葱蒜+糖5g + 盐5g"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Sear Chicken"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Stew Chicken & Mushroom"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "加香菇大火烧开慢炖"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[2].sublabel",
+          "evidence": "Add Chestnuts & Reduce"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[2].inputBlockIds",
+          "evidence": "加入板栗收汁"
+        }
+      ]
+    },
+    {
+      "id": "cn-20-banli-jiding",
+      "ingredients": 4,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "DUPLICATE_NAME_AMOUNT",
+          "field": "ingredients[2]",
+          "evidence": "酱油与蚝油 | 酱油+蚝油"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "酱油与蚝油 | 酱油+蚝油"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[2].amountText",
+          "evidence": "酱油+蚝油"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "姜末与蒜末食盐 | 姜末+蒜末+盐3g"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Marinate & Saute Garlic"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Stir-Fry Chestnuts"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "下熟板栗快速翻炒"
+        }
+      ]
+    },
+    {
+      "id": "cn-21-douzha-zhengdan",
+      "ingredients": 4,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "温水与食盐 | 温水适量 + 盐2g"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "葱花与芝麻香油 | 葱花+香油"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[3].amountText",
+          "evidence": "葱花+香油"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Whisk Egg & Soy Residue"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Steam 10 Mins"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "中火蒸10分钟"
+        }
+      ]
+    },
+    {
+      "id": "cn-22-disanxian",
+      "ingredients": 6,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "蒜末与葱末 | 蒜末5g + 葱末3g"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[4]",
+          "evidence": "老抽与水淀粉 | 老抽8g + 水淀粉10g"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[5]",
+          "evidence": "白糖与食盐 | 糖3g + 盐3g"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Flash Fry Veggies"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Saute & Braise & Glaze"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "爆香蒜末焖烧勾芡"
+        }
+      ]
+    },
+    {
+      "id": "cn-23-mizhi-fanqiejiang",
+      "ingredients": 3,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Scald & Puree"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Simmer Sauce & Lemon"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "加冰糖小火慢熬"
+        }
+      ]
+    },
+    {
+      "id": "cn-24-jianzhi-fanqie-doufugeng",
+      "ingredients": 5,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "DUPLICATE_NAME_AMOUNT",
+          "field": "ingredients[3]",
+          "evidence": "香菜末与葱末 | 香菜末+葱末"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "香菜末与葱末 | 香菜末+葱末"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[3].amountText",
+          "evidence": "香菜末+葱末"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[4]",
+          "evidence": "食盐与鸡精植物油 | 盐+鸡精+少量油"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Sauté Tomato Base"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Add Tofu & Egg Swirl"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "放豆腐与转圈倒入蛋液"
+        }
+      ]
+    },
+    {
+      "id": "cn-25-luobosi-zheng-niurou",
+      "ingredients": 6,
+      "actions": 3,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1",
+        "b3"
+      ],
+      "findings": [
+        {
+          "code": "DUPLICATE_NAME_AMOUNT",
+          "field": "ingredients[2]",
+          "evidence": "米粉与辣椒粉 | 米粉+辣椒粉"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "米粉与辣椒粉 | 米粉+辣椒粉"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[2].amountText",
+          "evidence": "米粉+辣椒粉"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "黄酒老抽生抽白糖 | 黄酒+老抽+生抽+糖"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[3].amountText",
+          "evidence": "黄酒+老抽+生抽+糖"
+        },
+        {
+          "code": "DUPLICATE_NAME_AMOUNT",
+          "field": "ingredients[4]",
+          "evidence": "姜蒜末与葱花鸡精 | 姜蒜末+葱花+鸡精"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[4]",
+          "evidence": "姜蒜末与葱花鸡精 | 姜蒜末+葱花+鸡精"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[4].amountText",
+          "evidence": "姜蒜末+葱花+鸡精"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Season Beef & Mix Rice Flour"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Steam 30 Mins"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "顺内壁围圈蒸30分钟"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[2].sublabel",
+          "evidence": "Unmold & Hot Oil Splash"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[2].inputBlockIds",
+          "evidence": "反扣深碗泼热茶油"
+        }
+      ]
+    },
+    {
+      "id": "cn-26-donggua-yimi-paigutang",
+      "ingredients": 5,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "葱段姜片蒜瓣料酒 | 葱姜蒜+料酒50g"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Blanch & Simmer Ribs"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Add Winter Melon"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "下冬瓜块续炖20分钟"
+        }
+      ]
+    },
+    {
+      "id": "cn-27-hongzao-baihe-zheng-nangua",
+      "ingredients": 4,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Prep Pumpkin Bowl"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Steam & Honey Drizzle"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "中火蒸20分钟淋蜂蜜"
+        }
+      ]
+    },
+    {
+      "id": "cn-28-huanggua-chao-tianjiao",
+      "ingredients": 4,
+      "actions": 1,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "葱花与食盐鸡精 | 葱花5g + 盐2g + 鸡精1g"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Fast Stir-Fry 3 Mins"
+        }
+      ]
+    },
+    {
+      "id": "cn-29-kugua-donggu-gutang",
+      "ingredients": 5,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "山药块与浸泡黄豆 | 山药20g + 黄豆20g"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[4]",
+          "evidence": "姜片蒜瓣香菜盐 | 姜蒜+香菜+盐"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[4].amountText",
+          "evidence": "姜蒜+香菜+盐"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Simmer Ribs 40 Mins"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Add Veggies & Mushrooms"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "加入苦瓜冬菇黄豆山药"
+        }
+      ]
+    },
+    {
+      "id": "cn-30-kugua-zheng-xiandan",
+      "ingredients": 4,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "蚝油与香油 | 蚝油10g + 香油4g"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "盐与鸡粉水淀粉葱花 | 盐2g + 鸡粉2g + 水淀粉 + 葱花"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Stuff Egg Yolk in Bitter Gourd"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Steam & Glaze Sauce"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "蒸10分钟与淋芡汁"
+        }
+      ]
+    },
+    {
+      "id": "cn-31-kugua-roupian",
+      "ingredients": 4,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "豆豉与蒜末姜末 | 豆豉15g + 蒜末5g + 姜末5g"
+        },
+        {
+          "code": "DUPLICATE_NAME_AMOUNT",
+          "field": "ingredients[3]",
+          "evidence": "料酒酱油胡椒粉水淀粉 | 料酒+酱油+胡椒粉+水淀粉"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "料酒酱油胡椒粉水淀粉 | 料酒+酱油+胡椒粉+水淀粉"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[3].amountText",
+          "evidence": "料酒+酱油+胡椒粉+水淀粉"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Sear Beef Slices"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Saute Douchi & Bitter Gourd"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "爆香豆豉与倒苦瓜牛肉"
+        }
+      ]
+    },
+    {
+      "id": "cn-32-feicui-siguajuan",
+      "ingredients": 4,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 0,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "鸡蛋清与淀粉 | 蛋清100g + 淀粉50g"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "葱姜末与鸡精食盐 | 葱姜末+鸡精+盐"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[3].amountText",
+          "evidence": "葱姜末+鸡精+盐"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Blanch & Roll Fish Mousse"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Steam 10 Mins"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "大火蒸10分钟扣盘"
+        }
+      ]
+    },
+    {
+      "id": "cn-33-yangcong-chao-zhugan",
+      "ingredients": 4,
+      "actions": 1,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "DUPLICATE_NAME_AMOUNT",
+          "field": "ingredients[2]",
+          "evidence": "料酒与水淀粉 | 料酒+水淀粉"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "料酒与水淀粉 | 料酒+水淀粉"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[2].amountText",
+          "evidence": "料酒+水淀粉"
+        },
+        {
+          "code": "DUPLICATE_NAME_AMOUNT",
+          "field": "ingredients[3]",
+          "evidence": "葱花花椒粉盐鸡精 | 葱花+花椒粉+盐+鸡精"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "葱花花椒粉盐鸡精 | 葱花+花椒粉+盐+鸡精"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[3].amountText",
+          "evidence": "葱花+花椒粉+盐+鸡精"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Sear Liver & Onion"
+        }
+      ]
+    },
+    {
+      "id": "cn-34-piaoxiang-shousi-yuanbaicai",
+      "ingredients": 4,
+      "actions": 1,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[1]",
+          "evidence": "蒜末与姜末花椒粒 | 蒜末5g + 姜末5g + 花椒3g"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "香醋与香油 | 醋8g + 香油5g"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Flash Fry Cabbage"
+        }
+      ]
+    },
+    {
+      "id": "cn-35-haimi-youcai",
+      "ingredients": 3,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "葱花与食盐鸡精 | 葱花+盐+鸡精"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[2].amountText",
+          "evidence": "葱花+盐+鸡精"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Blanch Bok Choy"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Saute Dried Shrimp & Bok Choy"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "炒香海米与下油菜"
+        }
+      ]
+    },
+    {
+      "id": "cn-36-haoyou-shengcai",
+      "ingredients": 4,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "葱姜蒜末与生抽 | 葱姜蒜末各3g + 生抽3g"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Blanch & Plate Lettuce"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Glaze Oyster Sauce"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "爆香蒜末勾蚝油芡汁"
+        }
+      ]
+    },
+    {
+      "id": "cn-37-qincai-larouding",
+      "ingredients": 4,
+      "actions": 1,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "姜末与干红辣椒段 | 姜末2g + 干椒5g"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "料酒与食盐 | 料酒5g + 盐2g"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Stir-Fry Bacon & Celery"
+        }
+      ]
+    },
+    {
+      "id": "cn-38-baizhuo-jielan",
+      "ingredients": 3,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "特制白灼酱汁 | 酱油5g + 糖3g + 盐3g + 香油 + 鸡精"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Blanch Gai Lan"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Glaze Soy Dressing"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "煮白灼汁浇上撒葱丝"
+        }
+      ]
+    },
+    {
+      "id": "cn-39-danhuang-xiancai",
+      "ingredients": 3,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "蒜末与食盐 | 蒜末5g + 盐3g"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Saute Yolk Mousse"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Stir-Fry Amaranth"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "下苋菜大火炒软"
+        }
+      ]
+    },
+    {
+      "id": "cn-40-xiaren-zheng-xilanhua",
+      "ingredients": 3,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "DUPLICATE_NAME_AMOUNT",
+          "field": "ingredients[2]",
+          "evidence": "蚝油水淀粉盐鸡精 | 蚝油+水淀粉+盐+鸡精"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "蚝油水淀粉盐鸡精 | 蚝油+水淀粉+盐+鸡精"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[2].amountText",
+          "evidence": "蚝油+水淀粉+盐+鸡精"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Arrange Broccoli & Shrimp"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Steam 10 Mins & Sauce"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "蒸10分钟淋芡汁"
+        }
+      ]
+    },
+    {
+      "id": "cn-41-wosun-juhui",
+      "ingredients": 4,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "芋头块与土豆块 | 芋头100g + 土豆100g"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "特制花椒蒜辣蘸汁 | 干椒3g + 花椒粉 + 蒜末 + 盐 + 酱油"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Steam Veggie Medley"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Sauté Dipping Sauce"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "制作麻辣蒜汁浇上"
+        }
+      ]
+    },
+    {
+      "id": "cn-42-wosun-shaorou",
+      "ingredients": 4,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "DUPLICATE_NAME_AMOUNT",
+          "field": "ingredients[2]",
+          "evidence": "红辣椒段与姜片 | 红辣椒段+姜片"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "红辣椒段与姜片 | 红辣椒段+姜片"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[2].amountText",
+          "evidence": "红辣椒段+姜片"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "料酒醋糖盐酱油淀粉 | 料酒+醋+糖+盐3g+酱油+淀粉"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Sear Pork & Boil Water"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Simmer Asparagus Lettuce"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "下莴笋片炖熟"
+        }
+      ]
+    },
+    {
+      "id": "cn-43-jiangzhi-wosun",
+      "ingredients": 4,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 0,
+      "fullSpanActions": [
+        "b1",
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "白醋白糖香油盐 | 白醋15g + 糖10g + 香油3g + 盐3g"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Marinate & Drain Lettuce"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Toss Ginger Dressing"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "淋姜汁白糖香油拌匀"
+        }
+      ]
+    },
+    {
+      "id": "cn-44-xihulu-chao-jidan",
+      "ingredients": 3,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "葱花与食盐 | 葱花3g + 盐2g"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Scramble Eggs"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Stir-Fry Zucchini & Egg"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "炒西葫芦合炒鸡蛋"
+        }
+      ]
+    },
+    {
+      "id": "cn-45-xianggu-ouwan",
+      "ingredients": 4,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1",
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "淀粉葱花香油盐 | 淀粉+葱花+香油+盐2g"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Form Lotus Meatballs"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Steam 20 Mins"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "蒸20分钟撒葱花"
+        }
+      ]
+    },
+    {
+      "id": "cn-46-jinzhengu-peigenjuan",
+      "ingredients": 3,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "DUPLICATE_NAME_AMOUNT",
+          "field": "ingredients[2]",
+          "evidence": "生抽胡椒粉鸡精水淀粉 | 生抽+胡椒粉+鸡精+水淀粉"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "生抽胡椒粉鸡精水淀粉 | 生抽+胡椒粉+鸡精+水淀粉"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[2].amountText",
+          "evidence": "生抽+胡椒粉+鸡精+水淀粉"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Roll Bacon & Mushroom"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Steam 5 Mins & Glaze"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "蒸5分钟淋鲜浓芡汁"
+        }
+      ]
+    },
+    {
+      "id": "cn-47-culiu-sushijin",
+      "ingredients": 5,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1",
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[4]",
+          "evidence": "特制醋糖水淀粉芡汁 | 盐2g + 姜片 + 葱末 + 糖 + 醋 + 水淀粉"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Saute Carrot & Black Fungus"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Add Yam & Celery Glaze"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "放山药芹菜浇酸甜芡汁"
+        }
+      ]
+    },
+    {
+      "id": "cn-48-yiner-baihe-xuelitang",
+      "ingredients": 4,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "干百合与枸杞子 | 百合10g + 枸杞10g"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Simmer Tremella Gel"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Add Pear & Lily Bulbs"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "加百合枸杞雪梨冰糖慢炖"
+        }
+      ]
+    },
+    {
+      "id": "cn-49-hexiang-xiaomi-zheng-hongshu",
+      "ingredients": 4,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "食盐与葱花植物油 | 盐2g + 葱花 + 植物油"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Coat Millet & Arrange"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Steam 30 Mins"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "大火蒸30分钟"
+        }
+      ]
+    },
+    {
+      "id": "cn-50-shanyao-shousi",
+      "ingredients": 4,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Roll Yam & Nori"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Steam 15 Mins"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "蒸15分钟蘸酱油"
+        }
+      ]
+    },
+    {
+      "id": "cn-51-guandongzhu",
+      "ingredients": 4,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[0]",
+          "evidence": "芋头片与山药片 | 芋头300g + 山药适量"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[1]",
+          "evidence": "鱼豆腐与娃娃菜圆白菜 | 鱼豆腐+娃娃菜+圆白菜40g"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "海带木耳香菇白萝卜苹果汤底 | 海带+木耳+香菇+白萝卜+苹果片"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[2].amountText",
+          "evidence": "海带+木耳+香菇+白萝卜+苹果片"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "甜辣酱与生抽盐 | 甜辣酱+生抽+盐2g"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Simmer Apple Dashi Broth"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Boil Taro & Fish Tofu"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "下芋头山药鱼豆腐煮熟"
+        }
+      ]
+    },
+    {
+      "id": "cn-52-naixiang-tudouni",
+      "ingredients": 3,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 0,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[1]",
+          "evidence": "奶酪与鲜牛奶 | 奶酪20g + 牛奶100mL"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "花椒黑胡椒鸡汤 | 鸡汤+花椒+黑胡椒+盐"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[2].amountText",
+          "evidence": "鸡汤+花椒+黑胡椒+盐"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Mash Potato & Milk"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Pour Pepper Chicken Soup"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "煮花椒鸡汤灌入土豆泥"
+        }
+      ]
+    },
+    {
+      "id": "cn-53-moli-huacai",
+      "ingredients": 3,
+      "actions": 1,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "蒜片与食盐鸡精 | 蒜片+盐2g+鸡精"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Stir-Fry Cauliflower & Jasmine"
+        }
+      ]
+    },
+    {
+      "id": "cn-54-liangban-xihulu",
+      "ingredients": 3,
+      "actions": 1,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 0,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "算末生抽香醋红油盐 | 蒜泥+生抽+香醋+红油+盐"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[2].amountText",
+          "evidence": "蒜泥+生抽+香醋+红油+盐"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Toss Raw Zucchini Salad"
+        }
+      ]
+    },
+    {
+      "id": "cn-55-xihulu-shrimp",
+      "ingredients": 4,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "姜片葱段盐胡椒粉 | 姜葱+盐3g+胡椒粉"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Sear Shrimp Head Oil"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Simmer Zucchini & Tofu"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "下豆腐西葫芦炖10分钟"
+        }
+      ]
+    },
+    {
+      "id": "cn-56-bingtang-dumu-xuelitang",
+      "ingredients": 4,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Prep Pear Bowl"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Steam 45 Mins"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "隔水慢炖45分钟"
+        }
+      ]
+    },
+    {
+      "id": "cn-57-xianrenzhang-chao-roupian",
+      "ingredients": 4,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "红甜椒丝与葱姜末 | 红椒丝+葱姜末"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[2].amountText",
+          "evidence": "红椒丝+葱姜末"
+        },
+        {
+          "code": "DUPLICATE_NAME_AMOUNT",
+          "field": "ingredients[3]",
+          "evidence": "料酒生抽盐鸡精淀粉 | 料酒+生抽+盐+鸡精+淀粉"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "料酒生抽盐鸡精淀粉 | 料酒+生抽+盐+鸡精+淀粉"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[3].amountText",
+          "evidence": "料酒+生抽+盐+鸡精+淀粉"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Blanch Cactus Strips"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Stir-Fry Cactus & Pork"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "肉片滑熟与仙人掌合炒"
+        }
+      ]
+    },
+    {
+      "id": "cn-58-sanxian-niurou-baoshe",
+      "ingredients": 4,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "鲜虾仁碎与木耳丝 | 虾仁50g + 木耳50g"
+        },
+        {
+          "code": "DUPLICATE_NAME_AMOUNT",
+          "field": "ingredients[3]",
+          "evidence": "姜水酱油香油盐胡椒粉 | 姜水+酱油+香油+盐+胡椒粉"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "姜水酱油香油盐胡椒粉 | 姜水+酱油+香油+盐+胡椒粉"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[3].amountText",
+          "evidence": "姜水+酱油+香油+盐+胡椒粉"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Mix Filling & Wrap Dumplings"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Proof & Steam 20 Mins"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "醒发15分钟大火蒸20分钟"
+        }
+      ]
+    },
+    {
+      "id": "cn-59-qincai-niurou",
+      "ingredients": 4,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1",
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "泡野山椒碎与姜丝 | 野山椒+姜丝"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[2].amountText",
+          "evidence": "野山椒+姜丝"
+        },
+        {
+          "code": "DUPLICATE_NAME_AMOUNT",
+          "field": "ingredients[3]",
+          "evidence": "老抽料酒盐鸡精水淀粉 | 老抽+料酒+盐+鸡精+水淀粉"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "老抽料酒盐鸡精水淀粉 | 老抽+料酒+盐+鸡精+水淀粉"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[3].amountText",
+          "evidence": "老抽+料酒+盐+鸡精+水淀粉"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Flash Sear Beef"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Stir-Fry Celery & Combine"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "爆香野山椒炒芹菜合炒"
+        }
+      ],
+      "raw": {
+        "id": "cn-59-qincai-niurou",
+        "version": "3.0",
+        "status": "complete",
+        "title": "🥩 经典平肝芹菜炒牛肉丝",
+        "description": "强筋健骨降血压经典菜。牛肉丝加老抽水淀粉上浆滑熟，搭配清脆芹菜段与野山椒大火爆炒。",
+        "cuisine": "chinese",
+        "difficulty": "medium",
+        "prerequisites": {
+          "containerSize": "中式炒锅",
+          "preheat": "牛肉切细丝上浆",
+          "servings": "3 人份"
+        },
+        "ingredients": [
+          {
+            "id": "i1",
+            "name": "嫩牛肉丝 (上浆)",
+            "amountText": "200 g",
+            "category": "main"
+          },
+          {
+            "id": "i2",
+            "name": "香芹菜段",
+            "amountText": "200 g",
+            "category": "produce"
+          },
+          {
+            "id": "i3",
+            "name": "泡野山椒碎与姜丝",
+            "amountText": "野山椒+姜丝",
+            "category": "produce"
+          },
+          {
+            "id": "i4",
+            "name": "老抽料酒盐鸡精水淀粉",
+            "amountText": "老抽+料酒+盐+鸡精+水淀粉",
+            "category": "seasoning"
+          }
+        ],
+        "actionBlocks": [
+          {
+            "id": "b1",
+            "label": "牛肉丝滑油变色盛出",
+            "sublabel": "Flash Sear Beef",
+            "ingredientIds": [
+              "i1",
+              "i4"
+            ],
+            "stageIndex": 0,
+            "heatLevel": "大火",
+            "durationMinutes": 2,
+            "notes": "牛肉丝加料酒老抽水淀粉抓匀，热油滑散变色捞出"
+          },
+          {
+            "id": "b2",
+            "label": "爆香野山椒炒芹菜合炒",
+            "sublabel": "Stir-Fry Celery & Combine",
+            "ingredientIds": [
+              "i1",
+              "i2",
+              "i3",
+              "i4"
+            ],
+            "stageIndex": 1,
+            "heatLevel": "大火",
+            "durationMinutes": 2,
+            "notes": "爆姜丝野山椒下芹菜段大火炒断生，倒入牛肉加盐鸡精翻匀"
+          }
+        ],
+        "finalBlock": {
+          "method": "fry",
+          "label": "辣香鲜嫩 🥩",
+          "instructions": "牛肉滑嫩，芹菜清脆微辣开胃"
+        },
+        "createdAt": "2016-09-01T00:00:00Z",
+        "updatedAt": "2026-08-03T12:00:00Z"
+      },
+      "geometry": [
+        {
+          "id": "b1",
+          "start": 0,
+          "end": 3,
+          "h": 190
+        },
+        {
+          "id": "b2",
+          "start": 0,
+          "end": 3,
+          "h": 190
+        }
+      ],
+      "finalHeight": 190
+    },
+    {
+      "id": "cn-60-zheng-yangrou",
+      "ingredients": 4,
+      "actions": 1,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[1]",
+          "evidence": "大葱段与生姜片 | 葱段30g + 姜片20g"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "料酒与黄酒 | 料酒15g"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "椒盐与蒜泥香菜 | 椒盐+蒜泥+香菜 (蘸料)"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[3].amountText",
+          "evidence": "椒盐+蒜泥+香菜 (蘸料)"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Steam Mutton 30 Mins"
+        }
+      ]
+    },
+    {
+      "id": "cn-61-zheng-niurou",
+      "ingredients": 3,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[1]",
+          "evidence": "生姜末与葱花 | 姜末10g + 葱花"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "生抽蚝油芝麻香油淀粉 | 生抽+蚝油+香油+淀粉"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[2].amountText",
+          "evidence": "生抽+蚝油+香油+淀粉"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Marinate Beef"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Steam 12 Mins"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "大火蒸12分钟"
+        }
+      ]
+    },
+    {
+      "id": "cn-62-jielan-chao-roupian",
+      "ingredients": 4,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "蒜末与绍兴黄酒 | 蒜末5g + 黄酒10g"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "食盐与鸡精生抽 | 盐2g + 鸡精 + 生抽"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Sear Pork Slices"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Stir-Fry Gai Lan"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "下芥蓝大火爆炒烹黄酒"
+        }
+      ]
+    },
+    {
+      "id": "cn-63-mizhi-fanqie",
+      "ingredients": 3,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "纯蜂蜜与碎冰糖 | 蜂蜜15g + 冰糖10g"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Prep Tomato Stuffed Bowl"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Steam 15 Mins"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "中火蒸15分钟"
+        }
+      ]
+    },
+    {
+      "id": "cn-64-huanggua-chao-xiaren",
+      "ingredients": 4,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "DUPLICATE_NAME_AMOUNT",
+          "field": "ingredients[2]",
+          "evidence": "蒜片蛋清淀粉水淀粉 | 蒜片+蛋清+淀粉+水淀粉"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "蒜片蛋清淀粉水淀粉 | 蒜片+蛋清+淀粉+水淀粉"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[2].amountText",
+          "evidence": "蒜片+蛋清+淀粉+水淀粉"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "食盐与鸡精 | 盐2g + 鸡精"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Flash Sear Shrimp"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Stir-Fry Cucumber & Glaze"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "爆蒜炒黄瓜丁合炒勾芡"
+        }
+      ]
+    },
+    {
+      "id": "cn-65-qincai-zheng-jiandou",
+      "ingredients": 4,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "中筋面粉与玉米面 | 面粉30g + 玉米面30g"
+        },
+        {
+          "code": "DUPLICATE_NAME_AMOUNT",
+          "field": "ingredients[3]",
+          "evidence": "蒜泥香油盐泼辣子 | 蒜泥+香油+盐+泼辣子"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "蒜泥香油盐泼辣子 | 蒜泥+香油+盐+泼辣子"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[3].amountText",
+          "evidence": "蒜泥+香油+盐+泼辣子"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Coat Beans & Celery Flour"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Steam 15 Mins & Season"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "大火蒸15分钟拌蒜泥"
+        }
+      ]
+    },
+    {
+      "id": "cn-66-liangban-luhui",
+      "ingredients": 3,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 0,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "纯蜂蜜与白醋 | 蜂蜜20g + 白醋5g"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Blanch & Ice Bath Aloe"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Toss Honey Dressing"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "拌蜂蜜白醋缀枸杞"
+        }
+      ]
+    },
+    {
+      "id": "cn-67-luobo-paigu-tang",
+      "ingredients": 4,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "葱段与生姜片料酒 | 葱段+姜片+料酒10g"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "食盐与白胡椒粉香菜 | 盐4g + 白胡椒粉 + 香菜"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Simmer Pork Ribs 60 Mins"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Add White Radish"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "下白萝卜块炖20分钟"
+        }
+      ]
+    },
+    {
+      "id": "cn-68-bingtang-yiner-baihe",
+      "ingredients": 3,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[1]",
+          "evidence": "去芯莲子与干百合 | 莲子20g + 百合15g"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Simmer Tremella & Lotus Seeds"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Add Lily & Rock Sugar"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "放百合冰糖炖20分钟"
+        }
+      ]
+    },
+    {
+      "id": "cn-69-xihongshi-zheng-dan",
+      "ingredients": 3,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "温水与生抽香油盐 | 温水+生抽+香油+盐1g"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Whisk Egg & Tomato Juice"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Steam 10 Mins"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "中火蒸10分钟"
+        }
+      ]
+    },
+    {
+      "id": "cn-70-bazi-rou",
+      "ingredients": 4,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[1]",
+          "evidence": "海带结与百叶结 | 海带100g + 百叶100g"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "老抽生抽料酒冰糖 | 老抽20g + 生抽30g + 料酒20g + 冰糖20g"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "葱姜八角桂皮草果 | 葱姜+八角2个+桂皮1块+草果"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Sear Thick Pork Strips"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Stew 90 Mins in Claypot"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "砂锅加海带百叶慢炖90分钟"
+        }
+      ]
+    },
+    {
+      "id": "cn-71-cong-shao-haishen",
+      "ingredients": 4,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "高汤与猪油 | 高汤150g + 猪油20g"
+        },
+        {
+          "code": "DUPLICATE_NAME_AMOUNT",
+          "field": "ingredients[3]",
+          "evidence": "老抽蚝油糖盐水淀粉 | 老抽+蚝油+糖+盐+水淀粉"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "老抽蚝油糖盐水淀粉 | 老抽+蚝油+糖+盐+水淀粉"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[3].amountText",
+          "evidence": "老抽+蚝油+糖+盐+水淀粉"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Fry Scallion Oil"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Simmer Sea Cucumber & Glaze"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "海参入高汤慢炖勾芡"
+        }
+      ]
+    },
+    {
+      "id": "cn-72-shanyu-mizhi",
+      "ingredients": 3,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Steam Yam 20 Mins"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Drizzle Osmanthus Honey"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "淋桂花蜜汁"
+        }
+      ]
+    },
+    {
+      "id": "cn-73-bingtang-hulu",
+      "ingredients": 3,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [],
+      "findings": [
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Boil Caramel Syrup"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Dip Hawthorns & Cool"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "山楂串快速裹糖液冷却"
+        }
+      ]
+    },
+    {
+      "id": "cn-74-wuhua-guo-dun-paigu",
+      "ingredients": 4,
+      "actions": 1,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "南杏仁与北杏仁 | 南杏10g + 北杏5g"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "姜片与食盐 | 姜片3片 + 盐3g"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Simmer Fig Soup 90 Mins"
+        }
+      ]
+    },
+    {
+      "id": "cn-75-sangren-zheng-dan",
+      "ingredients": 3,
+      "actions": 1,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "温水与纯蜂蜜香油 | 温水+蜂蜜10g+香油"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Whisk Mulberry & Steam"
+        }
+      ]
+    },
+    {
+      "id": "cn-76-hongzao-zheng-nangua",
+      "ingredients": 2,
+      "actions": 1,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Steam Pumpkin & Dates"
+        }
+      ]
+    },
+    {
+      "id": "cn-77-baihe-zheng-nangua",
+      "ingredients": 3,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 0,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Steam Pumpkin & Lily"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Drizzle Honey"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "淋纯蜂蜜"
+        }
+      ]
+    },
+    {
+      "id": "cn-78-nangua-paigu-tang",
+      "ingredients": 4,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "葱段与生姜片 | 葱段+姜片"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[2].amountText",
+          "evidence": "葱段+姜片"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Simmer Pork Ribs 45 Mins"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Add Pumpkin & Simmer"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "下老南瓜块续炖20分钟"
+        }
+      ]
+    },
+    {
+      "id": "cn-79-qincai-chaoxian-chao-roupian",
+      "ingredients": 4,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "DUPLICATE_NAME_AMOUNT",
+          "field": "ingredients[3]",
+          "evidence": "蒜末料酒盐生抽 | 蒜末+料酒+盐+生抽"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[3]",
+          "evidence": "蒜末料酒盐生抽 | 蒜末+料酒+盐+生抽"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[3].amountText",
+          "evidence": "蒜末+料酒+盐+生抽"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Sear Pork Slices"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Stir-Fry Artichoke & Celery"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "倒朝鲜蓟芹菜大火爆炒"
+        }
+      ]
+    },
+    {
+      "id": "cn-80-baihe-zheng-shanyao",
+      "ingredients": 3,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Steam Yam & Lily 15 Mins"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Drizzle Honey"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "淋蜂蜜"
+        }
+      ]
+    },
+    {
+      "id": "cn-81-bingtang-luhui",
+      "ingredients": 3,
+      "actions": 1,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Simmer Aloe & Rock Sugar"
+        }
+      ]
+    },
+    {
+      "id": "cn-82-zizhi-ganshou-mian",
+      "ingredients": 3,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "葱花与芝麻香油食盐 | 葱花+香油+盐2g"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Steam Meat Noodles 15 Mins"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Pour Hot Chicken Soup"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "浇滚烫鸡汤"
+        }
+      ]
+    },
+    {
+      "id": "cn-83-chao-yangcong",
+      "ingredients": 3,
+      "actions": 1,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[1]",
+          "evidence": "蒜末与生抽 | 蒜末5g + 生抽5g"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "食盐与鸡精 | 盐2g + 鸡精"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Flash Fry Onion 2 Mins"
+        }
+      ]
+    },
+    {
+      "id": "cn-84-yangcong-chao-jidan",
+      "ingredients": 3,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "葱花与食盐生抽 | 葱花+盐3g+生抽"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Scramble Eggs"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Stir-Fry Onion & Combine"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "炒软洋葱合炒鸡蛋"
+        }
+      ]
+    },
+    {
+      "id": "cn-85-zheng-qiezi",
+      "ingredients": 3,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "生抽香醋香油盐红油 | 生抽10g+香醋5g+香油+盐+红油"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Steam Eggplant 10 Mins"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Pour Garlic Dressing"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "泼蒜泥生抽料汁"
+        }
+      ]
+    },
+    {
+      "id": "cn-86-zheng-wosun",
+      "ingredients": 3,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "蒸鱼豉油与香油 | 豉油10g + 香油5g"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Steam Lettuce Slices"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Pour Soy Sauce & Oil"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "淋蒸鱼豉油与热香油"
+        }
+      ]
+    },
+    {
+      "id": "cn-87-chao-xihulu",
+      "ingredients": 3,
+      "actions": 1,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[1]",
+          "evidence": "蒜末与香醋 | 蒜末5g + 醋3g"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Flash Fry Zucchini 2 Mins"
+        }
+      ]
+    },
+    {
+      "id": "cn-88-fanqie-chao-roupian",
+      "ingredients": 3,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "葱花蒜末糖盐生抽 | 葱蒜+糖5g+盐3g+生抽"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Sear Pork Slices"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Stir-Fry Tomato Sauce & Combine"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "炒番茄浓汁合炒肉片"
+        }
+      ]
+    },
+    {
+      "id": "cn-89-mizhi-fanqie-shanyao",
+      "ingredients": 2,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[1]",
+          "evidence": "新鲜番茄碎与冰糖 | 番茄150g + 冰糖20g"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Steam Yam 20 Mins"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Simmer Tomato Sauce & Pour"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "小火熬番茄酱浇山药上"
+        }
+      ]
+    },
+    {
+      "id": "cn-90-chao-doufogan",
+      "ingredients": 3,
+      "actions": 1,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "蒜末生抽盐鸡精 | 蒜末+生抽+盐2g+鸡精"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Stir-Fry Tofu Strips"
+        }
+      ]
+    },
+    {
+      "id": "cn-91-zheng-tudou",
+      "ingredients": 2,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[1]",
+          "evidence": "椒盐与蒜泥芝麻香油 | 椒盐+蒜泥+香油 (蘸料)"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[1].amountText",
+          "evidence": "椒盐+蒜泥+香油 (蘸料)"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Steam Potatoes 20 Mins"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Dip Garlic Salt"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "蘸椒盐蒜泥香油"
+        }
+      ]
+    },
+    {
+      "id": "cn-92-zheng-nangua-2",
+      "ingredients": 2,
+      "actions": 1,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[1]",
+          "evidence": "碎冰糖与干桂花 | 冰糖10g + 干桂花2g"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Steam Pumpkin & Osmanthus"
+        }
+      ]
+    },
+    {
+      "id": "cn-93-chao-baocai",
+      "ingredients": 3,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "食盐与鸡精 | 盐2g + 鸡精"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Blanch Spinach 30s"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Stir-Fry Spinach & Garlic"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "爆蒜末大火炒1分钟"
+        }
+      ]
+    },
+    {
+      "id": "cn-94-chao-jiandou",
+      "ingredients": 3,
+      "actions": 1,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "食盐与白糖 | 盐2g + 糖2g"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Saute Scallion Oil & Fava Beans"
+        }
+      ]
+    },
+    {
+      "id": "cn-95-zheng-huanggua",
+      "ingredients": 3,
+      "actions": 1,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "DUPLICATE_NAME_AMOUNT",
+          "field": "ingredients[2]",
+          "evidence": "蒜泥与生抽香油 | 蒜泥+生抽+香油"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "蒜泥与生抽香油 | 蒜泥+生抽+香油"
+        },
+        {
+          "code": "QUANTITY_REVIEW",
+          "field": "ingredients[2].amountText",
+          "evidence": "蒜泥+生抽+香油"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Stuff Pork & Steam Cucumber"
+        }
+      ]
+    },
+    {
+      "id": "cn-96-chao-kugua",
+      "ingredients": 3,
+      "actions": 1,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[1]",
+          "evidence": "豆豉与蒜末红椒丝 | 豆豉10g+蒜末5g+红椒丝"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "食盐与白糖 | 盐2g + 糖2g"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Stir-Fry Bitter Gourd & Douchi"
+        }
+      ]
+    },
+    {
+      "id": "cn-97-zheng-doufugan",
+      "ingredients": 3,
+      "actions": 1,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[1]",
+          "evidence": "红剁椒与面豉酱 | 剁椒15g + 面豉酱10g"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "葱花与芝麻香油 | 葱花 + 香油5g"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Steam Tofu Slices 10 Mins"
+        }
+      ]
+    },
+    {
+      "id": "cn-98-chao-luobo",
+      "ingredients": 3,
+      "actions": 1,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[1]",
+          "evidence": "大葱花与生姜丝 | 葱花10g + 姜丝3g"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "食盐与香醋 | 盐2g + 香醋3g"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Flash Fry Radish Shreds"
+        }
+      ]
+    },
+    {
+      "id": "cn-99-zheng-baihe",
+      "ingredients": 3,
+      "actions": 2,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b2"
+      ],
+      "findings": [
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Steam Lily Bulbs 10 Mins"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[1].sublabel",
+          "evidence": "Drizzle Honey"
+        },
+        {
+          "code": "DEPENDENCY_REVIEW",
+          "field": "actionBlocks[1].inputBlockIds",
+          "evidence": "淋纯蜂蜜"
+        }
+      ]
+    },
+    {
+      "id": "cn-100-chao-xianggu",
+      "ingredients": 3,
+      "actions": 1,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[1]",
+          "evidence": "蒜末与李锦记蚝油 | 蒜末10g + 蚝油15g"
+        },
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[2]",
+          "evidence": "水淀粉与食盐 | 水淀粉 + 盐2g"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Stir-Fry Fresh Shiitake"
+        }
+      ]
+    },
+    {
+      "id": "cn-101-zheng-hongshu",
+      "ingredients": 1,
+      "actions": 1,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Steam Sweet Potatoes 20 Mins"
+        }
+      ]
+    },
+    {
+      "id": "cn-102-chao-siguajuan",
+      "ingredients": 2,
+      "actions": 1,
+      "formulas": 0,
+      "explicitDependencies": 0,
+      "currentCanPublish": true,
+      "currentWarnings": 1,
+      "fullSpanActions": [
+        "b1"
+      ],
+      "findings": [
+        {
+          "code": "COMPOSITE_REVIEW",
+          "field": "ingredients[1]",
+          "evidence": "蒜末与食盐鸡精 | 蒜末10g + 盐2g + 鸡精"
+        },
+        {
+          "code": "ENGLISH_SUBLABEL",
+          "field": "actionBlocks[0].sublabel",
+          "evidence": "Flash Fry Sponge Gourd"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="745" height="308" viewBox="0 0 745 308" style="background-color: #FDFBF7; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;PingFang SC&quot;, sans-serif;">
+  <defs>
+    <marker id="flow-arrow-material-cn-24-jianzhi-fanqie-doufugeng_p0" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#059669" />
+    </marker>
+    <marker id="flow-arrow-order-cn-24-jianzhi-fanqie-doufugeng_p0" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#64748B" />
+    </marker>
+  </defs>
+  <rect x="16" y="16" width="713" height="276" fill="#FFFFFF" stroke="#15803D" stroke-width="2" />
+  <g class="v3-header-group">
+    <rect x="16" y="16" width="713" height="28" fill="#FFFFFF" stroke="#15803D" stroke-width="1.5" />
+    <text x="28" y="30" dominant-baseline="central" font-size="13" font-weight="bold" fill="#1C1917">中号汤锅</text>
+    <text x="717" y="30" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="900" fill="#DC2626">容器大小</text>
+    <rect x="16" y="44" width="320" height="28" fill="#FFFFFF" stroke="#15803D" stroke-width="1.5" />
+    <text x="176" y="58" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="900" fill="#DC2626">材料</text>
+    <rect x="336" y="44" width="393" height="28" fill="#FFFFFF" stroke="#15803D" stroke-width="1.5" />
+    <text x="348" y="58" dominant-baseline="central" font-size="13" font-weight="bold" fill="#1C1917">番茄切块，内酯豆腐手捏小块，鸡蛋打散</text>
+    <text x="717" y="58" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="900" fill="#DC2626">预热等预备处理</text>
+  </g>
+  <g class="v3-ingredients-group">
+    <g transform="translate(16, 72)">
+      <rect width="320" height="44" fill="#FFFFFF" stroke="#15803D" stroke-width="1.5" />
+      <text x="14" y="22" dominant-baseline="central" font-size="12" font-weight="500" fill="#1C1917">
+        <tspan font-weight="bold" fill="#15803D">2 颗</tspan>
+        <tspan dx="6" font-weight="500" fill="#1C1917">新鲜红番茄 (切块)</tspan>
+      </text>
+    </g>
+    <g transform="translate(16, 116)">
+      <rect width="320" height="44" fill="#FFFFFF" stroke="#15803D" stroke-width="1.5" />
+      <text x="14" y="22" dominant-baseline="central" font-size="12" font-weight="500" fill="#1C1917">
+        <tspan font-weight="bold" fill="#15803D">10 g</tspan>
+        <tspan dx="6" font-weight="500" fill="#1C1917">葱末 (炝锅)</tspan>
+      </text>
+    </g>
+    <g transform="translate(16, 160)">
+      <rect width="320" height="44" fill="#FFFFFF" stroke="#15803D" stroke-width="1.5" />
+      <text x="14" y="22" dominant-baseline="central" font-size="12" font-weight="500" fill="#1C1917">
+        <tspan font-weight="bold" fill="#15803D">油10g + 盐适量</tspan>
+        <tspan dx="6" font-weight="500" fill="#1C1917">植物油与食盐</tspan>
+      </text>
+    </g>
+    <g transform="translate(16, 204)">
+      <rect width="449" height="44" fill="#FFFFFF" stroke="#15803D" stroke-width="1.5" />
+      <text x="14" y="22" dominant-baseline="central" font-size="12" font-weight="500" fill="#1C1917">
+        <tspan font-weight="bold" fill="#15803D">1 盒</tspan>
+        <tspan dx="6" font-weight="500" fill="#1C1917">内酯豆腐 (手捏小块)</tspan>
+      </text>
+    </g>
+    <g transform="translate(16, 248)">
+      <rect width="449" height="44" fill="#FFFFFF" stroke="#15803D" stroke-width="1.5" />
+      <text x="14" y="22" dominant-baseline="central" font-size="12" font-weight="500" fill="#1C1917">
+        <tspan font-weight="bold" fill="#15803D">2 颗</tspan>
+        <tspan dx="6" font-weight="500" fill="#1C1917">鸡蛋液 (打散)</tspan>
+      </text>
+    </g>
+  </g>
+  <g class="v3-flow-connectors">
+    <path d="M 465 138 C 475 138, 455 138, 465 138" fill="none" stroke="#94A3B8" stroke-dasharray="4 3" stroke-width="1.8" marker-end="url(#flow-arrow-material-cn-24-jianzhi-fanqie-doufugeng_p0)" />
+  </g>
+  <g class="v3-actions-group">
+    <g transform="translate(336, 72)">
+      <rect width="129" height="132" fill="#FFFFFF" stroke="#15803D" stroke-width="1.5" />
+      <g transform="translate(64.5, 66)">
+        <text text-anchor="middle" dominant-baseline="central">
+          <tspan x="0" dy="-1.16em" font-size="13.5" font-weight="900" fill="#DC2626">爆香炒汁</tspan>
+          <tspan x="0" dy="1.3em" font-size="11.5" font-weight="bold" fill="#1C1917">Sauté</tspan>
+          <tspan x="0" dy="1.35em" font-size="10" font-weight="bold" fill="#15803D">中火 5m</tspan>
+        </text>
+      </g>
+    </g>
+    <g transform="translate(465, 72)">
+      <rect width="129" height="220" fill="#FFFFFF" stroke="#15803D" stroke-width="1.5" />
+      <g transform="translate(64.5, 110)">
+        <text text-anchor="middle" dominant-baseline="central">
+          <tspan x="0" dy="-0.58em" font-size="13.5" font-weight="900" fill="#DC2626">合煮蛋花</tspan>
+          <tspan x="0" dy="1.35em" font-size="10" font-weight="bold" fill="#15803D">小火 5m</tspan>
+        </text>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(594, 72)">
+    <rect width="135" height="220" fill="#FFFFFF" stroke="#15803D" stroke-width="1.5" />
+    <g transform="translate(67.5, 110)">
+      <text text-anchor="middle" dominant-baseline="central" font-size="14.5" font-weight="900" fill="#DC2626" y="-10">出锅装盘</text>
+      <text text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="bold" fill="#15803D" y="10">趁热享用</text>
+    </g>
+  </g>
+</svg>

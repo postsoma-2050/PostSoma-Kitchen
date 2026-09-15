@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1083" height="352" viewBox="0 0 1083 352" style="background-color: #FAF8F5; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;PingFang SC&quot;, sans-serif;">
+  <defs>
+    <marker id="flow-arrow-material-cn-59-qincai-niurou_p0" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#059669" />
+    </marker>
+    <marker id="flow-arrow-order-cn-59-qincai-niurou_p0" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#64748B" />
+    </marker>
+  </defs>
+  <rect x="16" y="16" width="1051" height="320" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  <g class="v3-header-group">
+    <rect x="16" y="16" width="1051" height="28" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" />
+    <text x="28" y="30" dominant-baseline="central" font-size="12" font-weight="600" fill="#0F172A">中式炒锅 &amp; 腌肉碗</text>
+    <text x="1055" y="30" text-anchor="end" dominant-baseline="central" font-size="11" font-weight="700" fill="#0F766E">容器大小</text>
+    <rect x="16" y="44" width="320" height="28" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2" />
+    <text x="176" y="58" text-anchor="middle" dominant-baseline="central" font-size="13.5" font-weight="700" fill="#334155">材料</text>
+    <rect x="336" y="44" width="731" height="28" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" />
+    <text x="348" y="58" dominant-baseline="central" font-size="12" font-weight="600" fill="#0F172A">牛肉横切细丝，上浆封油静置</text>
+    <text x="1055" y="58" text-anchor="end" dominant-baseline="central" font-size="11" font-weight="700" fill="#B45309">预热等预备处理</text>
+  </g>
+  <g class="v3-ingredients-group">
+    <g transform="translate(16, 72)">
+      <rect width="320" height="44" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2" />
+      <text x="14" y="22" dominant-baseline="central" font-size="12" font-weight="500" fill="#0F172A">
+        <tspan font-weight="700" fill="#047857">200 g</tspan>
+        <tspan dx="8" font-weight="600" fill="#0F172A">牛里脊细丝</tspan>
+      </text>
+    </g>
+    <g transform="translate(16, 116)">
+      <rect width="320" height="44" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2" />
+      <text x="14" y="22" dominant-baseline="central" font-size="12" font-weight="500" fill="#0F172A">
+        <tspan font-weight="700" fill="#047857">🥣 1 碗</tspan>
+        <tspan dx="8" font-weight="600" fill="#0F172A">牛肉滑嫩上浆料</tspan>
+      </text>
+    </g>
+    <g transform="translate(16, 160)">
+      <rect width="320" height="44" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2" />
+      <text x="14" y="22" dominant-baseline="central" font-size="12" font-weight="500" fill="#0F172A">
+        <tspan font-weight="700" fill="#047857">20 ml</tspan>
+        <tspan dx="8" font-weight="600" fill="#0F172A">烹调油</tspan>
+      </text>
+    </g>
+    <g transform="translate(16, 204)">
+      <rect width="320" height="44" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2" />
+      <text x="14" y="22" dominant-baseline="central" font-size="12" font-weight="500" fill="#0F172A">
+        <tspan font-weight="700" fill="#047857">200 g</tspan>
+        <tspan dx="8" font-weight="600" fill="#0F172A">香芹菜段</tspan>
+      </text>
+    </g>
+    <g transform="translate(16, 248)">
+      <rect width="320" height="44" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2" />
+      <text x="14" y="22" dominant-baseline="central" font-size="12" font-weight="500" fill="#0F172A">
+        <tspan font-weight="700" fill="#047857">山椒15g + 姜丝10g</tspan>
+        <tspan dx="8" font-weight="600" fill="#0F172A">泡野山椒碎与姜丝</tspan>
+      </text>
+    </g>
+    <g transform="translate(16, 292)">
+      <rect width="320" height="44" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2" />
+      <text x="14" y="22" dominant-baseline="central" font-size="12" font-weight="500" fill="#0F172A">
+        <tspan font-weight="700" fill="#047857">盐2g + 鸡精1g</tspan>
+        <tspan dx="8" font-weight="600" fill="#0F172A">炒制定味调料</tspan>
+      </text>
+    </g>
+  </g>
+  <g class="v3-flow-waiting-paths">
+    <line x1="336" y1="94" x2="352" y2="94" stroke="#CBD5E1" stroke-width="1.3" stroke-dasharray="3 3" />
+    <circle cx="349" cy="94" r="2" fill="#94A3B8" />
+    <line x1="481" y1="94" x2="497" y2="94" stroke="#CBD5E1" stroke-width="1.3" stroke-dasharray="3 3" />
+    <circle cx="494" cy="94" r="2" fill="#94A3B8" />
+    <line x1="336" y1="138" x2="352" y2="138" stroke="#CBD5E1" stroke-width="1.3" stroke-dasharray="3 3" />
+    <circle cx="349" cy="138" r="2" fill="#94A3B8" />
+    <line x1="336" y1="182" x2="497" y2="182" stroke="#CBD5E1" stroke-width="1.3" stroke-dasharray="3 3" />
+    <circle cx="494" cy="182" r="2" fill="#94A3B8" />
+    <line x1="626" y1="182" x2="642" y2="182" stroke="#CBD5E1" stroke-width="1.3" stroke-dasharray="3 3" />
+    <circle cx="639" cy="182" r="2" fill="#94A3B8" />
+    <line x1="336" y1="226" x2="642" y2="226" stroke="#CBD5E1" stroke-width="1.3" stroke-dasharray="3 3" />
+    <circle cx="639" cy="226" r="2" fill="#94A3B8" />
+    <line x1="336" y1="270" x2="642" y2="270" stroke="#CBD5E1" stroke-width="1.3" stroke-dasharray="3 3" />
+    <circle cx="639" cy="270" r="2" fill="#94A3B8" />
+    <line x1="336" y1="314" x2="787" y2="314" stroke="#CBD5E1" stroke-width="1.3" stroke-dasharray="3 3" />
+    <circle cx="784" cy="314" r="2" fill="#94A3B8" />
+  </g>
+  <g class="v3-flow-connectors">
+    <path d="M 481 116.5 C 491 116.5, 487 116.5, 497 116.5" fill="none" stroke="#059669" stroke-width="1.8" marker-end="url(#flow-arrow-material-cn-59-qincai-niurou_p0)" />
+    <g transform="translate(489, 116.5)">
+      <rect x="-30" y="-9" width="60" height="18" rx="9" fill="#ECFDF5" stroke="#059669" stroke-width="1" />
+      <text x="0" y="3.5" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#047857">上浆牛肉</text>
+    </g>
+    <path d="M 626 130.5 C 636 130.5, 632 209, 642 209" fill="none" stroke="#64748B" stroke-dasharray="5 4" stroke-width="1.8" marker-end="url(#flow-arrow-order-cn-59-qincai-niurou_p0)" />
+    <g transform="translate(634, 169.75)">
+      <rect x="-35.5" y="-9" width="71" height="18" rx="9" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1" />
+      <text x="0" y="3.5" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#475569">同锅留底油</text>
+    </g>
+    <path d="M 626 130.5 L 769 130.5 Q 775 130.5, 775 136.5 L 775 203 Q 775 209, 781 209 L 787 209" fill="none" stroke="#059669" stroke-width="1.8" marker-end="url(#flow-arrow-material-cn-59-qincai-niurou_p0)" />
+    <g transform="translate(700.5, 130.5)">
+      <rect x="-30" y="-9" width="60" height="18" rx="9" fill="#ECFDF5" stroke="#059669" stroke-width="1" />
+      <text x="0" y="3.5" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#047857">暂存牛肉</text>
+    </g>
+    <path d="M 771 226.5 C 781 226.5, 777 244, 787 244" fill="none" stroke="#059669" stroke-width="1.8" marker-end="url(#flow-arrow-material-cn-59-qincai-niurou_p0)" />
+    <g transform="translate(779, 235.25)">
+      <rect x="-30" y="-9" width="60" height="18" rx="9" fill="#ECFDF5" stroke="#059669" stroke-width="1" />
+      <text x="0" y="3.5" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#047857">炒好芹菜</text>
+    </g>
+  </g>
+  <g class="v3-actions-group">
+    <g transform="translate(352, 83)">
+      <rect width="129" height="67" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2" />
+      <g transform="translate(64.5, 33.5)">
+        <text text-anchor="middle" dominant-baseline="central">
+          <tspan x="0" dy="-1.16em" font-size="13.5" font-weight="800" fill="#0F172A">牛肉上浆抓匀</tspan>
+          <tspan x="0" dy="1.35em" font-size="10" font-weight="700" fill="#B45309">3m</tspan>
+          <tspan x="0" dy="1.25em" font-size="9.5" fill="#64748B">器具 腌肉碗</tspan>
+        </text>
+      </g>
+    </g>
+    <g transform="translate(497, 97)">
+      <rect width="129" height="67" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2" />
+      <g transform="translate(64.5, 33.5)">
+        <text text-anchor="middle" dominant-baseline="central">
+          <tspan x="0" dy="-1.16em" font-size="13.5" font-weight="800" fill="#0F172A">热锅滑油盛出牛肉</tspan>
+          <tspan x="0" dy="1.35em" font-size="10" font-weight="700" fill="#B45309">大火 1m</tspan>
+          <tspan x="0" dy="1.25em" font-size="9.5" fill="#64748B">器具 中式炒锅</tspan>
+        </text>
+      </g>
+    </g>
+    <g transform="translate(642, 193)">
+      <rect width="129" height="67" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2" />
+      <g transform="translate(64.5, 33.5)">
+        <text text-anchor="middle" dominant-baseline="central">
+          <tspan x="0" dy="-1.16em" font-size="13.5" font-weight="800" fill="#0F172A">锅留底油爆炒芹菜</tspan>
+          <tspan x="0" dy="1.35em" font-size="10" font-weight="700" fill="#B45309">大火 2m</tspan>
+          <tspan x="0" dy="1.25em" font-size="9.5" fill="#64748B">器具 中式炒锅</tspan>
+        </text>
+      </g>
+    </g>
+    <g transform="translate(787, 193)">
+      <rect width="129" height="67" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2" />
+      <g transform="translate(64.5, 33.5)">
+        <text text-anchor="middle" dominant-baseline="central">
+          <tspan x="0" dy="-1.16em" font-size="13.5" font-weight="800" fill="#0F172A">牛肉回锅合炒定味</tspan>
+          <tspan x="0" dy="1.35em" font-size="10" font-weight="700" fill="#B45309">大火 1m</tspan>
+          <tspan x="0" dy="1.25em" font-size="9.5" fill="#64748B">器具 中式炒锅</tspan>
+        </text>
+      </g>
+    </g>
+  </g>
+  <g class="v3-intake-rails">
+    <line id="rail-b1-c0" x1="352" y1="94" x2="352" y2="138" stroke="#059669" stroke-width="2.5" stroke-linecap="round" />
+    <line id="rail-b2-c0" x1="497" y1="94" x2="497" y2="97" stroke="#059669" stroke-width="2.5" stroke-linecap="round" />
+    <line id="rail-b2-c1" x1="497" y1="164" x2="497" y2="182" stroke="#059669" stroke-width="2.5" stroke-linecap="round" />
+    <line id="rail-b3-c0" x1="642" y1="182" x2="642" y2="270" stroke="#059669" stroke-width="2.5" stroke-linecap="round" />
+    <line id="rail-b4-c0" x1="787" y1="260" x2="787" y2="314" stroke="#059669" stroke-width="2.5" stroke-linecap="round" />
+    <line id="feed-b1-i1" x1="344" y1="94" x2="352" y2="94" stroke="#059669" stroke-width="2" />
+    <circle cx="352" cy="94" r="3" fill="#059669" />
+    <line id="feed-b1-i4" x1="344" y1="138" x2="352" y2="138" stroke="#059669" stroke-width="2" />
+    <circle cx="352" cy="138" r="3" fill="#059669" />
+    <line id="feed-b2-i1" x1="489" y1="94" x2="497" y2="94" stroke="#059669" stroke-width="2" />
+    <circle cx="497" cy="94" r="3" fill="#059669" />
+    <line id="feed-b2-i-oil" x1="489" y1="182" x2="497" y2="182" stroke="#059669" stroke-width="2" />
+    <circle cx="497" cy="182" r="3" fill="#059669" />
+    <line id="feed-b3-i-oil" x1="634" y1="182" x2="642" y2="182" stroke="#059669" stroke-width="2" />
+    <circle cx="642" cy="182" r="3" fill="#059669" />
+    <line id="feed-b3-i2" x1="634" y1="226" x2="642" y2="226" stroke="#059669" stroke-width="2" />
+    <circle cx="642" cy="226" r="3" fill="#059669" />
+    <line id="feed-b3-i3" x1="634" y1="270" x2="642" y2="270" stroke="#059669" stroke-width="2" />
+    <circle cx="642" cy="270" r="3" fill="#059669" />
+    <line id="feed-b4-i5" x1="779" y1="314" x2="787" y2="314" stroke="#059669" stroke-width="2" />
+    <circle cx="787" cy="314" r="3" fill="#059669" />
+  </g>
+  <g transform="translate(932, 72)">
+    <rect width="135" height="264" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" />
+    <g transform="translate(67.5, 132)">
+      <text text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="800" fill="#065F46" y="-10">出锅装盘 🥩</text>
+      <text text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="700" fill="#047857" y="10">趁热享用</text>
+    </g>
+  </g>
+</svg>

@@ -4,7 +4,7 @@
       <div>
         <p class="text-[10px] font-black tracking-[0.18em] text-emerald-800 uppercase">Cook Mode</p>
         <h3 class="text-base font-black text-stone-900 mt-0.5">纵向烹饪卡</h3>
-        <p class="text-[11px] text-stone-500 mt-1">按页面顺序向下阅读；同组卡片可以并行处理</p>
+        <p class="text-[11px] text-stone-500 mt-1">按页面顺序向下阅读，并遵循工序的前置等待关系</p>
       </div>
     </div>
 
@@ -34,6 +34,7 @@
             v-for="layoutBlock in stage.blocks"
             :key="layoutBlock.block.id"
             class="relative overflow-hidden rounded-2xl border p-4 shadow-sm"
+            :aria-label="getDependencyLabels(layoutBlock).length ? `工序 ${layoutBlock.block.label || ''}，前序：${getDependencyLabels(layoutBlock).join('、')}` : undefined"
             :style="{
               backgroundColor: getStageFill(stage.stageIndex),
               borderColor: getStageStroke(stage.stageIndex),
@@ -44,12 +45,39 @@
               :style="{ backgroundColor: getStageAccent(stage.stageIndex) }"
             />
 
+            <div
+              v-if="getCategorizedDependencies(layoutBlock).materials.length > 0 || getCategorizedDependencies(layoutBlock).orders.length > 0 || getCategorizedDependencies(layoutBlock).legacies.length > 0"
+              class="mb-2.5 flex flex-wrap gap-1.5"
+            >
+              <div
+                v-if="getCategorizedDependencies(layoutBlock).materials.length > 0"
+                class="inline-flex items-center gap-1 rounded-md bg-emerald-100/90 px-2 py-0.5 text-[10px] font-bold text-emerald-800"
+              >
+                <span>承接物料：</span>
+                <span>{{ getCategorizedDependencies(layoutBlock).materials.join('、') }}</span>
+              </div>
+              <div
+                v-if="getCategorizedDependencies(layoutBlock).orders.length > 0"
+                class="inline-flex items-center gap-1 rounded-md bg-slate-100 px-2 py-0.5 text-[10px] font-bold text-slate-700 border border-slate-200/80"
+              >
+                <span>等待前序：</span>
+                <span>{{ getCategorizedDependencies(layoutBlock).orders.join('、') }}</span>
+              </div>
+              <div
+                v-if="getCategorizedDependencies(layoutBlock).legacies.length > 0"
+                class="inline-flex items-center gap-1 rounded-md bg-stone-100 px-2 py-0.5 text-[10px] font-bold text-stone-600"
+              >
+                <span>前序关联：</span>
+                <span>{{ getCategorizedDependencies(layoutBlock).legacies.join('、') }}</span>
+              </div>
+            </div>
+
             <div class="flex items-start justify-between gap-3">
               <div class="min-w-0">
                 <h4 class="text-[15px] font-black leading-snug text-stone-900">
                   {{ layoutBlock.block.label || '未命名工序' }}
                 </h4>
-                <p v-if="layoutBlock.block.sublabel" class="mt-0.5 text-[11px] font-medium text-stone-500">
+                <p v-if="shouldRenderSublabel(recipe.cuisine, layoutBlock.block.sublabel)" class="mt-0.5 text-[11px] font-medium text-stone-500">
                   {{ layoutBlock.block.sublabel }}
                 </p>
               </div>
@@ -67,8 +95,8 @@
                 :key="ingredient.id"
                 class="rounded-lg bg-white/75 px-2 py-1 text-[11px] font-semibold text-stone-700 ring-1 ring-stone-200/80"
               >
-                <span v-if="ingredient.amountText" class="font-black text-emerald-800">{{ ingredient.amountText }}</span>
-                {{ ingredient.name }}
+                <span v-if="formatIngredientRowDisplay(ingredient).amount" class="font-black text-emerald-800">{{ formatIngredientRowDisplay(ingredient).amount }}</span>
+                {{ [formatIngredientRowDisplay(ingredient).nameLine1, formatIngredientRowDisplay(ingredient).nameLine2].filter(Boolean).join(' ') }}
               </span>
             </div>
 
@@ -86,9 +114,19 @@
               </p>
             </div>
 
-            <p v-if="layoutBlock.block.note" class="mt-3 rounded-xl bg-white/60 px-3 py-2 text-[11px] leading-relaxed text-stone-600">
-              {{ layoutBlock.block.note }}
+            <p v-if="layoutBlock.block.note || layoutBlock.block.notes" class="mt-3 rounded-xl bg-white/60 px-3 py-2 text-[11px] leading-relaxed text-stone-600">
+              {{ layoutBlock.block.note || layoutBlock.block.notes }}
             </p>
+
+            <!-- 达成准出状态与产出半成品 -->
+            <div v-if="layoutBlock.block.completionState" class="mt-2.5 rounded-lg bg-emerald-50/90 border border-emerald-200/80 px-2.5 py-1.5 text-[11px] text-emerald-950">
+              <span class="font-bold text-emerald-800">达成状态：</span>
+              <span>{{ layoutBlock.block.completionState }}</span>
+            </div>
+            <div v-if="layoutBlock.block.outputItem" class="mt-1.5 flex items-center gap-1 text-[11px] font-bold text-emerald-800">
+              <span>➔ 产出半成品：</span>
+              <span class="bg-emerald-100/90 px-2 py-0.5 rounded text-emerald-900">{{ layoutBlock.block.outputItem }}</span>
+            </div>
           </article>
         </div>
       </section>
@@ -124,13 +162,59 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { VisualRecipeV3, V3Ingredient } from '@/types/recipeV3'
-import { buildV3MatrixLayout, type V3LayoutActionBlock } from '@/utils/matrixFlowLayout'
+import {
+  buildV3MatrixLayout,
+  type V3LayoutActionBlock,
+  isColdFinalBlock,
+  getFinalServingInstructions,
+  shouldRenderSublabel,
+  formatIngredientRowDisplay,
+} from '@/utils/matrixFlowLayout'
 import { flowCardTheme } from '@/theme/flowCardTheme'
 
 const props = defineProps<{ recipe: VisualRecipeV3 }>()
 
 const layout = computed(() => buildV3MatrixLayout(props.recipe))
 const ingredientById = computed(() => new Map(props.recipe.ingredients.map(item => [item.id, item])))
+const actionBlockMap = computed(() => new Map(props.recipe.actionBlocks.map(item => [item.id, item])))
+
+function getCategorizedDependencies(layoutBlock: V3LayoutActionBlock): {
+  materials: string[]
+  orders: string[]
+  legacies: string[]
+} {
+  const materials: string[] = []
+  const orders: string[] = []
+  const legacies: string[] = []
+  const block = layoutBlock.block
+
+  if (block.dependencies && block.dependencies.length > 0) {
+    for (const dep of block.dependencies) {
+      const srcBlock = actionBlockMap.value.get(dep.sourceBlockId)
+      const text = dep.label || srcBlock?.label
+      if (!text) continue
+      if (dep.type === 'material') materials.push(text)
+      else if (dep.type === 'order') orders.push(text)
+      else legacies.push(text)
+    }
+  } else {
+    for (const id of block.afterBlockIds || []) {
+      const label = actionBlockMap.value.get(id)?.label
+      if (label) orders.push(label)
+    }
+    for (const id of block.inputBlockIds || []) {
+      const label = actionBlockMap.value.get(id)?.label
+      if (label && !orders.includes(label)) legacies.push(label)
+    }
+  }
+
+  return { materials, orders, legacies }
+}
+
+function getDependencyLabels(layoutBlock: V3LayoutActionBlock): string[] {
+  const cat = getCategorizedDependencies(layoutBlock)
+  return [...cat.materials, ...cat.orders, ...cat.legacies]
+}
 
 const stageGroups = computed(() => {
   const groups = new Map<number, V3LayoutActionBlock[]>()
@@ -148,18 +232,19 @@ const stageGroups = computed(() => {
 })
 
 const isColdFinal = computed(() => {
-  const method = props.recipe.finalBlock?.method
-  return method === 'raw' || method === 'serve'
+  return isColdFinalBlock(props.recipe)
 })
 
 const finalMeta = computed(() => {
   const finalBlock = props.recipe.finalBlock
   if (!finalBlock) return ''
-  return [
+  const items = [
     finalBlock.temperatureC ? `${finalBlock.temperatureC}°C` : '',
     finalBlock.temperatureF ? `${finalBlock.temperatureF}°F` : '',
     finalBlock.durationText || '',
-  ].filter(Boolean).join(' · ')
+  ].filter(Boolean)
+  if (items.length > 0) return items.join(' · ')
+  return getFinalServingInstructions(props.recipe)
 })
 
 function getStageToken(tokens: readonly string[], stageIndex: number): string {
@@ -190,8 +275,8 @@ function getMethodIcon(method?: string): string {
     case 'stew': return '🍲'
     case 'fry': return '🍳'
     case 'steam': return '💨'
-    case 'serve':
     case 'raw': return '🥗'
+    case 'serve': return isColdFinal.value ? '🥗' : '🍽️'
     default: return '🍽️'
   }
 }

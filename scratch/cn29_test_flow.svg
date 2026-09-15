@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="770" height="498" viewBox="0 0 770 498" style="background-color: #FDFBF7; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;PingFang SC&quot;, sans-serif;">
+  <defs>
+    <marker id="flow-arrow-material-cn-29-kugua-donggu-gutang_p0" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#059669" />
+    </marker>
+    <marker id="flow-arrow-order-cn-29-kugua-donggu-gutang_p0" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#64748B" />
+    </marker>
+  </defs>
+  <rect x="16" y="16" width="738" height="466" fill="#FFFFFF" stroke="#15803D" stroke-width="2" />
+  <g class="v3-header-group">
+    <rect x="16" y="16" width="738" height="28" fill="#FFFFFF" stroke="#15803D" stroke-width="1.5" />
+    <text x="28" y="30" dominant-baseline="central" font-size="13" font-weight="bold" fill="#1C1917">煲锅 / 大砂锅</text>
+    <text x="742" y="30" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="900" fill="#DC2626">容器大小</text>
+    <rect x="16" y="44" width="320" height="28" fill="#FFFFFF" stroke="#15803D" stroke-width="1.5" />
+    <text x="176" y="58" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="900" fill="#DC2626">材料</text>
+    <rect x="336" y="44" width="418" height="28" fill="#FFFFFF" stroke="#15803D" stroke-width="1.5" />
+    <text x="348" y="58" dominant-baseline="central" font-size="13" font-weight="bold" fill="#1C1917">黄豆浸泡 3 小时，冬菇泡发</text>
+    <text x="742" y="58" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="900" fill="#DC2626">预热等预备处理</text>
+  </g>
+  <g class="v3-ingredients-group">
+    <g transform="translate(16, 72)">
+      <rect width="320" height="82" fill="#FFFFFF" stroke="#15803D" stroke-width="1.5" />
+      <text x="14" y="41" dominant-baseline="central" font-size="12" font-weight="500" fill="#1C1917">
+        <tspan font-weight="bold" fill="#15803D">200 g</tspan>
+        <tspan dx="6" font-weight="500" fill="#1C1917">排骨块 (清洗去血水)</tspan>
+      </text>
+    </g>
+    <g transform="translate(16, 154)">
+      <rect width="449" height="82" fill="#FFFFFF" stroke="#15803D" stroke-width="1.5" />
+      <text x="14" y="41" dominant-baseline="central" font-size="12" font-weight="500" fill="#1C1917">
+        <tspan font-weight="bold" fill="#15803D">200 g</tspan>
+        <tspan dx="6" font-weight="500" fill="#1C1917">苦瓜块 (去瓤)</tspan>
+      </text>
+    </g>
+    <g transform="translate(16, 236)">
+      <rect width="449" height="82" fill="#FFFFFF" stroke="#15803D" stroke-width="1.5" />
+      <text x="14" y="41" dominant-baseline="central" font-size="12" font-weight="500" fill="#1C1917">
+        <tspan font-weight="bold" fill="#15803D">100 g</tspan>
+        <tspan dx="6" font-weight="500" fill="#1C1917">水发冬菇</tspan>
+      </text>
+    </g>
+    <g transform="translate(16, 318)">
+      <rect width="449" height="82" fill="#FFFFFF" stroke="#15803D" stroke-width="1.5" />
+      <text x="14" y="41" dominant-baseline="central" font-size="12" font-weight="500" fill="#1C1917">
+        <tspan font-weight="bold" fill="#15803D">山药20g + 黄豆20g</tspan>
+        <tspan dx="6" font-weight="500" fill="#1C1917">山药块与浸泡黄豆</tspan>
+      </text>
+    </g>
+    <g transform="translate(16, 400)">
+      <rect width="449" height="82" fill="#FFFFFF" stroke="#15803D" stroke-width="1.5" />
+      <text x="14" y="41" dominant-baseline="central" font-size="12" font-weight="500" fill="#1C1917">
+        <tspan font-weight="bold" fill="#15803D">姜蒜+香菜+盐</tspan>
+        <tspan dx="6" font-weight="500" fill="#1C1917">姜片蒜瓣香菜盐</tspan>
+      </text>
+    </g>
+  </g>
+  <g class="v3-actions-group">
+    <g transform="translate(336, 72)">
+      <rect width="129" height="82" fill="#FFFFFF" stroke="#15803D" stroke-width="1.5" />
+      <g transform="translate(64.5, 41)">
+        <text text-anchor="middle" dominant-baseline="central">
+          <tspan x="0" dy="-1.7399999999999998em" font-size="13.5" font-weight="900" fill="#DC2626">排骨炖煮40分钟</tspan>
+          <tspan x="0" dy="1.35em" font-size="10.5" font-weight="500" fill="#475569">煲锅放水烧开，入排骨</tspan>
+          <tspan x="0" dy="1.2em" font-size="10.5" font-weight="500" fill="#475569">大火煮沸转小火炖40分</tspan>
+          <tspan x="0" dy="1.35em" font-size="10" font-weight="bold" fill="#15803D">小火 40m</tspan>
+        </text>
+      </g>
+    </g>
+    <g transform="translate(465, 72)">
+      <rect width="154" height="410" fill="#FFFFFF" stroke="#15803D" stroke-width="1.5" />
+      <g transform="translate(77, 205)">
+        <text text-anchor="middle" dominant-baseline="central">
+          <tspan x="0" dy="-1.7399999999999998em" font-size="13.5" font-weight="900" fill="#DC2626">加入苦瓜冬菇黄豆山药</tspan>
+          <tspan x="0" dy="1.35em" font-size="10.5" font-weight="500" fill="#475569">放入苦瓜、冬菇、姜蒜、黄</tspan>
+          <tspan x="0" dy="1.2em" font-size="10.5" font-weight="500" fill="#475569">豆、山药与盐，小火炖40分</tspan>
+          <tspan x="0" dy="1.35em" font-size="10" font-weight="bold" fill="#15803D">小火 40m</tspan>
+        </text>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(619, 72)">
+    <rect width="135" height="410" fill="#FFFFFF" stroke="#15803D" stroke-width="1.5" />
+    <g transform="translate(67.5, 205)">
+      <text text-anchor="middle" dominant-baseline="central" font-size="14.5" font-weight="900" fill="#DC2626" y="-18">甘苦回甜 🥣</text>
+      <text text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="bold" fill="#15803D" y="6">出锅装盘 · 趁热享用</text>
+      <text text-anchor="middle" dominant-baseline="central">
+        <tspan x="0" dy="26px" font-size="9.5" font-weight="500" fill="#64748B">苦瓜苦味被排骨与冬菇稀</tspan>
+        <tspan x="0" dy="1.3em" font-size="9.5" font-weight="500" fill="#64748B">释，汤甘甜回味</tspan>
+      </text>
+    </g>
+  </g>
+</svg>

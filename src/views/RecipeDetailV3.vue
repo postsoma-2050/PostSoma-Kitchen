@@ -4,13 +4,20 @@
       
       <!-- 1. 顶栏返回导航与消费型动作栏 -->
       <div class="flex items-center justify-between gap-4 no-print">
-        <router-link
-          to="/"
-          class="pk-button pk-button-secondary px-3 text-xs sm:px-4"
-        >
-          <span>←</span>
-          <span>返回食谱库</span>
-        </router-link>
+        <div class="flex items-center gap-2">
+          <router-link
+            to="/"
+            class="pk-button pk-button-secondary px-3 text-xs sm:px-4"
+          >
+            <span>←</span>
+            <span>返回食谱库</span>
+          </router-link>
+
+          <span v-if="isLocalSource" class="text-[11px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200/90 px-2.5 py-1 rounded-full inline-flex items-center gap-1 shadow-2xs">
+            <span>🧪</span>
+            <span>本地最新模型预览</span>
+          </span>
+        </div>
 
         <!-- 右侧消费型动作组 (分享 / 复制链接) -->
         <div v-if="recipe" class="flex items-center gap-2">
@@ -250,7 +257,7 @@ import { ref, computed, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import type { VisualRecipeV3 } from '@/types/recipeV3'
 import type { SubRecipeFormula } from '@/types/formula'
-import { getPublishedRecipeById } from '@/services/v3RecipeStore'
+import { getPublishedRecipeById, getLocalPresetRecipeById } from '@/services/v3RecipeStore'
 import RecipeFlowWorkspaceV3 from '@/components/recipe-flow-v3/RecipeFlowWorkspaceV3.vue'
 import FormulaDetailModal from '@/components/recipe-flow-v3/FormulaDetailModal.vue'
 import { resolveRecipeCover } from '@/utils/recipeCoverAsset'
@@ -264,11 +271,15 @@ import {
 
 const route = useRoute()
 const recipe = ref<VisualRecipeV3 | null>(null)
-const notFound = ref(false)
 const isLoading = ref(true)
+const notFound = ref(false)
 const imgError = ref(false)
 const copySuccess = ref(false)
 const coverAsset = computed(() => recipe.value ? resolveRecipeCover(recipe.value) : null)
+
+const isLocalSource = computed(() => {
+  return route.query.source === 'local' || route.query.source === 'preset'
+})
 
 const activeFormula = ref<SubRecipeFormula | null>(null)
 const servingsPresentation = computed(() => getRecipeServingsPresentation(recipe.value?.prerequisites?.servings))
@@ -276,6 +287,7 @@ const servingsPresentation = computed(() => getRecipeServingsPresentation(recipe
 async function loadRecipe() {
   isLoading.value = true
   const id = (route.params.id as string) || (route.query.id as string)
+  const source = route.query.source as string | undefined
   if (!id) {
     notFound.value = true
     isLoading.value = false
@@ -283,14 +295,31 @@ async function loadRecipe() {
   }
 
   try {
+    if (source === 'local' || source === 'preset') {
+      const localFound = await getLocalPresetRecipeById(id)
+      if (localFound) {
+        recipe.value = localFound
+        notFound.value = false
+        imgError.value = false
+        return
+      }
+    }
+
     const found = await getPublishedRecipeById(id)
     if (found) {
       recipe.value = found
       notFound.value = false
       imgError.value = false
     } else {
-      recipe.value = null
-      notFound.value = true
+      const localFallback = await getLocalPresetRecipeById(id)
+      if (localFallback) {
+        recipe.value = localFallback
+        notFound.value = false
+        imgError.value = false
+      } else {
+        recipe.value = null
+        notFound.value = true
+      }
     }
   } finally {
     isLoading.value = false
