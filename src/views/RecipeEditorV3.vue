@@ -9,8 +9,10 @@
               PostSoma Kitchen Studio
             </span>
             <span class="text-xs text-stone-400">|</span>
-            <span class="text-xs text-stone-500">
-              发布状态: <strong class="text-emerald-700">{{ recipe.status === 'published' ? '🟢 已发布 (访客可见)' : '🟡 草稿箱 (内部可见)' }}</strong>
+            <span class="inline-flex items-center gap-1 text-xs text-stone-500">
+              发布状态:
+              <AppIcon :name="recipe.status === 'published' ? 'success' : 'draft'" :size="14" :class="recipe.status === 'published' ? 'text-emerald-700' : 'text-amber-700'" />
+              <strong :class="recipe.status === 'published' ? 'text-emerald-700' : 'text-amber-700'">{{ recipe.status === 'published' ? '已发布 (访客可见)' : '草稿箱 (内部可见)' }}</strong>
             </span>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-2 pt-1">
@@ -34,7 +36,7 @@
             @click="returnToKitchenStudio"
             class="px-3 py-2 bg-stone-100 hover:bg-stone-200 text-stone-800 border border-stone-300 rounded-md text-xs font-bold transition-colors inline-flex items-center gap-1 cursor-pointer"
           >
-            <span>←</span>
+            <AppIcon name="arrow-left" :size="15" />
             <span>返回 Kitchen Studio</span>
           </button>
 
@@ -64,7 +66,7 @@
             class="px-3.5 py-2 bg-stone-100 hover:bg-stone-200 disabled:opacity-40 disabled:hover:bg-stone-100 text-stone-700 rounded-md text-xs font-semibold transition-colors cursor-pointer border border-stone-300 inline-flex items-center gap-1"
             title="撤销上一步编辑操作 (Cmd+Z / Ctrl+Z)"
           >
-            <span>↩️</span>
+            <AppIcon name="back" :size="15" />
             <span>撤销</span>
             <span v-if="undoCount > 0" class="text-[10px] text-stone-400 font-mono">({{ undoCount }})</span>
           </button>
@@ -74,7 +76,8 @@
             type="button"
             class="px-3.5 py-2 bg-stone-200 hover:bg-stone-300 text-stone-800 rounded-md text-xs font-semibold transition-colors"
           >
-            存为草稿
+            <AppIcon name="save" :size="15" />
+            <span>存为草稿</span>
           </button>
 
           <button
@@ -82,7 +85,8 @@
             type="button"
             class="px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-md text-xs font-semibold shadow-sm transition-colors"
           >
-            发布食谱
+            <AppIcon name="upload" :size="15" />
+            <span>发布食谱</span>
           </button>
         </div>
       </div>
@@ -92,11 +96,17 @@
         v-if="toastMessage"
         :class="[
           'px-4 py-2 rounded-lg text-xs font-medium flex items-center justify-between',
-          toastMessage.startsWith('❌') ? 'bg-red-50 border border-red-300 text-red-800' : 'bg-emerald-50 border border-emerald-300 text-emerald-800'
+          toastTone === 'error'
+            ? 'bg-red-50 border border-red-300 text-red-800'
+            : toastTone === 'warning'
+              ? 'bg-amber-50 border border-amber-300 text-amber-900'
+              : toastTone === 'success'
+                ? 'bg-emerald-50 border border-emerald-300 text-emerald-800'
+                : 'bg-sky-50 border border-sky-300 text-sky-800'
         ]"
       >
-        <span>{{ toastMessage }}</span>
-        <button @click="toastMessage = ''" class="font-bold ml-2">✕</button>
+        <span class="flex items-center gap-2"><AppIcon :name="toastIconName" :size="17" />{{ toastMessage }}</span>
+        <button @click="toastMessage = ''" class="ml-2 rounded p-1 hover:bg-black/5" aria-label="关闭提示"><AppIcon name="close" :size="16" /></button>
       </div>
 
       <!-- 数据健康面板 (实时完整度 + 校验错误/警告列表) -->
@@ -113,7 +123,7 @@
           :class="liveValidation.errors.length > 0 ? 'text-red-800 bg-red-50/50' : 'text-amber-800 bg-amber-50/50'"
         >
           <div class="flex items-center gap-2">
-            <span>{{ liveValidation.errors.length > 0 ? '❌' : liveValidation.warnings.length > 0 ? '⚠️' : '✅' }}</span>
+            <AppIcon :name="healthIconName" :size="17" />
             <span>数据健康面板</span>
             <span class="font-mono px-2 py-0.5 rounded-full text-[10px]" :class="liveValidation.completenessScore >= 80 ? 'bg-emerald-100 text-emerald-800' : liveValidation.completenessScore >= 50 ? 'bg-amber-100 text-amber-800' : 'bg-red-100 text-red-800'">
               完整度 {{ liveValidation.completenessScore }}%
@@ -126,20 +136,20 @@
             </span>
             <span v-else class="text-[10px] text-emerald-700 font-normal">· 数据完整，可发布</span>
           </div>
-          <span class="text-stone-400">{{ showHealthPanel ? '▲' : '▼' }}</span>
+          <AppIcon name="arrow-down" :size="16" class="text-stone-400 transition-transform" :class="showHealthPanel ? 'rotate-180' : ''" />
         </button>
 
         <!-- 展开内容：分 error / warning 两栏 -->
         <div v-if="showHealthPanel" class="px-5 pb-4 pt-2 space-y-3 border-t border-stone-100">
           <!-- 错误项（发布阻断）-->
           <div v-if="liveValidation.errors.length > 0" class="space-y-1.5">
-            <p class="text-[11px] font-bold text-red-700 uppercase tracking-wide">⛔ 发布阻断项（必须修复）</p>
+            <p class="flex items-center gap-1.5 text-[11px] font-bold text-red-700 uppercase tracking-wide"><AppIcon name="error" :size="15" />发布阻断项（必须修复）</p>
             <div
               v-for="issue in liveValidation.errors"
               :key="issue.code"
               class="flex items-start gap-2 bg-red-50 border border-red-100 rounded-lg px-3 py-2 text-xs text-red-800"
             >
-              <span class="mt-0.5 shrink-0">🔴</span>
+              <AppIcon name="error" :size="15" class="mt-0.5 shrink-0" />
               <div>
                 <span class="font-bold">[{{ issue.field }}]</span>
                 {{ issue.message }}
@@ -149,13 +159,13 @@
 
           <!-- 警告项（建议修复）-->
           <div v-if="liveValidation.warnings.length > 0" class="space-y-1.5">
-            <p class="text-[11px] font-bold text-amber-700 uppercase tracking-wide">⚠️ 建议改善项（不阻断草稿保存）</p>
+            <p class="flex items-center gap-1.5 text-[11px] font-bold text-amber-700 uppercase tracking-wide"><AppIcon name="alert" :size="15" />建议改善项（不阻断草稿保存）</p>
             <div
               v-for="issue in liveValidation.warnings"
               :key="issue.code"
               class="flex items-start gap-2 bg-amber-50 border border-amber-100 rounded-lg px-3 py-2 text-xs text-amber-800"
             >
-              <span class="mt-0.5 shrink-0">🟡</span>
+              <AppIcon name="alert" :size="15" class="mt-0.5 shrink-0" />
               <div>
                 <span class="font-bold">[{{ issue.field }}]</span>
                 {{ issue.message }}
@@ -163,8 +173,8 @@
             </div>
           </div>
 
-          <div v-if="liveValidation.issues.length === 0" class="text-xs text-emerald-700 font-medium py-1">
-            ✅ 所有校验项均通过，数据结构完整可发布！
+          <div v-if="liveValidation.issues.length === 0" class="flex items-center gap-1.5 text-xs text-emerald-700 font-medium py-1">
+            <AppIcon name="success" :size="16" />所有校验项均通过，数据结构完整可发布！
           </div>
         </div>
       </div>
@@ -172,7 +182,7 @@
       <!-- 布局自动校正提示 -->
       <div v-if="collisionNotices.length > 0" class="bg-amber-50 border border-amber-300 text-amber-900 px-4 py-2 rounded-lg text-xs space-y-1">
         <div class="font-bold flex items-center gap-1">
-          <span>⚠️</span>
+          <AppIcon name="alert" :size="16" />
           <span>布局提示：系统已依据工序依赖与空间占用自动校正阶段：</span>
         </div>
         <ul class="list-disc list-inside text-amber-800 pl-2">
@@ -189,7 +199,7 @@
           <!-- 1. 前置条件 (Prerequisites) -->
           <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm space-y-4">
             <h3 class="text-sm font-bold text-stone-800 flex items-center gap-2 border-b border-stone-100 pb-2">
-              <span>📋</span>
+              <AppIcon name="steps" :size="17" />
               <span>1. 前置准备事项 (Prerequisites)</span>
             </h3>
 
@@ -226,13 +236,13 @@
             <div class="pt-3 border-t border-stone-100 grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
               <!-- 菜系风味下拉选择 -->
               <div>
-                <label class="block font-semibold text-stone-700 mb-1">🌐 菜系风味 (Cuisine Style)</label>
+                <label class="flex items-center gap-1.5 font-semibold text-stone-700 mb-1"><AppIcon name="global" :size="15" />菜系风味 (Cuisine Style)</label>
                 <select
                   v-model="recipe.cuisine"
                   class="w-full p-2 bg-stone-50 border border-stone-300 rounded font-medium focus:border-emerald-600 focus:outline-none"
                 >
                   <option v-for="c in CUISINE_STYLES" :key="c.code" :value="c.code">
-                    {{ c.icon }} {{ c.label }} ({{ c.labelEn }})
+                    {{ c.label }} ({{ c.labelEn }})
                   </option>
                 </select>
               </div>
@@ -240,7 +250,7 @@
               <!-- 难度等级下拉选择 (含半自动建议) -->
               <div>
                 <div class="flex items-center justify-between mb-1">
-                  <label class="font-semibold text-stone-700">🎯 烹饪难度 (Difficulty)</label>
+                  <label class="flex items-center gap-1.5 font-semibold text-stone-700"><AppIcon name="focus" :size="15" />烹饪难度 (Difficulty)</label>
                   <span class="text-[10px] text-emerald-700 font-bold bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">
                     建议: {{ getDifficultyOption(suggestedDifficulty).label }}
                   </span>
@@ -250,18 +260,117 @@
                   class="w-full p-2 bg-stone-50 border border-stone-300 rounded font-medium focus:border-emerald-600 focus:outline-none"
                 >
                   <option v-for="d in DIFFICULTIES" :key="d.code" :value="d.code">
-                    {{ d.icon }} {{ d.label }} ({{ d.labelEn }})
+                    {{ d.label }} ({{ d.labelEn }})
                   </option>
                 </select>
               </div>
             </div>
           </div>
 
+          <!-- 食谱来源与事实核验：发布状态与事实可信度必须分开管理 -->
+          <details class="group bg-white rounded-xl border border-stone-200 shadow-sm overflow-hidden">
+            <summary class="cursor-pointer list-none px-5 py-4 flex items-center justify-between gap-3 hover:bg-stone-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-emerald-600">
+              <div class="min-w-0">
+                <div class="flex flex-wrap items-center gap-2">
+                  <h3 class="text-sm font-bold text-stone-800">来源与事实核验</h3>
+                  <span class="px-2 py-0.5 rounded-full border text-[10px] font-bold"
+                    :class="reviewOverall === 'kitchen_verified'
+                      ? 'bg-emerald-50 border-emerald-200 text-emerald-800'
+                      : reviewOverall === 'source_verified'
+                        ? 'bg-sky-50 border-sky-200 text-sky-800'
+                        : 'bg-amber-50 border-amber-200 text-amber-800'"
+                  >
+                    {{ reviewStatusLabel(reviewOverall) }}
+                  </span>
+                </div>
+                <p class="mt-1 text-[11px] leading-relaxed text-stone-500">
+                  记录资料来源、核对证据与推断项。此状态独立于“草稿/发布”，不得用发布状态代替事实验证。
+                </p>
+              </div>
+              <AppIcon name="arrow-down" :size="16" class="shrink-0 text-stone-400 transition-transform group-open:rotate-180" />
+            </summary>
+
+            <div class="border-t border-stone-100 px-5 py-4 space-y-5">
+              <fieldset class="space-y-3">
+                <legend class="text-xs font-bold text-stone-700">资料来源</legend>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <label class="block text-xs text-stone-600">
+                    <span class="block mb-1 font-medium">来源类型</span>
+                    <select v-model="provenanceSourceType" class="w-full p-2 bg-stone-50 border border-stone-300 rounded focus:border-emerald-600 focus:outline-none focus:ring-1 focus:ring-emerald-600">
+                      <option value="book">书籍</option>
+                      <option value="website">网站</option>
+                      <option value="author">作者原稿</option>
+                      <option value="kitchen_test">厨房实测</option>
+                      <option value="internal_sample">内部样例</option>
+                      <option value="other">其他/待核对</option>
+                    </select>
+                  </label>
+                  <label class="block text-xs text-stone-600">
+                    <span class="block mb-1 font-medium">来源标题</span>
+                    <input v-model.trim="provenanceTitle" placeholder="书名、网页标题或资料名称" class="w-full p-2 border border-stone-300 rounded focus:border-emerald-600 focus:outline-none focus:ring-1 focus:ring-emerald-600" />
+                  </label>
+                  <label class="block text-xs text-stone-600">
+                    <span class="block mb-1 font-medium">作者/整理者</span>
+                    <input v-model.trim="provenanceAuthor" placeholder="作者或资料提供者" class="w-full p-2 border border-stone-300 rounded focus:border-emerald-600 focus:outline-none focus:ring-1 focus:ring-emerald-600" />
+                  </label>
+                  <label class="block text-xs text-stone-600">
+                    <span class="block mb-1 font-medium">可定位出处</span>
+                    <input v-model.trim="provenanceLocator" placeholder="页码、章节、版本或 URL" class="w-full p-2 border border-stone-300 rounded focus:border-emerald-600 focus:outline-none focus:ring-1 focus:ring-emerald-600" />
+                  </label>
+                </div>
+              </fieldset>
+
+              <fieldset class="space-y-3 border-t border-stone-100 pt-4">
+                <legend class="text-xs font-bold text-stone-700">事实核验状态</legend>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                  <label class="block text-xs text-stone-600">
+                    <span class="block mb-1 font-medium">整体状态</span>
+                    <select v-model="reviewOverall" class="w-full p-2 bg-stone-50 border border-stone-300 rounded focus:border-emerald-600 focus:outline-none focus:ring-1 focus:ring-emerald-600">
+                      <option v-for="option in reviewStatusOptions" :key="option.value" :value="option.value">{{ option.label }}</option>
+                    </select>
+                  </label>
+                  <label class="block text-xs text-stone-600">
+                    <span class="block mb-1 font-medium">核验人</span>
+                    <input v-model.trim="reviewedBy" placeholder="姓名或团队" class="w-full p-2 border border-stone-300 rounded focus:border-emerald-600 focus:outline-none focus:ring-1 focus:ring-emerald-600" />
+                  </label>
+                  <label class="block text-xs text-stone-600">
+                    <span class="block mb-1 font-medium">核验日期</span>
+                    <input v-model="reviewedAtDate" type="date" class="w-full p-2 border border-stone-300 rounded focus:border-emerald-600 focus:outline-none focus:ring-1 focus:ring-emerald-600" />
+                  </label>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <label v-for="dimension in reviewDimensions" :key="dimension.key" class="block text-xs text-stone-600">
+                    <span class="block mb-1 font-medium">{{ dimension.label }}</span>
+                    <select
+                      :value="reviewDimensionValues[dimension.key]"
+                      @change="handleReviewDimensionChange(dimension.key, $event)"
+                      class="w-full p-2 bg-stone-50 border border-stone-300 rounded focus:border-emerald-600 focus:outline-none focus:ring-1 focus:ring-emerald-600"
+                    >
+                      <option v-for="option in reviewStatusOptions" :key="option.value" :value="option.value">{{ option.label }}</option>
+                    </select>
+                  </label>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <label class="block text-xs text-stone-600">
+                    <span class="block mb-1 font-medium">核验依据（每行一项）</span>
+                    <textarea v-model="reviewEvidenceText" rows="3" placeholder="例：第 42 页原料表；2026-09-16 厨房实测记录" class="w-full p-2 border border-stone-300 rounded resize-y focus:border-emerald-600 focus:outline-none focus:ring-1 focus:ring-emerald-600"></textarea>
+                  </label>
+                  <label class="block text-xs text-stone-600">
+                    <span class="block mb-1 font-medium">建模推断与待核对项（每行一项）</span>
+                    <textarea v-model="reviewAssumptionsText" rows="3" placeholder="例：单锅耗时为建模估计，尚未厨房实测" class="w-full p-2 border border-stone-300 rounded resize-y focus:border-emerald-600 focus:outline-none focus:ring-1 focus:ring-emerald-600"></textarea>
+                  </label>
+                </div>
+              </fieldset>
+            </div>
+          </details>
+
           <!-- 2. 食材行物理顺序管理 (Ingredients) -->
           <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm space-y-4">
             <div class="flex items-center justify-between border-b border-stone-100 pb-2">
               <h3 class="text-sm font-bold text-stone-800 flex items-center gap-2">
-                <span>🥕</span>
+                <AppIcon name="seedling" :size="17" />
                 <span>2. 食材列表 (物理顺序即流程图行顺序)</span>
               </h3>
               <button
@@ -269,7 +378,8 @@
                 type="button"
                 class="px-2.5 py-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 rounded text-xs font-semibold transition-colors"
               >
-                + 新增食材
+                <AppIcon name="seedling" :size="14" />
+                <span>新增食材</span>
               </button>
             </div>
 
@@ -288,7 +398,7 @@
                     class="px-1.5 py-0.5 text-stone-500 hover:text-stone-800 disabled:opacity-30 disabled:hover:text-stone-500 text-xs font-bold"
                     title="上移"
                   >
-                    ▲
+                    <AppIcon name="arrow-down" :size="15" class="rotate-180" />
                   </button>
                   <button
                     @click="moveIngredient(index, 1)"
@@ -297,7 +407,7 @@
                     class="px-1.5 py-0.5 text-stone-500 hover:text-stone-800 disabled:opacity-30 disabled:hover:text-stone-500 text-xs font-bold"
                     title="下移"
                   >
-                    ▼
+                    <AppIcon name="arrow-down" :size="15" />
                   </button>
                 </div>
 
@@ -313,7 +423,7 @@
                   ]"
                   :title="ing.category === 'seasoning' ? '当前标为：调料/辅料 (点击切换为主料)' : '当前标为：主料 (点击切换为调料)'"
                 >
-                  {{ ing.category === 'seasoning' ? '🧂 调料' : '🥩 主料' }}
+                  {{ ing.category === 'seasoning' ? '调料' : '主料' }}
                 </button>
 
                 <!-- 食材名称与用量 -->
@@ -344,7 +454,7 @@
                     >
                       <div @click="applyCanonicalName(index, sugg.canonicalName)" class="flex-1">
                         <div class="text-xs font-bold text-stone-800 flex items-center gap-1.5">
-                          <span>🌿 {{ sugg.canonicalName }}</span>
+                          <span class="inline-flex items-center gap-1"><AppIcon name="leaf" :size="14" />{{ sugg.canonicalName }}</span>
                           <span v-if="sugg.usageCount > 0" class="text-[10px] text-stone-400 font-normal">({{ sugg.usageCount }} 次使用)</span>
                         </div>
                         <div v-if="sugg.aliases && sugg.aliases.length > 0" class="text-[10px] text-stone-400 mt-0.5">
@@ -359,7 +469,8 @@
                         class="text-[10px] bg-emerald-100 hover:bg-emerald-200 text-emerald-800 px-1.5 py-0.5 rounded font-semibold border border-emerald-300 ml-2 cursor-pointer"
                         title="将当前输入名称设为此食材的别名"
                       >
-                        + 存为别名
+                        <AppIcon name="link" :size="13" />
+                        <span>存为别名</span>
                       </button>
                     </div>
                   </div>
@@ -371,7 +482,7 @@
                   class="p-1.5 text-red-500 hover:text-red-700 text-xs font-bold ml-1 cursor-pointer"
                   title="删除"
                 >
-                  ✕
+                  <AppIcon name="delete" :size="16" />
                 </button>
               </div>
 
@@ -385,7 +496,7 @@
           <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm space-y-4">
             <div class="flex items-center justify-between border-b border-stone-100 pb-2">
               <h3 class="text-sm font-bold text-stone-800 flex items-center gap-2">
-                <span>⚙️</span>
+                <AppIcon name="settings" :size="17" />
                 <span>3. 工序节点 (关联食材与阶段)</span>
               </h3>
               <div class="flex items-center gap-2">
@@ -396,7 +507,7 @@
                   class="px-2.5 py-1 bg-amber-50 hover:bg-amber-100 disabled:opacity-40 text-amber-900 border border-amber-300 rounded text-xs font-semibold transition-colors flex items-center gap-1 shadow-sm"
                   title="根据工序进入顺序自动排列食材，从根本上确保工序块紧密咬合、零空白死区"
                 >
-                  <span>✨</span>
+                  <AppIcon name="magic" :size="15" />
                   <span>按工序时序重排食材</span>
                 </button>
                 <button
@@ -404,7 +515,8 @@
                   type="button"
                   class="px-2.5 py-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 rounded text-xs font-semibold transition-colors"
                 >
-                  + 新增工序
+                  <AppIcon name="steps" :size="14" />
+                  <span>新增工序</span>
                 </button>
               </div>
             </div>
@@ -436,7 +548,7 @@
                       v-if="block.label && block.label.length > 4"
                       class="text-[10.5px] text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200"
                     >
-                      💡 建议精炼为 2~4 字动词（如：爆香炒汁），操作长句请写入下方“操作说明”
+                      <AppIcon name="lightbulb" :size="13" class="mr-1" />建议精炼为 2~4 字动词（如：爆香炒汁），操作长句请写入下方“操作说明”
                     </span>
                   </div>
 
@@ -447,21 +559,21 @@
                       type="button"
                       class="px-2 py-0.5 bg-stone-200 hover:bg-stone-300 disabled:opacity-40 rounded text-xs font-medium"
                     >
-                      ◀ 移至上一阶段
+                      <AppIcon name="arrow-left" :size="13" />移至上一阶段
                     </button>
                     <button
                       @click="changeBlockStage(block, 1)"
                       type="button"
                       class="px-2 py-0.5 bg-stone-200 hover:bg-stone-300 rounded text-xs font-medium"
                     >
-                      移至下一阶段 ▶
+                      移至下一阶段<AppIcon name="arrow-right" :size="13" />
                     </button>
                     <button
                       @click="removeActionBlock(bIndex)"
                       type="button"
                       class="text-red-500 hover:text-red-700 text-xs font-bold ml-2"
                     >
-                      ✕
+                      <AppIcon name="delete" :size="15" />
                     </button>
                   </div>
                 </div>
@@ -507,7 +619,7 @@
                   >
                     <div class="flex items-center justify-between gap-2">
                       <span class="font-bold text-blue-900 flex items-center gap-1.5">
-                        <span>💡</span>
+                        <AppIcon name="lightbulb" :size="15" />
                         <span>食材排布优化建议：检测到当前工序勾选的食材在列表中非连续</span>
                       </span>
                       <button
@@ -516,7 +628,8 @@
                         class="px-2.5 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded text-xs font-bold transition-colors whitespace-nowrap cursor-pointer shadow-xs"
                         title="可选：自动按时序重排食材清单为连续阶梯"
                       >
-                        ⚡️ 优化食材排列为阶梯
+                        <AppIcon name="magic" :size="14" />
+                        <span>优化食材排列为阶梯</span>
                       </button>
                     </div>
                     <p class="text-blue-800 text-[11px] leading-relaxed">
@@ -640,12 +753,12 @@
             </div>
           </div>
 
-          <!-- 4. 最终完成栏 (Final Cooking Outcome) -->
+          <!-- 4. 流程终点 (Final Operation / Outcome) -->
           <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm space-y-4">
             <div class="flex items-center justify-between border-b border-stone-100 pb-2">
               <h3 class="text-sm font-bold text-stone-800 flex items-center gap-2">
-                <span>🔥</span>
-                <span>4. 最终烹饪与完成方式</span>
+                <AppIcon name="fire" :size="17" />
+                <span>4. 流程终点</span>
               </h3>
               <label class="inline-flex items-center gap-1.5 text-xs text-stone-600 cursor-pointer">
                 <input
@@ -659,6 +772,70 @@
             </div>
 
             <div v-if="recipe.finalBlock" class="space-y-3">
+              <div class="rounded-lg border border-emerald-100 bg-emerald-50/60 p-3">
+                <label class="block text-xs font-bold text-stone-700 mb-1">终点职责</label>
+                <select
+                  :value="recipe.finalBlock.role || 'operation'"
+                  @change="setFinalBlockRole(($event.target as HTMLSelectElement).value as 'operation' | 'outcome')"
+                  class="w-full text-xs p-2 border border-stone-300 rounded bg-white focus:border-emerald-600 focus:outline-none font-semibold"
+                >
+                  <option value="outcome">结果标记：前面的工序已经完整，只显示紧凑“完成”终点</option>
+                  <option value="operation">真实终步：这里仍有烘焙、蒸制、冷藏等尚未写入工序的操作</option>
+                </select>
+                <p class="mt-1.5 text-[11px] leading-relaxed text-stone-500">
+                  口感、颜色和营养价值不是工序。结果型终点不会占据工序表一整列；只有真实未执行的最后操作才选择“真实终步”。
+                </p>
+              </div>
+
+              <template v-if="recipe.finalBlock.role === 'outcome'">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <div>
+                    <label class="block text-xs font-medium text-stone-600 mb-1">终点标记</label>
+                    <input
+                      :value="recipe.finalBlock.label"
+                      disabled
+                      class="w-full text-xs p-2 border border-stone-200 rounded bg-stone-100 text-stone-500 font-bold"
+                    />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-stone-600 mb-1">烹饪法分类</label>
+                    <select
+                      v-model="recipe.finalBlock.method"
+                      class="w-full text-xs p-2 border border-stone-300 rounded bg-white focus:border-emerald-600 focus:outline-none font-semibold"
+                    >
+                      <option value="bake">烘焙 (Bake)</option>
+                      <option value="sear">煎炒 (Sear / Fry)</option>
+                      <option value="stew">慢炖 (Stew)</option>
+                      <option value="steam">蒸制 (Steam)</option>
+                      <option value="boil">水煮 (Boil)</option>
+                      <option value="serve">直接装盘 (Serve)</option>
+                      <option value="raw">生食/冷藏 (Chill / Raw)</option>
+                      <option value="other">其他</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-medium text-stone-600 mb-1">装盘与食用提示</label>
+                  <input
+                    v-model="recipe.finalBlock.servingInstructions"
+                    placeholder="如：盛盘后趁热享用；冷藏 2 小时后切块"
+                    class="w-full text-xs p-2 border border-stone-300 rounded focus:border-emerald-600 focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label class="block text-xs font-medium text-stone-600 mb-1">成品状态（可选，不作为步骤显示）</label>
+                  <textarea
+                    v-model="recipe.finalBlock.resultDescription"
+                    rows="2"
+                    placeholder="如：牛肉滑嫩，芹菜爽脆。营养说明请写入食谱提示，而不是这里。"
+                    class="w-full text-xs p-2 border border-stone-300 rounded focus:border-emerald-600 focus:outline-none"
+                  ></textarea>
+                </div>
+              </template>
+
+              <template v-else>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div>
                   <label class="block text-xs font-medium text-stone-600 mb-1">完成方式</label>
@@ -710,7 +887,7 @@
               </div>
 
               <div>
-                <label class="block text-xs font-medium text-stone-600 mb-1">说明与操作指南</label>
+                <label class="block text-xs font-medium text-stone-600 mb-1">真实终步操作指南</label>
                 <textarea
                   v-model="recipe.finalBlock.instructions"
                   rows="2"
@@ -718,6 +895,7 @@
                   class="w-full text-xs p-2 border border-stone-300 rounded focus:border-emerald-600 focus:outline-none"
                 ></textarea>
               </div>
+              </template>
             </div>
 
             <div v-else class="text-xs text-stone-400 italic text-center py-2 bg-stone-50 rounded border border-dashed border-stone-200">
@@ -731,7 +909,7 @@
           <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-sm space-y-3">
             <div class="flex items-center justify-between border-b border-stone-100 pb-2">
               <span class="text-xs font-bold text-stone-700 flex items-center gap-1.5">
-                <span>👁️</span>
+                <AppIcon name="eye" :size="17" />
                 <span>实时 SVG Flow Card 预览</span>
               </span>
               <span class="text-xs text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded font-mono">0ms 实时刷新</span>
@@ -755,13 +933,13 @@
       <div class="bg-white rounded-2xl p-6 max-w-md w-full shadow-2xl space-y-4 border border-stone-200 animate-in fade-in zoom-in duration-200">
         <div class="flex items-start justify-between gap-3 border-b border-stone-100 pb-3 text-emerald-800">
           <div class="flex items-center gap-3">
-            <span class="text-3xl">🎉</span>
+            <span class="flex h-11 w-11 items-center justify-center rounded-full bg-emerald-100"><AppIcon name="success" :size="26" /></span>
             <div>
               <h3 class="text-base font-bold text-stone-900">完整食谱已成功保存！</h3>
               <p class="text-xs text-stone-500 mt-0.5">已写入当前 Repository 配置的统一食谱库</p>
             </div>
           </div>
-          <button type="button" @click="showSaveModal = false" class="rounded-lg p-1 text-stone-400 hover:bg-stone-100 hover:text-stone-700" aria-label="关闭保存成功提示">✕</button>
+          <button type="button" @click="showSaveModal = false" class="rounded-lg p-1 text-stone-400 hover:bg-stone-100 hover:text-stone-700" aria-label="关闭保存成功提示"><AppIcon name="close" :size="18" /></button>
         </div>
 
         <p class="text-xs text-stone-600 leading-relaxed">
@@ -793,7 +971,14 @@
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import type { VisualRecipeV3, V3ActionBlock } from '@/types/recipeV3'
+import type {
+  RecipeFactReviewStatus,
+  RecipeSourceType,
+  V3ActionBlock,
+  V3RecipeDataReview,
+  V3RecipeProvenance,
+  VisualRecipeV3,
+} from '@/types/recipeV3'
 import {
   CUISINE_STYLES,
   DIFFICULTIES,
@@ -807,6 +992,8 @@ import { saveV3Recipe, getV3Recipes, getV3RecipeById, getV3Draft, saveV3Draft, c
 import { findMatchingIngredients, addAlias } from '@/services/ingredientRegistryStore'
 import type { IngredientEntry } from '@/types/ingredientRegistry'
 import RecipeFlowWorkspaceV3 from '@/components/recipe-flow-v3/RecipeFlowWorkspaceV3.vue'
+import AppIcon from '@/components/common/AppIcon.vue'
+import type { AppIconName } from '@/types/icon'
 import { resolveAdminReturnTarget } from '@/utils/adminNavigation'
 import {
   STANDARD_COOKING_SKILLS,
@@ -848,9 +1035,19 @@ function createDefaultBlankRecipe(): VisualRecipeV3 {
     ],
     finalBlock: {
       method: 'bake',
+      role: 'operation',
       label: '烘焙 bake',
       temperatureC: 170,
       durationText: '30 min'
+    },
+    dataReview: {
+      overall: 'unreviewed',
+      ingredients: 'unreviewed',
+      quantities: 'unreviewed',
+      topology: 'unreviewed',
+      heatAndTiming: 'unreviewed',
+      evidence: [],
+      assumptions: []
     },
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString()
@@ -862,11 +1059,130 @@ const savedRecipes = ref<VisualRecipeV3[]>([])
 const toastMessage = ref('')
 const cloudStateUnavailable = ref(false)
 
+const toastTone = computed<'error' | 'warning' | 'success' | 'info'>(() => {
+  const message = toastMessage.value
+  if (/失败|冲突|已暂停|未载入/.test(message)) return 'error'
+  if (/暂时无法确认|暂时无法重新读取|稍后刷新/.test(message)) return 'warning'
+  if (/已保存|已发布|已成功|已加载|已恢复|已优化|已撤销|已将/.test(message)) return 'success'
+  return 'info'
+})
+
+const toastIconName = computed<AppIconName>(() => {
+  if (toastTone.value === 'error') return 'error'
+  if (toastTone.value === 'warning') return 'alert'
+  if (toastTone.value === 'success') return 'success'
+  return 'info'
+})
+
+type ReviewDimensionKey = 'ingredients' | 'quantities' | 'topology' | 'heatAndTiming'
+
+const reviewStatusOptions: Array<{ value: RecipeFactReviewStatus; label: string }> = [
+  { value: 'unreviewed', label: '待核对' },
+  { value: 'modeled', label: '已建模（事实待核）' },
+  { value: 'transcribed', label: '已转录（待逐项复核）' },
+  { value: 'source_verified', label: '来源已核对' },
+  { value: 'kitchen_verified', label: '厨房已实测' },
+]
+
+const reviewDimensions: Array<{ key: ReviewDimensionKey; label: string }> = [
+  { key: 'ingredients', label: '食材组成' },
+  { key: 'quantities', label: '用量单位' },
+  { key: 'topology', label: '工序与物料关系' },
+  { key: 'heatAndTiming', label: '火候与时间' },
+]
+
+const emptyReview: V3RecipeDataReview = {
+  overall: 'unreviewed',
+  ingredients: 'unreviewed',
+  quantities: 'unreviewed',
+  topology: 'unreviewed',
+  heatAndTiming: 'unreviewed',
+  evidence: [],
+  assumptions: [],
+}
+
+function ensureProvenance(): V3RecipeProvenance {
+  if (!recipe.value.provenance) {
+    recipe.value.provenance = { sourceType: 'other', title: '' }
+  }
+  return recipe.value.provenance
+}
+
+function ensureDataReview(): V3RecipeDataReview {
+  if (!recipe.value.dataReview) {
+    recipe.value.dataReview = {
+      overall: 'unreviewed',
+      ingredients: 'unreviewed',
+      quantities: 'unreviewed',
+      topology: 'unreviewed',
+      heatAndTiming: 'unreviewed',
+      evidence: [],
+      assumptions: [],
+    }
+  }
+  return recipe.value.dataReview
+}
+
+const provenanceSourceType = computed<RecipeSourceType>({
+  get: () => recipe.value.provenance?.sourceType || 'other',
+  set: (value) => { ensureProvenance().sourceType = value },
+})
+const provenanceTitle = computed<string>({
+  get: () => recipe.value.provenance?.title || '',
+  set: (value) => { ensureProvenance().title = value },
+})
+const provenanceAuthor = computed<string>({
+  get: () => recipe.value.provenance?.author || '',
+  set: (value) => { ensureProvenance().author = value || undefined },
+})
+const provenanceLocator = computed<string>({
+  get: () => recipe.value.provenance?.locator || '',
+  set: (value) => { ensureProvenance().locator = value || undefined },
+})
+const reviewOverall = computed<RecipeFactReviewStatus>({
+  get: () => recipe.value.dataReview?.overall || 'unreviewed',
+  set: (value) => { ensureDataReview().overall = value },
+})
+const reviewedBy = computed<string>({
+  get: () => recipe.value.dataReview?.reviewedBy || '',
+  set: (value) => { ensureDataReview().reviewedBy = value || undefined },
+})
+const reviewedAtDate = computed<string>({
+  get: () => recipe.value.dataReview?.reviewedAt?.slice(0, 10) || '',
+  set: (value) => { ensureDataReview().reviewedAt = value ? `${value}T00:00:00.000Z` : undefined },
+})
+const reviewEvidenceText = computed<string>({
+  get: () => (recipe.value.dataReview?.evidence || []).join('\n'),
+  set: (value) => {
+    ensureDataReview().evidence = value.split('\n').map((item) => item.trim()).filter(Boolean)
+  },
+})
+const reviewAssumptionsText = computed<string>({
+  get: () => (recipe.value.dataReview?.assumptions || []).join('\n'),
+  set: (value) => {
+    ensureDataReview().assumptions = value.split('\n').map((item) => item.trim()).filter(Boolean)
+  },
+})
+const reviewDimensionValues = computed(() => recipe.value.dataReview || emptyReview)
+
+function handleReviewDimensionChange(key: ReviewDimensionKey, event: Event) {
+  ensureDataReview()[key] = (event.target as HTMLSelectElement).value as RecipeFactReviewStatus
+}
+
+function reviewStatusLabel(status: RecipeFactReviewStatus): string {
+  return reviewStatusOptions.find((option) => option.value === status)?.label || status
+}
+
 // ── 实时数据校验状态 ──────────────────────────────────────────────
 const showHealthPanel = ref(false)
 
 // 实时计算数据健康度
 const liveValidation = computed(() => validateRecipe(recipe.value))
+const healthIconName = computed<AppIconName>(() => {
+  if (liveValidation.value.errors.length > 0) return 'error'
+  if (liveValidation.value.warnings.length > 0) return 'alert'
+  return 'success'
+})
 
 // 目标 C: 难度半自动计算属性
 const suggestedDifficulty = computed(() => {
@@ -956,7 +1272,7 @@ function handleUndo() {
 
   if (previousSnapshot) {
     recipe.value = JSON.parse(previousSnapshot)
-    toastMessage.value = `↩️ 已撤销上一步编辑 (仍可撤销 ${undoCount.value} 步)`
+    toastMessage.value = `已撤销上一步编辑 (仍可撤销 ${undoCount.value} 步)`
   }
 
   setTimeout(() => {
@@ -1026,7 +1342,7 @@ onMounted(async () => {
       toastMessage.value = `已加载食谱进行编辑: "${recipe.value.title}"`
       loadedExistingRecipe = true
     } else if (!listLoaded) {
-      toastMessage.value = '❌ 暂时无法确认云端食谱状态，未载入编辑内容，请稍后刷新。'
+      toastMessage.value = '暂时无法确认云端食谱状态，未载入编辑内容，请稍后刷新。'
     }
   }
 
@@ -1117,7 +1433,7 @@ function selectSkillPreset(block: V3ActionBlock, skill: CookingSkillDefinition) 
 
 function handleAutoSortIngredients() {
   recipe.value.ingredients = autoSortIngredientsByFlow(recipe.value.ingredients, recipe.value.actionBlocks)
-  toastMessage.value = '✨ 已按烹饪工序进入时序自动优化食材顺序！矩阵图将呈现严密咬合的阶梯。'
+  toastMessage.value = '已按烹饪工序进入时序自动优化食材顺序！矩阵图将呈现严密咬合的阶梯。'
 }
 
 // 工序逻辑
@@ -1271,12 +1587,32 @@ function toggleFinalBlock(e: Event) {
   const checked = (e.target as HTMLInputElement).checked
   if (checked) {
     recipe.value.finalBlock = {
-      method: 'bake',
-      label: '烘焙 bake',
-      temperatureC: 170
+      method: 'serve',
+      role: 'outcome',
+      label: '完成'
     }
   } else {
     recipe.value.finalBlock = undefined
+  }
+}
+
+function setFinalBlockRole(role: 'operation' | 'outcome') {
+  const finalBlock = recipe.value.finalBlock
+  if (!finalBlock) return
+
+  finalBlock.role = role
+  if (role === 'outcome') {
+    finalBlock.label = '完成'
+    finalBlock.temperatureC = undefined
+    finalBlock.temperatureF = undefined
+    finalBlock.durationMinMinutes = undefined
+    finalBlock.durationMaxMinutes = undefined
+    finalBlock.durationText = undefined
+    finalBlock.instructions = undefined
+    if (!finalBlock.method) finalBlock.method = 'serve'
+  } else if (finalBlock.label === '完成') {
+    finalBlock.method = 'bake'
+    finalBlock.label = '烘焙'
   }
 }
 
@@ -1307,7 +1643,7 @@ async function handleLoadSavedRecipe(e: Event) {
 // 保存逻辑
 async function handleSaveDraft() {
   if (cloudStateUnavailable.value) {
-    toastMessage.value = '❌ 云端状态尚未确认，已暂停保存；请刷新并重新连接后再试。'
+    toastMessage.value = '云端状态尚未确认，已暂停保存；请刷新并重新连接后再试。'
     return
   }
   const previousStatus = recipe.value.status
@@ -1318,8 +1654,8 @@ async function handleSaveDraft() {
     const listConfirmed = await refreshSavedRecipes()
     const score = result.validation.completenessScore
     toastMessage.value = listConfirmed
-      ? '✅ 草稿已保存（完整度 ' + score + '%）'
-      : '✅ 草稿已由云端确认保存；列表暂时无法重新读取，请稍后刷新。'
+      ? '草稿已保存（完整度 ' + score + '%）'
+      : '草稿已由云端确认保存；列表暂时无法重新读取，请稍后刷新。'
     if (result.validation.warnings.length > 0) {
       showHealthPanel.value = true
     }
@@ -1329,20 +1665,20 @@ async function handleSaveDraft() {
     if (result.syncStatus === 'conflict') {
       const remoteConfirmed = await refreshRemoteRecipeAfterConflict()
       toastMessage.value = remoteConfirmed
-        ? '❌ 保存冲突：已重新读取最新云端版本；当前编辑内容未覆盖远端，请重新确认。'
-        : '❌ 保存冲突：远端内容未被覆盖，但暂时无法重新读取最新版本。'
+        ? '保存冲突：已重新读取最新云端版本；当前编辑内容未覆盖远端，请重新确认。'
+        : '保存冲突：远端内容未被覆盖，但暂时无法重新读取最新版本。'
     } else if (result.syncStatus === 'unknown') {
       await refreshSavedRecipes()
-      toastMessage.value = `⚠️ 保存结果暂时无法确认：${result.message || '请保留当前编辑内容并稍后重试。'}`
+      toastMessage.value = `保存结果暂时无法确认：${result.message || '请保留当前编辑内容并稍后重试。'}`
     } else {
-      toastMessage.value = `❌ 保存失败：${result.message || '请检查数据健康面板或云端连接'}`
+      toastMessage.value = `保存失败：${result.message || '请检查数据健康面板或云端连接'}`
     }
   }
 }
 
 async function handleSaveComplete() {
   if (cloudStateUnavailable.value) {
-    toastMessage.value = '❌ 云端状态尚未确认，已暂停发布；请刷新并重新连接后再试。'
+    toastMessage.value = '云端状态尚未确认，已暂停发布；请刷新并重新连接后再试。'
     return
   }
   const previousStatus = recipe.value.status
@@ -1355,15 +1691,15 @@ async function handleSaveComplete() {
     if (result.syncStatus === 'conflict') {
       const remoteConfirmed = await refreshRemoteRecipeAfterConflict()
       toastMessage.value = remoteConfirmed
-        ? '❌ 发布冲突：已重新读取最新云端版本；当前编辑内容未覆盖远端。'
-        : '❌ 发布冲突：远端内容未被覆盖，但暂时无法重新读取最新版本。'
+        ? '发布冲突：已重新读取最新云端版本；当前编辑内容未覆盖远端。'
+        : '发布冲突：远端内容未被覆盖，但暂时无法重新读取最新版本。'
     } else if (result.syncStatus === 'unknown') {
       await refreshSavedRecipes()
-      toastMessage.value = `⚠️ 发布结果暂时无法确认：${result.message || '请保留当前编辑内容并稍后重试。'}`
+      toastMessage.value = `发布结果暂时无法确认：${result.message || '请保留当前编辑内容并稍后重试。'}`
     } else {
       toastMessage.value = result.validation.errors.length > 0
-        ? '❌ 发布失败：存在 ' + result.validation.errors.length + ' 个必须修复的问题，请查看下方数据健康面板'
-        : `❌ 发布失败：${result.message || '云端没有确认保存'}`
+        ? '发布失败：存在 ' + result.validation.errors.length + ' 个必须修复的问题，请查看下方数据健康面板'
+        : `发布失败：${result.message || '云端没有确认保存'}`
     }
     return
   }
@@ -1371,8 +1707,8 @@ async function handleSaveComplete() {
   if (result.contentVersion !== undefined) recipe.value.contentVersion = result.contentVersion
   const listConfirmed = await refreshSavedRecipes()
   toastMessage.value = listConfirmed
-    ? '🎉 食谱「' + recipe.value.title + '」已成功发布！'
-    : '✅ 食谱已由云端确认发布；列表暂时无法重新读取，请稍后刷新。'
+    ? '食谱「' + recipe.value.title + '」已成功发布！'
+    : '食谱已由云端确认发布；列表暂时无法重新读取，请稍后刷新。'
   showSaveModal.value = true
 }
 </script>

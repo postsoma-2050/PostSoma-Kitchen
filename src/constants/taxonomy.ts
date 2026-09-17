@@ -17,40 +17,40 @@ export interface TaxonomyOption<T extends string> {
 
 // 1. 烹饪方式 (Cooking Method)
 export const COOKING_METHODS: TaxonomyOption<CookingMethodCode>[] = [
-    { code: 'bake', label: '烘焙', labelEn: 'Bake', icon: '♨️' },
-    { code: 'stew', label: '慢炖/红烧', labelEn: 'Stew', icon: '🍲' },
-    { code: 'fry', label: '煎炒/爆炒', labelEn: 'Fry', icon: '🍳' },
-    { code: 'steam', label: '蒸制', labelEn: 'Steam', icon: '💨' },
-    { code: 'boil', label: '煮制/焯水', labelEn: 'Boil', icon: '🫕' },
-    { code: 'sear', label: '香煎/煎炙', labelEn: 'Sear', icon: '🥩' },
-    { code: 'raw', label: '冷食/免火', labelEn: 'Raw', icon: '🥗' },
-    { code: 'serve', label: '凉拌即享', labelEn: 'Serve', icon: '🥗' },
-    { code: 'other', label: '其他烹饪', labelEn: 'Other', icon: '🍽️' }
+    { code: 'bake', label: '烘焙', labelEn: 'Bake', icon: 'cake' },
+    { code: 'stew', label: '慢炖/红烧', labelEn: 'Stew', icon: 'bowl' },
+    { code: 'fry', label: '煎炒/爆炒', labelEn: 'Fry', icon: 'fire' },
+    { code: 'steam', label: '蒸制', labelEn: 'Steam', icon: 'steam' },
+    { code: 'boil', label: '煮制/焯水', labelEn: 'Boil', icon: 'temperature' },
+    { code: 'sear', label: '香煎/煎炙', labelEn: 'Sear', icon: 'fire' },
+    { code: 'raw', label: '冷食/免火', labelEn: 'Raw', icon: 'leaf' },
+    { code: 'serve', label: '凉拌即享', labelEn: 'Serve', icon: 'restaurant' },
+    { code: 'other', label: '其他烹饪', labelEn: 'Other', icon: 'restaurant' }
 ]
 
 // 2. 菜系风味 (Cuisine Style)
 export const CUISINE_STYLES: TaxonomyOption<CuisineStyleCode>[] = [
-    { code: 'chinese', label: '中式经典', labelEn: 'Chinese', icon: '🇨🇳' },
-    { code: 'western', label: '西式家常', labelEn: 'Western', icon: '🌎' },
-    { code: 'japanese_korean', label: '日韩料理', labelEn: 'Japanese/Korean', icon: '🍱' },
-    { code: 'southeast_asian', label: '东南亚风味', labelEn: 'Southeast Asian', icon: '🥥' },
-    { code: 'fusion', label: '跨界无国界', labelEn: 'Fusion', icon: '🍹' }
+    { code: 'chinese', label: '中式经典', labelEn: 'Chinese', icon: 'global' },
+    { code: 'western', label: '西式家常', labelEn: 'Western', icon: 'earth' },
+    { code: 'japanese_korean', label: '日韩料理', labelEn: 'Japanese/Korean', icon: 'bowl' },
+    { code: 'southeast_asian', label: '东南亚风味', labelEn: 'Southeast Asian', icon: 'leaf' },
+    { code: 'fusion', label: '跨界无国界', labelEn: 'Fusion', icon: 'goblet' }
 ]
 
 // 3. 烹饪难度 (Difficulty)
 export const DIFFICULTIES: TaxonomyOption<DifficultyCode>[] = [
-    { code: 'easy', label: '简单上手', labelEn: 'Easy', icon: '🟢' },
-    { code: 'medium', label: '中等进阶', labelEn: 'Medium', icon: '🟡' },
-    { code: 'hard', label: '繁复硬菜', labelEn: 'Hard', icon: '🔴' }
+    { code: 'easy', label: '简单上手', labelEn: 'Easy', icon: 'circle' },
+    { code: 'medium', label: '中等进阶', labelEn: 'Medium', icon: 'circle' },
+    { code: 'hard', label: '繁复硬菜', labelEn: 'Hard', icon: 'circle' }
 ]
 
 // 4. 用餐场合 (Occasion Tags)
 export const OCCASION_TAGS: TaxonomyOption<OccasionTagCode>[] = [
-    { code: 'weekday_quick', label: '工作日快手', labelEn: 'Weekday Quick', icon: '⚡' },
-    { code: 'family_dinner', label: '家庭晚宴', labelEn: 'Family Dinner', icon: '👨‍👩‍👧‍👦' },
-    { code: 'party_snack', label: '派对聚会', labelEn: 'Party & Snack', icon: '🥳' },
-    { code: 'solo_meal', label: '一人精致餐', labelEn: 'Solo Meal', icon: '👤' },
-    { code: 'holiday_feast', label: '节日硬菜大餐', labelEn: 'Holiday Feast', icon: '🎉' }
+    { code: 'weekday_quick', label: '工作日快手', labelEn: 'Weekday Quick', icon: 'timer' },
+    { code: 'family_dinner', label: '家庭晚宴', labelEn: 'Family Dinner', icon: 'group' },
+    { code: 'party_snack', label: '派对聚会', labelEn: 'Party & Snack', icon: 'goblet' },
+    { code: 'solo_meal', label: '一人精致餐', labelEn: 'Solo Meal', icon: 'user' },
+    { code: 'holiday_feast', label: '节日硬菜大餐', labelEn: 'Holiday Feast', icon: 'sparkles' }
 ]
 
 /**

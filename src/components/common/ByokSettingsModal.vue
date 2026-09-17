@@ -15,7 +15,7 @@
           <p class="mt-1 text-xs text-[color:var(--pk-ink-secondary)]">使用自己的 API Key，仅为候选食谱补充排序参考与理由。</p>
         </div>
         <button @click="close" type="button" class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-[color:var(--pk-ink-secondary)] hover:bg-[color:var(--pk-surface-muted)]" aria-label="关闭设置">
-          <svg viewBox="0 0 20 20" class="h-5 w-5" fill="none" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg>
+          <AppIcon name="close" :size="20" />
         </button>
       </div>
 
@@ -98,6 +98,7 @@
 
 <script setup lang="ts">
 import { ref, watch } from 'vue'
+import AppIcon from '@/components/common/AppIcon.vue'
 import { getByokConfig, saveByokConfig, type ByokConfig } from '@/services/byokService'
 
 const props = defineProps<{

@@ -100,6 +100,70 @@ export function validateRecipe(recipe: VisualRecipeV3): RecipeValidationResult {
     })
   }
 
+  // 发布状态只表示可见性；来源与事实核验必须独立记录。
+  if (!recipe.provenance?.title?.trim()) {
+    issues.push({
+      severity: 'warning',
+      code: 'MISSING_PROVENANCE',
+      field: 'provenance',
+      message: '尚未记录可复查的食谱来源，无法证明配方事实与原始资料一致',
+    })
+  }
+  if (!recipe.dataReview || !['source_verified', 'kitchen_verified'].includes(recipe.dataReview.overall)) {
+    issues.push({
+      severity: 'warning',
+      code: 'UNVERIFIED_RECIPE_FACTS',
+      field: 'dataReview.overall',
+      message: '食谱尚未完成来源逐项核对或厨房实测；发布状态不代表事实已验证',
+    })
+  }
+  if (recipe.dataReview?.overall === 'source_verified') {
+    const hasLocator = Boolean(recipe.provenance?.locator?.trim() || recipe.provenance?.url?.trim())
+    const hasReviewer = Boolean(recipe.dataReview.reviewedBy?.trim() && recipe.dataReview.reviewedAt?.trim())
+    if (!hasLocator || !hasReviewer) {
+      issues.push({
+        severity: 'error',
+        code: 'UNSUPPORTED_SOURCE_VERIFICATION',
+        field: 'dataReview',
+        message: '标记为 source_verified 必须同时提供来源页码/章节或 URL，以及审核人和审核时间',
+      })
+    }
+  }
+  if (recipe.dataReview?.overall === 'kitchen_verified') {
+    const hasReviewer = Boolean(recipe.dataReview.reviewedBy?.trim() && recipe.dataReview.reviewedAt?.trim())
+    const hasEvidence = Boolean(recipe.dataReview.evidence?.some(item => item.trim()))
+    if (!hasReviewer || !hasEvidence) {
+      issues.push({
+        severity: 'error',
+        code: 'UNSUPPORTED_KITCHEN_VERIFICATION',
+        field: 'dataReview',
+        message: '标记为 kitchen_verified 必须提供审核人、审核时间与实测证据说明',
+      })
+    }
+  }
+  if (recipe.dataReview && ['source_verified', 'kitchen_verified'].includes(recipe.dataReview.overall)) {
+    const requiredStatus = recipe.dataReview.overall
+    const reviewDimensions = [
+      ['ingredients', recipe.dataReview.ingredients],
+      ['quantities', recipe.dataReview.quantities],
+      ['topology', recipe.dataReview.topology],
+      ['heatAndTiming', recipe.dataReview.heatAndTiming],
+    ] as const
+    const inconsistentDimensions = reviewDimensions
+      .filter(([, status]) => requiredStatus === 'kitchen_verified'
+        ? status !== 'kitchen_verified'
+        : !['source_verified', 'kitchen_verified'].includes(status))
+      .map(([field]) => field)
+    if (inconsistentDimensions.length > 0) {
+      issues.push({
+        severity: 'error',
+        code: 'INCONSISTENT_REVIEW_STATUS',
+        field: 'dataReview',
+        message: `整体核验状态为 ${requiredStatus}，但以下分项尚未达到同等级：${inconsistentDimensions.join('、')}`,
+      })
+    }
+  }
+
   // ── 2. 食材列表校验 ─────────────────────────────────────────
   if (!recipe.ingredients || recipe.ingredients.length === 0) {
     issues.push({
@@ -137,6 +201,19 @@ export function validateRecipe(recipe: VisualRecipeV3): RecipeValidationResult {
         field: 'ingredients.name',
         message: `${unnamedIds.length} 项食材名称为空，请补充食材名称`,
         affectedIds: unnamedIds,
+      })
+    }
+
+    // 2a-2. 检查复合食材（禁止几个食材合并在同一行，一人一行）
+    const compoundNameIngredients = recipe.ingredients
+      .filter(i => i.name && (i.name.includes('、') || /^[^\s]+与[^\s]+/.test(i.name) || i.name.includes('各') || /^[^\s]+和[^\s]+/.test(i.name)))
+      .map(i => i.name)
+    if (compoundNameIngredients.length > 0) {
+      issues.push({
+        severity: 'error',
+        code: 'COMPOUND_INGREDIENT_NAME',
+        field: 'ingredients.name',
+        message: `禁止几个食材合并在同一行，发现复合食材：${compoundNameIngredients.join('、')}`,
       })
     }
 
@@ -204,9 +281,13 @@ export function validateRecipe(recipe: VisualRecipeV3): RecipeValidationResult {
       })
     }
 
-    // 3a. 孤立工序（无关联食材）—— 发布必须修复
+    // 3a. 孤立工序（既无新食材，也无已确认物料输入）—— 发布必须修复。
+    // 纯继续加工上游半成品的步骤允许 ingredientIds 为空，避免重复声明已经流入的原料。
     const isolatedBlockIds = recipe.actionBlocks
-      .filter(b => !b.ingredientIds || b.ingredientIds.length === 0)
+      .filter(b => {
+        if (b.ingredientIds?.length) return false
+        return !b.dependencies?.some(dependency => dependency.type === 'material' && dependency.sourceBlockId)
+      })
       .map(b => b.id)
     if (isolatedBlockIds.length > 0) {
       const labels = isolatedBlockIds
@@ -216,7 +297,7 @@ export function validateRecipe(recipe: VisualRecipeV3): RecipeValidationResult {
         severity: 'error',
         code: 'ISOLATED_ACTION_BLOCK',
         field: 'actionBlocks.ingredientIds',
-        message: `以下工序未关联任何食材，Matrix Flow 将显示占位符：${labels}`,
+        message: `以下工序既未加入食材，也没有承接已确认的上游物料：${labels}`,
         affectedIds: isolatedBlockIds,
       })
     }
@@ -381,6 +462,57 @@ export function validateRecipe(recipe: VisualRecipeV3): RecipeValidationResult {
         affectedIds: unnamedBlockIds,
       })
     }
+
+    const genericLabels = new Set(['食材准备与加工', '按原文处理', '处理食材', '工序处理', 'process'])
+    const genericBlockIds = recipe.actionBlocks
+      .filter(block => genericLabels.has((block.label || '').trim().toLowerCase()) || (block.sublabel || '').trim().toLowerCase() === 'process')
+      .map(block => block.id)
+    if (genericBlockIds.length > 0) {
+      issues.push({
+        severity: 'error',
+        code: 'GENERIC_ACTION_LABEL',
+        field: 'actionBlocks.label',
+        message: '工序标题必须表达实际动作，不得使用“食材准备与加工 / Process / 按原文处理”等占位词',
+        affectedIds: genericBlockIds,
+      })
+    }
+
+    const placeholderStateIds = recipe.actionBlocks
+      .filter(block => block.completionState === '工序完成达到待用标准')
+      .map(block => block.id)
+    if (placeholderStateIds.length > 0) {
+      issues.push({
+        severity: 'error',
+        code: 'PLACEHOLDER_COMPLETION_STATE',
+        field: 'actionBlocks.completionState',
+        message: '准出状态必须是可观察事实，不得使用“工序完成达到待用标准”占位句',
+        affectedIds: placeholderStateIds,
+      })
+    }
+
+    const compactLabel = (value = '') => value.replace(/[\s\p{P}\p{S}]/gu, '').replace(/^(继续|再次|然后|再)/, '').toLowerCase()
+    const duplicateAdjacentIds = recipe.actionBlocks
+      .filter((block, index) => index > 0 && compactLabel(block.label) === compactLabel(recipe.actionBlocks[index - 1].label))
+      .map(block => block.id)
+    if (duplicateAdjacentIds.length > 0) {
+      issues.push({
+        severity: 'error',
+        code: 'DUPLICATE_ADJACENT_ACTION',
+        field: 'actionBlocks.label',
+        message: '相邻工序不得重复显示同一动作；请写清本阶段的真实变化或合并重复节点',
+        affectedIds: duplicateAdjacentIds,
+      })
+    }
+
+    if (recipe.prerequisites?.preheat && recipe.actionBlocks[0]
+      && compactLabel(recipe.prerequisites.preheat) === compactLabel(recipe.actionBlocks[0].label)) {
+      issues.push({
+        severity: 'error',
+        code: 'PREHEAT_DUPLICATES_FIRST_ACTION',
+        field: 'prerequisites.preheat',
+        message: '前置准备栏不得复制第一工序；只记录开火前必须提前完成的泡发、腌制或预热',
+      })
+    }
   }
 
   // ── 4. 终点烹饪栏校验 ────────────────────────────────────────
@@ -397,13 +529,41 @@ export function validateRecipe(recipe: VisualRecipeV3): RecipeValidationResult {
         severity: 'warning',
         code: 'MISSING_FINAL_LABEL',
         field: 'finalBlock.label',
-        message: 'Matrix Flow 右侧终点栏标题为空，建议填写（如：大火爆炒 / 装盘即享）',
+        message: '终点标题为空；结果型终点建议填写“完成”，真实操作型终步填写具体动作',
       })
     }
 
-    // 对非冷食方式，缺少时长是警告
+    const final = recipe.finalBlock
+    const compactLabel = (value = '') => value.replace(/[\s\p{P}\p{S}]/gu, '').replace(/^(继续|再次|然后|再)/, '').toLowerCase()
+    const lastAction = recipe.actionBlocks?.[recipe.actionBlocks.length - 1]
+    if (/营养笔记|富含|营养价值/.test(final.instructions || '')) {
+      issues.push({
+        severity: 'error',
+        code: 'NUTRITION_NOTE_IN_FINAL',
+        field: 'finalBlock.instructions',
+        message: '营养与风味说明不得充当流程终点，请移入 recipe.tips 或 resultDescription',
+      })
+    }
+    if (final.role === 'outcome' && !/^(完成|制作完成|装盘完成|出锅装盘)$/.test(final.label.trim())) {
+      issues.push({
+        severity: 'error',
+        code: 'INVALID_OUTCOME_LABEL',
+        field: 'finalBlock.label',
+        message: '结果型终点只用于标记完成，不得再次显示烹饪法或风味形容词',
+      })
+    }
+    if (final.role !== 'outcome' && lastAction && compactLabel(final.label) === compactLabel(lastAction.label)) {
+      issues.push({
+        severity: 'error',
+        code: 'FINAL_REPEATS_ACTION',
+        field: 'finalBlock.label',
+        message: '操作型 finalBlock 与最后一个 actionBlock 重复；请合并工序或改成结果型终点',
+      })
+    }
+
+    // 只有真实操作型终步才需要自己的时长；结果型终点不再伪装成额外步骤。
     const method = recipe.finalBlock.method
-    if (method !== 'serve' && method !== 'raw') {
+    if (final.role !== 'outcome' && method !== 'serve' && method !== 'raw') {
       if (!recipe.finalBlock.durationText && !recipe.finalBlock.durationMinMinutes && !recipe.finalBlock.durationMaxMinutes) {
         issues.push({
           severity: 'warning',

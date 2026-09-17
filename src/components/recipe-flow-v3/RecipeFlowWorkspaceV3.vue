@@ -1,7 +1,7 @@
 <template>
   <div class="v3-workspace-container space-y-4">
     <!-- 1. 一次性轻量读图指南 Banner (首次进入自动显示或手选打开) -->
-    <FlowCardGuideBanner ref="guideBannerRef" />
+    <FlowCardGuideBanner ref="guideBannerRef" :mode="activeLayoutMode" />
 
     <!-- 2. Visual Recipe Flow Card 核心展台外壳 -->
     <div class="bg-white rounded-3xl border border-stone-200/80 shadow-sm overflow-hidden flex flex-col">
@@ -9,7 +9,7 @@
       <!-- 2.1 流程图卡控制 Header (去重瘦身，突出主流程) -->
       <div class="px-4 py-3 sm:px-5 bg-stone-50/80 border-b border-stone-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
         <div class="flex flex-wrap items-center gap-2">
-          <span class="text-base">📊</span>
+          <AppIcon name="chart" :size="19" class="text-emerald-800" />
           <span class="font-black text-stone-900 tracking-tight">Visual Recipe Flow Card</span>
 
           <!-- 模式切换：连续工序表 vs 分支流程图 -->
@@ -27,7 +27,7 @@
               ]"
               :title="canRenderStatus.canRender ? '以连续合并表格展示工序' : `拓扑限制不可用: ${canRenderStatus.reason}`"
             >
-              <span>📋</span>
+              <AppIcon name="table" :size="16" />
               <span>连续工序表</span>
             </button>
             <button
@@ -41,7 +41,7 @@
               ]"
               title="以显式分支连接展示工序流程图"
             >
-              <span>🔀</span>
+              <AppIcon name="branch" :size="16" />
               <span>分支流程图</span>
             </button>
           </div>
@@ -67,7 +67,7 @@
             class="ml-1 text-[11px] font-bold text-amber-800 hover:text-amber-950 bg-amber-50 hover:bg-amber-100 border border-amber-200/80 px-2.5 py-0.5 rounded-full transition-colors cursor-pointer inline-flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-amber-500/30"
             title="查看如何阅读 Flow Card 矩阵图"
           >
-            <span>💡</span>
+            <AppIcon name="guide" :size="16" />
             <span>读图指南</span>
           </button>
         </div>
@@ -81,7 +81,7 @@
             class="inline-flex items-center justify-center gap-1 px-3 py-2 sm:py-1.5 bg-white hover:bg-stone-100 text-stone-700 rounded-xl font-bold border border-stone-200 transition-all shadow-sm cursor-pointer"
             title="全屏放大查看完整 Flow Card 矩阵图"
           >
-            <span>🔍</span>
+            <AppIcon name="fullscreen" :size="17" />
             <span class="sm:hidden">矩阵全图</span>
             <span class="hidden sm:inline">全屏查看</span>
           </button>
@@ -94,7 +94,7 @@
             class="inline-flex items-center justify-center gap-1 px-3.5 py-2 sm:py-1.5 bg-emerald-700 hover:bg-emerald-800 disabled:opacity-50 text-white rounded-xl font-bold shadow-sm transition-all cursor-pointer"
             title="导出高清 PNG 流程卡图"
           >
-            <span>📸</span>
+            <AppIcon name="download" :size="17" />
             <span>{{ isExporting ? '导出中...' : '导出 PNG' }}</span>
           </button>
         </div>
@@ -106,7 +106,7 @@
         >
           <div class="space-y-1">
             <p class="font-bold text-stone-900 flex items-center gap-1.5">
-              <span>💡</span>
+              <AppIcon name="info" :size="16" />
               <span>为什么当前菜品以分支流程图呈现？</span>
             </p>
             <p class="text-[11px] leading-relaxed text-stone-600">
@@ -120,7 +120,7 @@
             class="text-stone-400 hover:text-stone-700 font-bold text-xs p-1"
             aria-label="关闭模式说明"
           >
-            ✕
+            <AppIcon name="close" :size="17" />
           </button>
         </div>
       </div>
@@ -139,14 +139,15 @@
     <div class="bg-white rounded-2xl border border-stone-200/80 shadow-xs p-4 sm:p-5 space-y-3">
       <div class="flex items-center justify-between cursor-pointer select-none" @click="showStepsList = !showStepsList">
         <div class="flex items-center gap-2">
-          <span class="text-base">📜</span>
+          <AppIcon name="steps" :size="18" class="text-emerald-800" />
           <h3 class="text-xs sm:text-sm font-black text-stone-900">烹饪工序操作明细 (全步骤操作指导)</h3>
           <span class="text-[10px] font-bold text-stone-500 bg-stone-100 px-2 py-0.5 rounded-full">
             共 {{ recipe.actionBlocks.length }} 步
           </span>
         </div>
-        <button type="button" class="text-xs text-stone-500 hover:text-stone-800 font-bold cursor-pointer">
-          {{ showStepsList ? '收起 ▲' : '展开详细步骤 ▼' }}
+        <button type="button" class="inline-flex items-center gap-1 text-xs text-stone-500 hover:text-stone-800 font-bold cursor-pointer">
+          <span>{{ showStepsList ? '收起' : '展开详细步骤' }}</span>
+          <AppIcon name="arrow-down" :size="15" class="transition-transform" :class="showStepsList ? 'rotate-180' : ''" />
         </button>
       </div>
 
@@ -184,8 +185,8 @@
               :key="ing.id"
               class="px-2 py-0.5 rounded bg-white border border-stone-200 text-[11px] text-stone-700"
             >
-              <strong v-if="ing.amountText" class="text-emerald-800 font-bold">{{ ing.amountText }}</strong>
-              {{ ing.name }}
+              <strong v-if="formatIngredientBadge(ing).amount" class="text-emerald-800 font-bold mr-1">{{ formatIngredientBadge(ing).amount }}</strong>
+              <span>{{ formatIngredientBadge(ing).name }}</span>
             </span>
           </div>
 
@@ -195,7 +196,7 @@
           </div>
           <div v-if="block.outputItem" class="text-[11px] text-emerald-700 font-bold flex items-center gap-1">
             <span>产出半成品：</span>
-            <span class="bg-emerald-100/90 text-emerald-900 px-2 py-0.5 rounded">{{ block.outputItem }} ➔</span>
+            <span class="inline-flex items-center gap-1 bg-emerald-100/90 text-emerald-900 px-2 py-0.5 rounded">{{ block.outputItem }}<AppIcon name="arrow-right" :size="14" /></span>
           </div>
 
           <!-- 操作说明与要点 -->
@@ -218,7 +219,7 @@
         <!-- Modal 顶栏 -->
         <div class="px-4 py-3 sm:px-6 sm:py-4 bg-stone-50 border-b border-stone-200 flex items-center justify-between gap-3 shrink-0">
           <div class="flex items-center gap-2 min-w-0">
-            <span class="text-xl">📊</span>
+            <AppIcon name="chart" :size="22" class="text-emerald-800" />
             <h3 class="text-sm sm:text-base font-black text-stone-900 truncate">{{ recipe.title }} - 完整 Visual Recipe Flow Card</h3>
           </div>
           <div class="flex items-center gap-2">
@@ -236,7 +237,7 @@
               class="ml-2 text-stone-400 hover:text-stone-700 text-xl font-bold p-1 cursor-pointer transition-colors"
               title="关闭全屏"
             >
-              ✕
+              <AppIcon name="close" :size="20" />
             </button>
           </div>
         </div>
@@ -276,7 +277,7 @@
             class="text-stone-400 hover:text-stone-700 text-lg font-bold p-1 cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-600 rounded-lg transition-colors"
             aria-label="关闭工序详情对话框"
           >
-            ✕
+            <AppIcon name="close" :size="19" />
           </button>
         </div>
 
@@ -303,8 +304,8 @@
               :key="ing.id"
               class="px-2 py-1 rounded-md bg-stone-100 text-xs text-stone-800 font-medium"
             >
-              <strong v-if="ing.amountText" class="text-emerald-700 font-bold">{{ ing.amountText }}</strong>
-              {{ ing.name }}
+              <strong v-if="formatIngredientBadge(ing).amount" class="text-emerald-700 font-bold mr-1">{{ formatIngredientBadge(ing).amount }}</strong>
+              <span>{{ formatIngredientBadge(ing).name }}</span>
             </span>
           </div>
         </div>
@@ -318,12 +319,12 @@
 
         <div v-if="selectedBlock.outputItem" class="flex items-center gap-2 text-xs font-bold text-emerald-800">
           <span>产出半成品：</span>
-          <span class="bg-emerald-100 px-2.5 py-1 rounded-lg">{{ selectedBlock.outputItem }} ➔</span>
+          <span class="inline-flex items-center gap-1 bg-emerald-100 text-emerald-900 px-2.5 py-1 rounded-lg">{{ selectedBlock.outputItem }}<AppIcon name="arrow-right" :size="14" /></span>
         </div>
 
-        <div v-if="selectedBlock.note || selectedBlock.notes" class="space-y-1.5">
-          <h4 class="text-xs font-bold text-stone-600">完整操作指导：</h4>
-          <p class="text-xs text-stone-800 leading-relaxed bg-stone-50 p-3 rounded-xl border border-stone-200">
+        <div v-if="selectedBlock.note || selectedBlock.notes" class="space-y-1">
+          <h4 class="text-xs font-bold text-stone-700">工序说明与要点：</h4>
+          <p class="text-xs text-stone-600 bg-stone-50 p-3 rounded-xl border border-stone-200/80 leading-relaxed whitespace-pre-line">
             {{ selectedBlock.note || selectedBlock.notes }}
           </p>
         </div>
@@ -335,11 +336,12 @@
 <script setup lang="ts">
 import { ref, computed, watch, nextTick, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
-import type { VisualRecipeV3, V3ActionBlock } from '@/types/recipeV3'
+import type { VisualRecipeV3, V3ActionBlock, V3Ingredient } from '@/types/recipeV3'
 import { canRenderArrangedTable, resolveLayoutMode } from '@/utils/continuousTableLayout'
 import RecipeFlowCanvasV3 from './RecipeFlowCanvasV3.vue'
 import RecipeFlowMobileV3 from './RecipeFlowMobileV3.vue'
 import FlowCardGuideBanner from './FlowCardGuideBanner.vue'
+import AppIcon from '@/components/common/AppIcon.vue'
 
 const props = defineProps<{
   recipe: VisualRecipeV3
@@ -376,6 +378,15 @@ const stepModalRef = ref<HTMLElement | null>(null)
 const modalCardRef = ref<HTMLElement | null>(null)
 const closeBtnRef = ref<HTMLButtonElement | null>(null)
 let previousActiveElement: HTMLElement | null = null
+
+function formatIngredientBadge(ing: V3Ingredient): { amount: string; name: string } {
+  const name = (ing.name || '').trim()
+  let amount = (ing.amountText || '').trim()
+  if (amount && name && amount.includes(name)) {
+    amount = amount.replace(name, '').trim()
+  }
+  return { amount, name }
+}
 
 function getBlockIngredients(block: V3ActionBlock) {
   const ids = new Set(block.ingredientIds || [])

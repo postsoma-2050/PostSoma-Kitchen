@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import type { VisualRecipeV3 } from '../../src/types/recipeV3'
-import { CHINESE_HEALTHY_RECIPES } from '../../src/data/chineseHealthyRecipes'
+import { CHINESE_HEALTHY_RECIPES as LEGACY_RECIPES } from '../../src/data/chineseHealthyRecipes.legacy-102'
 import {
   buildV3MatrixLayout,
   hasCookingHeat,
@@ -11,9 +11,10 @@ import {
 console.log('=== 开始复现 4 项已知缺陷 ===')
 
 // -------------------------------------------------------------
-// 问题 A: 物料边被误判为等待边 (cn-59)
+// 问题 A: 物料边被误判为等待边 (cn-59-qincai-niurou)
+// 注意: cn-59-qincai-niurou 仅存在于 legacy-102 数据集中
 // -------------------------------------------------------------
-const cn59 = CHINESE_HEALTHY_RECIPES.find(r => r.id === 'cn-59-qincai-niurou')!
+const cn59 = LEGACY_RECIPES.find(r => r.id === 'cn-59-qincai-niurou')!
 const layout59 = buildV3MatrixLayout(cn59)
 
 const connB2B3 = layout59.connectorLayouts.find(c => c.sourceBlockId === 'b2' && c.targetBlockId === 'b3')

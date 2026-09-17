@@ -31,7 +31,7 @@
         <h3 class="text-xs font-bold text-[color:var(--pk-ink)] uppercase tracking-wider">AI Machine Feeds (GEO)</h3>
         <ul class="space-y-1.5 text-xs text-[color:var(--pk-ink-secondary)]">
           <li><a href="/llms.txt" target="_blank" class="hover:text-[color:var(--pk-accent)]">llms.txt (LLM 索引)</a></li>
-          <li><a href="/llms-full.txt" target="_blank" class="hover:text-[color:var(--pk-accent)]">llms-full.txt (121 道食谱全量喂料)</a></li>
+          <li><a href="/llms-full.txt" target="_blank" class="hover:text-[color:var(--pk-accent)]">llms-full.txt (170 道食谱全量喂料)</a></li>
           <li><a href="/sitemap.xml" target="_blank" class="hover:text-[color:var(--pk-accent)]">sitemap.xml (站点地图)</a></li>
           <li><a href="/robots.txt" target="_blank" class="hover:text-[color:var(--pk-accent)]">robots.txt (AI 爬虫规则)</a></li>
         </ul>
@@ -41,7 +41,7 @@
     <!-- 底部版权 -->
     <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-[11px] text-[color:var(--pk-ink-subtle)]">
       <p>
-        Multi-Source Recipe Standardization Engine · Phase-1 Inaugural Collection (121 Audited V3 Recipes).
+        Multi-Source Recipe Standardization Engine · Phase-1 Inaugural Collection (170 Audited V3 Recipes).
       </p>
       <p>© 2026 PostSoma Kitchen. Made by postsoma-2050.</p>
     </div>

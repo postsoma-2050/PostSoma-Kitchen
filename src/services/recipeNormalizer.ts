@@ -45,6 +45,10 @@ export function normalizeRecipe(raw: unknown): VisualRecipeV3 {
   const rawLabel = recipe.finalBlock?.label || ''
   const legacyBackup = recipe.legacyMethodLabel || `${rawMethod} (${rawLabel})`.trim()
   const stepCount = Array.isArray(recipe.actionBlocks) ? recipe.actionBlocks.length : 0
+  const reviewStatuses = new Set(['unreviewed', 'modeled', 'transcribed', 'source_verified', 'kitchen_verified'])
+  const normalizeReviewStatus = (value: unknown) => reviewStatuses.has(String(value))
+    ? value
+    : 'unreviewed'
 
   const ingredients = Array.isArray(recipe.ingredients)
     ? recipe.ingredients.map((ingredient: Record<string, any>) => ({
@@ -164,5 +168,29 @@ export function normalizeRecipe(raw: unknown): VisualRecipeV3 {
     ingredients,
     actionBlocks,
     finalBlock,
+    provenance: recipe.provenance && typeof recipe.provenance === 'object'
+      ? {
+          ...recipe.provenance,
+          title: typeof recipe.provenance.title === 'string' ? recipe.provenance.title.trim() : '',
+          locator: typeof recipe.provenance.locator === 'string' && recipe.provenance.locator.trim()
+            ? recipe.provenance.locator.trim()
+            : undefined,
+        }
+      : undefined,
+    dataReview: {
+      overall: normalizeReviewStatus(recipe.dataReview?.overall),
+      ingredients: normalizeReviewStatus(recipe.dataReview?.ingredients),
+      quantities: normalizeReviewStatus(recipe.dataReview?.quantities),
+      topology: normalizeReviewStatus(recipe.dataReview?.topology),
+      heatAndTiming: normalizeReviewStatus(recipe.dataReview?.heatAndTiming),
+      reviewedBy: recipe.dataReview?.reviewedBy || undefined,
+      reviewedAt: recipe.dataReview?.reviewedAt || undefined,
+      evidence: Array.isArray(recipe.dataReview?.evidence)
+        ? recipe.dataReview.evidence.filter((item: unknown): item is string => typeof item === 'string' && item.trim() !== '')
+        : [],
+      assumptions: Array.isArray(recipe.dataReview?.assumptions)
+        ? recipe.dataReview.assumptions.filter((item: unknown): item is string => typeof item === 'string' && item.trim() !== '')
+        : [],
+    },
   } as VisualRecipeV3
 }

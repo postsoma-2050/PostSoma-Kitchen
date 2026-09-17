@@ -12,7 +12,7 @@
 ### 核心亮点与解决的问题：
 - **可视化烹饪流程图 (Matrix Layout Canvas)**：打破传统食谱干瘪的文字排版，将食材、调料与烹饪工序（ActionBlocks）、火候（HeatLevel）、时间动态交织渲染为直观的二维矩阵流程图。
 - **复合配方倍率换算 (Formula Scaler)**：支持万能配方/复合酱汁的动态缩放与食材实时换算。
-- **健康与营养深度建模**：内置张晔《蒸炖炒，营养师的健康食谱》102 道精细中餐食谱及 16 道美式私房菜，每道食谱具备精确的食材重量量词、准备器具规范与蒸/炖/炒/拌烹饪分类码。
+- **健康与营养深度建模**：内置张晔《蒸炖炒，营养师的健康食谱》151 道原书中餐食谱、16 道美式私房菜及 3 道核心样例；来源转录与自动拓扑建模状态分别记录，不把结构通过误称为厨房实测。
 
 ---
 
@@ -32,8 +32,8 @@
 
 ## 3. 全量食谱数据集与 VisualRecipeV3.0 规范
 
-系统内置 **121 道 100% 审计 Pass 的预置食谱**：
-- **中餐健康食谱** (`src/data/chineseHealthyRecipes.ts`)：共 **102 道**（编号 `cn-01` ~ `cn-102`）；
+系统内置 **170 道通过结构与工序语义自动审计的预置食谱**：
+- **中餐健康食谱** (`src/data/chineseHealthyRecipes.ts`)：共 **151 道**（编号 `cn-01` ~ `cn-151`）；
 - **美式私房食谱** (`src/data/homeSweetHomeRecipes.ts`)：共 **16 道**（编号 `hsh-01` ~ `hsh-16`）；
 - **V3 经典样例** (`src/data/v3Examples.ts`)：共 **3 道**。
 
@@ -73,7 +73,7 @@ npm run dev
 # 3. Vue TypeScript 强类型校验
 npm run type-check
 
-# 4. 全库 121 道静态预置食谱规范审计 (Presets Auditor)
+# 4. 全库 170 道静态预置食谱规范审计 (Presets Auditor)
 npm run audit:presets
 
 # 5. 食谱 7 维数据精准度与食材映射闭环深度巡检
@@ -99,14 +99,14 @@ npm run build
 1. **从 V1/V2 到 V3 架构大版本升级**：
    - 彻底将混乱的字符串与旧食谱格式升级为强类型 `VisualRecipeV3` 规范；
    - 引入标准 Taxonomies (9 大烹饪方式 `COOKING_METHODS` 与风味分类 `CUISINE_STYLES`)。
-2. **张晔《蒸炖炒》102 道全量食谱分批建模导入**：
-   - 按照原书目录与烹饪要点，分 4 个 Batch 将 102 道中餐食谱全部完成 3.0 标准化建模，补齐量词、工序节点与装盘指导。
+2. **张晔《蒸炖炒》151 道全量食谱分批建模导入**：
+   - 按照原书目录与烹饪要点，分 8 个 Batch 将 151 道中餐食谱完成 3.0 转录与拓扑建模；原书文本和自动建模结论保持可追溯区分。
 3. **建立数据质量与精准度双重巡检体系**：
-   - 编写 `scripts/auditPresets.ts`，生成可读与 JSON 结构化审计报告，实现 121 道食谱 **100% 审计 PASS**；
+   - 编写 `scripts/auditPresets.ts` 与 `scripts/auditProcessSemantics.ts`，分别检查 170 道食谱的结构门禁与工序语义；
    - 编写 `scripts/verifyAllRecipesIntegrity.ts`，进行 7 维数据扫描，修复所有悬空食材与分类不符问题。
-4. **Supabase Staging 云端完整接入与全量落盘**：
+4. **Supabase Staging 云端接入与版本边界**：
    - 实现了 Postgres RPC `save_recipe_with_revision` 原子操作与乐观锁版本快照表 `recipe_revisions`；
-   - 成功将全量 **121 道食谱 100% 批量迁移并落盘保存到了 Supabase 云端**。
+   - 历史 121 道版本曾批量迁移至 Supabase；当前本地 170 道版本尚未执行云端覆盖，迁移前必须先做逐字段 Dry Run 与人工审核。
 
 ---
 

@@ -21,21 +21,21 @@
       <!-- 2. Core Positioning & Engine Capabilities -->
       <section class="grid grid-cols-1 md:grid-cols-3 gap-5">
         <div class="pk-surface p-6 space-y-3">
-          <div class="text-3xl">📐</div>
+          <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-[color:var(--pk-surface-accent)] text-[color:var(--pk-accent)]"><AppIcon name="layout" :size="26" /></div>
           <h2 class="text-base font-bold text-[color:var(--pk-ink)]">Matrix Flow 矩阵流程图</h2>
           <p class="text-xs leading-relaxed text-[color:var(--pk-ink-secondary)]">
             打破传统文本干瘪的排版，将食材准备、工序节点、火候控制与时间动态交织渲染为直观的可视化二维图表。
           </p>
         </div>
         <div class="pk-surface p-6 space-y-3">
-          <div class="text-3xl">🧪</div>
+          <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-[color:var(--pk-surface-accent)] text-[color:var(--pk-accent)]"><AppIcon name="flask" :size="26" /></div>
           <h2 class="text-base font-bold text-[color:var(--pk-ink)]">多源食谱转译与计算</h2>
           <p class="text-xs leading-relaxed text-[color:var(--pk-ink-secondary)]">
             支持万能酱汁与复合配方 (Formula Scaler) 动态倍率换算，自动计算用量并标注炊具规格与蒸/炖/炒分类码。
           </p>
         </div>
         <div class="pk-surface p-6 space-y-3">
-          <div class="text-3xl">🔒</div>
+          <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-[color:var(--pk-surface-accent)] text-[color:var(--pk-accent)]"><AppIcon name="lock" :size="26" /></div>
           <h2 class="text-base font-bold text-[color:var(--pk-ink)]">隐私优先与离线引擎</h2>
           <p class="text-xs leading-relaxed text-[color:var(--pk-ink-secondary)]">
             采用 Local-First 本地优先架构，支持无网离线运行；云端可选存储采用 Supabase Postgres RPC 乐观锁防冲突。
@@ -47,7 +47,7 @@
       <section class="pk-surface p-6 md:p-8 space-y-5">
         <div>
           <h2 class="text-xl font-bold text-[color:var(--pk-ink)] flex items-center gap-2">
-            <span>🗺️</span>
+            <AppIcon name="map" :size="22" class="text-[color:var(--pk-accent)]" />
             <span>食谱来源与知识谱系 (Recipe Provenance Map)</span>
           </h2>
           <p class="text-sm leading-relaxed text-[color:var(--pk-ink-secondary)] mt-1">
@@ -59,7 +59,7 @@
           <!-- 首期示范数据集 1 -->
           <div class="border border-[color:var(--pk-border)] p-4 rounded-lg bg-[color:var(--pk-surface-muted)] space-y-2">
             <div class="flex items-center justify-between">
-              <span class="font-bold text-sm text-[color:var(--pk-ink)]">🇨🇳 中餐健康营养首发示范库</span>
+              <span class="inline-flex items-center gap-1.5 font-bold text-sm text-[color:var(--pk-ink)]"><AppIcon name="global" :size="16" />中餐健康营养首发示范库</span>
               <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-emerald-100 text-emerald-800">首期示范数据集</span>
             </div>
             <p class="text-[color:var(--pk-ink-muted)] leading-relaxed">
@@ -71,7 +71,7 @@
           <!-- 首期示范数据集 2 -->
           <div class="border border-[color:var(--pk-border)] p-4 rounded-lg bg-[color:var(--pk-surface-muted)] space-y-2">
             <div class="flex items-center justify-between">
-              <span class="font-bold text-sm text-[color:var(--pk-ink)]">🇺🇸 美式私房与烘焙示例库</span>
+              <span class="inline-flex items-center gap-1.5 font-bold text-sm text-[color:var(--pk-ink)]"><AppIcon name="global" :size="16" />美式私房与烘焙示例库</span>
               <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-blue-100 text-blue-800">首期示例数据集</span>
             </div>
             <p class="text-[color:var(--pk-ink-muted)] leading-relaxed">
@@ -93,7 +93,7 @@
       <!-- 4. E-E-A-T & Quality Review Pipeline -->
       <section class="pk-surface p-6 md:p-8 space-y-4">
         <h2 class="text-xl font-bold text-[color:var(--pk-ink)] flex items-center gap-2">
-          <span>🩺</span>
+          <AppIcon name="stethoscope" :size="22" class="text-[color:var(--pk-accent)]" />
           <span>E-E-A-T 质量审查与数据透明度</span>
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-[color:var(--pk-ink-muted)]">
@@ -115,7 +115,7 @@
       <!-- 5. Machine Feeds & AI Index (GEO) -->
       <section class="pk-surface p-6 md:p-8 space-y-4">
         <h2 class="text-xl font-bold text-[color:var(--pk-ink)] flex items-center gap-2">
-          <span>🤖</span>
+          <AppIcon name="robot" :size="22" class="text-[color:var(--pk-accent)]" />
           <span>生成式引擎与 AI 机器知识入口 (LLM Feeds)</span>
         </h2>
         <p class="text-sm leading-relaxed text-[color:var(--pk-ink-secondary)]">
@@ -123,19 +123,19 @@
         </p>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 pt-2">
           <a href="/llms.txt" target="_blank" class="p-3 border border-[color:var(--pk-border)] rounded-lg hover:border-[color:var(--pk-accent)] transition-colors block">
-            <div class="font-bold text-xs text-[color:var(--pk-ink)]">📄 llms.txt</div>
+            <div class="flex items-center gap-1.5 font-bold text-xs text-[color:var(--pk-ink)]"><AppIcon name="file" :size="16" />llms.txt</div>
             <div class="text-[11px] text-[color:var(--pk-ink-muted)] mt-1">精简版 Markdown 索引</div>
           </a>
           <a href="/llms-full.txt" target="_blank" class="p-3 border border-[color:var(--pk-border)] rounded-lg hover:border-[color:var(--pk-accent)] transition-colors block">
-            <div class="font-bold text-xs text-[color:var(--pk-ink)]">📦 llms-full.txt</div>
+            <div class="flex items-center gap-1.5 font-bold text-xs text-[color:var(--pk-ink)]"><AppIcon name="database" :size="16" />llms-full.txt</div>
             <div class="text-[11px] text-[color:var(--pk-ink-muted)] mt-1">全量食谱知识喂料</div>
           </a>
           <a href="/sitemap.xml" target="_blank" class="p-3 border border-[color:var(--pk-border)] rounded-lg hover:border-[color:var(--pk-accent)] transition-colors block">
-            <div class="font-bold text-xs text-[color:var(--pk-ink)]">🗺️ sitemap.xml</div>
+            <div class="flex items-center gap-1.5 font-bold text-xs text-[color:var(--pk-ink)]"><AppIcon name="map" :size="16" />sitemap.xml</div>
             <div class="text-[11px] text-[color:var(--pk-ink-muted)] mt-1">标准 XML 站点地图</div>
           </a>
           <a href="/robots.txt" target="_blank" class="p-3 border border-[color:var(--pk-border)] rounded-lg hover:border-[color:var(--pk-accent)] transition-colors block">
-            <div class="font-bold text-xs text-[color:var(--pk-ink)]">🤖 robots.txt</div>
+            <div class="flex items-center gap-1.5 font-bold text-xs text-[color:var(--pk-ink)]"><AppIcon name="robot" :size="16" />robots.txt</div>
             <div class="text-[11px] text-[color:var(--pk-ink-muted)] mt-1">AI 爬虫开放许可</div>
           </a>
         </div>
@@ -144,7 +144,7 @@
       <!-- 6. Academic & LLM Citation Guide -->
       <section class="pk-surface p-6 md:p-8 space-y-4">
         <h2 class="text-xl font-bold text-[color:var(--pk-ink)] flex items-center gap-2">
-          <span>📚</span>
+          <AppIcon name="book" :size="22" class="text-[color:var(--pk-accent)]" />
           <span>学术与 AI 引用规范 (Citation Guide)</span>
         </h2>
         <p class="text-sm leading-relaxed text-[color:var(--pk-ink-secondary)]">
@@ -168,6 +168,7 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
 import { updateSeoMeta } from '@/utils/seoHelper'
+import AppIcon from '@/components/common/AppIcon.vue'
 
 onMounted(() => {
   updateSeoMeta({

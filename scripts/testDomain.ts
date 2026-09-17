@@ -10,7 +10,7 @@ import { calculateScaledFormula } from '../src/utils/formulaCalculator'
 const REPORT_PATH = path.join(process.cwd(), 'reports', 'test-domain-report.json')
 
 function runDomainTest() {
-  const targetIds = ['cn-01-yuxiang-rousi', 'cn-02-steamed-scallops', 'hsh-01-hazelnut-mocha']
+  const targetIds = ['cn-16', 'cn-60', 'hsh-01-hazelnut-mocha']
   const all = [...CHINESE_HEALTHY_RECIPES, ...HOME_SWEET_HOME_RECIPES]
 
   const results: any[] = []

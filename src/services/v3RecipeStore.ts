@@ -78,7 +78,7 @@ export function clearV3Draft(): Promise<void> {
 }
 
 /**
- * 幂等导入全部正式预置数据。示例数据也纳入统一口径，共 121 道。
+ * 幂等导入全部正式预置数据。示例数据也纳入统一口径；总数由实际模块计算。
  */
 export async function importAllPresets(): Promise<{ addedCount: number; totalCount: number; failedCount: number }> {
   const [chineseModule, homeModule, examplesModule] = await Promise.all([

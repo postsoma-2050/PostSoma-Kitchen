@@ -1,5 +1,5 @@
 /**
- * PostSoma Kitchen · 全量 121 道 3.0 规范食谱 Supabase 云端同步与迁移脚本
+ * PostSoma Kitchen · 全量 VisualRecipeV3 规范食谱 Supabase 云端同步与迁移脚本
  * 
  * 运行模式:
  *   - 模拟运行 (Dry-Run): npm run migrate:all
@@ -19,7 +19,7 @@ async function runAllRecipesMigration() {
   const isDryRun = !isActualRun
 
   console.log('\n================================================================')
-  console.log('  PostSoma Kitchen · Supabase Staging 全量 121 道食谱幂等迁移脚本')
+  console.log('  PostSoma Kitchen · Supabase Staging 全量食谱幂等迁移脚本')
   console.log('================================================================\n')
 
   console.log(`• 运行模式: ${isDryRun ? '🔍 DRY-RUN (模拟运行，校验 Payload 不写入数据库)' : '🚀 ACTUAL-RUN (真实云端写入数据库)'}`)
@@ -67,6 +67,33 @@ async function runAllRecipesMigration() {
   let skipCount = 0
   const failedList: string[] = []
 
+  // 若为真实运行，预先读取云端既有食谱的封面，确保迁移不会丢失已有图片
+  const existingCoverMap = new Map<string, string>()
+  const existingTitleCoverMap = new Map<string, string>()
+
+  if (isActualRun && supabase) {
+    try {
+      const { data: existingRows } = await supabase
+        .from('recipes')
+        .select('id, title, cover_image_url, content')
+      if (existingRows) {
+        existingRows.forEach((r: any) => {
+          const cover = r.cover_image_url || r.content?.coverImageUrl
+          if (cover && typeof cover === 'string' && cover.trim()) {
+            existingCoverMap.set(r.id, cover.trim())
+            const cleanTitle = (r.title || '').replace(/^[^\u4e00-\u9fa5a-zA-Z0-9]+/, '').trim()
+            if (cleanTitle) {
+              existingTitleCoverMap.set(cleanTitle, cover.trim())
+            }
+          }
+        })
+        console.log(`• 已成功提取云端 ${existingCoverMap.size} 个既有食谱封面用于迁移继承\n`)
+      }
+    } catch (err) {
+      console.warn('• 读取云端既有封面失败，跳过封面继承:', err)
+    }
+  }
+
   for (let i = 0; i < allPresets.length; i++) {
     const raw = allPresets[i]
     const normalized = normalizeRecipe(raw)
@@ -82,8 +109,15 @@ async function runAllRecipesMigration() {
       continue
     }
 
+    const cleanTitle = (normalized.title || '').replace(/^[^\u4e00-\u9fa5a-zA-Z0-9]+/, '').trim()
+    const inheritedCover = normalized.coverImageUrl
+      || existingCoverMap.get(normalized.id)
+      || existingTitleCoverMap.get(cleanTitle)
+      || undefined
+
     const payload = {
       ...normalized,
+      coverImageUrl: inheritedCover,
       completeness_score: validation.completenessScore,
       validation_snapshot: {
         errors: validation.errors,
@@ -132,7 +166,7 @@ async function runAllRecipesMigration() {
   }
 
   if (isDryRun) {
-    console.log('\n💡 提示: 所有 121 道食谱 Dry-Run 校验完成！若要真正向 Supabase 云端落盘写入，请运行:')
+    console.log(`\n💡 提示: 所有 ${allPresets.length} 道食谱 Dry-Run 校验完成！若要真正向 Supabase 云端落盘写入，请运行:`)
     console.log('   npm run migrate:all -- --actual')
   }
   console.log('================================================================\n')

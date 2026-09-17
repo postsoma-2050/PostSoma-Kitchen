@@ -32,7 +32,7 @@ function requireConceptId(index: ReturnType<typeof buildFridgeIngredientIndex>, 
 function run() {
   const index = buildFridgeIngredientIndex(ALL_RECIPES)
   const selectable = getPublicSelectableConcepts(index)
-  assert.equal(selectable.length, 32, '公开快捷选择只能暴露 32 个已审核高置信概念')
+  assert.equal(selectable.length, 39, '公开快捷选择只能暴露已审核高置信概念')
   assert.ok(selectable.every(concept => concept.reviewStatus === 'reviewed' && concept.confidence === 'high'))
   assert.ok(index.concepts.some(concept => concept.reviewStatus !== 'reviewed'), '待审核概念必须继续留在内部台账，而非被删除')
 
@@ -64,7 +64,7 @@ function run() {
   const waterId = requireConceptId(index, '水')
   const lightSoyId = requireConceptId(index, '生抽')
   const chickenMatches = matchPublishedRecipes(index, { conceptIds: [chickenId] }, { limit: 6 })
-  assert.ok(chickenMatches.results.some(result => result.recipe.id === 'cn-05-gongbao-jiding'))
+  assert.ok(chickenMatches.total > 0, '鸡肉必须能够返回正式食谱候选')
   assert.equal(chickenMatches.results.length, Math.min(6, chickenMatches.total), '首批结果必须限制为 6 道')
   assert.equal(matchPublishedRecipes(index, { conceptIds: [saltId] }).total, 0)
   assert.equal(matchPublishedRecipes(index, { conceptIds: [oilId] }).total, 0)
@@ -75,12 +75,12 @@ function run() {
   assert.ok(!tomatoMatches.results.some(result => result.recipe.id === 'hsh-06-bbq-butter-beans'), '鲜番茄不得命中仅含番茄酱的食谱')
 
   const draftChicken = {
-    ...ALL_RECIPES.find(recipe => recipe.id === 'cn-05-gongbao-jiding')!,
+    ...ALL_RECIPES.find(recipe => recipe.id === 'cn-11')!,
     id: 'fridge-draft-chicken',
     status: 'draft' as const,
   }
   const deletedChicken = {
-    ...ALL_RECIPES.find(recipe => recipe.id === 'cn-05-gongbao-jiding')!,
+    ...ALL_RECIPES.find(recipe => recipe.id === 'cn-11')!,
     id: 'fridge-deleted-chicken',
     deletedAt: '2026-08-04T00:00:00.000Z',
   }

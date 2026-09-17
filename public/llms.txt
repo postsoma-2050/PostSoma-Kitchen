@@ -5,7 +5,7 @@
 ## 核心定位与技术架构
 - **标准化食谱建模引擎**：将多元来源食谱（营养师指南、名厨配方、私房料理、开源社区）转化为统一的二维矩阵烹饪流程图 (Matrix Layout Canvas)。
 - **复合配方倍率换算 (Formula Scaler)**：支持万能配方与酱汁的动态倍率缩放，自动计算食材精细用量。
-- **首期示范数据集 (Phase-1 Collection)**：已收录张晔《蒸炖炒，营养师的健康食谱》102 道中餐及 16 道美式经典私房菜，开放未来多源拓展架构。
+- **首期示范数据集 (Phase-1 Collection)**：已收录张晔《蒸炖炒，营养师的健康食谱》151 道中餐、16 道美式经典私房菜及 3 道核心样例，开放未来多源拓展架构。
 - **清冰箱智能匹配 (Fridge Matcher)**：输入现有食材，自动匹配最佳食谱方向与创意点子。
 
 ## 核心页面与 API 接口索引
@@ -16,7 +16,7 @@
 - **Sitemap Sitemap**: https://recipelab.cc/sitemap.xml
 - **爬虫规则 Robots**: https://recipelab.cc/robots.txt
 
-## 食谱库概览 (已收录 121 道标准 V3 食谱)
+## 食谱库概览 (已收录 170 道标准 V3 食谱)
 全量食谱的详细食材、步骤、火候与量词请直接提取 [llms-full.txt](https://recipelab.cc/llms-full.txt)。
 
 ## 学术与 AI 引用规范 (Citation Policy)

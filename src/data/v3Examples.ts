@@ -34,28 +34,32 @@ export const espressoBrowniesV3: VisualRecipeV3 = {
             ingredientIds: ['i0'],
             action: 'melt',
             label: '融化',
-            sublabel: 'melt'
+            sublabel: 'melt',
+            heatLevel: '小火'
         },
         {
             id: 'b1',
             stageIndex: 1,
             ingredientIds: ['i0', 'i1', 'i2', 'i3'],
+            dependencies: [{ sourceBlockId: 'b0', type: 'material' }],
             action: 'mix',
-            label: '混合',
+            label: '混合糖与咖啡',
             sublabel: 'mix'
         },
         {
             id: 'b2',
             stageIndex: 2,
             ingredientIds: ['i0', 'i1', 'i2', 'i3', 'i4'],
+            dependencies: [{ sourceBlockId: 'b1', type: 'material' }],
             action: 'mix',
-            label: '混合',
+            label: '打入鸡蛋',
             sublabel: 'mix'
         },
         {
             id: 'b3',
             stageIndex: 3,
             ingredientIds: ['i0', 'i1', 'i2', 'i3', 'i4', 'i5', 'i6', 'i7', 'i8'],
+            dependencies: [{ sourceBlockId: 'b2', type: 'material' }],
             action: 'fold_in',
             label: '翻拌',
             sublabel: 'fold in'
@@ -68,6 +72,21 @@ export const espressoBrowniesV3: VisualRecipeV3 = {
         temperatureF: 350,
         durationText: '30 to 40 min',
         instructions: '倒入抹油防沾的 8x8 寸方模中，烘焙至表面结壳牙签插入微湿。'
+    },
+    provenance: {
+        sourceType: 'internal_sample',
+        title: 'PostSoma Kitchen V3 Reference Prototype',
+        locator: 'v3-espresso-brownies',
+        note: '内部布局与领域模型样例，不代表来源核验或厨房实测'
+    },
+    dataReview: {
+        overall: 'modeled',
+        ingredients: 'modeled',
+        quantities: 'modeled',
+        topology: 'modeled',
+        heatAndTiming: 'modeled',
+        evidence: ['v3-espresso-brownies'],
+        assumptions: ['内部参考样例；所有事实字段仍需可靠来源或厨房实测后才能升级核验状态']
     },
     tips: [
         '使用现磨意式浓缩咖啡能极大提升风味层次',
@@ -95,19 +114,22 @@ export const hongShaoRouV3: VisualRecipeV3 = {
     },
     ingredients: [
         { id: 'i0', name: '带皮五花肉', amountText: '500 g', category: 'main' },
-        { id: 'i1', name: '生姜片 & 葱段', amountText: '20 g', category: 'produce' },
+        { id: 'i1_1', name: '生姜片', amountText: '10 g', category: 'produce' },
+        { id: 'i1_2', name: '大葱段', amountText: '10 g', category: 'produce' },
         { id: 'i2', name: '料酒', amountText: '30 mL', category: 'liquid' },
         { id: 'i3', name: '黄冰糖', amountText: '30 g', category: 'seasoning' },
         { id: 'i4', name: '植物油', amountText: '15 mL', category: 'liquid' },
-        { id: 'i5', name: '八角 & 桂皮', amountText: '2 朵 / 1 块', category: 'seasoning' },
-        { id: 'i6', name: '生抽 & 老抽', amountText: '20 mL / 10 mL', category: 'liquid' },
+        { id: 'i5_1', name: '八角', amountText: '2 朵', category: 'seasoning' },
+        { id: 'i5_2', name: '桂皮', amountText: '1 块', category: 'seasoning' },
+        { id: 'i6_1', name: '生抽', amountText: '20 mL', category: 'liquid' },
+        { id: 'i6_2', name: '老抽', amountText: '10 mL', category: 'liquid' },
         { id: 'i7', name: '沸水', amountText: '500 mL', category: 'liquid' }
     ],
     actionBlocks: [
         {
             id: 'b0',
             stageIndex: 0,
-            ingredientIds: ['i0', 'i1', 'i2'],
+            ingredientIds: ['i0', 'i1_1', 'i1_2', 'i2'],
             action: 'blanch',
             label: '冷水焯水',
             sublabel: 'blanch',
@@ -126,7 +148,11 @@ export const hongShaoRouV3: VisualRecipeV3 = {
         {
             id: 'b2',
             stageIndex: 1,
-            ingredientIds: ['i0', 'i1', 'i2', 'i3', 'i4', 'i5', 'i6', 'i7'],
+            ingredientIds: ['i0', 'i1_1', 'i1_2', 'i2', 'i3', 'i4', 'i5_1', 'i5_2', 'i6_1', 'i6_2', 'i7'],
+            dependencies: [
+                { sourceBlockId: 'b0', type: 'material', label: '焯水后五花肉' },
+                { sourceBlockId: 'b1', type: 'material', label: '糖色油底' }
+            ],
             action: 'combine',
             label: '合锅翻炒',
             sublabel: 'combine & stir',
@@ -138,6 +164,21 @@ export const hongShaoRouV3: VisualRecipeV3 = {
         label: '慢炖 Stew',
         durationText: '45 to 60 min',
         instructions: '小火盖盖慢炖 45 分钟后，开大火收汁至汤汁浓稠红亮装盘。'
+    },
+    provenance: {
+        sourceType: 'internal_sample',
+        title: 'PostSoma Kitchen V3 Reference Prototype',
+        locator: 'v3-hong-shao-rou',
+        note: '内部布局与领域模型样例，不代表来源核验或厨房实测'
+    },
+    dataReview: {
+        overall: 'modeled',
+        ingredients: 'modeled',
+        quantities: 'modeled',
+        topology: 'modeled',
+        heatAndTiming: 'modeled',
+        evidence: ['v3-hong-shao-rou'],
+        assumptions: ['内部参考样例；所有事实字段仍需可靠来源或厨房实测后才能升级核验状态']
     },
     tips: [
         '炒糖色时一定要用小火，避免炒焦发苦',
@@ -171,7 +212,8 @@ export const caesarSaladV3: VisualRecipeV3 = {
         { id: 'i5', name: '新鲜蛋黄', amountText: '1 个', category: 'main' },
         { id: 'i6', name: '新鲜柠檬汁', amountText: '1.5 Tbs (22 mL)', category: 'liquid' },
         { id: 'i7', name: '特级初榨橄榄油', amountText: '1/3 cup (80 mL)', category: 'liquid' },
-        { id: 'i8', name: '现磨黑胡椒 & 食盐', amountText: '适量', category: 'seasoning' }
+        { id: 'i8_1', name: '现磨黑胡椒', amountText: '适量', category: 'seasoning' },
+        { id: 'i8_2', name: '食盐', amountText: '适量', category: 'seasoning' }
     ],
     actionBlocks: [
         {
@@ -185,7 +227,10 @@ export const caesarSaladV3: VisualRecipeV3 = {
         {
             id: 'b1',
             stageIndex: 1,
-            ingredientIds: ['i0', 'i1', 'i2', 'i3', 'i4', 'i5', 'i6', 'i7', 'i8'],
+            ingredientIds: ['i0', 'i1', 'i2', 'i3', 'i4', 'i5', 'i6', 'i7', 'i8_1', 'i8_2'],
+            dependencies: [
+                { sourceBlockId: 'b0', type: 'material', label: '乳化凯撒酱汁' }
+            ],
             action: 'toss',
             label: '充分抓拌均匀',
             sublabel: 'toss well'
@@ -195,6 +240,21 @@ export const caesarSaladV3: VisualRecipeV3 = {
         method: 'serve',
         label: '装盘即享 Direct Serve',
         instructions: '将充分挂汁的生菜装盘，撒上烤面包丁、现磨黑胡椒与帕玛森芝士碎即可享用。'
+    },
+    provenance: {
+        sourceType: 'internal_sample',
+        title: 'PostSoma Kitchen V3 Reference Prototype',
+        locator: 'v3-caesar-salad',
+        note: '内部布局与领域模型样例，不代表来源核验或厨房实测'
+    },
+    dataReview: {
+        overall: 'modeled',
+        ingredients: 'modeled',
+        quantities: 'modeled',
+        topology: 'modeled',
+        heatAndTiming: 'modeled',
+        evidence: ['v3-caesar-salad'],
+        assumptions: ['内部参考样例；所有事实字段仍需可靠来源或厨房实测后才能升级核验状态']
     },
     tips: [
         '生菜洗净后务必彻底吸干水分，否则酱汁无法挂附',

@@ -12,7 +12,7 @@
       <div class="px-6 py-5 bg-gradient-to-r from-amber-900 to-stone-900 text-white flex items-start justify-between relative overflow-hidden">
         <div class="relative z-10 space-y-1">
           <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-amber-400/20 text-amber-200 border border-amber-400/30 rounded-full text-xs font-bold backdrop-blur-md">
-            <span>🥣</span>
+            <AppIcon name="bowl" :size="16" />
             <span>Sub-Recipe Formula 复合配方</span>
           </div>
           <h3 class="text-xl font-black text-white tracking-tight">
@@ -31,7 +31,7 @@
           class="relative z-10 text-stone-300 hover:text-white text-xl font-bold p-1 cursor-pointer transition-colors"
           title="关闭"
         >
-          ✕
+          <AppIcon name="close" :size="20" />
         </button>
       </div>
 
@@ -42,7 +42,7 @@
         <div class="space-y-2">
           <div class="flex items-center justify-between text-xs font-bold text-stone-900 px-1">
             <span class="flex items-center gap-1">
-              <span>⚖️</span>
+              <AppIcon name="scale" :size="16" />
               <span>原始配料定量表</span>
             </span>
             <span class="text-stone-400 font-normal">共 {{ formula.items.length }} 项原料</span>
@@ -73,7 +73,7 @@
         <!-- 2. 调制步骤顺序 -->
         <div v-if="formula.steps && formula.steps.length > 0" class="space-y-2">
           <div class="text-xs font-bold text-stone-900 flex items-center gap-1 px-1">
-            <span>🥣</span>
+            <AppIcon name="bowl" :size="16" />
             <span>调制顺序与步骤</span>
           </div>
           <div class="bg-amber-50/50 p-4 rounded-2xl border border-amber-200/60 text-xs space-y-2">
@@ -89,14 +89,15 @@
         <!-- 3. 使用时机与小贴士 -->
         <div v-if="formula.timingTip" class="bg-emerald-50/60 p-4 rounded-2xl border border-emerald-200/80 text-xs space-y-1">
           <div class="font-bold text-emerald-950 flex items-center gap-1">
-            <span>💡 烹入使用时机与秘诀</span>
+            <AppIcon name="lightbulb" :size="16" />
+            <span>烹入使用时机与秘诀</span>
           </div>
           <p class="text-emerald-900 leading-relaxed font-medium">{{ formula.timingTip }}</p>
         </div>
 
         <!-- 4. 【Matrix Flow 语义联动提示】 -->
         <div v-if="actionStageInfo" class="bg-stone-100 p-3.5 rounded-2xl border border-stone-200 text-xs flex items-center justify-between text-stone-600">
-          <span class="font-bold text-stone-900">🔗 Matrix Flow 联动指示:</span>
+          <span class="inline-flex items-center gap-1.5 font-bold text-stone-900"><AppIcon name="link" :size="16" />Matrix Flow 联动指示:</span>
           <span class="font-mono text-emerald-800 font-semibold">{{ actionStageInfo }}</span>
         </div>
 
@@ -121,6 +122,7 @@
 import { computed } from 'vue'
 import type { SubRecipeFormula } from '@/types/formula'
 import type { VisualRecipeV3 } from '@/types/recipeV3'
+import AppIcon from '@/components/common/AppIcon.vue'
 
 const props = defineProps<{
   formula: SubRecipeFormula | null

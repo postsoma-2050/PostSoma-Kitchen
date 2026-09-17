@@ -36,7 +36,7 @@ function getFirstLineYOffset(block: V3LayoutActionBlock): string {
     const lCount = block.labelLines.length
     const sCount = block.sublabelLines.length
     const gCount = block.guidanceLines?.length || 0
-    const hasHeat = Boolean(block.block.heatLevel || block.block.durationMinutes)
+    const hasHeat = Boolean(block.block.heatLevel || block.block.durationText || block.block.durationMinutes)
     const equipmentCount = block.equipmentLines.length
 
     const totalLines = lCount + sCount + gCount + (hasHeat ? 1 : 0) + equipmentCount
@@ -231,8 +231,9 @@ export function generatePageSvgString(
     xml += `    <marker id="flow-arrow-order-${markerSuffix}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">\n`
     xml += `      <path d="M 0 1 L 9 5 L 0 9 z" fill="#64748B" />\n`
     xml += `    </marker>\n`
+    xml += `    <filter id="flow-card-shadow-${markerSuffix}" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="1.5" stdDeviation="2" flood-color="#0F172A" flood-opacity="0.09" /></filter>\n`
     xml += `  </defs>\n`
-    xml += `  <rect x="16" y="16" width="${w - 32}" height="${h - 32}" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />\n`
+    xml += `  <rect x="16" y="16" width="${w - 32}" height="${h - 32}" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />\n`
 
     // 1. Header 横栏 (容器大小与预热处理)
     if (baseLayout.hasHeader) {
@@ -257,6 +258,13 @@ export function generatePageSvgString(
         }
         xml += `  </g>\n`
     }
+
+    xml += `  <g class="v3-stage-bands">\n`
+    baseLayout.stageBands.forEach(band => {
+        const fill = band.colIndex % 2 === 0 ? '#F8FAFC' : '#FCFDFD'
+        xml += `    <rect x="${band.x}" y="${band.y}" width="${band.w}" height="${band.h}" rx="12" fill="${fill}" />\n`
+    })
+    xml += `  </g>\n`
 
     // 2. 左侧食材行 (整洁表格单元格)
     const fontSize = isCompact ? "10.5" : "12"
@@ -288,20 +296,20 @@ export function generatePageSvgString(
             } else {
                 xml += `    <line x1="${wp.startX}" y1="${wp.startY}" x2="${wp.endX}" y2="${wp.startY}" stroke="#CBD5E1" stroke-width="1.3" stroke-dasharray="3 3" />\n`
             }
-            xml += `    <circle cx="${wp.endX - 3}" cy="${wp.startY}" r="2" fill="#94A3B8" />\n`
+            xml += `    <circle cx="${wp.endX}" cy="${wp.startY}" r="2.25" fill="#059669" />\n`
         })
         xml += `  </g>\n`
     }
 
-    // 2.5 显式工序依赖分支连接线
-    const explicitConnectors = (baseLayout.connectorLayouts || []).filter(c => c.explicit)
-    if (explicitConnectors.length > 0) {
+    // 2.5 全部工序流转：包含显式依赖、兼容推导与终点连接
+    const flowConnectors = baseLayout.connectorLayouts || []
+    if (flowConnectors.length > 0) {
         xml += `  <g class="v3-flow-connectors">\n`
-        explicitConnectors.forEach(conn => {
+        flowConnectors.forEach(conn => {
             const strokeColor = conn.isOrder ? '#64748B' : (conn.type === 'legacy' ? '#94A3B8' : '#059669')
             const dashAttr = conn.isOrder ? ' stroke-dasharray="5 4"' : (conn.type === 'legacy' ? ' stroke-dasharray="4 3"' : '')
             const markerAttr = conn.isOrder ? ` marker-end="url(#flow-arrow-order-${markerSuffix})"` : ` marker-end="url(#flow-arrow-material-${markerSuffix})"`
-            xml += `    <path d="${conn.pathD}" fill="none" stroke="${strokeColor}"${dashAttr} stroke-width="1.8"${markerAttr} />\n`
+            xml += `    <path d="${conn.pathD}" fill="none" stroke="${strokeColor}"${dashAttr} stroke-width="${conn.isMaterial ? '2.2' : '1.6'}" stroke-linecap="round" stroke-linejoin="round"${markerAttr} />\n`
             if (conn.label && conn.midPoint) {
                 const labelWidth = conn.label.length * 11 + 16
                 const badgeFill = conn.isOrder ? '#F1F5F9' : '#ECFDF5'
@@ -316,13 +324,14 @@ export function generatePageSvgString(
         xml += `  </g>\n`
     }
 
-    // 3. 中间矩阵工序块：内容决定高度，无缝拼接与导轨互补
+    // 3. 拓扑工序节点：内容决定高度，食材跨度由输入总线表达
     xml += `  <g class="v3-actions-group">\n`
     baseLayout.actionBlockLayouts.forEach(lb => {
         const isPlaceholder = lb.isEmptyPlaceholder
 
         xml += `    <g transform="translate(${lb.x}, ${lb.y})">\n`
-        xml += `      <rect width="${lb.w}" height="${lb.h}" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2" />\n`
+        xml += `      <rect width="${lb.w}" height="${lb.h}" rx="10" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.25" filter="url(#flow-card-shadow-${markerSuffix})" />\n`
+        xml += `      <rect width="4" height="${lb.h}" rx="2" fill="#10B981" />\n`
         xml += `      <g transform="translate(${lb.w / 2}, ${lb.h / 2})">\n`
         if (!isPlaceholder) {
             xml += `        <text text-anchor="middle" dominant-baseline="central">\n`
@@ -340,8 +349,9 @@ export function generatePageSvgString(
             })
 
             // 火候/时长
-            if (lb.block.heatLevel || lb.block.durationMinutes) {
-                const heatText = escapeXml(`${lb.block.heatLevel ? `${lb.block.heatLevel} ` : ''}${lb.block.durationMinutes ? `${lb.block.durationMinutes}m` : ''}`.trim())
+            if (lb.block.heatLevel || lb.block.durationText || lb.block.durationMinutes) {
+                const durationText = lb.block.durationText || (lb.block.durationMinutes ? `${lb.block.durationMinutes}m` : '')
+                const heatText = escapeXml(`${lb.block.heatLevel ? `${lb.block.heatLevel} ` : ''}${durationText}`.trim())
                 xml += `          <tspan x="0" dy="1.35em" font-size="10" font-weight="700" fill="#B45309">${heatText}</tspan>\n`
             }
 
@@ -362,24 +372,27 @@ export function generatePageSvgString(
     xml += `  <g class="v3-intake-rails">\n`
     baseLayout.intakeRailSegments.forEach(rail => {
         xml += `    <line id="${rail.id}" x1="${rail.x}" y1="${rail.startY}" x2="${rail.x}" y2="${rail.endY}" stroke="#059669" stroke-width="2.5" stroke-linecap="round" />\n`
+        xml += `    <path d="${rail.pathD}" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" />\n`
+        xml += `    <circle cx="${rail.portX}" cy="${rail.portY}" r="3.5" fill="#FFFFFF" stroke="#059669" stroke-width="2" />\n`
     })
     baseLayout.ingredientIntakeFeeds.forEach(feed => {
-        xml += `    <line id="${feed.id}" x1="${feed.feedStartX}" y1="${feed.pinY}" x2="${feed.pinX}" y2="${feed.pinY}" stroke="#059669" stroke-width="2" />\n`
-        xml += `    <circle cx="${feed.pinX}" cy="${feed.pinY}" r="3" fill="#059669" />\n`
+        xml += `    <circle id="${feed.id}" cx="${feed.pinX}" cy="${feed.pinY}" r="2.75" fill="#059669" />\n`
     })
     xml += `  </g>\n`
 
-    // 4. 最右侧最终完成区 (跨满全部食材行)
+    // 4. 最右侧最终完成区；结果型终点保持紧凑并由末端箭头接入
     const fbLayout = baseLayout.finalBlockLayout
     const fb = fbLayout.finalBlock
     const isPlaceholder = fbLayout.isPlaceholder
 
     xml += `  <g transform="translate(${fbLayout.x}, ${fbLayout.y})">\n`
-    xml += `    <rect width="${fbLayout.w}" height="${fbLayout.h}" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" />\n`
+    xml += `    <rect width="${fbLayout.w}" height="${fbLayout.h}" rx="${fbLayout.isOutcomeOnly ? 12 : 8}" fill="${fbLayout.isOutcomeOnly ? '#ECFDF5' : '#FFFFFF'}" stroke="${fbLayout.isOutcomeOnly ? '#10B981' : '#CBD5E1'}" stroke-width="1.2" filter="url(#flow-card-shadow-${markerSuffix})" />\n`
     xml += `    <g transform="translate(${fbLayout.w / 2}, ${fbLayout.h / 2})">\n`
 
     if (isPlaceholder) {
         xml += `      <text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="bold" fill="#6B7280" y="-10">完成方式待补充</text>\n`
+    } else if (fbLayout.isOutcomeOnly) {
+        xml += `      <text text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="800" fill="#047857">完成</text>\n`
     } else {
         const hasTemp = !isColdFinal && Boolean(fb.temperatureF || fb.temperatureC)
         const labelY = hasTemp ? -16 : -10

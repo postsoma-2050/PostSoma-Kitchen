@@ -379,6 +379,7 @@ export function buildV3ContinuousTableLayout(
   const ingredients = recipe.ingredients || []
   const actionBlocks = recipe.actionBlocks || []
   const finalBlock = recipe.finalBlock
+  const renderFinalAsProcess = Boolean(finalBlock && finalBlock.role !== 'outcome')
 
   const ingredientRowMap = new Map<string, number>()
   ingredients.forEach((ing, index) => {
@@ -394,9 +395,14 @@ export function buildV3ContinuousTableLayout(
       nameText = parenMatch[1].trim()
       prepText = parenMatch[2].trim()
     }
+    let amountText = (ing.amountText || '').trim()
+    // 防御抑制：如果 amountText 与 nameText 存在包含/重复，避免页面渲染出 "10g 泡椒 泡椒" 两次
+    if (amountText && nameText && amountText.includes(nameText)) {
+      amountText = amountText.replace(nameText, '').trim()
+    }
     return {
       ingredient: ing,
-      amountText: (ing.amountText || '').trim(),
+      amountText,
       nameText,
       prepText,
     }
@@ -503,7 +509,8 @@ export function buildV3ContinuousTableLayout(
       const labelW = measureTextWidth(b.label || '', 14, true)
       const sublabelW = b.sublabel ? measureTextWidth(b.sublabel, 11, false) : 0
       const heatW = b.heatLevel ? measureTextWidth(b.heatLevel, 10, true) + 20 : 0
-      const durW = b.durationMinutes ? measureTextWidth(`${b.durationMinutes}m`, 10, true) + 14 : 0
+      const actionDurationText = b.durationText || (b.durationMinutes ? `${b.durationMinutes}m` : '')
+      const durW = actionDurationText ? measureTextWidth(actionDurationText, 10, true) + 14 : 0
       const badgeW = heatW + (heatW && durW ? 4 : 0) + durW
       const needed = Math.max(labelW, sublabelW, badgeW) + 24
       if (needed > maxW) maxW = needed
@@ -523,7 +530,7 @@ export function buildV3ContinuousTableLayout(
       let neededH = 20 // 基础内边距
       neededH += labelLines.length * 18
       neededH += sublabelLines.length * 14
-      if (b.heatLevel || b.durationMinutes || b.equipment) neededH += 16
+      if (b.heatLevel || b.durationText || b.durationMinutes || b.equipment) neededH += 16
       if (b.notes?.includes('盛出') || b.label?.includes('盛出')) neededH += 16
 
       const cov = getBlockRowCoverage(b.id)
@@ -544,8 +551,8 @@ export function buildV3ContinuousTableLayout(
   }
 
   // 终点列宽度
-  let finalColWidth = 140
-  if (finalBlock) {
+  let finalColWidth = 0
+  if (renderFinalAsProcess && finalBlock) {
     const finalLabelW = measureTextWidth(finalBlock.label || '出锅装盘', 15, true) + 28
     const durationWidth = measureTextWidth(finalBlock.durationText || '', 11, true) + 24
     finalColWidth = Math.max(140, finalLabelW, durationWidth)
@@ -720,7 +727,7 @@ export function buildV3ContinuousTableLayout(
         label: b.label || '',
         sublabel: b.sublabel,
         heatLevel: b.heatLevel,
-        durationText: b.durationMinutes ? `${b.durationMinutes}m` : undefined,
+        durationText: b.durationText || (b.durationMinutes ? `${b.durationMinutes}m` : undefined),
         equipment: b.equipment,
         labelLines,
         sublabelLines,
@@ -813,7 +820,7 @@ export function buildV3ContinuousTableLayout(
   }
 
   // 11. 成品单元格 (Final Outcome Cell)
-  if (finalBlock) {
+  if (renderFinalAsProcess && finalBlock) {
     const finalStartRow = 0
     const finalEndRow = ingredients.length - 1
     let finalH = 0

@@ -43,10 +43,7 @@
           <div class="mt-6">
             <label for="ingredient-search" class="text-sm font-bold text-[color:var(--pk-ink)]">搜索可选食材</label>
             <div class="relative mt-2">
-              <svg viewBox="0 0 20 20" class="pointer-events-none absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-[color:var(--pk-ink-muted)]" fill="none" aria-hidden="true">
-                <circle cx="8.5" cy="8.5" r="5" stroke="currentColor" stroke-width="1.5" />
-                <path d="m12.5 12.5 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-              </svg>
+              <AppIcon name="search" :size="20" class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[color:var(--pk-ink-muted)]" />
               <input
                 id="ingredient-search"
                 v-model="ingredientSearch"
@@ -119,7 +116,7 @@
                 @click="toggleConcept(concept.id)"
               >
                 <span>{{ concept.displayName }}</span>
-                <span aria-hidden="true" class="text-base">{{ selectedConceptIds.includes(concept.id) ? '−' : '+' }}</span>
+                <AppIcon :name="selectedConceptIds.includes(concept.id) ? 'subtract' : 'add'" :size="16" />
               </button>
             </div>
 
@@ -140,9 +137,7 @@
                 <span class="block text-sm font-bold text-[color:var(--pk-ink)]">常备调味</span>
                 <span class="mt-0.5 block text-xs text-[color:var(--pk-ink-muted)]">盐、油、水、生抽等不会默认拥有，也不能单独形成候选</span>
               </span>
-              <svg viewBox="0 0 20 20" :class="['h-5 w-5 shrink-0 transition-transform motion-reduce:transition-none', pantryOpen ? 'rotate-180' : '']" fill="none" aria-hidden="true">
-                <path d="m5 8 5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
+              <AppIcon name="arrow-down" :size="20" :class="['shrink-0 transition-transform motion-reduce:transition-none', pantryOpen ? 'rotate-180' : '']" />
             </button>
             <div v-show="pantryOpen" id="pantry-ingredients" class="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
               <button
@@ -159,7 +154,7 @@
                 @click="toggleConcept(concept.id)"
               >
                 <span>{{ concept.displayName }}</span>
-                <span aria-hidden="true" class="text-base">{{ selectedConceptIds.includes(concept.id) ? '−' : '+' }}</span>
+                <AppIcon :name="selectedConceptIds.includes(concept.id) ? 'subtract' : 'add'" :size="16" />
               </button>
               <p v-if="visiblePantryConcepts.length === 0" class="col-span-full text-sm text-[color:var(--pk-ink-muted)]">当前搜索没有匹配的常备调味。</p>
             </div>
@@ -412,6 +407,7 @@ import { FRIDGE_CATEGORY_BY_ID, FRIDGE_CATEGORY_PRESENTATIONS } from '@/config/f
 import FridgeRecipeMatchCard from '@/components/fridge/FridgeRecipeMatchCard.vue'
 import FridgeAiByokConfigPanel from '@/components/fridge/FridgeAiByokConfigPanel.vue'
 import FridgeAiSuggestionCard from '@/components/fridge/FridgeAiSuggestionCard.vue'
+import AppIcon from '@/components/common/AppIcon.vue'
 import { getRecipeDisplayTitle } from '@/utils/recipeCardPresentation'
 
 const RESULT_BATCH_SIZE = 6
@@ -457,7 +453,7 @@ onMounted(() => {
   void loadPublishedIngredientIndex()
   updateSeoMeta({
     title: '按食材找方向 · 清冰箱智能配菜',
-    description: '输入你手头的食材，自动检索 PostSoma Kitchen 121 道精细中餐与私房食谱，看哪些料理真正用得了这些食材。',
+    description: '输入你手头的食材，自动检索 PostSoma Kitchen 170 道结构化中餐、私房菜与核心样例，看哪些料理真正用得了这些食材。',
     canonicalUrl: 'https://recipelab.cc/fridge',
     jsonLdSchemas: [
       {

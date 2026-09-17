@@ -1,0 +1,10 @@
+export type AppIconName =
+  | 'add' | 'alert' | 'archive' | 'arrow-down' | 'arrow-left' | 'arrow-right' | 'arrow-right-up'
+  | 'back' | 'book' | 'bowl' | 'branch' | 'cake' | 'camera' | 'chart' | 'check' | 'circle'
+  | 'close' | 'database' | 'delete' | 'download' | 'draft' | 'earth' | 'edit' | 'error'
+  | 'external-link' | 'eye' | 'file' | 'filter' | 'fire' | 'flask' | 'flow' | 'focus'
+  | 'fullscreen' | 'global' | 'goblet' | 'group' | 'guide' | 'history' | 'info'
+  | 'knife' | 'layout' | 'leaf' | 'lightbulb' | 'link' | 'loader' | 'lock' | 'magic'
+  | 'map' | 'menu' | 'restaurant' | 'robot' | 'save' | 'scale' | 'search' | 'seedling'
+  | 'settings' | 'shield' | 'shield-check' | 'sparkles' | 'steam' | 'steps' | 'stethoscope'
+  | 'subtract' | 'success' | 'swap' | 'table' | 'temperature' | 'timer' | 'upload' | 'user' | 'zoom-in'

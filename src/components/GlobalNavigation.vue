@@ -47,10 +47,7 @@
         :aria-label="showMobileMenu ? '关闭导航菜单' : '打开导航菜单'"
         @click="showMobileMenu = !showMobileMenu"
       >
-        <svg viewBox="0 0 20 20" class="h-5 w-5" fill="none" aria-hidden="true">
-          <path v-if="!showMobileMenu" d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-          <path v-else d="m5 5 10 10M15 5 5 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-        </svg>
+        <AppIcon :name="showMobileMenu ? 'close' : 'menu'" :size="20" />
         <span>导航</span>
       </button>
     </div>
@@ -90,6 +87,7 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
+import AppIcon from '@/components/common/AppIcon.vue'
 
 const route = useRoute()
 const showMobileMenu = ref(false)

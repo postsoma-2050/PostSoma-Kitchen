@@ -1,6 +1,11 @@
 import assert from 'node:assert/strict'
 import { hongShaoRouV3 } from '../../src/data/v3Examples'
-import { buildCoverPublicationPlan, resolveConfirmedRecipeCover } from '../../src/domain/recipeCoverPublication'
+import {
+  buildCoverPublicationPlan,
+  filterRecipesWithConfirmedCovers,
+  filterPubliclyBrowsableRecipes,
+  resolveConfirmedRecipeCover,
+} from '../../src/domain/recipeCoverPublication'
 import { normalizeRecipe } from '../../src/services/recipeNormalizer'
 
 function run() {
@@ -31,7 +36,40 @@ function run() {
   assert.deepEqual(plan.toDraft.map(item => item.recipe.id), ['missing-published', 'unsafe-cover'])
   assert.equal(plan.unchanged.length, 2)
 
-  console.log('✅ 封面发布状态计划测试通过：正式字段优先、HTTPS/站内路径、草稿/发布与回收站边界均正确')
+  const publicBrowseRecipes = filterRecipesWithConfirmedCovers([
+    publishedWithCover,
+    draftWithCover,
+    publishedWithoutCover,
+    unsafeCover,
+    deleted,
+  ])
+  assert.deepEqual(
+    publicBrowseRecipes.map(recipe => recipe.id),
+    ['covered-published'],
+    '公开浏览入口必须排除草稿、无封面、非法封面和回收站记录',
+  )
+
+  const failedCoverIds = new Set(['covered-published'])
+  assert.deepEqual(
+    filterRecipesWithConfirmedCovers(publicBrowseRecipes, failedCoverIds).map(recipe => recipe.id),
+    [],
+    '图片运行时加载失败后必须从当前浏览结果中移除',
+  )
+
+  const allBrowsable = filterPubliclyBrowsableRecipes([
+    publishedWithCover,
+    draftWithCover,
+    publishedWithoutCover,
+    unsafeCover,
+    deleted,
+  ])
+  assert.deepEqual(
+    allBrowsable.map(recipe => recipe.id),
+    ['covered-published', 'missing-published', 'unsafe-cover'],
+    '全量公开浏览入口必须包含所有已发布且未删除的食谱，无封面或非HTTPS封面通过占位图兜底渲染',
+  )
+
+  console.log('✅ 封面发布状态测试通过：正式字段优先、公开列表隐藏缺图/坏图、草稿/发布与回收站边界均正确，全量公开浏览准入正确')
 }
 
 run()

@@ -35,7 +35,7 @@ function run() {
 
   assert.equal(parseRecipeBrowseQuery({ page: '-2', method: 'invalid' }).page, 1)
   assert.equal(parseRecipeBrowseQuery({ page: '-2', method: 'invalid' }).method, 'all')
-  assert.equal(clampRecipePage(99, 121), 14)
+  assert.equal(clampRecipePage(99, 170), 19)
   assert.equal(clampRecipePage(4, 0), 1)
   assert.deepEqual(getPaginationItems(1, 13), [1, 2, 3, 4, 5, 'ellipsis-right', 13])
   assert.deepEqual(getPaginationItems(7, 13), [1, 'ellipsis-left', 6, 7, 8, 'ellipsis-right', 13])

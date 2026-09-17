@@ -50,7 +50,7 @@ function comparableRecipeContent(recipe: VisualRecipeV3): string {
  */
 export class SupabaseRecipeRepository implements IRecipeRepository {
     private localFallback = new LocalRecipeRepository({
-        seedPresets: false,
+        seedPresets: true,
         recipesKey: 'what-to-eat-v3-supabase-cache',
     })
     private shadowReadEnabled = false
@@ -294,7 +294,28 @@ export class SupabaseRecipeRepository implements IRecipeRepository {
                 return localData // Shadow read 仍返回本地数据
             }
 
-            return cloudRecipes
+            const localMap = new Map(localData.map(r => [r.id, r]))
+            const mergedMap = new Map<string, VisualRecipeV3>()
+
+            // 1. 先注入所有本地最新原子化预置食谱
+            for (const local of localData) {
+                mergedMap.set(local.id, local)
+            }
+
+            // 2. 将云端数据与本地做双向版本仲裁 (本地最新审计优先，但继承云端已有的封面图片)
+            for (const cloud of cloudRecipes) {
+                const local = localMap.get(cloud.id)
+                if (local && this.shouldPreferLocalPreset(local, cloud)) {
+                    mergedMap.set(cloud.id, {
+                        ...local,
+                        coverImageUrl: local.coverImageUrl || cloud.coverImageUrl,
+                    })
+                } else {
+                    mergedMap.set(cloud.id, cloud)
+                }
+            }
+
+            return Array.from(mergedMap.values())
         } catch (e) {
             console.error('[SupabaseRepo] 异常，降级读取本地:', e)
             return localData
@@ -322,7 +343,10 @@ export class SupabaseRecipeRepository implements IRecipeRepository {
             if (error || !data) return localPreset
             const cloudRecipe = this.normalizeRow(data as RecipeRow)
             if (this.shouldPreferLocalPreset(localPreset, cloudRecipe)) {
-                return localPreset!
+                return {
+                    ...localPreset!,
+                    coverImageUrl: localPreset!.coverImageUrl || cloudRecipe.coverImageUrl,
+                }
             }
             return cloudRecipe
         } catch (error) {
@@ -334,7 +358,7 @@ export class SupabaseRecipeRepository implements IRecipeRepository {
     private shouldPreferLocalPreset(local: VisualRecipeV3 | null | undefined, cloud: VisualRecipeV3 | null | undefined): boolean {
         if (!local) return false
         if (!cloud) return true
-        const CODEBASE_AUDIT_EPOCH = new Date('2026-09-14T00:00:00.000Z').getTime()
+        const CODEBASE_AUDIT_EPOCH = new Date('2026-09-16T12:00:00.000Z').getTime()
         const localTime = local.updatedAt ? new Date(local.updatedAt).getTime() : CODEBASE_AUDIT_EPOCH
         const effectiveLocalTime = Math.max(localTime, CODEBASE_AUDIT_EPOCH)
         const cloudTime = cloud.updatedAt ? new Date(cloud.updatedAt).getTime() : 0
@@ -364,7 +388,10 @@ export class SupabaseRecipeRepository implements IRecipeRepository {
                 const cloud = this.normalizeRow(row as RecipeRow)
                 const local = localMap.get(cloud.id)
                 if (this.shouldPreferLocalPreset(local, cloud)) {
-                    return local!
+                    return {
+                        ...local!,
+                        coverImageUrl: local!.coverImageUrl || cloud.coverImageUrl,
+                    }
                 }
                 return cloud
             })
@@ -419,7 +446,10 @@ export class SupabaseRecipeRepository implements IRecipeRepository {
 
             const cloudRecipe = this.normalizeRow(data as RecipeRow)
             if (this.shouldPreferLocalPreset(localPreset, cloudRecipe)) {
-                return localPreset!
+                return {
+                    ...localPreset!,
+                    coverImageUrl: localPreset!.coverImageUrl || cloudRecipe.coverImageUrl,
+                }
             }
             return cloudRecipe
         } catch (e) {

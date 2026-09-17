@@ -13,9 +13,7 @@
         aria-label="关闭临时 AI 配置"
         @click="close"
       >
-        <svg viewBox="0 0 20 20" class="h-5 w-5" fill="none" aria-hidden="true">
-          <path d="m5 5 10 10M15 5 5 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-        </svg>
+        <AppIcon name="close" :size="20" />
       </button>
     </div>
 
@@ -78,6 +76,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import AppIcon from '@/components/common/AppIcon.vue'
 import type { OpenAiCompatibleByokConfigInput } from '@/domain/fridge'
 
 defineProps<{

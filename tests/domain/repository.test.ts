@@ -27,8 +27,10 @@ async function runRepositoryTests() {
   // 1. 测试基础读取与预置食谱初始化
   console.log('• [Test 1] 测试首次读取自动加载预置食谱...')
   const published = await repo.getPublishedRecipes()
-  assert.strictEqual(published.length, 121, '本地正式预置口径应为 121 道')
-  console.log(`  ✅ 通过：成功获取 ${published.length} 道公开预置食谱`)
+  assert.strictEqual(published.length, 170, '本地公开已发布食谱应为 170 道 (151 中餐 + 16 西餐 + 3 样例)')
+  const all = await repo.getAllRecipes()
+  assert.strictEqual(all.length, 170, '本地全部预置食谱总数应为 170 道')
+  console.log(`  ✅ 通过：成功获取 ${published.length} 道公开预置食谱 (总数 ${all.length} 道)`)
 
   // 2. 测试合法草稿保存
   console.log('• [Test 2] 测试保存合规草稿...')

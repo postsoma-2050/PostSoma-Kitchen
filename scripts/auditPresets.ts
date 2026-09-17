@@ -96,7 +96,7 @@ function runAudit() {
       sources: sources.map(s => ({ name: s.name, count: s.data.length }))
     },
     auditDimensions: {
-      staticPresetsAudit: '【覆盖】对 src/data 下 23 道静态预置食谱进行了 100% 结构化自动审计。',
+      staticPresetsAudit: `【覆盖】对 src/data 下 ${allPresets.length} 道静态预置食谱进行了 100% 结构化自动审计。`,
       localStorageUserAudit: '【未覆盖/运行时】LocalStorage 用户自定义数据依赖浏览器运行时引擎环境，本静态 CLI 命令不扫描本地无权访问的用户浏览器缓存。',
       structuralValidation: '【覆盖】通过 validateRecipe 强类型规则算子检验必填字段、用量、Formula 外键、孤立 ActionBlock 及 Taxonomy 分类合法性。',
       manualFactAuditNotice: '【说明】本报告侧重结构与领域数据完整性，烹饪口感、火候调味等人工烹饪事实须由试做与主厨审核确认。'

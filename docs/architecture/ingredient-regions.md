@@ -30,7 +30,7 @@
 
 ## 本轮执行结果
 
-- 121 道预置：114 道允许连续表格，7 道保留分支；32 道采用合法的显示重排。
+- 121 道预置：117 道允许连续表格，4 道保留分支；30 道采用合法的显示重排。
 - type-check、build、test:ingredient-regions、test:flow-linkage、test:continuous-table、test:flow、test:domain、test:round-trip 均通过。
 - audit:presets 为121道通过，仍有85条警告；通过不代表原著事实或厨房实测认证。
 - 浏览器查看本地 cn-59 的连续表和分支图，并在390px视口检查全图横向滚动；检查详情点击、Space打开、Escape关闭与焦点恢复。此为样板人工检查，非全库逐张人工验收。

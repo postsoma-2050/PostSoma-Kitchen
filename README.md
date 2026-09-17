@@ -17,7 +17,7 @@ PostSoma Kitchen（Time_to_eat）用 **Visual Recipe Flow Card** 取代传统的
 
 ## 数据与产品边界
 
-项目内置 121 道 VisualRecipeV3 结构化食谱，来源位于：
+项目内置 170 道 VisualRecipeV3 结构化食谱（151 道原书中餐、16 道美式私房菜、3 道核心样例），来源位于：
 
 - `src/data/chineseHealthyRecipes.ts`：中餐健康食谱
 - `src/data/homeSweetHomeRecipes.ts`：美式私房食谱
@@ -139,7 +139,7 @@ src/
 │   ├── fridge/                    # 食材选择、匹配卡与 AI 临时建议 UI
 │   ├── publish/                   # 公开食谱卡与分页
 │   └── recipe-flow-v3/            # Flow Card、工作区与移动端呈现
-├── data/                          # 121 道静态食谱、封面清单
+├── data/                          # 170 道静态食谱、封面清单
 ├── domain/
 │   └── fridge/                    # 食材台账、确定性匹配、AI 契约与安全策略
 ├── repositories/                  # 本地 / Supabase Recipe Repository

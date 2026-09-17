@@ -7,7 +7,7 @@ import type { VisualRecipeV3 } from '../src/types/recipeV3'
 
 const DOMAIN = 'https://recipelab.cc'
 
-// 汇总全库 121 道 V3 预置食谱
+// 汇总全库 V3 预置食谱；总数由实际数组计算，禁止硬编码。
 const allRecipes: VisualRecipeV3[] = [
     ...CHINESE_HEALTHY_RECIPES,
     ...HOME_SWEET_HOME_RECIPES,
@@ -66,7 +66,7 @@ function generateSitemap(): void {
         xml += `  </url>\n`
     })
 
-    // 121 道食谱详情页
+    // 全量食谱详情页
     allRecipes.forEach(r => {
         xml += `  <url>\n`
         xml += `    <loc>${DOMAIN}/recipe/${r.id}</loc>\n`
@@ -91,7 +91,7 @@ function generateLlmsTxt(): void {
     content += `## 核心定位与技术架构\n`
     content += `- **标准化食谱建模引擎**：将多元来源食谱（营养师指南、名厨配方、私房料理、开源社区）转化为统一的二维矩阵烹饪流程图 (Matrix Layout Canvas)。\n`
     content += `- **复合配方倍率换算 (Formula Scaler)**：支持万能配方与酱汁的动态倍率缩放，自动计算食材精细用量。\n`
-    content += `- **首期示范数据集 (Phase-1 Collection)**：已收录张晔《蒸炖炒，营养师的健康食谱》102 道中餐及 16 道美式经典私房菜，开放未来多源拓展架构。\n`
+    content += `- **首期示范数据集 (Phase-1 Collection)**：已收录张晔《蒸炖炒，营养师的健康食谱》151 道中餐、16 道美式经典私房菜及 3 道核心样例，开放未来多源拓展架构。\n`
     content += `- **清冰箱智能匹配 (Fridge Matcher)**：输入现有食材，自动匹配最佳食谱方向与创意点子。\n\n`
 
     content += `## 核心页面与 API 接口索引\n`

@@ -16,7 +16,8 @@
         aria-label="上一页食谱"
         @click="$emit('change', currentPage - 1)"
       >
-        ← 上一页
+        <AppIcon name="arrow-left" :size="16" />
+        <span>上一页</span>
       </button>
 
       <div class="hidden sm:flex items-center gap-1" aria-label="页码">
@@ -55,7 +56,8 @@
         aria-label="下一页食谱"
         @click="$emit('change', currentPage + 1)"
       >
-        下一页 →
+        <span>下一页</span>
+        <AppIcon name="arrow-right" :size="16" />
       </button>
     </div>
   </nav>
@@ -63,6 +65,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import AppIcon from '@/components/common/AppIcon.vue'
 import { getPaginationItems, RECIPE_PAGE_SIZE } from '@/utils/recipeBrowseState'
 
 const props = defineProps<{

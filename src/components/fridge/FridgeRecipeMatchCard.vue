@@ -89,9 +89,7 @@
         :aria-label="`查看 ${displayTitle} 的正式食谱流程`"
       >
         <span>查看正式食谱</span>
-        <svg viewBox="0 0 20 20" class="h-5 w-5" fill="none" aria-hidden="true">
-          <path d="M4 10h11m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
+        <AppIcon name="arrow-right" :size="20" />
       </router-link>
     </div>
   </article>
@@ -99,6 +97,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import AppIcon from '@/components/common/AppIcon.vue'
 import type { RecipeIngredientMatchResult } from '@/domain/fridge'
 import {
   getRecipeDisplayTitle,

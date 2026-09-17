@@ -1,0 +1,620 @@
+{
+  "missingDeps": [
+    {
+      "recipeId": "cn-08-steamed-carrot-strips",
+      "recipeTitle": "🥕 蒜香粉蒸胡萝卜丝",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "上笼盖膜蒸熟",
+      "notes": "盘子盖保鲜膜，沸水蒸 10 分钟取出",
+      "prevStepId": "b1",
+      "prevStepLabel": "蛋清润湿与裹玉米面"
+    },
+    {
+      "recipeId": "cn-08-steamed-carrot-strips",
+      "recipeTitle": "🥕 蒜香粉蒸胡萝卜丝",
+      "stepId": "b3",
+      "stageIndex": 2,
+      "label": "码香菜蒜末与泼辣油",
+      "notes": "放葱蒜香菜与干辣椒段，烧热油泼在干辣椒上拌匀",
+      "prevStepId": "b2",
+      "prevStepLabel": "上笼盖膜蒸熟"
+    },
+    {
+      "recipeId": "cn-01-yuxiang-rousi",
+      "recipeTitle": "🥢 私房少油鱼香肉丝",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "滑散肉丝与爆香泡椒",
+      "notes": "油六成热滑散肉丝，加入姜蒜泡椒末爆香",
+      "prevStepId": "b1",
+      "prevStepLabel": "肉丝水淀粉上浆"
+    },
+    {
+      "recipeId": "cn-01-yuxiang-rousi",
+      "recipeTitle": "🥢 私房少油鱼香肉丝",
+      "stepId": "b3",
+      "stageIndex": 2,
+      "label": "倒入配料与淋鱼香汁",
+      "notes": "倒入冬笋木耳丝翻炒，倒入鱼香芡汁收汁出锅",
+      "prevStepId": "b2",
+      "prevStepLabel": "滑散肉丝与爆香泡椒"
+    },
+    {
+      "recipeId": "cn-10-suanrong-qiezi",
+      "recipeTitle": "🍆 蒜蓉蒸茄子",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "爆香蒜蓉红椒酱汁",
+      "notes": "橄榄油烧热，加入蒜末、红辣丁、葱花与盐爆香",
+      "prevStepId": "b1",
+      "prevStepLabel": "茄子剖开切片码盘"
+    },
+    {
+      "recipeId": "cn-10-suanrong-qiezi",
+      "recipeTitle": "🍆 蒜蓉蒸茄子",
+      "stepId": "b3",
+      "stageIndex": 2,
+      "label": "淋酱汁大火蒸熟",
+      "notes": "酱汁浇在茄子片上，入蒸锅大火蒸 10 分钟取出",
+      "prevStepId": "b2",
+      "prevStepLabel": "爆香蒜蓉红椒酱汁"
+    },
+    {
+      "recipeId": "cn-22-disanxian",
+      "recipeTitle": "🍆 经典东北地三鲜",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "爆香蒜末焖烧勾芡",
+      "notes": "留底油炒香蒜末放茄子土豆倒老抽加盖烧5分钟，倒柿子椒加糖盐水淀粉勾芡撒葱花",
+      "prevStepId": "b1",
+      "prevStepLabel": "食材分别过油"
+    },
+    {
+      "recipeId": "cn-23-mizhi-fanqiejiang",
+      "recipeTitle": "🥫 纯手工秘制番茄酱",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "加冰糖小火慢熬",
+      "notes": "番茄汁倒入锅中加冰糖煮开，小火熬至浓稠，挤入柠檬汁熬3-4分钟装瓶密封",
+      "prevStepId": "b1",
+      "prevStepLabel": "烫皮榨汁"
+    },
+    {
+      "recipeId": "cn-25-luobosi-zheng-niurou",
+      "recipeTitle": "🥩 辣椒粉萝卜丝蒸牛肉",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "顺内壁围圈蒸30分钟",
+      "notes": "顺蒸锅内壁围一圈盖屉布，水沸蒸30分钟",
+      "prevStepId": "b1",
+      "prevStepLabel": "牛肉腌渍与萝卜丝拌米粉"
+    },
+    {
+      "recipeId": "cn-25-luobosi-zheng-niurou",
+      "recipeTitle": "🥩 辣椒粉萝卜丝蒸牛肉",
+      "stepId": "b3",
+      "stageIndex": 2,
+      "label": "反扣深碗泼热茶油",
+      "notes": "倒深碗反扣浅盘成球形，撒葱花鸡精，泼热茶油",
+      "prevStepId": "b2",
+      "prevStepLabel": "顺内壁围圈蒸30分钟"
+    },
+    {
+      "recipeId": "cn-26-donggua-yimi-paigutang",
+      "recipeTitle": "🍲 冬瓜薏米排骨清润汤",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "下冬瓜块续炖20分钟",
+      "notes": "下冬瓜块大火烧开加盐，转小火慢炖20分钟关火",
+      "prevStepId": "b1",
+      "prevStepLabel": "排骨焯水与砂锅慢炖"
+    },
+    {
+      "recipeId": "cn-27-hongzao-baihe-zheng-nangua",
+      "recipeTitle": "🎃 蜂蜜红枣百合蒸南瓜",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "中火蒸20分钟淋蜂蜜",
+      "notes": "南瓜碗入开水蒸锅中火蒸20分钟，倒出汁水与蜂蜜拌匀，切开南瓜淋上",
+      "prevStepId": "b1",
+      "prevStepLabel": "制作南瓜碗与填料"
+    },
+    {
+      "recipeId": "cn-35-haimi-youcai",
+      "recipeTitle": "🥬 海米清炒油菜",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "炒香海米与下油菜",
+      "notes": "油热爆葱花下海米炒变色，放油菜盐鸡精大火翻炒熟",
+      "prevStepId": "b1",
+      "prevStepLabel": "油菜焯水过凉"
+    },
+    {
+      "recipeId": "cn-36-haoyou-shengcai",
+      "recipeTitle": "🥬 蒜香蚝油生菜",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "爆香蒜末勾蚝油芡汁",
+      "notes": "油热爆葱姜蒜末，放生抽蚝油，水淀粉勾芡浇盘中",
+      "prevStepId": "b1",
+      "prevStepLabel": "生菜焯水控干摆盘"
+    },
+    {
+      "recipeId": "cn-38-baizhuo-jielan",
+      "recipeTitle": "🥬 粤式白灼芥蓝",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "煮白灼汁浇上撒葱丝",
+      "notes": "酱油糖盐香油鸡精水烧开，浇在芥蓝上撒葱丝即可",
+      "prevStepId": "b1",
+      "prevStepLabel": "芥蓝焯水断生摆盘"
+    },
+    {
+      "recipeId": "cn-39-danhuang-xiancai",
+      "recipeTitle": "🥬 熟咸蛋黄炒苋菜",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "下苋菜大火炒软",
+      "notes": "放苋菜段与盐，大火翻炒至变软即可出锅",
+      "prevStepId": "b1",
+      "prevStepLabel": "爆蒜末炒香咸蛋黄末"
+    },
+    {
+      "recipeId": "cn-40-xiaren-zheng-xilanhua",
+      "recipeTitle": "🥦 鲜虾仁清蒸西蓝花",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "蒸10分钟淋芡汁",
+      "notes": "开水蒸锅蒸10分钟，煮蚝油盐鸡精水淀粉浓汁浇表面",
+      "prevStepId": "b1",
+      "prevStepLabel": "西蓝花围圈码盘"
+    },
+    {
+      "recipeId": "cn-41-wosun-juhui",
+      "recipeTitle": "🥗 四蔬聚会蘸汁蒸菜 (莴笋聚会)",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "制作麻辣蒜汁浇上",
+      "notes": "油热爆干椒花椒蒜末，调盐酱油水成蘸汁浇蒸好的菜上",
+      "prevStepId": "b1",
+      "prevStepLabel": "四蔬切块大火蒸20分钟"
+    },
+    {
+      "recipeId": "cn-43-jiangzhi-wosun",
+      "recipeTitle": "🥒 清爽开胃姜汁莴笋",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "淋姜汁白糖香油拌匀",
+      "notes": "调入姜汁、白糖与香油拌匀，点缀红甜椒丝即成",
+      "prevStepId": "b1",
+      "prevStepLabel": "醋盐腌莴笋沥干"
+    },
+    {
+      "recipeId": "cn-44-xihulu-chao-jidan",
+      "recipeTitle": "🍳 瓜氨酸西葫芦炒鸡蛋",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "炒西葫芦合炒鸡蛋",
+      "notes": "油热爆葱花下西葫芦炒八成熟，倒鸡蛋放盐炒匀即可",
+      "prevStepId": "b1",
+      "prevStepLabel": "滑炒鸡蛋盛出"
+    },
+    {
+      "recipeId": "cn-48-yiner-baihe-xuelitang",
+      "recipeTitle": "🍐 银耳百合雪梨润肺汤",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "加百合枸杞雪梨冰糖慢炖",
+      "notes": "放百合枸杞冰糖与雪梨块，小火慢炖30分钟即可",
+      "prevStepId": "b1",
+      "prevStepLabel": "银耳小火炖至软烂出胶"
+    },
+    {
+      "recipeId": "cn-51-guandongzhu",
+      "recipeTitle": "🍢 日式关东煮 (芋头山药苹果高汤)",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "下芋头山药鱼豆腐煮熟",
+      "notes": "下芋头片山药片鱼豆腐娃娃菜中火煮熟，浇汤淋甜辣酱",
+      "prevStepId": "b1",
+      "prevStepLabel": "苹果白萝卜海带炖汤底"
+    },
+    {
+      "recipeId": "cn-52-naixiang-tudouni",
+      "recipeTitle": "🥔 奶香浓郁鸡汤土豆泥",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "煮花椒鸡汤灌入土豆泥",
+      "notes": "鸡汤加花椒黑胡椒煮透去花椒加盐，灌入土豆泥中即可",
+      "prevStepId": "b1",
+      "prevStepLabel": "土豆蒸熟捣泥混牛奶"
+    },
+    {
+      "recipeId": "cn-02-steamed-scallops",
+      "recipeTitle": "🐚 蒜蓉粉丝蒸扇贝",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "调制蒜蓉酱汁",
+      "notes": "混合蒜蓉、姜末、豉油、白糖与盐",
+      "prevStepId": "b1",
+      "prevStepLabel": "粉丝泡软与扇贝取肉"
+    },
+    {
+      "recipeId": "cn-02-steamed-scallops",
+      "recipeTitle": "🐚 蒜蓉粉丝蒸扇贝",
+      "stepId": "b3",
+      "stageIndex": 2,
+      "label": "码盘并淋酱汁",
+      "notes": "贝壳上铺粉丝、放贝肉，舀上蒜蓉酱汁",
+      "prevStepId": "b2",
+      "prevStepLabel": "调制蒜蓉酱汁"
+    },
+    {
+      "recipeId": "cn-07-steamed-eel",
+      "recipeTitle": "🐉 豉汁蒸盘龙白鳝",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "拌入双蒜豉汁料",
+      "notes": "拌入生熟蒜蓉、姜末、陈皮末、豆豉汁与生粉香油",
+      "prevStepId": "b1",
+      "prevStepLabel": "盘龙改刀切背骨"
+    },
+    {
+      "recipeId": "cn-07-steamed-eel",
+      "recipeTitle": "🐉 豉汁蒸盘龙白鳝",
+      "stepId": "b3",
+      "stageIndex": 2,
+      "label": "盘龙造型码盘",
+      "notes": "盘子中摆成盘蛇造型，余料铺在身上",
+      "prevStepId": "b2",
+      "prevStepLabel": "拌入双蒜豉汁料"
+    }
+  ],
+  "missingHeat": [
+    {
+      "recipeId": "cn-08-steamed-carrot-strips",
+      "recipeTitle": "🥕 蒜香粉蒸胡萝卜丝",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "上笼盖膜蒸熟",
+      "notes": "盘子盖保鲜膜，沸水蒸 10 分钟取出"
+    },
+    {
+      "recipeId": "cn-08-steamed-carrot-strips",
+      "recipeTitle": "🥕 蒜香粉蒸胡萝卜丝",
+      "stepId": "b3",
+      "stageIndex": 2,
+      "label": "码香菜蒜末与泼辣油",
+      "notes": "放葱蒜香菜与干辣椒段，烧热油泼在干辣椒上拌匀"
+    },
+    {
+      "recipeId": "cn-29",
+      "recipeTitle": "🥩 苦瓜肉片",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "食材准备与加工",
+      "notes": "锅内倒油烧热，放牛肉片炒至变色，盛起。"
+    },
+    {
+      "recipeId": "cn-31",
+      "recipeTitle": "🥬 韭菜豆芽菜松",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "食材准备与加工",
+      "notes": "干锅烧热，加入切好的黄豆芽和韭菜炒干水分后，加入料酒、盐和白糖炒匀盛出待用。"
+    },
+    {
+      "recipeId": "cn-33",
+      "recipeTitle": "🥩 白菜粉丝猪骨汤",
+      "stepId": "b1",
+      "stageIndex": 0,
+      "label": "食材准备与加工",
+      "notes": "猪骨块、洗净血水，放入开水锅内炖40分钟左右。"
+    },
+    {
+      "recipeId": "cn-33",
+      "recipeTitle": "🥩 白菜粉丝猪骨汤",
+      "stepId": "b3",
+      "stageIndex": 2,
+      "label": "食材准备与加工",
+      "notes": "将粉丝放入炖猪骨的锅内煮3分钟左右，然后放入白菜条，调入盐，煮至所有食材熟透，最后撒上葱末即可。"
+    },
+    {
+      "recipeId": "cn-35-haimi-youcai",
+      "recipeTitle": "🥬 海米清炒油菜",
+      "stepId": "b1",
+      "stageIndex": 0,
+      "label": "油菜焯水过凉",
+      "notes": "油菜切段放沸水焯一下，过凉水挤干水分"
+    },
+    {
+      "recipeId": "cn-36-haoyou-shengcai",
+      "recipeTitle": "🥬 蒜香蚝油生菜",
+      "stepId": "b1",
+      "stageIndex": 0,
+      "label": "生菜焯水控干摆盘",
+      "notes": "生菜洗净撕大片，焯熟控水盛盘"
+    },
+    {
+      "recipeId": "cn-38-baizhuo-jielan",
+      "recipeTitle": "🥬 粤式白灼芥蓝",
+      "stepId": "b1",
+      "stageIndex": 0,
+      "label": "芥蓝焯水断生摆盘",
+      "notes": "沸水将芥蓝焯至断生，捞出摆盘"
+    },
+    {
+      "recipeId": "cn-48",
+      "recipeTitle": "🍄 金针菇培根卷",
+      "stepId": "b4",
+      "stageIndex": 3,
+      "label": "食材准备与加工",
+      "notes": "锅中加少许水烧开，加少许生抽、胡椒粉、鸡精调味，用水淀粉勾芡，浇到盘中即可。"
+    },
+    {
+      "recipeId": "cn-52-naixiang-tudouni",
+      "recipeTitle": "🥔 奶香浓郁鸡汤土豆泥",
+      "stepId": "b1",
+      "stageIndex": 0,
+      "label": "土豆蒸熟捣泥混牛奶",
+      "notes": "土豆去皮蒸熟压泥，加入奶酪与牛奶搅拌均匀"
+    },
+    {
+      "recipeId": "cn-59",
+      "recipeTitle": "🍅 番茄炖牡蛎",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "食材准备与加工",
+      "notes": "炖锅内放清水烧开，倒入番茄块、盐、胡椒粉，最后将牡蛎肉、葱花入锅，煮至牡蛎肉熟即可。"
+    },
+    {
+      "recipeId": "cn-63",
+      "recipeTitle": "🍲 茄汁黄豆",
+      "stepId": "b1",
+      "stageIndex": 0,
+      "label": "食材准备与加工",
+      "notes": "将提前泡好的黄豆放入砂锅中，加水没过黄豆，大火煮开后，撇去浮沫，加盐和白糖并转小火煮。"
+    },
+    {
+      "recipeId": "cn-63",
+      "recipeTitle": "🍲 茄汁黄豆",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "食材准备与加工",
+      "notes": "待黄豆煮至快软烂时，加入番茄块，大火煮开后，转小火继续煮。"
+    },
+    {
+      "recipeId": "cn-63",
+      "recipeTitle": "🍲 茄汁黄豆",
+      "stepId": "b3",
+      "stageIndex": 2,
+      "label": "食材准备与加工",
+      "notes": "待番茄煮烂成汁且黄豆完全煮熟后，用大火收汁，用水淀粉勾芡即可。"
+    },
+    {
+      "recipeId": "cn-65",
+      "recipeTitle": "🥬 蒜蓉油淋生菜",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "食材准备与加工",
+      "notes": "锅里加热水烧开，放入生菜白灼半分钟，捞出盛盘，浇上蒜蓉酱汁即可。"
+    },
+    {
+      "recipeId": "cn-70",
+      "recipeTitle": "🥩 白菜羊肉丸子汤",
+      "stepId": "b3",
+      "stageIndex": 2,
+      "label": "食材准备与加工",
+      "notes": "锅中加入清水煮沸，放入黄芪，下羊肉丸煮至丸子浮起，放入白菜丝、豆腐丝煮2分钟调入盐，撒上葱末，滴几滴香油即可。"
+    },
+    {
+      "recipeId": "cn-72",
+      "recipeTitle": "🐟 清蒸鲢鱼",
+      "stepId": "b1",
+      "stageIndex": 0,
+      "label": "和面腌渍",
+      "notes": "鲢鱼洗净，在鱼身上划几刀，用料酒、胡椒粉和盐腌渍20分钟，放在蒸盘内，在鱼身上摆好姜片、葱段。"
+    },
+    {
+      "recipeId": "cn-74",
+      "recipeTitle": "🍳 清炒扁豆丝",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "食材准备与加工",
+      "notes": "烧一锅水，加一小勺盐和几滴油，水开后放入扁豆丝灼一下，捞出过凉水。"
+    },
+    {
+      "recipeId": "cn-78",
+      "recipeTitle": "🥩 荸荠炒肉丝",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "食材准备与加工",
+      "notes": "油微热，煸香蒜末，入肉丝大火滑炒变色后，放荸荠片和椒圈同炒至荸荠断生，加盐调味即可。"
+    },
+    {
+      "recipeId": "cn-79",
+      "recipeTitle": "🍳 多味冬瓜",
+      "stepId": "b3",
+      "stageIndex": 2,
+      "label": "食材准备与加工",
+      "notes": "锅内倒油，烧热后烹入料酒，放入适量的水、冬瓜泥、猪肉泥、鲜草菇、鲜虾肉泥、蛋液、盐、胡椒粉拌炒，水沸时，加水淀粉勾薄芡，滴少许香油即可。"
+    },
+    {
+      "recipeId": "cn-80",
+      "recipeTitle": "♨️ 清蒸竹笋",
+      "stepId": "b1",
+      "stageIndex": 0,
+      "label": "食材准备与加工",
+      "notes": "新鲜竹笋冲洗，去皮，将尖端去除3厘米左右，切小块；鸡蛋磕煎成鸡蛋皮，切细丝。"
+    },
+    {
+      "recipeId": "cn-93",
+      "recipeTitle": "🥕 纳豆炖萝卜",
+      "stepId": "b3",
+      "stageIndex": 2,
+      "label": "食材准备与加工",
+      "notes": "锅中加水将白萝卜、花椒、大料、料酒一起入锅炖熟，盛盘，取适量纳豆拌入，再根据自己的口味调入生抽、鸡精、盐。"
+    },
+    {
+      "recipeId": "cn-94",
+      "recipeTitle": "🥒 毛豆烧丝瓜",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "食材准备与加工",
+      "notes": "油锅烧热，煸香葱丝、姜末，放毛豆粒、少量水烧10分钟，下丝瓜炒软，加盐，用水淀粉勾芡即可。"
+    },
+    {
+      "recipeId": "cn-100",
+      "recipeTitle": "🥩 羊肉炖白萝卜",
+      "stepId": "b3",
+      "stageIndex": 2,
+      "label": "食材准备与加工",
+      "notes": "待羊肉快熟时，加入白萝卜、盐、酱油继续炖透至入味，放入蒜薹稍炖片刻即可。"
+    },
+    {
+      "recipeId": "cn-102",
+      "recipeTitle": "🥔 淮山药泥",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "食材准备与加工",
+      "notes": "锅置火上，倒猪油烧热，倒淮山药泥炒至浓稠时，盛在盘子的中间；油锅烧热，依次再炒京糕泥和豆沙，分别盛在淮山药泥的两边。"
+    },
+    {
+      "recipeId": "cn-102",
+      "recipeTitle": "🥔 淮山药泥",
+      "stepId": "b3",
+      "stageIndex": 2,
+      "label": "调味出锅",
+      "notes": "锅置大火上，加少许清水、白糖烧沸，用水淀粉勾成芡汁，浇在三泥上即可。"
+    },
+    {
+      "recipeId": "cn-107",
+      "recipeTitle": "🍲 荔枝桂圆山楂汤",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "调味出锅",
+      "notes": "锅置火上，倒入适量清水，放入山楂肉、荔枝肉、桂圆肉，大火煮沸后改小火煮约20分钟，加入枸杞子继续煮约5分钟，加入红糖拌匀即可。"
+    },
+    {
+      "recipeId": "cn-111",
+      "recipeTitle": "🥩 莲藕排骨汤",
+      "stepId": "b1",
+      "stageIndex": 0,
+      "label": "食材准备与加工",
+      "notes": "锅内加水煮沸，放葱段、料酒、猪排骨块及部分姜片，焯去血水，捞出。"
+    },
+    {
+      "recipeId": "cn-111",
+      "recipeTitle": "🥩 莲藕排骨汤",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "食材准备与加工",
+      "notes": "锅内倒清水烧开，放猪排骨块、藕块及剩余姜片煮沸，转小火煲约1.5小时，加盐、鸡精、胡椒粉即可。"
+    },
+    {
+      "recipeId": "cn-123",
+      "recipeTitle": "🍗 栗子杜仲鸡爪汤",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "食材准备与加工",
+      "notes": "砂锅内加入适量清水，将栗子、鸡爪、杜仲和陈皮一起放入锅内，大火煮沸，转用小火继续炖3小时，最后加入盐调味即可。"
+    },
+    {
+      "recipeId": "cn-124",
+      "recipeTitle": "🥩 银耳木瓜排骨汤",
+      "stepId": "b3",
+      "stageIndex": 2,
+      "label": "食材准备与加工",
+      "notes": "把木瓜放入汤中，再炖15分钟，调入盐搅匀即可。"
+    },
+    {
+      "recipeId": "cn-128",
+      "recipeTitle": "🍲 时蔬乱炖",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "食材准备与加工",
+      "notes": "热锅中放少许油、烧至六成热，煸香蒜瓣、姜片，倒入排骨、料酒炒至排骨变色出油。"
+    },
+    {
+      "recipeId": "cn-128",
+      "recipeTitle": "🍲 时蔬乱炖",
+      "stepId": "b3",
+      "stageIndex": 2,
+      "label": "食材准备与加工",
+      "notes": "倒入砂锅中，加没过食材的水烧开后用中火炖1小时，然后放入备好的蔬菜和盐，再炖30分钟即可。"
+    },
+    {
+      "recipeId": "cn-130",
+      "recipeTitle": "🍄 香菇菜花",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "食材准备与加工",
+      "notes": "烧热后，放入葱段、姜末煸出香味，再放入适量清水，加入盐调味，大火烧开后，放入香菇、菜花，用小火煨入味后，用水淀粉勾芡即可。"
+    },
+    {
+      "recipeId": "cn-133",
+      "recipeTitle": "🐟 木瓜鲫鱼汤",
+      "stepId": "b3",
+      "stageIndex": 2,
+      "label": "食材准备与加工",
+      "notes": "将煎好的鲫鱼、木瓜、葱段、料酒、姜片放在汤煲内，加入清水，大火烧沸转小火煲40分钟，调入盐、鸡精调味，撒香菜段即可。"
+    },
+    {
+      "recipeId": "cn-136",
+      "recipeTitle": "🥩 萝卜烧牛肉",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "食材准备与加工",
+      "notes": "将牛肉放入凉水锅中煮至七成熟，捞出备用。"
+    },
+    {
+      "recipeId": "cn-137",
+      "recipeTitle": "🥩 青椒炒猪肝",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "食材准备与加工",
+      "notes": "锅内倒油烧热，放入姜丝和猪肝片略炒片刻，盛出。"
+    },
+    {
+      "recipeId": "cn-137",
+      "recipeTitle": "🥩 青椒炒猪肝",
+      "stepId": "b3",
+      "stageIndex": 2,
+      "label": "食材准备与加工",
+      "notes": "锅内再倒油烧热，放入青椒丝炒至五成熟，倒猪肝片，加盐调味，大火爆炒3分钟即可。"
+    },
+    {
+      "recipeId": "cn-141",
+      "recipeTitle": "🐟 芹菜鱼丝",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "食材准备与加工",
+      "notes": "油烧至五成热，放入鱼肉丝滑散，加入芹菜丝、红椒丝炒匀，再倒入芡汁，待收汁亮油时，起锅即可。"
+    },
+    {
+      "recipeId": "cn-142",
+      "recipeTitle": "🧈 牡蛎豆腐羹",
+      "stepId": "b3",
+      "stageIndex": 2,
+      "label": "食材准备与加工",
+      "notes": "将豆腐下锅煮熟，放入牡蛎煮1分钟，加盐调味，倒水淀粉勾芡，淋香油即可。"
+    },
+    {
+      "recipeId": "cn-144",
+      "recipeTitle": "🦐 紫菜虾皮蛋花汤",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "调味出锅",
+      "notes": "油烧热，加入葱花炝香，放适量水烧开，倒入紫菜，虾皮，淋入鸡蛋液，待蛋花浮起时，放入黄瓜片，加香油、鸡精调味即可。"
+    },
+    {
+      "recipeId": "cn-148",
+      "recipeTitle": "🥢 红枣芝麻红豆豆浆",
+      "stepId": "b2",
+      "stageIndex": 1,
+      "label": "食材准备与加工",
+      "notes": "将上述食材一同倒入全自动豆浆机中，加水至上、下水位线之间，按下“豆浆”键，煮至豆浆机提示豆浆做好，凉至温热饮用即可。"
+    }
+  ]
+}

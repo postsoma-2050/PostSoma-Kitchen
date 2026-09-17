@@ -336,6 +336,9 @@
         >
           <path d="M 0 1 L 9 5 L 0 9 z" fill="#64748B" />
         </marker>
+        <filter :id="`flow-card-shadow-${markerSuffix}`" x="-20%" y="-20%" width="140%" height="150%">
+          <feDropShadow dx="0" dy="1.5" stdDeviation="2" flood-color="#0F172A" flood-opacity="0.09" />
+        </filter>
       </defs>
 
       <!-- 0. 外围边框 (统一中性建筑感实线) -->
@@ -347,6 +350,7 @@
         fill="#FFFFFF"
         stroke="#CBD5E1"
         stroke-width="1.5"
+        rx="12"
       />
 
       <!-- 1. Header 横栏 -->
@@ -439,12 +443,33 @@
         </g>
       </g>
 
+      <!-- 拓扑阶段只用柔和底板提示阅读节奏，不再画成完整表格列。 -->
+      <g class="v3-stage-bands" aria-hidden="true">
+        <rect
+          v-for="band in flowLayout.stageBands"
+          :key="`stage-band-${band.colIndex}`"
+          :x="band.x"
+          :y="band.y"
+          :width="band.w"
+          :height="band.h"
+          rx="12"
+          :fill="band.colIndex % 2 === 0 ? '#F8FAFC' : '#FCFDFD'"
+        />
+      </g>
+
       <!-- 2. 食材行 -->
       <g class="v3-ingredients-group">
         <g
           v-for="row in flowLayout.ingredientRows"
           :key="row.ingredient.id"
           :transform="`translate(${row.x}, ${row.y})`"
+          class="cursor-default transition-opacity"
+          tabindex="0"
+          :opacity="getIngredientOpacity(row.ingredient.id)"
+          @mouseenter="hoveredIngredientId = row.ingredient.id"
+          @mouseleave="hoveredIngredientId = null"
+          @focus="hoveredIngredientId = row.ingredient.id"
+          @blur="hoveredIngredientId = null"
         >
           <title>{{ getFullIngredientText(row.ingredient) }}</title>
           <rect
@@ -467,7 +492,12 @@
 
       <!-- 2.4 食材未加工阶段等待路径 (Waiting Paths: 虚线延伸至实际工序，遇中间卡片避障绕行，终点微小圆点) -->
       <g v-if="flowLayout.ingredientWaitingPaths && flowLayout.ingredientWaitingPaths.length > 0" class="v3-flow-waiting-paths">
-        <g v-for="wp in flowLayout.ingredientWaitingPaths" :key="wp.id">
+        <g
+          v-for="wp in flowLayout.ingredientWaitingPaths"
+          :key="wp.id"
+          class="transition-opacity"
+          :opacity="getIngredientPathOpacity(wp.ingredientId, wp.targetBlockId)"
+        >
           <path
             v-if="wp.pathD"
             :d="wp.pathD"
@@ -487,24 +517,26 @@
             stroke-dasharray="3 3"
           />
           <circle
-            :cx="wp.endX - 3"
+            :cx="wp.endX"
             :cy="wp.startY"
-            r="2"
-            fill="#94A3B8"
+            r="2.25"
+            fill="#059669"
           />
         </g>
       </g>
 
-      <!-- 2.5 显式工序依赖分支连接线 -->
-      <g v-if="explicitConnectors.length > 0" class="v3-flow-connectors">
-        <g v-for="conn in explicitConnectors" :key="conn.id">
+      <!-- 2.5 全部工序流转：实线为物料，虚线为顺序；终点也必须显式接入。 -->
+      <g v-if="flowConnectors.length > 0" class="v3-flow-connectors">
+        <g v-for="conn in flowConnectors" :key="conn.id" class="transition-opacity" :opacity="getConnectorOpacity(conn)">
           <title>{{ conn.label || (conn.isOrder ? '等待前序工序完成' : (conn.isMaterial ? '物料流动' : '前序工序关联')) }}</title>
           <path
             :d="conn.pathD"
             fill="none"
             :stroke="conn.isOrder ? '#64748B' : (conn.type === 'legacy' ? '#94A3B8' : '#059669')"
             :stroke-dasharray="conn.isOrder ? '5 4' : (conn.type === 'legacy' ? '4 3' : undefined)"
-            stroke-width="1.8"
+            :stroke-width="conn.isMaterial ? 2.2 : 1.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
             :marker-end="conn.isOrder ? `url(#flow-arrow-order-${markerSuffix})` : `url(#flow-arrow-material-${markerSuffix})`"
           />
           <!-- 连线中心语义标签 (如 暂存牛肉、物料流动) -->
@@ -539,10 +571,15 @@
           :key="layoutBlock.block.id"
           :transform="`translate(${layoutBlock.x}, ${layoutBlock.y})`"
           class="cursor-pointer transition-opacity hover:opacity-90 focus:outline-none"
+          :opacity="getActionOpacity(layoutBlock.block.id)"
           tabindex="0"
           role="button"
           :aria-label="getActionTooltip(layoutBlock)"
           @click="emit('select-block', layoutBlock.block)"
+          @mouseenter="hoveredBlockId = layoutBlock.block.id"
+          @mouseleave="hoveredBlockId = null"
+          @focus="hoveredBlockId = layoutBlock.block.id"
+          @blur="hoveredBlockId = null"
           @keydown.enter="emit('select-block', layoutBlock.block)"
           @keydown.space.prevent="emit('select-block', layoutBlock.block)"
         >
@@ -551,9 +588,12 @@
             :width="layoutBlock.w"
             :height="layoutBlock.h"
             fill="#FFFFFF"
-            stroke="#E2E8F0"
-            stroke-width="1.2"
+            stroke="#CBD5E1"
+            stroke-width="1.25"
+            rx="10"
+            :filter="`url(#flow-card-shadow-${markerSuffix})`"
           />
+          <rect width="4" :height="layoutBlock.h" rx="2" fill="#10B981" />
           <g :transform="`translate(${layoutBlock.w / 2}, ${layoutBlock.h / 2})`">
             <template v-if="!layoutBlock.isEmptyPlaceholder">
               <text text-anchor="middle" dominant-baseline="central">
@@ -580,14 +620,14 @@
                   {{ sLine }}
                 </tspan>
                 <tspan
-                  v-if="layoutBlock.block.heatLevel || layoutBlock.block.durationMinutes"
+                  v-if="layoutBlock.block.heatLevel || layoutBlock.block.durationText || layoutBlock.block.durationMinutes"
                   x="0"
                   dy="1.35em"
                   font-size="10"
                   font-weight="700"
                   fill="#B45309"
                 >
-                  {{ layoutBlock.block.heatLevel ? `${layoutBlock.block.heatLevel} ` : '' }}{{ layoutBlock.block.durationMinutes ? `${layoutBlock.block.durationMinutes}m` : '' }}
+                  {{ layoutBlock.block.heatLevel ? `${layoutBlock.block.heatLevel} ` : '' }}{{ layoutBlock.block.durationText || (layoutBlock.block.durationMinutes ? `${layoutBlock.block.durationMinutes}m` : '') }}
                 </tspan>
                 <tspan
                   v-for="(equipmentLine, equipmentIndex) in layoutBlock.equipmentLines"
@@ -612,7 +652,7 @@
 
       <!-- 3.5 食材接入引线、锚点与聚成分段导轨 (置于卡片上方，清晰呈现且不跨中间未参与行) -->
       <g class="v3-intake-rails pointer-events-none">
-        <!-- 连续两行及以上的聚合导轨段 -->
+        <!-- 食材总线：只连接首次加入的食材，并通过明确端口进入卡片。 -->
         <line
           v-for="rail in flowLayout.intakeRailSegments"
           :key="rail.id"
@@ -623,21 +663,24 @@
           stroke="#059669"
           stroke-width="2.5"
           stroke-linecap="round"
+          :opacity="getActionOpacity(rail.blockId)"
         />
-        <!-- 实际参与行的接入引线与精准锚点 -->
-        <g v-for="feed in flowLayout.ingredientIntakeFeeds" :key="feed.id">
-          <line
-            :x1="feed.feedStartX"
-            :y1="feed.pinY"
-            :x2="feed.pinX"
-            :y2="feed.pinY"
+        <g v-for="rail in flowLayout.intakeRailSegments" :key="`port-${rail.id}`" :opacity="getActionOpacity(rail.blockId)">
+          <path
+            :d="rail.pathD"
+            fill="none"
             stroke="#059669"
-            stroke-width="2"
+            stroke-width="2.5"
+            stroke-linecap="round"
           />
+          <circle :cx="rail.portX" :cy="rail.portY" r="3.5" fill="#FFFFFF" stroke="#059669" stroke-width="2" />
+        </g>
+        <!-- 实际参与行的接入引线与精准锚点 -->
+        <g v-for="feed in flowLayout.ingredientIntakeFeeds" :key="feed.id" :opacity="getIngredientPathOpacity(feed.ingredientId, feed.blockId)">
           <circle
             :cx="feed.pinX"
             :cy="feed.pinY"
-            r="3"
+            r="2.75"
             fill="#059669"
           />
         </g>
@@ -648,18 +691,25 @@
         class="v3-final-group"
         :transform="`translate(${flowLayout.finalBlockLayout.x}, ${flowLayout.finalBlockLayout.y})`"
       >
-        <title>{{ flowLayout.finalBlockLayout.finalBlock.instructions || flowLayout.finalBlockLayout.finalBlock.label }}</title>
+        <title>{{ flowLayout.finalBlockLayout.finalBlock.servingInstructions || flowLayout.finalBlockLayout.finalBlock.resultDescription || flowLayout.finalBlockLayout.finalBlock.instructions || flowLayout.finalBlockLayout.finalBlock.label }}</title>
         <rect
           :width="flowLayout.finalBlockLayout.w"
           :height="flowLayout.finalBlockLayout.h"
-          fill="#FFFFFF"
-          stroke="#CBD5E1"
+          :rx="flowLayout.finalBlockLayout.isOutcomeOnly ? 12 : 0"
+          :fill="flowLayout.finalBlockLayout.isOutcomeOnly ? '#ECFDF5' : '#FFFFFF'"
+          :stroke="flowLayout.finalBlockLayout.isOutcomeOnly ? '#10B981' : '#CBD5E1'"
           stroke-width="1.2"
+          :filter="`url(#flow-card-shadow-${markerSuffix})`"
         />
         <g :transform="`translate(${flowLayout.finalBlockLayout.w / 2}, ${flowLayout.finalBlockLayout.h / 2})`">
           <template v-if="flowLayout.finalBlockLayout.isPlaceholder">
             <text text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="bold" fill="#6B7280" y="-10">
               完成方式待补充
+            </text>
+          </template>
+          <template v-else-if="flowLayout.finalBlockLayout.isOutcomeOnly">
+            <text x="0" y="0" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="800" fill="#047857">
+              完成
             </text>
           </template>
           <template v-else>
@@ -694,12 +744,13 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import type { VisualRecipeV3, V3Ingredient, V3ActionBlock } from '@/types/recipeV3'
 import {
   buildV3MatrixLayout,
   type V3MatrixLayoutResult,
   type V3LayoutActionBlock,
+  type V3FlowConnectorLayout,
   formatIngredientRowDisplay,
   getFinalServingInstructions,
 } from '@/utils/matrixFlowLayout'
@@ -726,6 +777,8 @@ const emit = defineEmits<{
 }>()
 
 const theme = flowCardTheme
+const hoveredIngredientId = ref<string | null>(null)
+const hoveredBlockId = ref<string | null>(null)
 
 const markerSuffix = computed(() => {
   return (props.recipe.id || 'canvas').replace(/[^a-zA-Z0-9_-]/g, '_')
@@ -746,16 +799,77 @@ const flowLayout = computed<V3MatrixLayoutResult | null>(() => {
   return buildV3MatrixLayout(props.recipe)
 })
 
-const explicitConnectors = computed(() => {
-  return (flowLayout.value?.connectorLayouts || []).filter(c => c.explicit)
+const flowConnectors = computed(() => {
+  return flowLayout.value?.connectorLayouts || []
 })
+
+const relatedBlockIds = computed<Set<string> | null>(() => {
+  const layout = flowLayout.value
+  if (!layout) return null
+
+  const seeds = new Set<string>()
+  if (hoveredBlockId.value) seeds.add(hoveredBlockId.value)
+  if (hoveredIngredientId.value) {
+    layout.ingredientConnectors
+      .filter(link => link.ingredientId === hoveredIngredientId.value)
+      .forEach(link => seeds.add(link.targetBlockId))
+  }
+  if (seeds.size === 0) return null
+
+  const related = new Set(seeds)
+  let changed = true
+  while (changed) {
+    changed = false
+    layout.connectorLayouts.forEach(connector => {
+      if (!connector.targetBlockId) return
+      if (related.has(connector.sourceBlockId) && !related.has(connector.targetBlockId)) {
+        related.add(connector.targetBlockId)
+        changed = true
+      }
+      if (hoveredBlockId.value && related.has(connector.targetBlockId) && !related.has(connector.sourceBlockId)) {
+        related.add(connector.sourceBlockId)
+        changed = true
+      }
+    })
+  }
+  return related
+})
+
+function getActionOpacity(blockId: string): number {
+  const related = relatedBlockIds.value
+  return !related || related.has(blockId) ? 1 : 0.24
+}
+
+function getIngredientOpacity(ingredientId: string): number {
+  if (!relatedBlockIds.value) return 1
+  if (hoveredIngredientId.value) return hoveredIngredientId.value === ingredientId ? 1 : 0.3
+  const target = flowLayout.value?.ingredientConnectors.find(link => link.ingredientId === ingredientId)?.targetBlockId
+  return target && relatedBlockIds.value.has(target) ? 1 : 0.3
+}
+
+function getIngredientPathOpacity(ingredientId: string, targetBlockId?: string): number {
+  if (!relatedBlockIds.value) return 1
+  if (hoveredIngredientId.value) return hoveredIngredientId.value === ingredientId ? 1 : 0.12
+  return targetBlockId && relatedBlockIds.value.has(targetBlockId) ? 1 : 0.12
+}
+
+function getConnectorOpacity(connector: V3FlowConnectorLayout): number {
+  const related = relatedBlockIds.value
+  if (!related) return 1
+  if (connector.targetType === 'final') return related.has(connector.sourceBlockId) ? 1 : 0.12
+  return connector.targetBlockId
+    && related.has(connector.sourceBlockId)
+    && related.has(connector.targetBlockId)
+    ? 1
+    : 0.12
+}
 
 function getActionTooltip(layoutBlock: V3LayoutActionBlock): string {
   const block = layoutBlock.block
   return [
     `工序：${block.label || '未命名工序'}`,
     block.heatLevel,
-    block.durationMinutes ? `${block.durationMinutes} 分钟` : '',
+    block.durationText || (block.durationMinutes ? `${block.durationMinutes} 分钟` : ''),
     block.equipment ? `器具：${block.equipment}` : '',
     block.note,
   ].filter(Boolean).join(' · ')
@@ -766,6 +880,8 @@ function getProcessCellTooltip(pCell: TableLayoutProcessCell): string {
     return [
       `完成：${pCell.finalBlock.label || '出锅装盘'}`,
       pCell.finalBlock.durationText,
+      pCell.finalBlock.servingInstructions,
+      pCell.finalBlock.resultDescription,
       pCell.finalBlock.instructions,
     ].filter(Boolean).join(' · ')
   }
@@ -775,7 +891,7 @@ function getProcessCellTooltip(pCell: TableLayoutProcessCell): string {
       pCell.incomingMaterials?.length ? `承接: ${pCell.incomingMaterials.join('、')}` : '',
       pCell.newIngredients?.length ? `放入: ${pCell.newIngredients.join('、')}` : '',
       pCell.block.heatLevel,
-      pCell.block.durationMinutes ? `${pCell.block.durationMinutes} 分钟` : '',
+      pCell.block.durationText || (pCell.block.durationMinutes ? `${pCell.block.durationMinutes} 分钟` : ''),
       pCell.block.equipment ? `器具：${pCell.block.equipment}` : '',
       pCell.completionState ? `准出状态：${pCell.completionState}` : '',
       pCell.outputItem ? `产出半成品：${pCell.outputItem}` : '',
@@ -796,7 +912,7 @@ function onProcessCellClick(pCell: TableLayoutProcessCell) {
       ingredientIds: [],
       label: pCell.label,
       equipment: final.appliance,
-      note: [final.durationText, final.instructions, final.note || final.notes].filter(Boolean).join(' · '),
+      note: [final.durationText, final.servingInstructions, final.resultDescription, final.instructions, final.note || final.notes].filter(Boolean).join(' · '),
     })
   }
 }
@@ -820,7 +936,7 @@ function getFirstLineYOffset(block: V3LayoutActionBlock): string {
   const lCount = block.labelLines.length
   const sCount = block.sublabelLines.length
   const gCount = block.guidanceLines?.length || 0
-  const hasHeat = Boolean(block.block.heatLevel || block.block.durationMinutes)
+  const hasHeat = Boolean(block.block.heatLevel || block.block.durationText || block.block.durationMinutes)
   const equipmentCount = block.equipmentLines.length
 
   const totalLines = lCount + sCount + gCount + (hasHeat ? 1 : 0) + equipmentCount

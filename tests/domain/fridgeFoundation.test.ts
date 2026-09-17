@@ -31,16 +31,16 @@ function requireConceptId(value: string | null, label: string): string {
 }
 
 function run() {
-  assert.equal(ALL_RECIPES.length, 121, '食材台账必须基于统一的 121 道正式预置食谱口径')
+  assert.equal(ALL_RECIPES.length, 170, '食材台账必须基于统一的 170 道正式预置食谱口径 (151 中餐原书真品 + 16 西餐 + 3 样例)')
   const sourceSnapshot = JSON.stringify(RAW_RECIPES)
   const index = buildFridgeIngredientIndex(ALL_RECIPES)
   assert.equal(JSON.stringify(RAW_RECIPES), sourceSnapshot, '建立索引不得改写任何原始 recipe 数据')
-  assert.equal(index.audit.recipeCount, 121)
-  assert.equal(index.audit.ingredientSourceCount, 517)
-  assert.equal(index.audit.formulaItemSourceCount, 21)
+  assert.equal(index.audit.recipeCount, 170)
+  assert.equal(index.audit.ingredientSourceCount, 1309)
+  assert.equal(index.audit.formulaItemSourceCount, 0)
   assert.equal(
     index.audit.safelyNormalizedSourceCount + index.audit.needsReviewSourceCount + index.audit.unresolvedSourceCount,
-    538,
+    1309,
     '每一条 ingredients / Formula item 来源都必须具有可追溯状态',
   )
   assert.equal(
@@ -65,7 +65,7 @@ function run() {
 
   const chickenMatches = matchPublishedRecipes(index, { conceptIds: [chickenId] }, { limit: 100 })
   assert.ok(chickenMatches.total > 0)
-  assert.ok(chickenMatches.results.some(result => result.recipe.id === 'cn-05-gongbao-jiding'), '鸡肉应安全匹配鸡腿肉丁')
+  assert.ok(chickenMatches.results.some(result => result.recipe.id === 'cn-11'), '鸡肉应安全匹配宫保鸡丁')
   assert.ok(chickenMatches.results.some(result => result.recipe.id === 'hsh-03-chicken-ritz'), '鸡肉应安全匹配明确的英文鸡胸肉变体')
 
   assert.equal(matchPublishedRecipes(index, { conceptIds: [saltId] }).total, 0, '盐不能单独触发正式候选')
@@ -75,7 +75,7 @@ function run() {
 
   const riceMatches = matchPublishedRecipes(index, { conceptIds: [riceId] }, { limit: 100 })
   assert.ok(riceMatches.results.some(result => result.recipe.id === 'hsh-08-pecan-rice'), '大米应匹配明确的长粒米食谱')
-  assert.ok(!riceMatches.results.some(result => result.recipe.id === 'cn-35-haimi-youcai'), '“米”不得误匹配“海米”')
+  assert.ok(!riceMatches.results.some(result => result.recipe.id === 'cn-37'), '“米”不得误匹配“海米”')
   assert.ok(!index.conceptById.get(riceId)?.sourceNames.some(name => name.includes('玉米')), '“米”概念不得吞并玉米')
 
   const tomatoMatches = matchPublishedRecipes(index, { conceptIds: [tomatoId] }, { limit: 100 })
@@ -95,9 +95,8 @@ function run() {
   assert.equal(unknownOnly.total, 0, '仅有未知食材时不得猜测候选')
   assert.equal(unknownOnly.unrecognizedUserInputs[0].displayName, '紫苏叶', '即使没有候选，自定义食材也必须保留')
 
-  const yuxiangIndex = index.recipes.find(item => item.recipe.id === 'cn-01-yuxiang-rousi')
-  assert.ok(yuxiangIndex?.ingredients.some(item => item.sourceKind === 'formula-item'), 'Formula 内部食材必须进入只读匹配索引')
-  assert.ok(yuxiangIndex?.ingredients.some(item => item.originalName === '白糖' && item.conceptId === sugarId), 'Formula 食材必须复用同一稳定概念')
+  const yuxiangIndex = index.recipes.find(item => item.recipe.id === 'cn-16')
+  assert.ok(yuxiangIndex?.ingredients.some(item => item.originalName === '白糖' && item.conceptId === sugarId), '原子化调料必须复用同一稳定概念')
 
   const firstPage = matchPublishedRecipes(index, { conceptIds: [chickenId] }, { offset: 0, limit: 2 })
   const secondPage = matchPublishedRecipes(index, { conceptIds: [chickenId] }, { offset: 2, limit: 2 })

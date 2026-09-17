@@ -18,7 +18,7 @@
       <!-- Supabase 未配置或 Local 模式降级提示 -->
       <div v-if="!isSupabaseConfigured || storageMode === 'local'" class="bg-[#FAF5EC] border border-[#F0E2CA] rounded-2xl p-4 text-xs text-[#8C5E18] space-y-2">
         <div class="font-bold flex items-center gap-1.5">
-          <span>💡</span>
+          <AppIcon name="lightbulb" :size="17" />
           <span>系统处于本地直通模式 (Local Mode)</span>
         </div>
         <p class="leading-relaxed">
@@ -27,9 +27,10 @@
         <button
           @click="handleBypassLocal"
           type="button"
-          class="w-full py-2 bg-[#D49B35] hover:bg-[#C28C2B] text-white font-bold rounded-xl transition-colors text-xs"
+          class="inline-flex w-full items-center justify-center gap-1.5 py-2 bg-[#D49B35] hover:bg-[#C28C2B] text-white font-bold rounded-xl transition-colors text-xs"
         >
-          直接进入 Local 模式后台 →
+          <span>直接进入 Local 模式后台</span>
+          <AppIcon name="arrow-right" :size="16" />
         </button>
       </div>
 
@@ -37,7 +38,7 @@
       <form v-else @submit.prevent="handleLogin" class="space-y-4">
         <!-- 错误提示 Banner -->
         <div v-if="errorMessage" class="bg-red-50 border border-red-200 text-red-800 text-xs px-3.5 py-2.5 rounded-xl font-medium flex items-center gap-2">
-          <span>⚠️</span>
+          <AppIcon name="alert" :size="18" />
           <span>{{ errorMessage }}</span>
         </div>
 
@@ -68,15 +69,16 @@
           :disabled="loading"
           class="w-full py-3 bg-[#2D5A43] hover:bg-[#1F4030] disabled:opacity-50 text-white font-bold rounded-xl transition-all shadow-sm text-xs cursor-pointer flex items-center justify-center gap-2"
         >
-          <span v-if="loading" class="animate-spin">⏳</span>
+          <AppIcon v-if="loading" name="loader" :size="18" class="animate-spin" />
           <span>{{ loading ? '正在验证身份...' : '验证并进入 Kitchen Studio' }}</span>
         </button>
       </form>
 
       <!-- 底部返回入口 -->
       <div class="text-center pt-2 border-t border-[#E5E2DC]">
-        <router-link to="/" class="text-xs font-bold text-[#58605B] hover:text-[#1C2520] transition-colors">
-          ← 返回 PostSoma Kitchen 公开首页
+        <router-link to="/" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#58605B] hover:text-[#1C2520] transition-colors">
+          <AppIcon name="arrow-left" :size="16" />
+          <span>返回 PostSoma Kitchen 公开首页</span>
         </router-link>
       </div>
 
@@ -89,6 +91,7 @@ import { ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { isSupabaseConfigured } from '@/services/supabaseClient'
 import { loginWithEmail } from '@/services/authService'
+import AppIcon from '@/components/common/AppIcon.vue'
 
 const route = useRoute()
 const router = useRouter()

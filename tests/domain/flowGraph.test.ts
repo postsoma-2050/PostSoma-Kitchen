@@ -53,7 +53,9 @@ function assertSimplifiedExport(recipe: VisualRecipeV3) {
   const exported = generatePageSvgString(recipe, 0, 1)
   const layout = buildV3MatrixLayout(recipe)
 
-  const hasExplicitDependencies = recipe.actionBlocks.some(b => b.inputBlockIds && b.inputBlockIds.length > 0)
+  const hasExplicitDependencies = recipe.actionBlocks.some(
+    b => (b.inputBlockIds && b.inputBlockIds.length > 0) || (b.dependencies && b.dependencies.length > 0)
+  )
   if (hasExplicitDependencies) {
     assert.match(exported.svgString, /v3-flow-connectors/, `${recipe.id} 具有显式分支依赖，导出图卡必须渲染分支连接线`)
     assert.match(exported.svgString, /marker-end="url\(#flow-arrow-/, `${recipe.id} 具有显式分支依赖，导出图卡必须渲染连接箭头`)
@@ -73,7 +75,7 @@ function assertSimplifiedExport(recipe: VisualRecipeV3) {
 }
 
 function run() {
-  assert.equal(ALL_PRESET_RECIPES.length, 121, 'Flow 视觉回归必须覆盖统一的 121 道预置食谱口径')
+  assert.equal(ALL_PRESET_RECIPES.length, 170, 'Flow 视觉回归必须覆盖全量 170 道预置食谱口径 (151 中餐原书真品 + 16 西餐 + 3 样例)')
 
   const recipe = createRecipe()
   const layout = buildV3MatrixLayout(recipe)
@@ -128,10 +130,10 @@ function run() {
   )
 
   const representativeIds = [
-    'cn-89-mizhi-fanqie-shanyao',
-    'cn-01-yuxiang-rousi',
+    'cn-02',
+    'cn-16',
     'hsh-16-hashbrown-casserole',
-    'cn-59-qincai-niurou',
+    'cn-60',
   ]
   representativeIds.forEach(id => {
     const representative = ALL_PRESET_RECIPES.find(item => item.id === id)
@@ -139,8 +141,73 @@ function run() {
     assertSimplifiedExport(representative!)
   })
 
-  // 严谨冷热判断与中餐英文降噪断言
-  const cn59 = ALL_PRESET_RECIPES.find(item => item.id === 'cn-59-qincai-niurou')!
+  // 严谨冷热判断与中餐英文降噪断言（使用 4 步复杂拓扑测试快照）
+  const fixtureCn59: VisualRecipeV3 = {
+    id: 'fixture-cn-59-qincai-niurou',
+    title: '🥩 经典平肝芹菜炒牛肉丝',
+    status: 'published',
+    cuisine: 'chinese',
+    version: '3.0',
+    createdAt: '2026-08-04T09:04:03.377936+00:00',
+    updatedAt: '2026-08-04T09:04:03.377936+00:00',
+    prerequisites: {
+      containerSize: '中式炒锅',
+      preheat: '牛肉切细丝上浆',
+      servings: '3 人份'
+    },
+    ingredients: [
+      { id: 'i1', name: '嫩牛肉丝 (上浆)', category: 'main', amountText: '200 g' },
+      { id: 'i2', name: '香芹菜段', category: 'produce', amountText: '200 g' },
+      { id: 'i3', name: '泡野山椒碎与姜丝', category: 'produce', amountText: '野山椒+姜丝' },
+      { id: 'i4', name: '上浆料酒生抽水淀粉', category: 'seasoning', amountText: '适量' },
+      { id: 'i5', name: '老抽盐鸡精白糖', category: 'seasoning', amountText: '适量' }
+    ],
+    actionBlocks: [
+      {
+        id: 'b1',
+        label: '牛肉上浆码味',
+        sublabel: 'Marinate',
+        stageIndex: 0,
+        ingredientIds: ['i1', 'i4']
+      },
+      {
+        id: 'b2',
+        label: '滑油盛出暂存',
+        sublabel: 'Sear & Hold Aside',
+        stageIndex: 1,
+        ingredientIds: ['i1', 'i4'],
+        inputBlockIds: ['b1'],
+        dependencies: [{ sourceBlockId: 'b1', type: 'material', label: '上浆牛肉' }]
+      },
+      {
+        id: 'b3',
+        label: '底油爆香炒芹菜',
+        sublabel: 'Saute Produce',
+        stageIndex: 2,
+        ingredientIds: ['i2', 'i3'],
+        afterBlockIds: ['b2'],
+        dependencies: [{ sourceBlockId: 'b2', type: 'order', label: '同锅留底油' }]
+      },
+      {
+        id: 'b4',
+        label: '回锅调味合炒出锅',
+        sublabel: 'Combine & Serve',
+        stageIndex: 3,
+        ingredientIds: ['i1', 'i2', 'i3', 'i5'],
+        inputBlockIds: ['b2', 'b3'],
+        dependencies: [
+          { sourceBlockId: 'b2', type: 'material', label: '暂存牛肉' },
+          { sourceBlockId: 'b3', type: 'material', label: '炒透芹菜' }
+        ]
+      }
+    ],
+    finalBlock: {
+      label: '趁热享用 🥩',
+      method: 'fry',
+      instructions: '牛肉滑嫩，芹菜清脆微辣开胃'
+    }
+  }
+  const cn59 = ALL_PRESET_RECIPES.find(item => item.id === 'cn-59-qincai-niurou') || fixtureCn59
   assert.equal(isColdFinalBlock(cn59), false, '热炒菜 cn-59 严禁被判定为免加热冷食')
   assert.equal(isColdFinalBlock(caesarSaladV3), true, '经典凯撒沙拉必须被判定为免加热冷食')
 
@@ -396,9 +463,14 @@ function run() {
     const stageCounts = new Map<number, number>()
     preset.actionBlocks.forEach((block: any) => {
       stageCounts.set(block.stageIndex, (stageCounts.get(block.stageIndex) || 0) + 1)
-      const dependencies = block.inputBlockIds || []
+      const dependencies = Array.isArray(block.dependencies)
+        ? block.dependencies
+        : [
+            ...(block.inputBlockIds || []).map((sourceBlockId: string) => ({ sourceBlockId, type: 'legacy' })),
+            ...(block.afterBlockIds || []).map((sourceBlockId: string) => ({ sourceBlockId, type: 'order' })),
+          ]
       stats.explicitEdges += dependencies.length
-      if (dependencies.length > 1) stats.mergeBlocks += 1
+      if (dependencies.filter((dependency: any) => dependency.type === 'material').length > 1) stats.mergeBlocks += 1
     })
     if ([...stageCounts.values()].some(count => count > 1)) stats.parallelRecipeIds.push(preset.id)
     return stats

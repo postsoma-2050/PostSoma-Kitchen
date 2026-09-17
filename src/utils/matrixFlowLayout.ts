@@ -1,4 +1,4 @@
-import { arrangeIngredientRows, getProcessingIngredientSets } from './ingredientDisplayOrder'
+import { arrangeIngredientRows } from './ingredientDisplayOrder'
 import type { VisualRecipeV3, V3Ingredient, V3ActionBlock, V3FinalBlock, V3DependencyType } from '@/types/recipeV3'
 import { measureTextWidth, wrapTextToLines } from './textMeasurement'
 
@@ -34,6 +34,7 @@ export interface V3LayoutActionBlock {
 export interface V3LayoutFinalBlock {
     finalBlock: V3FinalBlock
     isPlaceholder: boolean
+    isOutcomeOnly: boolean
     instructionLines?: string[]
     x: number
     y: number
@@ -97,6 +98,17 @@ export interface V3IntakeRailSegment {
     startY: number
     endY: number
     participatingRowIndices: number[]
+    portX: number
+    portY: number
+    pathD: string
+}
+
+export interface V3StageBand {
+    colIndex: number
+    x: number
+    y: number
+    w: number
+    h: number
 }
 
 export interface V3FlowConnectorLayout {
@@ -130,6 +142,7 @@ export interface V3MatrixLayoutResult {
     ingredientWaitingPaths: V3IngredientWaitingPath[]
     ingredientIntakeFeeds: V3IngredientIntakeFeed[]
     intakeRailSegments: V3IntakeRailSegment[]
+    stageBands: V3StageBand[]
     actionColWidths: number[]
     finalBlockLayout: V3LayoutFinalBlock
     gridLines: V3GridLine[]
@@ -140,13 +153,16 @@ export interface V3MatrixLayoutResult {
 
 const BASE_ROW_HEIGHT = 44
 const GAP_Y = 0
-const GAP_X = 16
+const GAP_X = 44
 const INGREDIENT_COL_WIDTH = 320
-const MIN_ACTION_COL_WIDTH = 120
-const MAX_ACTION_COL_WIDTH = 210
-const FINAL_COL_WIDTH = 135
+const MIN_ACTION_COL_WIDTH = 156
+const MAX_ACTION_COL_WIDTH = 220
+const FINAL_COL_WIDTH = 150
 const PADDING = 16
 const STRIP_ROW_HEIGHT = 28
+const MIN_ACTION_CARD_HEIGHT = 64
+const INPUT_BUS_GAP = 18
+const ACTION_VERTICAL_GAP = 16
 
 function rangesOverlap(startA: number, endA: number, startB: number, endB: number): boolean {
     return startA <= endB && startB <= endA
@@ -319,6 +335,40 @@ function routeConnectorPath(
 function createConnectorPath(startX: number, startY: number, endX: number, endY: number): string {
     const controlOffset = Math.max(10, (endX - startX) * 0.45)
     return `M ${startX} ${startY} C ${startX + controlOffset} ${startY}, ${endX - controlOffset} ${endY}, ${endX} ${endY}`
+}
+
+function placeConnectorLabel(
+    label: string | undefined,
+    preferred: { x: number; y: number },
+    source: V3LayoutActionBlock,
+    target: V3LayoutActionBlock,
+    allBlocks: V3LayoutActionBlock[],
+    contentStartY: number,
+): { x: number; y: number } | undefined {
+    if (!label || /^(物料流动|前序工序关联|完成前一步后操作)$/.test(label.trim())) return undefined
+
+    const labelW = measureTextWidth(label, 9, true) + 12
+    const labelH = 18
+    const centerX = (source.x + source.w + target.x) / 2
+    const candidates = [
+        { x: preferred.x, y: preferred.y - 13 },
+        { x: centerX, y: Math.max(contentStartY + 11, Math.min(source.y, target.y) - 12) },
+        { x: centerX, y: Math.max(source.y + source.h, target.y + target.h) + 12 },
+        { x: source.x + source.w + Math.max(18, (target.x - source.x - source.w) / 2), y: source.y - 12 },
+    ]
+
+    const collides = (point: { x: number; y: number }) => allBlocks.some(block => {
+        const left = point.x - labelW / 2
+        const right = point.x + labelW / 2
+        const top = point.y - labelH / 2
+        const bottom = point.y + labelH / 2
+        return right > block.x - 4
+            && left < block.x + block.w + 4
+            && bottom > block.y - 4
+            && top < block.y + block.h + 4
+    })
+
+    return candidates.find(candidate => !collides(candidate))
 }
 
 function routeWaitingPathWithAvoidance(
@@ -596,7 +646,7 @@ export function formatIngredientRowDisplay(ing: V3Ingredient): FormattedIngredie
 
     const parts = name.split(/\s(?=[\u4e00-\u9fa5])/)
     return {
-        amount: amount ? (isFormula ? `🥣 ${amount}` : amount) : (isFormula ? '🥣 配方' : ''),
+        amount: amount ? (isFormula ? `配方 · ${amount}` : amount) : (isFormula ? '复合配方' : ''),
         nameLine1: parts[0] || name,
         nameLine2: parts.length >= 2 ? parts.slice(1).join(' ') : '',
         isFormula,
@@ -608,11 +658,10 @@ export function formatIngredientRowDisplay(ing: V3Ingredient): FormattedIngredie
  * 构建确定性的 V3 矩阵布局。
  * - inputBlockIds 决定最低依赖层级；stageIndex 作为人工偏好列。
  * - 全局列占用表保证任何自动右移都不会再次覆盖其他阶段。
- * - 显式依赖继续生成可供领域审计使用的关系；默认视觉不再渲染连接线。
+ * - 所有工序流转与终点连接都生成可视路径；线型严格区分物料、时序与旧式关系。
  */
 export function buildV3MatrixLayout(recipe: VisualRecipeV3): V3MatrixLayoutResult {
     recipe = arrangeIngredientRows(recipe)
-    const processingSets = getProcessingIngredientSets(recipe)
     const ingredients = recipe.ingredients || []
     const numRows = Math.max(ingredients.length, 1)
     const prerequisites = recipe.prerequisites || {}
@@ -817,7 +866,8 @@ export function buildV3MatrixLayout(recipe: VisualRecipeV3): V3MatrixLayoutResul
         const rawNote = (item.block.note || item.block.notes || '').trim()
         const cleanNote = rawNote.replace(/^(注[：:]|注意[：:]|要点[：:]|提示[：:])/g, '').trim()
         const noteWidth = cleanNote ? measureTextWidth(cleanNote.slice(0, 10), 10.5, false) : 0
-        const heatText = `${item.block.heatLevel || ''} ${item.block.durationMinutes ? `${item.block.durationMinutes}m` : ''}`.trim()
+        const durationText = item.block.durationText || (item.block.durationMinutes ? `${item.block.durationMinutes}m` : '')
+        const heatText = `${item.block.heatLevel || ''} ${durationText}`.trim()
         const heatWidth = measureTextWidth(heatText, 10, false)
         const equipmentWidth = measureTextWidth(item.block.equipment ? `器具 ${item.block.equipment}` : '', 10, false)
         const requiredWidth = Math.min(
@@ -846,7 +896,7 @@ export function buildV3MatrixLayout(recipe: VisualRecipeV3): V3MatrixLayoutResul
     finalPlacedBlocks.forEach(item => {
         const lines = blockTextLines.get(item.block.id)
         if (!lines) return
-        const hasHeat = Boolean(item.block.heatLevel || item.block.durationMinutes)
+        const hasHeat = Boolean(item.block.heatLevel || item.block.durationText || item.block.durationMinutes)
         const contentHeight = measureBlockContentHeight(lines, hasHeat)
         const span = Math.max(1, item.endRow - item.startRow + 1)
         dynamicRowHeight = Math.max(dynamicRowHeight, Math.ceil(contentHeight / span))
@@ -909,22 +959,22 @@ export function buildV3MatrixLayout(recipe: VisualRecipeV3): V3MatrixLayoutResul
         })
         const allInputYs = [...intakeRowYs, ...upstreamYs]
 
-        const hasHeat = Boolean(item.block.heatLevel || item.block.durationMinutes)
+        const hasHeat = Boolean(item.block.heatLevel || item.block.durationText || item.block.durationMinutes)
         const contentH = measureBlockContentHeight(lines, hasHeat)
-        const scopeRows = [...(processingSets.get(item.block.id) || [])]
-            .map(id => ingredientRowMap.get(id)).filter((r): r is number => r !== undefined)
-        const exactRegion = scopeRows.length === spanRows && scopeRows.every(r => r >= startRow && r <= endRow)
-        const cardH = exactRegion ? envelopeH : Math.min(envelopeH, Math.max(rowHeight, contentH))
+        // 分支图中的工序是拓扑节点，不是表格合并单元格。节点高度只由内容决定，
+        // 食材跨度交给独立的输入总线表达，避免再次出现纵向“大板砖”。
+        const cardH = Math.max(MIN_ACTION_CARD_HEIGHT, contentH)
 
         let cardY = envelopeY
         if (envelopeH > cardH) {
             if (allInputYs.length > 0) {
                 const avgInputY = allInputYs.reduce((a, b) => a + b, 0) / allInputYs.length
-                cardY = Math.max(envelopeY, Math.min(envelopeY + envelopeH - cardH, Math.round(avgInputY - cardH / 2)))
+                cardY = Math.round(avgInputY - cardH / 2)
             } else {
                 cardY = envelopeY + Math.round((envelopeH - cardH) / 2)
             }
         }
+        cardY = Math.max(contentStartY + 8, cardY)
 
         return {
             block: item.block,
@@ -947,6 +997,43 @@ export function buildV3MatrixLayout(recipe: VisualRecipeV3): V3MatrixLayoutResul
         }
     })
 
+    // 同一拓扑层的节点使用独立纵向车道打包。几何调整只解决碰撞，绝不改变依赖列。
+    for (let column = 0; column < numActionCols; column += 1) {
+        const columnBlocks = actionBlockLayouts
+            .filter(layout => layout.computedColIndex === column)
+            .sort((a, b) => a.y - b.y || a.computedStartRow - b.computedStartRow)
+        let cursorY = contentStartY + 8
+        columnBlocks.forEach(layout => {
+            layout.y = Math.max(layout.y, cursorY)
+            cursorY = layout.y + layout.h + ACTION_VERTICAL_GAP
+        })
+    }
+
+    const ingredientContentHeight = numRows * rowHeight
+    const actionContentBottom = actionBlockLayouts.reduce(
+        (max, layout) => Math.max(max, layout.y + layout.h),
+        contentStartY + ingredientContentHeight,
+    )
+    const flowContentHeight = Math.max(
+        ingredientContentHeight,
+        actionContentBottom - contentStartY + 8,
+    )
+
+    const finalIsOutcomeOnly = recipe.finalBlock?.role === 'outcome'
+    const terminalColumn = actionBlockLayouts.reduce(
+        (max, layout) => Math.max(max, layout.computedColIndex),
+        0,
+    )
+    const terminalLayouts = actionBlockLayouts.filter(layout => layout.computedColIndex === terminalColumn)
+    const terminalCenterY = terminalLayouts.length > 0
+        ? terminalLayouts.reduce((sum, layout) => sum + layout.y + layout.h / 2, 0) / terminalLayouts.length
+        : contentStartY + flowContentHeight / 2
+    const finalHeight = finalIsOutcomeOnly ? 44 : flowContentHeight
+    const finalWidth = finalIsOutcomeOnly ? 72 : FINAL_COL_WIDTH
+    const finalY = finalIsOutcomeOnly
+        ? Math.max(contentStartY + 8, Math.min(contentStartY + flowContentHeight - finalHeight - 8, terminalCenterY - finalHeight / 2))
+        : contentStartY
+
     const finalBlockLayout: V3LayoutFinalBlock = {
         finalBlock: recipe.finalBlock || {
             method: 'other',
@@ -954,11 +1041,12 @@ export function buildV3MatrixLayout(recipe: VisualRecipeV3): V3MatrixLayoutResul
             instructions: '设定最终烹饪或装盘方式',
         },
         isPlaceholder: !recipe.finalBlock,
+        isOutcomeOnly: finalIsOutcomeOnly,
         instructionLines: [], // 操作长句退出单元格主视觉，保持绝对简约，详细指导保留在 Tooltip
         x: currentX,
-        y: contentStartY,
-        w: FINAL_COL_WIDTH,
-        h: numRows * rowHeight,
+        y: finalY,
+        w: finalWidth,
+        h: finalHeight,
     }
 
     const layoutById = new Map(actionBlockLayouts.map(layout => [layout.block.id, layout]))
@@ -1015,7 +1103,15 @@ export function buildV3MatrixLayout(recipe: VisualRecipeV3): V3MatrixLayoutResul
 
         const isOrder = type === 'order'
         const isMaterial = type === 'material'
-        const { pathD, midPoint } = routeConnectorPath(source, target, actionBlockLayouts, contentStartY, targetYOffset)
+        const routed = routeConnectorPath(source, target, actionBlockLayouts, contentStartY, targetYOffset)
+        const labelPoint = placeConnectorLabel(
+            label,
+            routed.midPoint,
+            source,
+            target,
+            actionBlockLayouts,
+            contentStartY,
+        )
 
         connectorLayouts.push({
             id: `flow-${source.block.id}-${target.block.id}`,
@@ -1027,8 +1123,8 @@ export function buildV3MatrixLayout(recipe: VisualRecipeV3): V3MatrixLayoutResul
             isOrder,
             isMaterial,
             label,
-            pathD,
-            midPoint,
+            pathD: routed.pathD,
+            midPoint: labelPoint,
         })
     }
 
@@ -1095,6 +1191,8 @@ export function buildV3MatrixLayout(recipe: VisualRecipeV3): V3MatrixLayoutResul
             sourceBlockId: source.block.id,
             targetType: 'final',
             explicit: false,
+            type: 'material',
+            isMaterial: true,
             pathD: createConnectorPath(
                 source.x + source.w,
                 source.y + source.h / 2,
@@ -1104,24 +1202,33 @@ export function buildV3MatrixLayout(recipe: VisualRecipeV3): V3MatrixLayoutResul
         })
     })
 
-    // 1. 构建左侧食材未加工阶段的等待路径 (Waiting Paths)
+    // 1. 每项食材只接入首次处理它的工序。进入流程后的移动由工序依赖边表达，
+    // 不再把同一食材在每个后续节点重复画成“再次加入”。
     const ingredientWaitingPaths: V3IngredientWaitingPath[] = []
     const ingredientColRightX = PADDING + INGREDIENT_COL_WIDTH // 336
+    const firstUseBlockByIngredient = new Map<string, V3LayoutActionBlock>()
+
+    ingredients.forEach(ingredient => {
+        const firstUse = actionBlockLayouts
+            .filter(layout => (layout.block.ingredientIds || []).includes(ingredient.id))
+            .sort((left, right) => {
+                const colDiff = left.computedColIndex - right.computedColIndex
+                if (colDiff !== 0) return colDiff
+                return (originalOrder.get(left.block.id) || 0) - (originalOrder.get(right.block.id) || 0)
+            })[0]
+        if (firstUse) firstUseBlockByIngredient.set(ingredient.id, firstUse)
+    })
 
     ingredients.forEach((ing, rowIndex) => {
         const rowY = contentStartY + rowIndex * rowHeight + rowHeight / 2
-        // 查找所有使用此食材的工序，按列排序
-        const usingBlocks = actionBlockLayouts
-            .filter(lb => (lb.block.ingredientIds || []).includes(ing.id))
-            .sort((a, b) => a.computedColIndex - b.computedColIndex)
+        const firstBlock = firstUseBlockByIngredient.get(ing.id)
 
-        if (usingBlocks.length > 0) {
-            const firstBlock = usingBlocks[0]
-            // 若首次使用该食材的工序晚于第 0 列 (即 firstBlock.x > 336)
-            if (firstBlock.x > ingredientColRightX) {
+        if (firstBlock) {
+            const busX = firstBlock.x - INPUT_BUS_GAP
+            if (busX > ingredientColRightX) {
                 const pathD = routeWaitingPathWithAvoidance(
                     ingredientColRightX,
-                    firstBlock.x,
+                    busX,
                     rowY,
                     firstBlock.block.id,
                     actionBlockLayouts,
@@ -1132,39 +1239,12 @@ export function buildV3MatrixLayout(recipe: VisualRecipeV3): V3MatrixLayoutResul
                     ingredientId: ing.id,
                     rowIndex,
                     startX: ingredientColRightX,
-                    endX: firstBlock.x,
+                    endX: busX,
                     startY: rowY,
                     targetBlockId: firstBlock.block.id,
                     isFinal: false,
                     pathD,
                 })
-            }
-            // 分次追加：若后续还有工序使用此食材
-            for (let i = 0; i < usingBlocks.length - 1; i++) {
-                const curBlock = usingBlocks[i]
-                const nextBlock = usingBlocks[i + 1]
-                const curRight = curBlock.x + curBlock.w
-                if (nextBlock.x > curRight) {
-                    const pathD = routeWaitingPathWithAvoidance(
-                        curRight,
-                        nextBlock.x,
-                        rowY,
-                        nextBlock.block.id,
-                        actionBlockLayouts,
-                        contentStartY
-                    )
-                    ingredientWaitingPaths.push({
-                        id: `wait-${ing.id}-step-${i + 1}`,
-                        ingredientId: ing.id,
-                        rowIndex,
-                        startX: curRight,
-                        endX: nextBlock.x,
-                        startY: rowY,
-                        targetBlockId: nextBlock.block.id,
-                        isFinal: false,
-                        pathD,
-                    })
-                }
             }
         } else {
             // 未在任何动作工序中消耗的食材，横向延伸至最终成品列
@@ -1191,13 +1271,14 @@ export function buildV3MatrixLayout(recipe: VisualRecipeV3): V3MatrixLayoutResul
         }
     })
 
-    // 2. 构建食材接入点与不跨无关行的聚成分段导轨 (Intake Feeds & Non-swallowing Rail Segments)
+    // 2. 将同一工序的首次加入食材汇聚到卡片左侧总线，再从明确端口进入卡片。
     const ingredientIntakeFeeds: V3IngredientIntakeFeed[] = []
     const intakeRailSegments: V3IntakeRailSegment[] = []
     const ingredientConnectors: V3IngredientConnectorLayout[] = []
 
     actionBlockLayouts.forEach(layoutBlock => {
-        const usedIngIds = layoutBlock.block.ingredientIds || []
+        const usedIngIds = (layoutBlock.block.ingredientIds || [])
+            .filter(id => firstUseBlockByIngredient.get(id)?.block.id === layoutBlock.block.id)
         const participatingRows = usedIngIds
             .map(id => ({ id, row: ingredientRowMap.get(id) }))
             .filter((item): item is { id: string; row: number } => item.row !== undefined)
@@ -1212,19 +1293,9 @@ export function buildV3MatrixLayout(recipe: VisualRecipeV3): V3MatrixLayoutResul
                 ingredientId: item.id,
                 blockId: layoutBlock.block.id,
                 rowIndex: item.row,
-                pinX: layoutBlock.x,
+                pinX: layoutBlock.x - INPUT_BUS_GAP,
                 pinY,
-                feedStartX: layoutBlock.x - 8,
-            })
-            ingredientConnectors.push({
-                id: `ing-${item.id}-${layoutBlock.block.id}`,
-                ingredientId: item.id,
-                targetBlockId: layoutBlock.block.id,
-                sourceX: ingredientColRightX,
-                sourceY: pinY,
-                targetX: layoutBlock.x,
-                targetY: pinY,
-                pathD: `M ${layoutBlock.x - 8} ${pinY} L ${layoutBlock.x} ${pinY}`,
+                feedStartX: ingredientColRightX,
             })
         })
 
@@ -1257,67 +1328,62 @@ export function buildV3MatrixLayout(recipe: VisualRecipeV3): V3MatrixLayoutResul
             const minRowY = Math.min(...rowYs)
             const maxRowY = Math.max(...rowYs)
 
-            let startY: number | null = null
-            let endY: number | null = null
+            const portStep = layoutBlock.h / (clusters.length + 1)
+            const portY = Math.max(cardTop + 12, Math.min(cardBottom - 12, cardTop + portStep * (cIdx + 1)))
+            const busX = layoutBlock.x - INPUT_BUS_GAP
+            const startY = Math.min(minRowY, portY)
+            const endY = Math.max(maxRowY, portY)
 
-            if (maxRowY < cardTop) {
-                // 簇完全在卡片上方：从最顶端食材行向下延伸至卡片顶边界
-                startY = minRowY
-                endY = cardTop
-            } else if (minRowY > cardBottom) {
-                // 簇完全在卡片下方：从卡片底边界向下延伸至最低食材行
-                startY = cardBottom
-                endY = maxRowY
-            } else {
-                // 簇与卡片纵向相交或处于卡片内部
-                if (cluster.length > 1) {
-                    startY = minRowY
-                    endY = maxRowY
-                    if (minRowY < cardTop) startY = minRowY
-                    if (maxRowY > cardBottom) endY = maxRowY
-                } else {
-                    // 单行输入：若略微超出卡片边界，微调连接至卡片边缘
-                    if (minRowY < cardTop) {
-                        startY = minRowY
-                        endY = cardTop
-                    } else if (minRowY > cardBottom) {
-                        startY = cardBottom
-                        endY = minRowY
-                    }
-                }
-            }
+            intakeRailSegments.push({
+                id: `rail-${layoutBlock.block.id}-c${cIdx}`,
+                blockId: layoutBlock.block.id,
+                x: busX,
+                startY,
+                endY,
+                participatingRowIndices: cluster,
+                portX: layoutBlock.x,
+                portY,
+                pathD: `M ${busX} ${portY} H ${layoutBlock.x}`,
+            })
 
-            if (startY !== null && endY !== null && Math.abs(endY - startY) > 0.5) {
-                intakeRailSegments.push({
-                    id: `rail-${layoutBlock.block.id}-c${cIdx}`,
-                    blockId: layoutBlock.block.id,
-                    x: layoutBlock.x,
-                    startY,
-                    endY,
-                    participatingRowIndices: cluster,
+            cluster.forEach(rowIndex => {
+                const ingredient = ingredients[rowIndex]
+                if (!ingredient) return
+                const sourceY = contentStartY + rowIndex * rowHeight + rowHeight / 2
+                ingredientConnectors.push({
+                    id: `ing-${ingredient.id}-${layoutBlock.block.id}`,
+                    ingredientId: ingredient.id,
+                    targetBlockId: layoutBlock.block.id,
+                    sourceX: ingredientColRightX,
+                    sourceY,
+                    targetX: layoutBlock.x,
+                    targetY: portY,
+                    pathD: `M ${ingredientColRightX} ${sourceY} H ${busX} V ${portY} H ${layoutBlock.x}`,
                 })
-            }
+            })
         })
     })
 
+    const stageBands: V3StageBand[] = actionColXOffsets.map((x, colIndex) => ({
+        colIndex,
+        x: x - 12,
+        y: contentStartY,
+        w: actionColWidths[colIndex] + 24,
+        h: flowContentHeight,
+    }))
+
     const gridLines: V3GridLine[] = []
-    const totalMatrixWidth = finalBlockLayout.x + FINAL_COL_WIDTH - PADDING
-    const totalMatrixHeight = numRows * rowHeight
+    const totalMatrixHeight = flowContentHeight
     for (let index = 1; index < numRows; index += 1) {
         const y = contentStartY + index * rowHeight
-        gridLines.push({ x1: PADDING, y1: y, x2: PADDING + totalMatrixWidth, y2: y })
+        gridLines.push({ x1: PADDING, y1: y, x2: PADDING + INGREDIENT_COL_WIDTH, y2: y })
     }
-    for (let column = 0; column <= numActionCols; column += 1) {
-        const x = column < numActionCols
-            ? actionColXOffsets[column]
-            : finalBlockLayout.x
-        gridLines.push({
-            x1: x,
-            y1: contentStartY,
-            x2: x,
-            y2: contentStartY + totalMatrixHeight,
-        })
-    }
+    gridLines.push({
+        x1: ingredientColRightX,
+        y1: contentStartY,
+        x2: ingredientColRightX,
+        y2: contentStartY + ingredientContentHeight,
+    })
 
     return {
         canvasWidth: finalBlockLayout.x + finalBlockLayout.w + PADDING,
@@ -1336,6 +1402,7 @@ export function buildV3MatrixLayout(recipe: VisualRecipeV3): V3MatrixLayoutResul
         ingredientWaitingPaths,
         ingredientIntakeFeeds,
         intakeRailSegments,
+        stageBands,
         actionColWidths,
         finalBlockLayout,
         gridLines,

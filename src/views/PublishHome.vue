@@ -14,17 +14,14 @@
             <router-link to="/fridge" class="mt-5 inline-flex min-h-11 flex-wrap items-center gap-2 rounded-lg text-sm font-bold text-[color:var(--pk-accent)] underline decoration-[color:var(--pk-border-strong)] underline-offset-4 hover:text-[color:var(--pk-accent-hover)]">
               <span>按食材找料理方向</span>
               <span class="font-normal text-[color:var(--pk-ink-muted)]">基于已收录食谱</span>
-              <span aria-hidden="true">→</span>
+              <AppIcon name="arrow-right" :size="16" />
             </router-link>
           </div>
 
           <div class="space-y-3">
             <label for="recipe-search" class="block text-sm font-bold text-[color:var(--pk-ink)]">搜索食谱</label>
             <div class="relative">
-              <svg viewBox="0 0 20 20" class="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[color:var(--pk-ink-muted)]" fill="none" aria-hidden="true">
-                <circle cx="8.5" cy="8.5" r="5" stroke="currentColor" stroke-width="1.6" />
-                <path d="m12.5 12.5 4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-              </svg>
+              <AppIcon name="search" :size="20" class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-[color:var(--pk-ink-muted)]" />
               <input
                 id="recipe-search"
                 :value="searchQuery"
@@ -79,9 +76,7 @@
             <span v-if="structuredFilterCount > 0" class="flex h-5 min-w-5 items-center justify-center rounded-md bg-[color:var(--pk-accent)] px-1 text-xs tabular-nums text-white">
               {{ structuredFilterCount }}
             </span>
-            <svg viewBox="0 0 20 20" class="h-4 w-4 transition-transform motion-reduce:transition-none" :class="showFilters ? 'rotate-180' : ''" fill="none" aria-hidden="true">
-              <path d="m6 8 4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
+            <AppIcon name="arrow-down" :size="16" class="transition-transform motion-reduce:transition-none" :class="showFilters ? 'rotate-180' : ''" />
           </button>
         </div>
 
@@ -157,7 +152,11 @@
         </div>
 
         <div v-else class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <PublishRecipeCard v-for="recipe in pagedRecipes" :key="recipe.id" :recipe="recipe" />
+          <PublishRecipeCard
+            v-for="recipe in pagedRecipes"
+            :key="recipe.id"
+            :recipe="recipe"
+          />
         </div>
 
         <RecipePagination
@@ -177,9 +176,11 @@ import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import type { VisualRecipeV3 } from '@/types/recipeV3'
 import { getPublishedRecipes } from '@/services/v3RecipeStore'
+import { filterPubliclyBrowsableRecipes } from '@/domain/recipeCoverPublication'
 import { updateSeoMeta } from '@/utils/seoHelper'
 import PublishRecipeCard from '@/components/publish/PublishRecipeCard.vue'
 import RecipePagination from '@/components/publish/RecipePagination.vue'
+import AppIcon from '@/components/common/AppIcon.vue'
 import {
   clampRecipePage,
   parseRecipeBrowseQuery,
@@ -263,8 +264,12 @@ const structuredFilterCount = computed(() => [
   filterDifficulty.value,
 ].filter(value => value !== 'all').length)
 
+const publiclyBrowsableRecipes = computed(() => (
+  filterPubliclyBrowsableRecipes(publishedRecipes.value)
+))
+
 const filteredRecipes = computed(() => {
-  let list = [...publishedRecipes.value]
+  let list = [...publiclyBrowsableRecipes.value]
 
   if (searchQuery.value.trim()) {
     const query = searchQuery.value.trim().toLowerCase()
@@ -438,14 +443,15 @@ async function applyRouteQuery(query: Record<string, unknown>) {
 }
 
 function updatePageSeo() {
-  const count = publishedRecipes.value.length
+  const browsableRecipes = publiclyBrowsableRecipes.value
+  const count = browsableRecipes.length
   const schemaItemList = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     '@id': 'https://recipelab.cc/#recipe-item-list',
     'name': 'PostSoma Kitchen 结构化食谱库',
     'numberOfItems': count,
-    'itemListElement': publishedRecipes.value.slice(0, 30).map((r, i) => ({
+    'itemListElement': browsableRecipes.slice(0, 30).map((r, i) => ({
       '@type': 'ListItem',
       'position': i + 1,
       'name': r.title,

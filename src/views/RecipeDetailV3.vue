@@ -9,12 +9,12 @@
             to="/"
             class="pk-button pk-button-secondary px-3 text-xs sm:px-4"
           >
-            <span>←</span>
+            <AppIcon name="arrow-left" :size="16" />
             <span>返回食谱库</span>
           </router-link>
 
           <span v-if="isLocalSource" class="text-[11px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200/90 px-2.5 py-1 rounded-full inline-flex items-center gap-1 shadow-2xs">
-            <span>🧪</span>
+            <AppIcon name="flask" :size="15" />
             <span>本地最新模型预览</span>
           </span>
         </div>
@@ -26,7 +26,7 @@
             type="button"
             class="pk-button pk-button-secondary px-3 text-xs sm:px-4"
           >
-            <svg viewBox="0 0 20 20" class="h-4 w-4" fill="none" aria-hidden="true"><path d="M7.5 11.5 12.5 6.5M6 13.5l-1 1a3 3 0 0 0 4.2 4.2l2-2a3 3 0 0 0 0-4.2M14 6.5l1-1a3 3 0 1 0-4.2-4.2l-2 2a3 3 0 0 0 0 4.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
+            <AppIcon :name="copySuccess ? 'success' : 'link'" :size="16" />
             <span>{{ copySuccess ? '已复制食谱链接！' : '分享食谱' }}</span>
           </button>
         </div>
@@ -55,21 +55,17 @@
         <div class="pk-surface overflow-hidden">
           <div
             class="relative h-56 w-full overflow-hidden bg-[color:var(--pk-surface-muted)] sm:h-80 md:h-96"
-            :data-cover-state="coverAsset?.state || 'fallback'"
+            :data-cover-state="coverAsset?.state === 'manual' && !userImgFailed ? 'manual' : 'fallback'"
           >
             <img
-              v-if="coverAsset && !imgError"
-              :src="coverAsset.url"
+              v-if="!fallbackImgFailed"
+              :src="displayCoverUrl"
               :alt="recipe.title"
-              @error="imgError = true"
+              @error="handleCoverError"
               class="w-full h-full object-cover"
             />
             <div v-else class="recipe-detail-fallback flex h-full w-full items-center justify-center" aria-hidden="true">
-              <svg viewBox="0 0 120 120" class="h-24 w-24 text-[color:var(--pk-ink-muted)] opacity-55" fill="none">
-                <circle cx="60" cy="60" r="38" stroke="currentColor" stroke-width="1.5" />
-                <circle cx="60" cy="60" r="26" stroke="currentColor" stroke-width="1" opacity="0.55" />
-                <path d="M39 64c7 10 35 10 42 0M45 52h30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-              </svg>
+              <AppIcon name="restaurant" :size="64" class="text-[color:var(--pk-ink-muted)] opacity-45" />
             </div>
 
             <!-- 浮动遮罩 Hero 信息层 -->
@@ -141,8 +137,9 @@
                       {{ formula.name }}
                     </h3>
                   </div>
-                  <span class="text-xs text-amber-700 group-hover:translate-x-0.5 transition-transform font-bold">
-                    查看配比 →
+                  <span class="inline-flex items-center gap-1 text-xs text-amber-700 group-hover:translate-x-0.5 transition-transform font-bold">
+                    <span>查看配比</span>
+                    <AppIcon name="arrow-right" :size="14" />
                   </span>
                 </div>
 
@@ -261,7 +258,8 @@ import { getPublishedRecipeById, getLocalPresetRecipeById } from '@/services/v3R
 import { updateSeoMeta } from '@/utils/seoHelper'
 import RecipeFlowWorkspaceV3 from '@/components/recipe-flow-v3/RecipeFlowWorkspaceV3.vue'
 import FormulaDetailModal from '@/components/recipe-flow-v3/FormulaDetailModal.vue'
-import { resolveRecipeCover } from '@/utils/recipeCoverAsset'
+import AppIcon from '@/components/common/AppIcon.vue'
+import { DEFAULT_RECIPE_COVER, resolveRecipeCover } from '@/utils/recipeCoverAsset'
 import {
   getRecipeDifficultyLabel,
   getRecipeDisplayTitle,
@@ -274,9 +272,32 @@ const route = useRoute()
 const recipe = ref<VisualRecipeV3 | null>(null)
 const isLoading = ref(true)
 const notFound = ref(false)
-const imgError = ref(false)
+const userImgFailed = ref(false)
+const fallbackImgFailed = ref(false)
 const copySuccess = ref(false)
 const coverAsset = computed(() => recipe.value ? resolveRecipeCover(recipe.value) : null)
+
+const displayCoverUrl = computed(() => {
+  // 1. 最高优先级：如果用户在后台设置了自定义图片，且该图片尚未加载报错，则展示用户上传的照片
+  if (coverAsset.value?.state === 'manual' && !userImgFailed.value) {
+    return coverAsset.value.url
+  }
+  // 2. 默认通用降级：展示中立、有食欲且代表烹饪准备工序的通用大图
+  return DEFAULT_RECIPE_COVER
+})
+
+function handleCoverError() {
+  if (coverAsset.value?.state === 'manual' && !userImgFailed.value) {
+    userImgFailed.value = true
+  } else {
+    fallbackImgFailed.value = true
+  }
+}
+
+watch(() => recipe.value?.coverImageUrl, () => {
+  userImgFailed.value = false
+  fallbackImgFailed.value = false
+})
 
 const isLocalSource = computed(() => {
   return route.query.source === 'local' || route.query.source === 'preset'
@@ -388,7 +409,8 @@ async function loadRecipe() {
       if (localFound) {
         recipe.value = localFound
         notFound.value = false
-        imgError.value = false
+        userImgFailed.value = false
+        fallbackImgFailed.value = false
         return
       }
     }
@@ -403,7 +425,8 @@ async function loadRecipe() {
       if (localFallback) {
         recipe.value = localFallback
         notFound.value = false
-        imgError.value = false
+        userImgFailed.value = false
+        fallbackImgFailed.value = false
       } else {
         recipe.value = null
         notFound.value = true

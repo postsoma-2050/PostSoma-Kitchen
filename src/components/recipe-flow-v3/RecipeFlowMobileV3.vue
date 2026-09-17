@@ -124,7 +124,7 @@
               <span>{{ layoutBlock.block.completionState }}</span>
             </div>
             <div v-if="layoutBlock.block.outputItem" class="mt-1.5 flex items-center gap-1 text-[11px] font-bold text-emerald-800">
-              <span>➔ 产出半成品：</span>
+              <span class="inline-flex items-center gap-1"><AppIcon name="arrow-right" :size="14" />产出半成品：</span>
               <span class="bg-emerald-100/90 px-2 py-0.5 rounded text-emerald-900">{{ layoutBlock.block.outputItem }}</span>
             </div>
           </article>
@@ -138,7 +138,7 @@
     >
       <div class="flex items-center gap-3">
         <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-xl shadow-sm">
-          {{ getMethodIcon(recipe.finalBlock?.method) }}
+          <AppIcon :name="getMethodIconName(recipe.finalBlock?.method)" :size="24" />
         </span>
         <div class="min-w-0">
           <p class="text-[10px] font-black uppercase tracking-[0.16em]" :class="isColdFinal ? 'text-emerald-700' : 'text-amber-700'">
@@ -171,6 +171,8 @@ import {
   formatIngredientRowDisplay,
 } from '@/utils/matrixFlowLayout'
 import { flowCardTheme } from '@/theme/flowCardTheme'
+import AppIcon from '@/components/common/AppIcon.vue'
+import type { AppIconName } from '@/types/icon'
 
 const props = defineProps<{ recipe: VisualRecipeV3 }>()
 
@@ -269,15 +271,15 @@ function getIngredients(layoutBlock: V3LayoutActionBlock): V3Ingredient[] {
     .filter((ingredient): ingredient is V3Ingredient => Boolean(ingredient))
 }
 
-function getMethodIcon(method?: string): string {
+function getMethodIconName(method?: string): AppIconName {
   switch (method) {
-    case 'bake': return '♨️'
-    case 'stew': return '🍲'
-    case 'fry': return '🍳'
-    case 'steam': return '💨'
-    case 'raw': return '🥗'
-    case 'serve': return isColdFinal.value ? '🥗' : '🍽️'
-    default: return '🍽️'
+    case 'bake': return 'cake'
+    case 'stew': return 'bowl'
+    case 'fry': return 'fire'
+    case 'steam': return 'steam'
+    case 'raw': return 'leaf'
+    case 'serve': return isColdFinal.value ? 'leaf' : 'restaurant'
+    default: return 'restaurant'
   }
 }
 </script>

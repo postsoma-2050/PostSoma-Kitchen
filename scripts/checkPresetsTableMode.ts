@@ -1,7 +1,7 @@
 import { CHINESE_HEALTHY_RECIPES } from '../src/data/chineseHealthyRecipes'
 import { HOME_SWEET_HOME_RECIPES } from '../src/data/homeSweetHomeRecipes'
 import { espressoBrowniesV3, hongShaoRouV3, caesarSaladV3 } from '../src/data/v3Examples'
-import { canRenderContinuousTable } from '../src/utils/continuousTableLayout'
+import { canRenderArrangedTable } from '../src/utils/continuousTableLayout'
 
 const allRecipes = [
   ...CHINESE_HEALTHY_RECIPES,
@@ -16,7 +16,7 @@ let flowCount = 0
 const flowRecipes: { id: string; title: string; reason?: string }[] = []
 
 for (const r of allRecipes) {
-  const res = canRenderContinuousTable(r)
+  const res = canRenderArrangedTable(r)
   if (res.canRender) {
     tableCount++
   } else {

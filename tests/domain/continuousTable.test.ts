@@ -16,40 +16,37 @@ console.log('=== 开始连续工序表 (Continuous Process Table) 契约测试 =
 // -------------------------------------------------------------
 // 契约 1: 尚未加入的原料延伸到正确阶段 (Waiting Lanes)
 // -------------------------------------------------------------
-const cn20 = CHINESE_HEALTHY_RECIPES.find(r => r.id === 'cn-20-banli-jiding')!
-assert.ok(cn20, 'cn-20 必须存在')
-const cn20Layout = buildV3ContinuousTableLayout(cn20)
+const linearMergeSample = espressoBrowniesV3
+const linearMergeLayout = buildV3ContinuousTableLayout(linearMergeSample)
 
-// 在 cn-20 中，熟板栗 i2 是第 4 个食材 (rowIndex 3)，在第 3 列 (b3, colIndex 2) 才加入
-const chestnutWaitingLanes = cn20Layout.waitingLanes.filter(w => w.ingredientId === 'i2')
-assert.equal(chestnutWaitingLanes.length, 2, '熟板栗在进入 b3 之前，必须在第 0 列和第 1 列各有一个延伸等待通道')
-assert.equal(chestnutWaitingLanes[0].colIndex, 0, '第 0 列包含熟板栗等待通道')
-assert.equal(chestnutWaitingLanes[1].colIndex, 1, '第 1 列包含熟板栗等待通道')
+// 布朗尼面粉 i5 在翻拌列才加入，之前三列必须保持等待通道。
+const flourWaitingLanes = linearMergeLayout.waitingLanes.filter(w => w.ingredientId === 'i5')
+assert.deepEqual(flourWaitingLanes.map(lane => lane.colIndex), [0, 1, 2], '面粉在进入翻拌前必须连续等待三列')
 console.log('✅ 契约 1 通过: 尚未加入的原料延伸到正确阶段 (Waiting Lanes 正确生成)')
 
 // -------------------------------------------------------------
 // 契约 2: 汇合后内部横线正确终止 (Internal Dividing Lines Terminate)
 // -------------------------------------------------------------
-// cn-20 的 b1 (腌渍鸡丁入味) 在第 0 列合并了 row 0 (鸡肉), row 1 (酱油与蚝油), row 2 (姜末蒜末)
-// 那么在第 0 列内部，介于 row 0 与 row 1 之间、row 1 与 row 2 之间的水平线必须全部终止！
-const col0X = cn20Layout.ingredientColWidth + 16
-const col0W = cn20Layout.actionColWidths[0]
-const lineY_0_1 = cn20Layout.rowYPositions[0] + cn20Layout.rowHeights[0]
-const lineY_1_2 = cn20Layout.rowYPositions[1] + cn20Layout.rowHeights[1]
+// b1 在第 1 列合并 row 0..3，区域内部的水平线必须终止。
+const mergeColIndex = 1
+const mergeColX = linearMergeLayout.ingredientColWidth + 16 + linearMergeLayout.actionColWidths[0]
+const mergeColW = linearMergeLayout.actionColWidths[mergeColIndex]
+const lineY_0_1 = linearMergeLayout.rowYPositions[0] + linearMergeLayout.rowHeights[0]
+const lineY_1_2 = linearMergeLayout.rowYPositions[1] + linearMergeLayout.rowHeights[1]
 
-const lineInsideB1_0_1 = cn20Layout.horizontalLines.find(
-  l => l.x1 === col0X && l.x2 === col0X + col0W && Math.abs(l.y1 - lineY_0_1) < 1
+const lineInsideB1_0_1 = linearMergeLayout.horizontalLines.find(
+  l => l.x1 === mergeColX && l.x2 === mergeColX + mergeColW && Math.abs(l.y1 - lineY_0_1) < 1
 )
-const lineInsideB1_1_2 = cn20Layout.horizontalLines.find(
-  l => l.x1 === col0X && l.x2 === col0X + col0W && Math.abs(l.y1 - lineY_1_2) < 1
+const lineInsideB1_1_2 = linearMergeLayout.horizontalLines.find(
+  l => l.x1 === mergeColX && l.x2 === mergeColX + mergeColW && Math.abs(l.y1 - lineY_1_2) < 1
 )
 
 assert.equal(lineInsideB1_0_1, undefined, '工序 b1 内部 row 0 与 row 1 之间的水平线必须彻底终止')
 assert.equal(lineInsideB1_1_2, undefined, '工序 b1 内部 row 1 与 row 2 之间的水平线必须彻底终止')
 
 // 但原料列内部在这些 Y 坐标处必须保留水平线
-const ingLine_0_1 = cn20Layout.horizontalLines.find(
-  l => l.x1 === 16 && l.x2 === 16 + cn20Layout.ingredientColWidth && Math.abs(l.y1 - lineY_0_1) < 1
+const ingLine_0_1 = linearMergeLayout.horizontalLines.find(
+  l => l.x1 === 16 && l.x2 === 16 + linearMergeLayout.ingredientColWidth && Math.abs(l.y1 - lineY_0_1) < 1
 )
 assert.ok(ingLine_0_1, '原料列内部的水平分割线必须完整保留')
 console.log('✅ 契约 2 通过: 汇合后内部横线正确终止 (原料列保留分割，合并单元格内彻底消隐)')
@@ -86,12 +83,12 @@ console.log('✅ 契约 3 通过: 无关中间食材不被隐式吸收 (非连�
 // 契约 4: 共享边界没有重复绘制 (Single-Pass Grid Lines)
 // -------------------------------------------------------------
 const lineKeySet = new Set<string>()
-for (const l of cn20Layout.horizontalLines) {
+for (const l of linearMergeLayout.horizontalLines) {
   const key = `H_${l.x1}_${l.y1}_${l.x2}_${l.y2}`
   assert.ok(!lineKeySet.has(key), `水平线段 ${key} 不得重复绘制`)
   lineKeySet.add(key)
 }
-for (const l of cn20Layout.verticalLines) {
+for (const l of linearMergeLayout.verticalLines) {
   const key = `V_${l.x1}_${l.y1}_${l.x2}_${l.y2}`
   assert.ok(!lineKeySet.has(key), `垂直线段 ${key} 不得重复绘制`)
   lineKeySet.add(key)
@@ -99,14 +96,71 @@ for (const l of cn20Layout.verticalLines) {
 console.log('✅ 契约 4 通过: 共享边界没有重复绘制 (单次绘制，无边框叠加加粗)')
 
 // -------------------------------------------------------------
-// 契约 5: 暂存物料不进入等待工序，支线不穿无关区域 (cn-59 芹菜牛肉)
+// 契约 5: 暂存物料不进入等待工序，支线不穿无关区域 (暂存回锅 4 步样板)
 // -------------------------------------------------------------
-const cn59 = CHINESE_HEALTHY_RECIPES.find(r => r.id === 'cn-59-qincai-niurou')!
-assert.ok(cn59, 'cn-59 必须存在')
-const cn59Layout = buildV3ContinuousTableLayout(cn59)
+const caseBCn59Fixture: VisualRecipeV3 = {
+  id: 'fixture-hold-aside-beef',
+  title: '🥩 经典平肝芹菜炒牛肉丝 (Hold-Aside 拓扑测试样板)',
+  status: 'published',
+  cuisine: 'chinese',
+  version: '3.0',
+  prerequisites: {
+    containerSize: '中式炒锅',
+    preheat: '牛肉切细丝上浆',
+    servings: '3 人份'
+  },
+  ingredients: [
+    { id: 'i1', name: '嫩牛肉丝 (上浆)', category: 'main', amountText: '200 g' },
+    { id: 'i2', name: '香芹菜段', category: 'produce', amountText: '200 g' },
+    { id: 'i3', name: '泡野山椒碎与姜丝', category: 'produce', amountText: '野山椒+姜丝' },
+    { id: 'i4', name: '上浆料酒生抽水淀粉', category: 'seasoning', amountText: '适量' },
+    { id: 'i5', name: '老抽盐鸡精白糖', category: 'seasoning', amountText: '适量' }
+  ],
+  actionBlocks: [
+    {
+      id: 'b1',
+      label: '牛肉上浆码味',
+      stageIndex: 0,
+      ingredientIds: ['i1', 'i4']
+    },
+    {
+      id: 'b2',
+      label: '滑油盛出暂存',
+      stageIndex: 1,
+      ingredientIds: ['i1', 'i4'],
+      inputBlockIds: ['b1'],
+      dependencies: [{ sourceBlockId: 'b1', type: 'material', label: '上浆牛肉' }]
+    },
+    {
+      id: 'b3',
+      label: '底油爆香炒芹菜',
+      stageIndex: 2,
+      ingredientIds: ['i2', 'i3'],
+      afterBlockIds: ['b2'],
+      dependencies: [{ sourceBlockId: 'b2', type: 'order', label: '同锅留底油' }]
+    },
+    {
+      id: 'b4',
+      label: '回锅调味合炒出锅',
+      stageIndex: 3,
+      ingredientIds: ['i1', 'i2', 'i3', 'i5'],
+      inputBlockIds: ['b2', 'b3'],
+      dependencies: [
+        { sourceBlockId: 'b2', type: 'material', label: '暂存牛肉' },
+        { sourceBlockId: 'b3', type: 'material', label: '炒透芹菜' }
+      ]
+    }
+  ],
+  finalBlock: {
+    label: '辣香鲜嫩 🥩',
+    method: 'fry',
+    instructions: '牛肉滑嫩，芹菜清脆微辣开胃'
+  }
+}
+const cn59Layout = buildV3ContinuousTableLayout(caseBCn59Fixture)
 
 // 验证 cn-59 中的暂存走廊 (Hold-Aside Bridge)
-assert.equal(cn59Layout.holdAsideBridges.length, 1, 'cn-59 必须识别并生成暂存牛肉跨列走廊')
+assert.equal(cn59Layout.holdAsideBridges.length, 1, '必须识别并生成暂存牛肉跨列走廊')
 const beefBridge = cn59Layout.holdAsideBridges[0]
 assert.equal(beefBridge.sourceBlockId, 'b2', '暂存走廊源头来自 b2 (滑油盛出牛肉)')
 assert.equal(beefBridge.targetBlockId, 'b4', '暂存走廊终点通向 b4 (牛肉回锅合炒定味)')
@@ -152,12 +206,12 @@ console.log('✅ 契约 6 通过: 等待依赖严格参与拓扑排序')
 // -------------------------------------------------------------
 // 契约 7: 页面与导出布局结果完全一致 (Visual Consistency)
 // -------------------------------------------------------------
-const exportSvgResult = generatePageSvgString(cn20, 0, 1, undefined, 'full', 'table')
-assert.equal(exportSvgResult.width, cn20Layout.canvasWidth, '导出图卡宽度与表格布局引擎宽度必须严格一致')
-assert.equal(exportSvgResult.height, cn20Layout.canvasHeight, '导出图卡高度与表格布局引擎高度必须严格一致')
+const exportSvgResult = generatePageSvgString(linearMergeSample, 0, 1, undefined, 'full', 'table')
+assert.equal(exportSvgResult.width, linearMergeLayout.canvasWidth, '导出图卡宽度与表格布局引擎宽度必须严格一致')
+assert.equal(exportSvgResult.height, linearMergeLayout.canvasHeight, '导出图卡高度与表格布局引擎高度必须严格一致')
 assert.match(exportSvgResult.svgString, /v3-table-header-group/, '导出 SVG 包含表格表头')
 assert.match(exportSvgResult.svgString, /v3-table-grid-lines/, '导出 SVG 包含单次绘制网格线')
-assert.match(exportSvgResult.svgString, /出锅装盘 🍗/, '导出 SVG 包含正确操作终点')
+assert.match(exportSvgResult.svgString, /烘焙 bake/, '导出 SVG 包含真实操作型终步')
 console.log('✅ 契约 7 通过: 页面与导出布局结果严格一致 (共享领域布局引擎)')
 
 // -------------------------------------------------------------
@@ -285,77 +339,60 @@ assert.match(downgradedSvg.svgString, /flow-arrow/, '显式请求 table 的不�
 
 // 3) 合格食谱正常进入 table 模式
 assert.equal(
-  resolveLayoutMode(cn20, 'table'),
+  resolveLayoutMode(linearMergeSample, 'table'),
   'table',
   '合格食谱显式请求 table 正常解析为 table'
 )
 assert.equal(
-  resolveLayoutMode(cn20, 'auto'),
+  resolveLayoutMode(linearMergeSample, 'auto'),
   'table',
   '合格食谱默认 auto 正常解析为 table'
 )
 assert.equal(
-  resolveLayoutMode(cn20, 'flow'),
+  resolveLayoutMode(linearMergeSample, 'flow'),
   'flow',
   '合格食谱显式请求 flow 必须尊重用户的 flow 设置'
 )
 console.log('✅ 契约 12 通过: 不合格食谱即使显式请求 table，页面与导出也必须安全降级 (三入口统一闭环)')
 
 // -------------------------------------------------------------
-// 契约 13: 样板菜 cn-14 事实可信度与连续表格完整语义表达
+// 契约 13: 当前原书数据与结果型终点职责
 // -------------------------------------------------------------
-const cn14 = CHINESE_HEALTHY_RECIPES.find(r => r.id === 'cn-14-zhurou-dun-fentiao')!
-assert.ok(cn14, 'cn-14 必须存在')
-assert.equal(cn14.status, 'draft', 'cn-14 必须诚实标示为 draft 状态（待厨房实测验证）')
-assert.equal(cn14.ingredients.length, 12, 'cn-14 必须原子化为 12 项执行原料 (八角与食盐收敛至改编候选记录)')
-assert.equal(cn14.actionBlocks.length, 5, 'cn-14 必须拆解为 5 道独立动作块（焯肉/炒糖/加汤/焖炖/合炖）')
+const porkNoodles = CHINESE_HEALTHY_RECIPES.find(r => r.id === 'cn-02')!
+assert.ok(porkNoodles, '原书食谱 cn-02 必须存在')
+assert.equal(porkNoodles.title, '🥩 猪肉炖粉条')
+assert.equal(porkNoodles.provenance?.sourceType, 'book', '食谱必须保留原书来源')
+assert.match(porkNoodles.provenance?.locator || '', /OEBPS\/.+猪肉炖粉条/, '食谱必须具有可复查的 EPUB 定位')
+assert.equal(porkNoodles.dataReview?.topology, 'modeled', '自动拆解的拓扑必须诚实标为 modeled')
+assert.equal(porkNoodles.finalBlock?.role, 'outcome', '全部真实操作已在 actionBlocks 中时，终点必须是结果型')
+assert.equal(porkNoodles.finalBlock?.label, '完成', '结果型终点不得重复“炖煮”或使用风味形容词')
 
-const cn14TableCheck = canRenderContinuousTable(cn14)
-assert.equal(cn14TableCheck.canRender, true, 'cn-14 必须 100% 通过连续工序表准入校验')
+const porkNoodlesCheck = canRenderContinuousTable(porkNoodles)
+assert.equal(porkNoodlesCheck.canRender, true, '当前原书食谱必须通过连续工序表准入')
+const porkNoodlesLayout = buildV3ContinuousTableLayout(porkNoodles)
+assert.equal(porkNoodlesLayout.mode, 'continuous-table')
+assert.equal(
+  porkNoodlesLayout.processCells.filter(cell => cell.isFinalBlock).length,
+  0,
+  '结果型终点不得被渲染成重复的整列工序',
+)
 
-const cn14Layout = buildV3ContinuousTableLayout(cn14)
-assert.equal(cn14Layout.mode, 'continuous-table')
-assert.equal(cn14Layout.processCells.length, 6, '包含 5 个工序合并单元格与 1 个出锅装盘终点单元格')
-
-// 验证工序事实表达：承接、新放入、准出状态、产出物料
-const b1Cell = cn14Layout.processCells.find(p => p.id === 'b1')!
-assert.equal(b1Cell.label, '冷水焯肉')
-assert.equal(b1Cell.outputItem, '焯透五花肉')
-assert.equal(b1Cell.completionState, '大火沸腾撇净浮沫，肉块断生捞出')
-assert.deepEqual(b1Cell.newIngredients, ['带皮五花肉'])
-assert.equal(b1Cell.incomingMaterials, undefined)
-
-const b2Cell = cn14Layout.processCells.find(p => p.id === 'b2')!
-assert.equal(b2Cell.label, '煸炒上色')
-assert.equal(b2Cell.outputItem, '糖色五花肉')
-assert.deepEqual(b2Cell.incomingMaterials, ['焯透五花肉'])
-assert.deepEqual(b2Cell.newIngredients, ['白糖', '植物油'])
-
-const b4Cell = cn14Layout.processCells.find(p => p.id === 'b4')!
-assert.equal(b4Cell.label, '慢火焖炖')
-assert.deepEqual(b4Cell.incomingMaterials, ['浓醇炖肉汤底'])
-assert.equal(b4Cell.newIngredients, undefined, 'b4 虽包含五花肉参与原料，但在渲染层绝不重复显示新放入')
-
-const b5Cell = cn14Layout.processCells.find(p => p.id === 'b5')!
-assert.equal(b5Cell.label, '汇入同炖')
-assert.deepEqual(b5Cell.incomingMaterials, ['酥软五花肉'])
-assert.deepEqual(b5Cell.newIngredients, ['红薯粉条', '土豆'], 'b5 仅包含粉条与土豆，未经确认的食盐已移出默认配方')
-
-// 验证等待通道入锅指示标签
-const fenTiaoLanes = cn14Layout.waitingLanes.filter(w => w.ingredientId === 'i12')
-assert.equal(fenTiaoLanes.length, 4, '红薯粉条在前 4 列（0..3）均在横向等待通道中延伸')
-const joinTargetLane = fenTiaoLanes.find(w => w.colIndex === 3)!
-assert.equal(joinTargetLane.isJoinTarget, true, '进入 b5 前的最后一节等待走廊（col 3）必须标记为入锅目标')
-assert.equal(joinTargetLane.joinLabel, '+ 入锅 ➔', '入锅走廊必须有 "+ 入锅 ➔" 指引文本')
-console.log('✅ 契约 13 通过: 样板菜 cn-14 事实可信度与连续表格完整语义表达 (承接/新放入/准出状态/产出/入锅指引)')
+const firstSourceStep = porkNoodlesLayout.processCells.find(cell => cell.id === 'b1')!
+const secondSourceStep = porkNoodlesLayout.processCells.find(cell => cell.id === 'b2')!
+assert.ok(firstSourceStep && secondSourceStep, '原书两个步骤必须完整进入连续工序表')
+assert.deepEqual(secondSourceStep.incomingMaterials, ['切配沥干备用泡发'], '第二步必须承接第一步处理物')
+assert.ok(secondSourceStep.newIngredients?.includes('酱油'), '第二步必须明确接入本步新增调料')
+console.log('✅ 契约 13 通过: 原书定位、建模状态、物料承接与结果型终点职责一致')
 
 // -------------------------------------------------------------
-// 契约 14: 连续工序表动态高度扩展 (单行与多行工序均保证充足垂直空间，杜绝文本挤压与裁切)
+// 契约 14: 连续工序表动态高度扩展
 // -------------------------------------------------------------
-// b1 只占第 0 行，但在包含动词、副标、火候参数时，高度必须动态扩展大于基础 44px（如 >= 60px），且不堆砌多余教程文字
-assert.ok(b1Cell.h >= 60, `单行工序 b1 单元格高度必须动态扩展（实际: ${b1Cell.h}px >= 60px）`)
-assert.ok(cn14Layout.rowHeights[0] >= 60, `第 0 行行高必须动态扩展匹配工序需求（实际: ${cn14Layout.rowHeights[0]}px >= 60px）`)
-console.log('✅ 契约 14 通过: 连续工序表动态高度扩展 (单行与多行工序均保证充足垂直空间，杜绝文本挤压与裁切)')
+assert.ok(firstSourceStep.h >= 60, `多行工序单元格必须具备可读高度（实际: ${firstSourceStep.h}px >= 60px）`)
+assert.ok(
+  porkNoodlesLayout.rowHeights.slice(firstSourceStep.startRow, firstSourceStep.endRow + 1).every(height => height >= 44),
+  '工序覆盖的每一行均不得低于基础可读高度',
+)
+console.log('✅ 契约 14 通过: 连续工序表动态高度足以容纳精简主视觉内容')
 
 console.log('\n=============================================================')
 console.log('🎉 全部 14 项连续工序表 (Continuous Process Table) 契约测试通过！')

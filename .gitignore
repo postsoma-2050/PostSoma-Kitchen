@@ -30,3 +30,6 @@ dist-ssr
 .env.test.local
 .env.production.local
 reports/
+
+# Local copyrighted source archives used by provenance audits.
+/*.epub

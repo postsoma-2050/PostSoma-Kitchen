@@ -16,7 +16,8 @@
         </span>
       </div>
 
-      <span class="text-[11px] font-semibold text-stone-500 bg-stone-200/60 px-2 py-0.5 rounded-full">
+      <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-stone-500 bg-stone-200/60 px-2 py-0.5 rounded-full">
+        <AppIcon :name="getMethodIconName(recipe.finalBlock?.method)" :size="14" />
         {{ getMethodLabel(recipe.finalBlock?.method) }}
       </span>
     </div>
@@ -38,9 +39,9 @@
       </div>
 
       <div class="pt-2 border-t border-stone-50 flex items-center justify-between text-xs text-stone-500">
-        <span class="font-mono">🥕 {{ recipe.ingredients?.length || 0 }} 项食材</span>
-        <span class="font-mono">⚡ {{ recipe.actionBlocks?.length || 0 }} 工序</span>
-        <span v-if="recipe.prerequisites?.servings" class="font-mono text-emerald-800">🍽️ {{ recipe.prerequisites.servings }}</span>
+        <span class="inline-flex items-center gap-1 font-mono"><AppIcon name="seedling" :size="14" />{{ recipe.ingredients?.length || 0 }} 项食材</span>
+        <span class="inline-flex items-center gap-1 font-mono"><AppIcon name="steps" :size="14" />{{ recipe.actionBlocks?.length || 0 }} 工序</span>
+        <span v-if="recipe.prerequisites?.servings" class="inline-flex items-center gap-1 font-mono text-emerald-800"><AppIcon name="group" :size="14" />{{ recipe.prerequisites.servings }}</span>
       </div>
     </div>
 
@@ -75,7 +76,8 @@
             title="把此食谱放入回收站 (可在已删除恢复)"
             :aria-busy="pendingAction === 'soft-delete'"
           >
-            {{ pendingAction === 'soft-delete' ? '确认中…' : '🗑️' }}
+            <AppIcon v-if="pendingAction !== 'soft-delete'" name="delete" :size="16" />
+            <span v-else>确认中…</span>
           </button>
         </template>
 
@@ -88,7 +90,8 @@
             class="px-2.5 py-1 bg-emerald-100 hover:bg-emerald-200 disabled:cursor-wait disabled:opacity-50 text-emerald-900 border border-emerald-300 rounded font-semibold transition-colors cursor-pointer"
             :aria-busy="pendingAction === 'restore'"
           >
-            {{ pendingAction === 'restore' ? '正在确认…' : '↩️ 恢复' }}
+            <AppIcon v-if="pendingAction !== 'restore'" name="back" :size="15" />
+            <span>{{ pendingAction === 'restore' ? '正在确认…' : '恢复' }}</span>
           </button>
           <button
             @click="beginPermanentDelete"
@@ -97,7 +100,8 @@
             class="px-2 py-1 bg-rose-50 hover:bg-rose-100 disabled:cursor-wait disabled:opacity-50 text-rose-700 border border-rose-300 rounded font-semibold transition-colors cursor-pointer"
             :aria-busy="pendingAction === 'permanent-delete'"
           >
-            {{ pendingAction === 'permanent-delete' ? '正在确认…' : '🔥 永久删除' }}
+            <AppIcon v-if="pendingAction !== 'permanent-delete'" name="delete" :size="15" />
+            <span>{{ pendingAction === 'permanent-delete' ? '正在确认…' : '永久删除' }}</span>
           </button>
         </template>
       </div>
@@ -146,6 +150,8 @@ import type { RecipeMutationAction, RecipeMutationResult } from '@/repositories/
 import RecipeMiniCanvasV3 from './RecipeMiniCanvasV3.vue'
 import { softDeleteRecipe, restoreRecipe, permanentlyDeleteRecipe } from '@/services/v3RecipeStore'
 import { rememberAdminScrollPosition, resolveAdminReturnTarget } from '@/utils/adminNavigation'
+import AppIcon from '@/components/common/AppIcon.vue'
+import type { AppIconName } from '@/types/icon'
 
 const props = defineProps<{
   recipe: VisualRecipeV3
@@ -276,13 +282,25 @@ async function handlePermanentDelete() {
 
 function getMethodLabel(method?: string): string {
   switch (method) {
-    case 'bake': return '♨️ 烘焙 Bake'
-    case 'stew': return '🍲 慢炖 Stew'
-    case 'fry': return '🍳 煎炒 Fry'
-    case 'steam': return '💨 蒸制 Steam'
+    case 'bake': return '烘焙 Bake'
+    case 'stew': return '慢炖 Stew'
+    case 'fry': return '煎炒 Fry'
+    case 'steam': return '蒸制 Steam'
     case 'serve':
-    case 'raw': return '🥗 冷食拌匀 Serve'
-    default: return '🍳 烹饪制作'
+    case 'raw': return '冷食拌匀 Serve'
+    default: return '烹饪制作'
+  }
+}
+
+function getMethodIconName(method?: string): AppIconName {
+  switch (method) {
+    case 'bake': return 'cake'
+    case 'stew': return 'bowl'
+    case 'fry': return 'fire'
+    case 'steam': return 'steam'
+    case 'serve':
+    case 'raw': return 'leaf'
+    default: return 'restaurant'
   }
 }
 

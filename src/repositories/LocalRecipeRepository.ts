@@ -85,6 +85,22 @@ export class LocalRecipeRepository implements IRecipeRepository {
                         }
                     })
                 }
+            } else {
+                const existing = recipes[index]
+                const CODEBASE_AUDIT_EPOCH = new Date('2026-09-16T12:00:00Z').getTime()
+                const existingTime = existing.updatedAt ? new Date(existing.updatedAt).getTime() : 0
+                const newTime = newRecipe.updatedAt ? new Date(newRecipe.updatedAt).getTime() : CODEBASE_AUDIT_EPOCH
+                if (newTime >= existingTime || JSON.stringify(existing.ingredients) !== JSON.stringify(newRecipe.ingredients)) {
+                    recipes[index] = newRecipe
+                    addedCount++
+                    if (Array.isArray(newRecipe.ingredients)) {
+                        newRecipe.ingredients.forEach(ing => {
+                            if (ing.name && ing.name.trim()) {
+                                upsertIngredientUsage(ing.name, newRecipe.id)
+                            }
+                        })
+                    }
+                }
             }
         })
 

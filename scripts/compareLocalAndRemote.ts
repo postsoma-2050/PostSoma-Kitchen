@@ -1,19 +1,26 @@
 import fs from 'fs'
 import path from 'path'
-import crypto from 'crypto'
 import { CHINESE_HEALTHY_RECIPES } from '../src/data/chineseHealthyRecipes'
 import { HOME_SWEET_HOME_RECIPES } from '../src/data/homeSweetHomeRecipes'
 import { espressoBrowniesV3, hongShaoRouV3, caesarSaladV3 } from '../src/data/v3Examples'
-import { normalizeRecipe } from '../src/services/recipeNormalizer'
+import type { VisualRecipeV3 } from '../src/types/recipeV3'
+import { compareRecipeContent, hashRecipeContent } from '../src/utils/recipeContentDiff'
 
-function hashRecipe(recipe: any): string {
-  const norm = normalizeRecipe(recipe)
-  const clone = { ...norm }
-  delete (clone as any).contentVersion
-  delete (clone as any).deletedAt
-  delete (clone as any).updated_at
-  const str = JSON.stringify(clone, Object.keys(clone).sort())
-  return crypto.createHash('sha256').update(str).digest('hex').substring(0, 12)
+function formatMarkdownValue(value: unknown, maxLength = 180): string {
+  if (value === undefined) return '—'
+  const serialized = typeof value === 'string' ? value : JSON.stringify(value)
+  const compact = serialized.replace(/\s+/g, ' ').replace(/\|/g, '\\|')
+  return compact.length > maxLength ? `${compact.slice(0, maxLength - 1)}…` : compact
+}
+
+function renderDifferenceDetails(entry: any): string {
+  const details = entry.contentDifferences || []
+  if (!details.length) return ''
+  const rows = details.map((difference: any) =>
+    `| \`${difference.field}\` | ${formatMarkdownValue(difference.localValue)} | ${formatMarkdownValue(difference.remoteValue)} |`,
+  )
+  return `<details>\n<summary><code>${entry.id}</code> ${entry.title}（${details.length} 项字段差异）</summary>\n\n` +
+    `| 字段 | 本地工作区 | Supabase 当前值 |\n| :--- | :--- | :--- |\n${rows.join('\n')}\n\n</details>`
 }
 
 async function runComparison() {
@@ -52,10 +59,11 @@ async function runComparison() {
   let matchCount = 0
   let modifiedCount = 0
   let missingInRemoteCount = 0
+  let remoteOnlyCount = 0
 
   for (const local of localPresets) {
     const remote = remoteMap.get(local.id)
-    const localHash = hashRecipe(local)
+    const localHash = hashRecipeContent(local)
 
     if (!remote) {
       missingInRemoteCount++
@@ -74,10 +82,11 @@ async function runComparison() {
       continue
     }
 
-    const remoteContent = remote.content || {}
-    const remoteHash = hashRecipe(remoteContent)
+    const remoteContent = (remote.content || {}) as VisualRecipeV3
+    const remoteHash = hashRecipeContent(remoteContent)
+    const contentDifferences = compareRecipeContent(local, remoteContent)
 
-    if (localHash === remoteHash) {
+    if (contentDifferences.length === 0) {
       matchCount++
       diffEntries.push({
         id: local.id,
@@ -94,21 +103,11 @@ async function runComparison() {
       })
     } else {
       modifiedCount++
-      const diffs: string[] = []
-      if ((remoteContent.actionBlocks?.length || 0) !== local.actionBlocks.length) {
-        diffs.push(`工序数量差异: 本地 ${local.actionBlocks.length} 个 vs 远程 ${remoteContent.actionBlocks?.length || 0} 个`)
-      }
-      if ((remoteContent.ingredients?.length || 0) !== local.ingredients.length) {
-        diffs.push(`食材数量差异: 本地 ${local.ingredients.length} 项 vs 远程 ${remoteContent.ingredients?.length || 0} 项`)
-      }
-      const remoteHasDeps = (remoteContent.actionBlocks || []).some((b: any) => b.dependencies && b.dependencies.length > 0)
-      const localHasDeps = local.actionBlocks.some(b => b.dependencies && b.dependencies.length > 0)
-      if (localHasDeps && !remoteHasDeps) {
-        diffs.push('本地具有 3.0 typed dependencies (物料流/等待关系)，远程仍为旧式无依赖或旧字段')
-      }
-      if (diffs.length === 0) {
-        diffs.push('文本说明、用量或火候参数存在细节微调')
-      }
+      const areaCounts = contentDifferences.reduce<Record<string, number>>((counts, diff) => {
+        counts[diff.area] = (counts[diff.area] || 0) + 1
+        return counts
+      }, {})
+      const diffs = Object.entries(areaCounts).map(([area, count]) => `${area}: ${count} 个字段差异`)
 
       diffEntries.push({
         id: local.id,
@@ -121,10 +120,40 @@ async function runComparison() {
         remoteBlocksCount: remoteContent.actionBlocks?.length || 0,
         remoteHash,
         remoteUpdatedAt: remote.updated_at,
-        differences: diffs
+        differences: diffs,
+        differenceFields: contentDifferences.map(diff => diff.field),
+        contentDifferences,
       })
     }
   }
+
+  const localIds = new Set(localPresets.map(recipe => recipe.id))
+  for (const remote of remoteRows) {
+    if (localIds.has(remote.id)) continue
+    remoteOnlyCount++
+    const remoteContent = (remote.content || {}) as VisualRecipeV3
+    diffEntries.push({
+      id: remote.id,
+      title: remote.title || remoteContent.title,
+      status: 'REMOTE_ONLY',
+      localVersion: null,
+      localBlocksCount: null,
+      localHash: null,
+      remoteVersion: remote.content_version,
+      remoteBlocksCount: remoteContent.actionBlocks?.length || 0,
+      remoteHash: hashRecipeContent(remoteContent),
+      remoteUpdatedAt: remote.updated_at,
+      differences: ['食谱仅存在于远程数据库，本地预置中不存在'],
+    })
+  }
+
+  const modifiedEntries = diffEntries.filter(entry => entry.status === 'CONTENT_MODIFIED')
+  const orderOnlyEntries = modifiedEntries.filter(entry =>
+    entry.differenceFields?.length === 1 && entry.differenceFields[0] === 'ingredients.order',
+  )
+  const substantiveEntries = modifiedEntries.filter(entry => !orderOnlyEntries.includes(entry))
+  const orderOnlyModifiedCount = orderOnlyEntries.length
+  const substantiveModifiedCount = substantiveEntries.length
 
   // Save JSON report
   const jsonPath = path.join(process.cwd(), 'reports', 'local-remote-diff.json')
@@ -134,7 +163,10 @@ async function runComparison() {
     remoteCount: remoteRows.length,
     matchCount,
     modifiedCount,
+    orderOnlyModifiedCount,
+    substantiveModifiedCount,
     missingInRemoteCount,
+    remoteOnlyCount,
     entries: diffEntries
   }, null, 2), 'utf8')
 
@@ -142,8 +174,8 @@ async function runComparison() {
   const reportPath = path.join(process.cwd(), 'docs', 'DATA_SOURCE_AND_VERSION_REPORT.md')
   let reportMd = `# PostSoma Kitchen 数据来源、取数优先级与版本一致性报告
 
-> **报告时间**：${new Date().toISOString()}  
-> **审计环境**：Local TS Code vs Supabase Staging (\`https://ihtpltojihhwmciqubbk.supabase.co\`)  
+> **报告时间**：${new Date().toISOString()}
+> **审计环境**：Local TS Code vs Supabase Staging (\`https://ihtpltojihhwmciqubbk.supabase.co\`)
 > **权威模式**：只读探测，未执行任何写入
 
 ---
@@ -190,8 +222,25 @@ const found = await getPublishedRecipeById(id)        // 调用 recipeRepository
 | 本地预置食谱总数 | **${localPresets.length} 道** | 包含 102 道中餐 + 16 道美式 + 3 道样板 |
 | 远程 Supabase 食谱数 | **${remoteRows.length} 道** | \`public.recipes\` 表有效记录 |
 | 完全一致 (Hash Match) | **${matchCount} 道** | 内容哈希完全相符 |
-| 内容存在更新 (Modified) | **${modifiedCount} 道** | 本地进行了 3.0 typed dependencies 或工序细化 |
+| 内容存在差异 (Modified) | **${modifiedCount} 道** | 逐字段递归比较结果 |
+| 仅食材顺序变化 | **${orderOnlyModifiedCount} 道** | 数据值与工序事实一致，仅数组顺序不同 |
+| 实质内容变化 | **${substantiveModifiedCount} 道** | 食材、工序、依赖、前置条件或终点内容发生变化 |
 | 远程缺失 (Missing) | **${missingInRemoteCount} 道** | 本地新增但尚未迁移 |
+| 仅远程存在 (Remote Only) | **${remoteOnlyCount} 道** | 远程存在而本地预置中不存在，需单独裁决 |
+
+### 3.1 仅食材顺序不同（不应自动视为配方事实变化）
+
+${orderOnlyEntries.length ? orderOnlyEntries.map(entry => `- \`${entry.id}\` ${entry.title}`).join('\n') : '- 无'}
+
+### 3.2 存在实质字段变化（必须逐道复核）
+
+${substantiveEntries.length ? substantiveEntries.map(entry => `- \`${entry.id}\` ${entry.title}：${entry.differences.join('；')}`).join('\n') : '- 无'}
+
+### 3.3 实质差异逐字段对照
+
+以下表格中的“本地工作区”只代表当前代码数据，不表示它已经过来源或厨房验证。长值为便于阅读会截断，完整值保存在 \`reports/local-remote-diff.json\`。
+
+${substantiveEntries.length ? substantiveEntries.map(renderDifferenceDetails).join('\n\n') : '- 无'}
 
 ---
 
@@ -218,7 +267,7 @@ const found = await getPublishedRecipeById(id)        // 调用 recipeRepository
   const proposalPath = path.join(process.cwd(), 'docs', 'UNEXECUTED_REMOTE_MIGRATION_PROPOSAL.md')
   let proposalMd = `# PostSoma Kitchen 未执行的远程迁移提案 (Unexecuted Remote Migration Proposal)
 
-> **当前状态**：**PROPOSED (已编制，未执行)**  
+> **当前状态**：**PROPOSED (已编制，未执行)**
 > **执行约束**：严格遵守安全红线，本任务**不写入 Supabase，不部署，不破坏远程生产/Staging 现有数据**。
 
 ---
@@ -226,14 +275,14 @@ const found = await getPublishedRecipeById(id)        // 调用 recipeRepository
 ## 1. 提案背景与目的
 
 当前本地仓库在 VisualRecipe 3.0 规范下已完成：
-1. 全量 121 道预置食谱 100% 审计 PASS；
-2. 连续工序表 4 大准入契约与 83 道兼容食谱收敛；
+1. 全量 121 道预置食谱通过发布阻断结构检查，但仍保留非阻断警告与事实核验队列；
+2. 连续工序表准入、真实物料集合与安全回退契约已经建立；
 3. 主图去冗余文字（移除 "+ 放入/承接/产出/状态" 等堆叠）；
 4. 分支矩阵图统一为中性极简建筑风格。
 
-然而 Supabase Staging 云端（\`public.recipes\`）现有数据仍为 **2026年8月4日** 的历史版本，存在 ${modifiedCount} 道食谱的内容版本落后于本地最新领域模型。
+然而 Supabase Staging 云端（\`public.recipes\`）现有数据仍为 **2026年8月4日** 的历史版本。逐字段比较发现 ${modifiedCount} 道存在差异，其中 ${orderOnlyModifiedCount} 道仅食材顺序不同，${substantiveModifiedCount} 道存在实质内容变化。
 
-为了在未来适当时机安全地将本地已验证的优质模型落盘至云端，特编制本迁移提案。
+为了在未来适当时机安全地将本地已通过结构校验、但仍需事实审核的数据落盘至云端，特编制本迁移提案。结构测试通过不等同于食谱内容已经来源核验或厨房实测。
 
 ---
 
@@ -298,7 +347,10 @@ SUPABASE_SERVICE_ROLE_KEY="<YOUR_SECRET_SERVICE_ROLE_KEY>" npm run migrate:all -
   console.log(`• 远程记录总数: ${remoteRows.length}`)
   console.log(`• 完全一致: ${matchCount} 道`)
   console.log(`• 内容有更新: ${modifiedCount} 道`)
+  console.log(`  - 仅食材顺序变化: ${orderOnlyModifiedCount} 道`)
+  console.log(`  - 实质内容变化: ${substantiveModifiedCount} 道`)
   console.log(`• 远程缺失: ${missingInRemoteCount} 道`)
+  console.log(`• 仅远程存在: ${remoteOnlyCount} 道`)
   console.log(`• 差异报告: ${reportPath}`)
   console.log(`• 迁移提案: ${proposalPath}`)
   console.log('================================================================\n')

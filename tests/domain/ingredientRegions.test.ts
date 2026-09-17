@@ -9,7 +9,7 @@ import { generatePageSvgString } from '../../src/utils/exportFlowCard'
 import type { VisualRecipeV3 } from '../../src/types/recipeV3'
 import fs from 'node:fs'
 
-const base = CHINESE_HEALTHY_RECIPES.find(r => r.id === 'cn-59-qincai-niurou')!
+const base = CHINESE_HEALTHY_RECIPES[0]
 const fixture: VisualRecipeV3 = { ...base, id: 'region-fixture', ingredients: [
   {id:'meat',name:'牛肉',amountText:'200 g',category:'main'},
   {id:'veg',name:'芹菜',amountText:'200 g',category:'produce'},
@@ -34,7 +34,9 @@ assert.equal(a.h, table.rowHeights[0] + table.rowHeights[1])
 assert.ok(table.waitingLanes.some(l => l.ingredientId === 'veg' && l.y >= a.y + a.h))
 assert.ok(!table.horizontalLines.some(l => l.y1 === table.rowYPositions[1] && l.x1 === a.x))
 const flow = buildV3MatrixLayout(fixture)
-assert.equal(flow.actionBlockLayouts.find(c => c.block.id === 'a')!.h, flow.ingredientRows[0].h * 2)
+const flowA = flow.actionBlockLayouts.find(c => c.block.id === 'a')!
+assert.ok(flowA.h < flowA.envelopeH, '分支图动作节点必须保持内容高度，跨行关系由输入总线表达')
+assert.equal(flow.ingredientConnectors.filter(link => link.targetBlockId === 'a').length, 2)
 const impossible: VisualRecipeV3 = { ...fixture, actionBlocks: [
   {id:'a',label:'A',stageIndex:0,ingredientIds:['meat','veg']},
   {id:'b',label:'B',stageIndex:1,ingredientIds:['veg','sauce']},
@@ -61,7 +63,7 @@ const entries = all.map(recipe => {
   assert.equal(JSON.stringify(recipe), snapshot, `${recipe.id}事实不得被布局修改`)
   assert.deepEqual(arrangeIngredientRows(display).ingredients, display.ingredients)
   return {id:recipe.id,reordered:display !== recipe,mode:resolveLayoutMode(recipe),reason:admissible.reason,
-    ingredientOrder:display.ingredients.map(i=>i.id),regions:layout.actionBlockLayouts.filter(c=>c.h === c.envelopeH).length}
+    ingredientOrder:display.ingredients.map(i=>i.id),compactFlowNodes:layout.actionBlockLayouts.filter(c=>c.h <= c.envelopeH).length}
 })
 fs.mkdirSync('reports/ingredient-regions',{recursive:true})
 fs.writeFileSync('reports/ingredient-regions/audit.json',JSON.stringify({total:all.length,table:entries.filter(e=>e.mode==='table').length,reordered:entries.filter(e=>e.reordered).length,entries},null,2))

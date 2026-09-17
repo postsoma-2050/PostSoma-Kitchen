@@ -28,7 +28,7 @@ export interface CoverPublicationPlan {
  */
 export function resolveConfirmedRecipeCover(recipe: VisualRecipeV3): string | null {
   const cover = resolveRecipeCover(recipe)
-  if (!cover) return null
+  if (!cover || cover.state !== 'manual') return null
 
   if (/^\/(?!\/)/.test(cover.url)) return cover.url
 
@@ -38,6 +38,37 @@ export function resolveConfirmedRecipeCover(recipe: VisualRecipeV3): string | nu
   } catch {
     return null
   }
+}
+
+/**
+ * Public browse surfaces only expose published, active recipes with a confirmed cover.
+ * Runtime image failures may be supplied as exclusions without mutating the
+ * recipe record or changing direct detail-page access.
+ */
+export function filterRecipesWithConfirmedCovers(
+  recipes: VisualRecipeV3[],
+  excludedRecipeIds?: ReadonlySet<string>,
+): VisualRecipeV3[] {
+  return recipes.filter(recipe => (
+    recipe.status === 'published'
+    && !recipe.deletedAt
+    && !excludedRecipeIds?.has(recipe.id)
+    && resolveConfirmedRecipeCover(recipe) !== null
+  ))
+}
+
+/**
+ * 公开浏览准入规则：
+ * 只要食谱状态为已发布（status === 'published'）且未被删除（!deletedAt），即对公众开放浏览。
+ * 有封面则优先渲染，无封面或外链失效时在卡片视图层优雅降级显示 PostSoma 品牌默认卡片，杜绝食谱在公开列表中被隐藏。
+ */
+export function filterPubliclyBrowsableRecipes(
+  recipes: VisualRecipeV3[],
+): VisualRecipeV3[] {
+  return recipes.filter(recipe => (
+    recipe.status === 'published'
+    && !recipe.deletedAt
+  ))
 }
 
 export function buildCoverPublicationPlan(recipes: VisualRecipeV3[]): CoverPublicationPlan {
