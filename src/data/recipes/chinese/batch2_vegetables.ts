@@ -10,6 +10,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥕 粉蒸胡萝卜丝",
+    "coverImageUrl": "/recipe-covers/cn-14.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -162,6 +163,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥩 胡萝卜牛腩煲",
+    "coverImageUrl": "/recipe-covers/cn-15.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -279,7 +281,8 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "连砂锅趁热端上餐桌或盛入大深碗享用"
     },
     "provenance": {
       "sourceType": "book",
@@ -315,6 +318,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥩 私房少油鱼香肉丝",
+    "coverImageUrl": "/recipe-covers/cn-16.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -466,7 +470,8 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "盛盘上桌佐餐享用，酸甜微辣、脆嫩浓郁"
     },
     "provenance": {
       "sourceType": "book",
@@ -502,6 +507,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🍆 蒜蓉蒸茄子",
+    "coverImageUrl": "/recipe-covers/cn-17.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -645,6 +651,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🦐 鲜虾茄子煲",
+    "coverImageUrl": "/recipe-covers/cn-18.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -725,8 +732,8 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "actionBlocks": [
       {
         "id": "b1",
-        "label": "切配",
-        "sublabel": "Prep",
+        "label": "切配蘸粉",
+        "sublabel": "Prep & Coat",
         "stageIndex": 0,
         "ingredientIds": [
           "i1",
@@ -735,42 +742,88 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
           "i4",
           "i10"
         ],
-        "note": "茄子去蒂洗净，切长条，蘸匀淀粉；红椒、洋葱洗净、切块；鲜虾洗净，去掉虾须，挑去虾线。"
+        "note": "茄子去蒂洗净，切长条，蘸匀干淀粉；红椒、洋葱洗净切块；鲜虾洗净，去掉虾须，挑去虾线。"
       },
       {
         "id": "b2",
-        "label": "炖煮煮制",
-        "sublabel": "Boil",
+        "label": "爆香炒虾",
+        "sublabel": "Sauté Shrimp",
         "stageIndex": 1,
         "ingredientIds": [
+          "i5",
+          "i6",
           "i7",
           "i8",
-          "i9",
-          "i11",
-          "i5",
-          "i6"
+          "i11"
         ],
-        "heatLevel": "中火",
-        "durationMinutes": 7,
-        "durationText": "3m + 4m",
-        "note": "煲锅内倒入植物油烧热，放入葱姜蒜片及豆瓣酱炒香，加入鲜虾炒至变色，再放茄条、蚝油，翻炒至茄条七分熟时，加入红椒、洋葱块，翻炒3分钟，加少量温水，盖盖烧开后，转中火炖4分钟左右即可。",
-        "completionState": "变色",
+        "heatLevel": "中大火",
+        "durationMinutes": 3,
+        "durationText": "3分钟",
+        "note": "煲锅内倒入植物油烧热，放入葱姜蒜片及豆瓣酱大火炒香，加入鲜虾滑炒至表面变红变色盛出备用。",
+        "completionState": "鲜虾变红出香",
         "dependencies": [
           {
             "sourceBlockId": "b1",
             "type": "material",
-            "label": "承接前序处理物"
+            "label": "去线鲜虾"
           }
         ],
         "inputBlockIds": [
           "b1"
+        ]
+      },
+      {
+        "id": "b3",
+        "label": "煸炒茄条",
+        "sublabel": "Stir-fry Eggplant",
+        "stageIndex": 2,
+        "ingredientIds": [
+          "i9"
+        ],
+        "heatLevel": "中火",
+        "durationMinutes": 8,
+        "durationText": "5m + 3m",
+        "note": "锅中放入蘸匀淀粉的茄条和蚝油，中火翻炒至茄条七分熟变软，加入红椒、洋葱块继续翻炒3分钟入味。",
+        "completionState": "茄条变软七分熟",
+        "dependencies": [
+          {
+            "sourceBlockId": "b2",
+            "type": "material",
+            "label": "底油底料"
+          }
+        ],
+        "inputBlockIds": [
+          "b2"
+        ]
+      },
+      {
+        "id": "b4",
+        "label": "砂锅焖炖",
+        "sublabel": "Simmer & Stew",
+        "stageIndex": 3,
+        "ingredientIds": [],
+        "heatLevel": "中火",
+        "durationMinutes": 4,
+        "durationText": "4分钟",
+        "note": "合入鲜虾，加少量温水，盖盖烧开后转中火加盖焖炖4分钟左右，至茄条软烂、浓郁入味即可。",
+        "completionState": "茄条软烂入味",
+        "dependencies": [
+          {
+            "sourceBlockId": "b3",
+            "type": "material",
+            "label": "合锅焖炖"
+          }
+        ],
+        "inputBlockIds": [
+          "b3"
         ]
       }
     ],
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "连砂锅趁热端上餐桌，香气四溢"
     },
     "provenance": {
       "sourceType": "book",
@@ -804,6 +857,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🍳 地三鲜",
+    "coverImageUrl": "/recipe-covers/cn-19.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -920,7 +974,8 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "出锅装盘趁热享用，咸香软糯、浓油赤酱"
     },
     "provenance": {
       "sourceType": "book",
@@ -956,6 +1011,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🍅 秘制番茄酱",
+    "coverImageUrl": "/recipe-covers/cn-20.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -1042,7 +1098,8 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "放凉后装入干燥消毒密封罐冷藏保存"
     },
     "provenance": {
       "sourceType": "book",
@@ -1078,6 +1135,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🧈 减脂番茄豆腐羹",
+    "coverImageUrl": "/recipe-covers/cn-21.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -1200,7 +1258,8 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "盛入汤碗趁热享用，蛋花如絮、酸甜嫩滑"
     },
     "provenance": {
       "sourceType": "book",
@@ -1234,6 +1293,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🍗 番茄炒鸡蛋",
+    "coverImageUrl": "/recipe-covers/cn-22.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -1340,7 +1400,8 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "盛盘趁热享用，红黄相间、软嫩多汁"
     },
     "provenance": {
       "sourceType": "book",
@@ -1376,6 +1437,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥩 萝卜丝蒸牛肉",
+    "coverImageUrl": "/recipe-covers/cn-23.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -1546,7 +1608,8 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "steam",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "反扣大盘淋上滚烫茶油，趁热享用"
     },
     "provenance": {
       "sourceType": "book",
@@ -1580,6 +1643,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥩 冬瓜薏米排骨汤",
+    "coverImageUrl": "/recipe-covers/cn-24.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -1683,7 +1747,8 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "连汤盛入大瓷盆趁热享用，汤清味美、清热利湿"
     },
     "provenance": {
       "sourceType": "book",
@@ -1719,6 +1784,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🎃 红枣百合蒸南瓜",
+    "coverImageUrl": "/recipe-covers/cn-25.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "hard",
@@ -1847,7 +1913,8 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "steam",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "切开南瓜碗淋上蜂蜜原汁，温热甜润享用"
     },
     "provenance": {
       "sourceType": "book",
@@ -1881,6 +1948,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥒 黄瓜炒甜椒",
+    "coverImageUrl": "/recipe-covers/cn-26.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -1976,7 +2044,8 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "出锅装盘趁热享用，爽脆清口、色泽艳丽"
     },
     "provenance": {
       "sourceType": "book",
@@ -2012,6 +2081,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥒 苦瓜冬菇骨汤",
+    "coverImageUrl": "/recipe-covers/cn-27.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -2137,7 +2207,8 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "连煲端上餐桌或盛入大深碗趁热享用"
     },
     "provenance": {
       "sourceType": "book",
@@ -2171,6 +2242,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥚 苦瓜蒸咸蛋",
+    "coverImageUrl": "/recipe-covers/cn-28.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -2299,7 +2371,8 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "steam",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "整齐码盘淋上薄芡葱花，咸香清苦温润享用"
     },
     "provenance": {
       "sourceType": "book",
@@ -2333,6 +2406,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥩 苦瓜肉片",
+    "coverImageUrl": "/recipe-covers/cn-29.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -2475,7 +2549,8 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "出锅装盘趁热享用，豉香浓郁、苦甘爽脆"
     },
     "provenance": {
       "sourceType": "book",
@@ -2511,6 +2586,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥒 翡翠丝瓜卷",
+    "coverImageUrl": "/recipe-covers/cn-30.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -2633,7 +2709,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
       "method": "steam",
       "role": "outcome",
       "label": "完成",
-      "servingInstructions": "翻扣装盘"
+      "servingInstructions": "翻扣于平盘中整理成型，趁热鲜嫩享用"
     },
     "provenance": {
       "sourceType": "book",
@@ -2669,6 +2745,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥬 韭菜豆芽菜松",
+    "coverImageUrl": "/recipe-covers/cn-31.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -2809,7 +2886,8 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "出锅装盘趁热享用，脆嫩爽口、清香下饭"
     },
     "provenance": {
       "sourceType": "book",
@@ -2843,6 +2921,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "♨️ 翡翠白玉卷",
+    "coverImageUrl": "/recipe-covers/cn-32.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "hard",
@@ -3016,7 +3095,8 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "steam",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "整齐码盘淋上薄芡香油，清甜多汁、软嫩适口"
     },
     "provenance": {
       "sourceType": "book",
@@ -3050,6 +3130,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥩 白菜粉丝猪骨汤",
+    "coverImageUrl": "/recipe-covers/cn-33.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -3151,7 +3232,8 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "连汤盛入大汤碗趁热享用，鲜甜醇厚、暖胃润燥"
     },
     "provenance": {
       "sourceType": "book",
@@ -3185,6 +3267,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥬 草菇炒白菜",
+    "coverImageUrl": "/recipe-covers/cn-34.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -3287,7 +3370,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
       "method": "fry",
       "role": "outcome",
       "label": "完成",
-      "servingInstructions": "出锅装盘"
+      "servingInstructions": "出锅装盘趁热享用，脆嫩爽口、菌香四溢"
     },
     "provenance": {
       "sourceType": "book",
@@ -3323,6 +3406,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥩 洋葱炒猪肝",
+    "coverImageUrl": "/recipe-covers/cn-35.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -3452,7 +3536,8 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "出锅装盘趁热享用，猪肝滑嫩、洋葱甜脆"
     },
     "provenance": {
       "sourceType": "book",
@@ -3488,6 +3573,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥬 飘香手撕圆白菜",
+    "coverImageUrl": "/recipe-covers/cn-36.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -3590,7 +3676,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
       "method": "fry",
       "role": "outcome",
       "label": "完成",
-      "servingInstructions": "出锅装盘"
+      "servingInstructions": "出锅装盘趁热享用，酸辣脆爽、焦香开胃"
     },
     "provenance": {
       "sourceType": "book",
@@ -3626,6 +3712,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥬 海米油菜",
+    "coverImageUrl": "/recipe-covers/cn-37.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -3730,7 +3817,8 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "整齐排盘趁热享用，鲜绿脆嫩、海米咸鲜"
     },
     "provenance": {
       "sourceType": "book",
@@ -3766,6 +3854,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🦐 蚝油生菜",
+    "coverImageUrl": "/recipe-covers/cn-38.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -3866,7 +3955,8 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "将滚烫蚝油芡汁均匀浇在生菜上，鲜脆多汁趁热享用"
     },
     "provenance": {
       "sourceType": "book",
@@ -3902,6 +3992,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥩 芹菜腊肉丁",
+    "coverImageUrl": "/recipe-covers/cn-39.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -4015,7 +4106,8 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "出锅装盘趁热享用，芹脆肉香、咸香下饭"
     },
     "provenance": {
       "sourceType": "book",
@@ -4051,6 +4143,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥬 白灼芥蓝",
+    "coverImageUrl": "/recipe-covers/cn-40.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -4170,7 +4263,8 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "热白灼汁淋在芥蓝上撒葱丝，清甜脆嫩趁热享用"
     },
     "provenance": {
       "sourceType": "book",
@@ -4206,6 +4300,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥚 蛋黄苋菜",
+    "coverImageUrl": "/recipe-covers/cn-41.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -4287,7 +4382,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
       "method": "fry",
       "role": "outcome",
       "label": "完成",
-      "servingInstructions": "出锅装盘"
+      "servingInstructions": "出锅装盘趁热享用，咸香软糯、鲜嫩清口"
     },
     "provenance": {
       "sourceType": "book",
@@ -4323,6 +4418,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🦐 虾仁蒸西蓝花",
+    "coverImageUrl": "/recipe-covers/cn-42.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "hard",
@@ -4448,7 +4544,8 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "steam",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "均匀淋上鲜亮芡汁趁热享用，虾仁爽滑弹牙、西蓝花脆嫩清甜"
     },
     "provenance": {
       "sourceType": "book",
@@ -4484,6 +4581,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥒 莴笋聚会",
+    "coverImageUrl": "/recipe-covers/cn-43.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "hard",
@@ -4509,7 +4607,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
       {
         "id": "i3",
         "name": "芋头",
-        "amountText": "适量",
+        "amountText": "100克",
         "category": "produce"
       },
       {
@@ -4637,7 +4735,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
       "method": "steam",
       "role": "outcome",
       "label": "完成",
-      "servingInstructions": "取出装盘"
+      "servingInstructions": "淋上麻辣鲜香蘸汁趁热享用，四重根茎软糯脆嫩兼备"
     },
     "provenance": {
       "sourceType": "book",
@@ -4673,6 +4771,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥩 莴笋烧肉",
+    "coverImageUrl": "/recipe-covers/cn-44.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -4709,7 +4808,19 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
       },
       {
         "id": "i3",
-        "name": "红辣椒段酱油姜片",
+        "name": "红辣椒段",
+        "amountText": "适量",
+        "category": "seasoning"
+      },
+      {
+        "id": "i10",
+        "name": "酱油",
+        "amountText": "少许",
+        "category": "seasoning"
+      },
+      {
+        "id": "i11",
+        "name": "姜片",
         "amountText": "适量",
         "category": "seasoning"
       },
@@ -4748,7 +4859,8 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
           "i1",
           "i2",
           "i7",
-          "i9"
+          "i9",
+          "i10"
         ],
         "note": "将莴笋去叶，去皮，洗净，切成片；猪肉切片，并用盐、少许酱油、淀粉把肉片抓匀腌渍。"
       },
@@ -4759,9 +4871,11 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
         "stageIndex": 1,
         "ingredientIds": [
           "i3",
+          "i11",
+          "i6",
+          "i8",
           "i4",
-          "i5",
-          "i8"
+          "i5"
         ],
         "note": "炒锅内倒油加热，放入红辣椒段、姜片炒香，放入肉片煸炒，放入适量料酒、醋、糖，加入少许清水后盖上锅盖焖煮至沸。",
         "dependencies": [
@@ -4780,9 +4894,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
         "label": "煮制翻炒",
         "sublabel": "Stir-fry",
         "stageIndex": 2,
-        "ingredientIds": [
-          "i6"
-        ],
+        "ingredientIds": [],
         "note": "煮沸后放入莴笋片，调入盐翻炒，再次加少量水炖至所有食材熟透即可。",
         "completionState": "所有食材熟透",
         "dependencies": [
@@ -4800,7 +4912,8 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "盛入砂锅或深盘趁热享用，肉质软烂醇香、莴笋清脆解腻"
     },
     "provenance": {
       "sourceType": "book",
@@ -4836,6 +4949,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥒 姜汁莴笋",
+    "coverImageUrl": "/recipe-covers/cn-45.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -4950,7 +5064,8 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "整齐装盘淋上姜汁香油，脆嫩多汁、酸甜清爽醒脾"
     },
     "provenance": {
       "sourceType": "book",
@@ -4986,6 +5101,7 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🍗 西葫芦炒鸡蛋",
+    "coverImageUrl": "/recipe-covers/cn-46.webp",
     "description": "营养师张晔健康食谱·新鲜时蔬 维生素、矿物质的最佳来源",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -5084,7 +5200,8 @@ export const BATCH2_VEGETABLES: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "出锅装盘趁热享用，鸡蛋金黄蓬松、西葫芦鲜甜嫩爽"
     },
     "provenance": {
       "sourceType": "book",

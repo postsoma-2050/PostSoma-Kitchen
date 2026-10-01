@@ -87,7 +87,7 @@ export class LocalRecipeRepository implements IRecipeRepository {
                 }
             } else {
                 const existing = recipes[index]
-                const CODEBASE_AUDIT_EPOCH = new Date('2026-09-16T12:00:00Z').getTime()
+                const CODEBASE_AUDIT_EPOCH = new Date('2026-10-01T00:00:00Z').getTime()
                 const existingTime = existing.updatedAt ? new Date(existing.updatedAt).getTime() : 0
                 const newTime = newRecipe.updatedAt ? new Date(newRecipe.updatedAt).getTime() : CODEBASE_AUDIT_EPOCH
                 if (newTime >= existingTime || JSON.stringify(existing.ingredients) !== JSON.stringify(newRecipe.ingredients)) {

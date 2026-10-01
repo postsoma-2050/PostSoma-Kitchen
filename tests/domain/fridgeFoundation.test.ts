@@ -36,11 +36,11 @@ function run() {
   const index = buildFridgeIngredientIndex(ALL_RECIPES)
   assert.equal(JSON.stringify(RAW_RECIPES), sourceSnapshot, '建立索引不得改写任何原始 recipe 数据')
   assert.equal(index.audit.recipeCount, 170)
-  assert.equal(index.audit.ingredientSourceCount, 1309)
+  assert.equal(index.audit.ingredientSourceCount, 1325)
   assert.equal(index.audit.formulaItemSourceCount, 0)
   assert.equal(
     index.audit.safelyNormalizedSourceCount + index.audit.needsReviewSourceCount + index.audit.unresolvedSourceCount,
-    1309,
+    1325,
     '每一条 ingredients / Formula item 来源都必须具有可追溯状态',
   )
   assert.equal(

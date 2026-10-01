@@ -195,15 +195,18 @@ function runDeepIntegrityInspection() {
           }
 
           // 食材引用校验
-          if (!Array.isArray(block.ingredientIds) || block.ingredientIds.length === 0) {
+          const hasIngredients = Array.isArray(block.ingredientIds) && block.ingredientIds.length > 0
+          const hasInputs = (Array.isArray(block.inputBlockIds) && block.inputBlockIds.length > 0) || (Array.isArray(block.dependencies) && block.dependencies.length > 0)
+
+          if (!hasIngredients && !hasInputs) {
             issues.push({
               recipeId: r.id,
               recipeTitle: title,
               severity: 'WARNING',
               field: `actionBlocks[${blockIdx}].ingredientIds`,
-              message: `步骤 "${blockLabel}" 未关联任何食材 ID`,
+              message: `步骤 "${blockLabel}" 既未关联任何食材 ID，亦无承接上游工序产物`,
             })
-          } else {
+          } else if (hasIngredients) {
             block.ingredientIds.forEach(id => {
               usedIngIdsInBlocks.add(id)
               if (!ingIdSet.has(id)) {
@@ -253,13 +256,14 @@ function runDeepIntegrityInspection() {
           message: `finalBlock.method "${r.finalBlock.method}" 不是标准烹饪动作编码 (如 fry, steam, stew, bake, serve)`,
         })
       }
-      if (!r.finalBlock.instructions || !r.finalBlock.instructions.trim()) {
+      const finalInstruct = r.finalBlock.servingInstructions || r.finalBlock.instructions || r.finalBlock.resultDescription
+      if (!finalInstruct || !finalInstruct.trim()) {
         issues.push({
           recipeId: r.id,
           recipeTitle: title,
           severity: 'WARNING',
-          field: 'finalBlock.instructions',
-          message: 'finalBlock 缺失装盘/口感最终说明 (instructions)',
+          field: 'finalBlock.servingInstructions',
+          message: 'finalBlock 缺失装盘/口感最终说明 (servingInstructions / instructions)',
         })
       }
     }

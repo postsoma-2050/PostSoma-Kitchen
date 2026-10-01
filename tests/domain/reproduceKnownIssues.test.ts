@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import type { VisualRecipeV3 } from '../../src/types/recipeV3'
-import { CHINESE_HEALTHY_RECIPES as LEGACY_RECIPES } from '../../src/data/chineseHealthyRecipes.legacy-102'
+import { CHINESE_HEALTHY_RECIPES as LEGACY_RECIPES } from '../fixtures/chineseHealthyRecipes.legacy-102'
 import {
   buildV3MatrixLayout,
   hasCookingHeat,

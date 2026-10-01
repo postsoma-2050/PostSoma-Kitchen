@@ -10,6 +10,7 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥩 家常榨菜蒸牛肉",
+    "coverImageUrl": "/recipe-covers/cn-62.webp",
     "description": "营养师张晔健康食谱·养心 苦味入心，红色养心，全面提升精气神",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -113,7 +114,8 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "steam",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "整盘端出趁热享用，牛肉嫩滑多汁、榨菜爽脆咸香"
     },
     "provenance": {
       "sourceType": "book",
@@ -149,6 +151,7 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🍲 茄汁黄豆",
+    "coverImageUrl": "/recipe-covers/cn-63.webp",
     "description": "营养师张晔健康食谱·养心 苦味入心，红色养心，全面提升精气神",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -253,7 +256,8 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "盛入小煲趁热享用，黄豆软糯沙甜、茄汁浓郁酸甜开胃"
     },
     "provenance": {
       "sourceType": "book",
@@ -278,7 +282,9 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
         "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
-    "tips": [],
+    "tips": [
+      "营养笔记：番茄富含番茄红素与有机酸，黄豆富含大豆异黄酮与植物蛋白，红润养心、软糯酸甜健脾。"
+    ],
     "createdAt": "2016-09-01T00:00:00Z",
     "updatedAt": "2026-09-16T12:00:00Z"
   },
@@ -287,6 +293,7 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥕 胡萝卜炒木耳",
+    "coverImageUrl": "/recipe-covers/cn-64.webp",
     "description": "营养师张晔健康食谱·养心 苦味入心，红色养心，全面提升精气神",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -347,7 +354,8 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
         "sublabel": "Prep",
         "stageIndex": 0,
         "ingredientIds": [
-          "i1"
+          "i1",
+          "i2"
         ],
         "note": "将胡萝卜洗净，去蒂，切成丝；木耳洗净，撕片。"
       },
@@ -357,12 +365,11 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
         "sublabel": "Stir-fry",
         "stageIndex": 1,
         "ingredientIds": [
-          "i2",
-          "i3",
+          "i7",
           "i4",
+          "i3",
           "i5",
-          "i6",
-          "i7"
+          "i6"
         ],
         "heatLevel": "中火",
         "note": "锅中放少量油，中火烧至六成热时，用姜末爆香，烹入料酒，倒入胡萝卜丝、水发木耳煸炒几下，加入盐和少许清水，稍焖，待胡萝卜丝烂熟后，用鸡精调味，翻炒均匀即可。",
@@ -381,7 +388,8 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "出锅装盘趁热享用，胡萝卜软甜爽口、木耳爽脆滑嫩"
     },
     "provenance": {
       "sourceType": "book",
@@ -406,7 +414,9 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
         "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
-    "tips": [],
+    "tips": [
+      "营养笔记：胡萝卜富含胡萝卜素与红色抗氧化物，木耳富含多糖与膳食纤维，清心润燥、降脂清肠。"
+    ],
     "createdAt": "2016-09-01T00:00:00Z",
     "updatedAt": "2026-09-16T12:00:00Z"
   },
@@ -415,6 +425,7 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥬 蒜蓉油淋生菜",
+    "coverImageUrl": "/recipe-covers/cn-65.webp",
     "description": "营养师张晔健康食谱·养心 苦味入心，红色养心，全面提升精气神",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -502,7 +513,7 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
       "method": "fry",
       "role": "outcome",
       "label": "完成",
-      "servingInstructions": "出锅装盘"
+      "servingInstructions": "将滚烫蒜蓉蚝油汁均匀浇淋在生菜上，鲜脆多汁趁热享用"
     },
     "provenance": {
       "sourceType": "book",
@@ -538,6 +549,7 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥚 菠菜蒸蛋",
+    "coverImageUrl": "/recipe-covers/cn-66.webp",
     "description": "营养师张晔健康食谱·护肝 多吃蔬菜，给肝脏减减压",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -631,7 +643,8 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "steam",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "连碗端出淋少许香油趁热享用，蛋羹翠绿细腻、嫩滑爽口益肝"
     },
     "provenance": {
       "sourceType": "book",
@@ -667,6 +680,7 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🧈 香菇什锦豆腐",
+    "coverImageUrl": "/recipe-covers/cn-67.webp",
     "description": "营养师张晔健康食谱·护肝 多吃蔬菜，给肝脏减减压",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -769,7 +783,8 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "连汤盛入煲中趁热享用，菌香醇厚、豆腐软滑入味"
     },
     "provenance": {
       "sourceType": "book",
@@ -794,7 +809,9 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
         "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
-    "tips": [],
+    "tips": [
+      "营养笔记：木耳与香菇富含菌类多糖，竹笋高纤消积，搭配嫩豆腐富含优质植物蛋白，护肝降脂、清补脾胃。"
+    ],
     "createdAt": "2016-09-01T00:00:00Z",
     "updatedAt": "2026-09-16T12:00:00Z"
   },
@@ -803,6 +820,7 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🐟 醋烹带鱼",
+    "coverImageUrl": "/recipe-covers/cn-68.webp",
     "description": "营养师张晔健康食谱·护肝 多吃蔬菜，给肝脏减减压",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -919,7 +937,8 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "出锅装盘趁热享用，外酥里嫩、酸甜适口、焦香扑鼻"
     },
     "provenance": {
       "sourceType": "book",
@@ -944,7 +963,9 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
         "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
-    "tips": [],
+    "tips": [
+      "营养笔记：带鱼表面银皮富含不饱和脂肪酸与卵磷脂，醋烹能软化鱼刺并激发鱼香，护肝益智、酸香解腻。"
+    ],
     "createdAt": "2016-09-01T00:00:00Z",
     "updatedAt": "2026-09-16T12:00:00Z"
   },
@@ -953,6 +974,7 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🍗 板栗蒸土鸡",
+    "coverImageUrl": "/recipe-covers/cn-69.webp",
     "description": "营养师张晔健康食谱·补肾 养好先天之本，健康少生病",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -1079,7 +1101,8 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "steam",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "整盘端出趁热享用，鸡肉软烂鲜嫩、板栗粉糯香甜"
     },
     "provenance": {
       "sourceType": "book",
@@ -1115,6 +1138,7 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥩 白菜羊肉丸子汤",
+    "coverImageUrl": "/recipe-covers/cn-70.webp",
     "description": "营养师张晔健康食谱·补肾 养好先天之本，健康少生病",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -1258,7 +1282,8 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "连汤盛入大汤碗趁热享用，羊肉丸紧实鲜嫩、白菜清甜汤清味醇"
     },
     "provenance": {
       "sourceType": "book",
@@ -1283,7 +1308,9 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
         "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
-    "tips": [],
+    "tips": [
+      "营养笔记：羊肉温补肾阳、补虚益气，搭配黄芪强壮元气；白菜与豆腐皮吸收鲜美汤汁，荤素相济、暖中补虚。"
+    ],
     "createdAt": "2016-09-01T00:00:00Z",
     "updatedAt": "2026-09-16T12:00:00Z"
   },
@@ -1292,6 +1319,7 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🍗 鸡丁核桃仁",
+    "coverImageUrl": "/recipe-covers/cn-71.webp",
     "description": "营养师张晔健康食谱·补肾 养好先天之本，健康少生病",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -1434,7 +1462,8 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "出锅装盘趁热享用，鸡丁滑嫩鲜咸、核桃酥脆香浓"
     },
     "provenance": {
       "sourceType": "book",
@@ -1459,7 +1488,9 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
         "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
-    "tips": [],
+    "tips": [
+      "营养笔记：核桃仁温补肾阳、强腰健脑，鸡肉富含高消化率优质蛋白质，二者同炒酥香补气、健脑益智。"
+    ],
     "createdAt": "2016-09-01T00:00:00Z",
     "updatedAt": "2026-09-16T12:00:00Z"
   },
@@ -1468,6 +1499,7 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🐟 清蒸鲢鱼",
+    "coverImageUrl": "/recipe-covers/cn-72.webp",
     "description": "营养师张晔健康食谱·健脾 养好脾胃，营养吸收更全面",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -1481,8 +1513,14 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "ingredients": [
       {
         "id": "i3",
-        "name": "葱段姜片",
-        "amountText": "适量",
+        "name": "葱段",
+        "amountText": "5克",
+        "category": "seasoning"
+      },
+      {
+        "id": "i8",
+        "name": "姜片",
+        "amountText": "5克",
         "category": "seasoning"
       },
       {
@@ -1529,10 +1567,12 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
         "sublabel": "Marinate",
         "stageIndex": 0,
         "ingredientIds": [
-          "i3",
-          "i4",
+          "i1",
           "i5",
-          "i6"
+          "i6",
+          "i4",
+          "i8",
+          "i3"
         ],
         "durationMinutes": 20,
         "note": "鲢鱼洗净，在鱼身上划几刀，用料酒、胡椒粉和盐腌渍20分钟，放在蒸盘内，在鱼身上摆好姜片、葱段。"
@@ -1543,9 +1583,8 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
         "sublabel": "Steam",
         "stageIndex": 1,
         "ingredientIds": [
-          "i2",
           "i7",
-          "i1"
+          "i2"
         ],
         "heatLevel": "大火",
         "durationMinutes": 10,
@@ -1566,7 +1605,7 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
       "method": "steam",
       "role": "outcome",
       "label": "完成",
-      "servingInstructions": "取出装盘"
+      "servingInstructions": "淋上热油撒香菜趁热享用，鱼肉细嫩清甜、胶质丰厚滑润"
     },
     "provenance": {
       "sourceType": "book",
@@ -1602,6 +1641,7 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥩 猪肉黄豆炖豆腐",
+    "coverImageUrl": "/recipe-covers/cn-73.webp",
     "description": "营养师张晔健康食谱·健脾 养好脾胃，营养吸收更全面",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -1713,7 +1753,8 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "连同浓郁鲜香汤汁盛入深碗趁热享用，豆腐吸满肉香、黄豆软烂醇厚"
     },
     "provenance": {
       "sourceType": "book",
@@ -1738,7 +1779,9 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
         "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
-    "tips": [],
+    "tips": [
+      "营养笔记：黄豆与豆腐提供双重植物蛋白与钙质，雪里蕻开胃消食，搭配五花肉慢炖咸香浓郁、健脾开胃。"
+    ],
     "createdAt": "2016-09-01T00:00:00Z",
     "updatedAt": "2026-09-16T12:00:00Z"
   },
@@ -1747,6 +1790,7 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🍳 清炒扁豆丝",
+    "coverImageUrl": "/recipe-covers/cn-74.webp",
     "description": "营养师张晔健康食谱·健脾 养好脾胃，营养吸收更全面",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -1838,7 +1882,8 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "出锅装盘趁热享用，扁豆脆嫩碧绿、蒜香浓郁爽口"
     },
     "provenance": {
       "sourceType": "book",
@@ -1863,7 +1908,9 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
         "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
-    "tips": [],
+    "tips": [
+      "营养笔记：扁豆味甘平，能健脾和中、消暑化湿；焯透快炒可彻底消除皂素天然毒素，清脆可口、化湿健脾。"
+    ],
     "createdAt": "2016-09-01T00:00:00Z",
     "updatedAt": "2026-09-16T12:00:00Z"
   },
@@ -1872,6 +1919,7 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥬 如意白菜卷",
+    "coverImageUrl": "/recipe-covers/cn-75.webp",
     "description": "营养师张晔健康食谱·润肺 养肺清肺，多吃白色食物",
     "cuisine": "chinese",
     "difficulty": "hard",
@@ -2023,7 +2071,8 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "steam",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "顶刀切段整齐码盘浇上鲜亮薄芡，白菜清甜多汁、肉馅软嫩鲜香"
     },
     "provenance": {
       "sourceType": "book",
@@ -2048,7 +2097,9 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
         "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
-    "tips": [],
+    "tips": [
+      "营养笔记：白菜性平微寒，生津润燥、清热养肺；卷入瘦肉蒸制多汁软嫩，形如如意、养肺润燥。"
+    ],
     "createdAt": "2016-09-01T00:00:00Z",
     "updatedAt": "2026-09-16T12:00:00Z"
   },
@@ -2057,6 +2108,7 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "♨️ 双耳羹",
+    "coverImageUrl": "/recipe-covers/cn-76.webp",
     "description": "营养师张晔健康食谱·润肺 养肺清肺，多吃白色食物",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -2138,7 +2190,8 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "steam",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "盛入汤碗趁热享用，银耳软糯胶质浓稠、黑木耳脆嫩滑润、清肺润燥"
     },
     "provenance": {
       "sourceType": "book",
@@ -2174,6 +2227,7 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥩 胡萝卜雪梨炖瘦肉",
+    "coverImageUrl": "/recipe-covers/cn-77.webp",
     "description": "营养师张晔健康食谱·润肺 养肺清肺，多吃白色食物",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -2255,7 +2309,8 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "连汤盛入汤盅趁热享用，汤色清亮甘润、梨肉软甜瘦肉香嫩"
     },
     "provenance": {
       "sourceType": "book",
@@ -2291,6 +2346,7 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥩 荸荠炒肉丝",
+    "coverImageUrl": "/recipe-covers/cn-78.webp",
     "description": "营养师张晔健康食谱·润肺 养肺清肺，多吃白色食物",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -2409,7 +2465,8 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "出锅装盘趁热享用，荸荠脆甜多汁、肉丝滑嫩鲜香"
     },
     "provenance": {
       "sourceType": "book",
@@ -2434,7 +2491,9 @@ export const BATCH5_FIVE_VISCERA: VisualRecipeV3[] = [
         "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
-    "tips": [],
+    "tips": [
+      "营养笔记：荸荠被称为“地下雪梨”，性寒味甘，清热生津、化痰明目；搭配滑嫩肉丝鲜甜脆爽、润肺下气。"
+    ],
     "createdAt": "2016-09-01T00:00:00Z",
     "updatedAt": "2026-09-16T12:00:00Z"
   }

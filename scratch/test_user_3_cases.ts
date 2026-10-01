@@ -2,7 +2,7 @@ import type { VisualRecipeV3 } from '../src/types/recipeV3'
 import { canRenderContinuousTable, getMaterialUpstreamIds } from '../src/utils/continuousTableLayout'
 
 // Case 1: 跳行夹带 [0, 2]
-const recipeGap: VisualRecipeV3 = {
+const recipeGap: any = {
   id: 'test-gap',
   title: '测试跳行',
   cuisine: 'chinese',
@@ -21,11 +21,11 @@ const recipeGap: VisualRecipeV3 = {
       stageIndex: 0,
     }
   ],
-  finalBlock: { label: '装盘' }
+  finalBlock: { label: '装盘', method: 'plating' }
 }
 
 // Case 2: Legacy 依赖
-const recipeLegacy: VisualRecipeV3 = {
+const recipeLegacy: any = {
   id: 'test-legacy',
   title: '测试Legacy',
   cuisine: 'chinese',
@@ -45,11 +45,11 @@ const recipeLegacy: VisualRecipeV3 = {
       dependencies: [{ sourceBlockId: 'b1', type: 'legacy' }]
     }
   ],
-  finalBlock: { label: '装盘' }
+  finalBlock: { label: '装盘', method: 'plating' }
 }
 
 // Case 3: 同列区域冲突 [0, 1] 和 [1, 2]
-const recipeConflict: VisualRecipeV3 = {
+const recipeConflict: any = {
   id: 'test-conflict',
   title: '测试冲突',
   cuisine: 'chinese',
@@ -64,7 +64,7 @@ const recipeConflict: VisualRecipeV3 = {
     { id: 'b1', label: '工序A', ingredientIds: ['i1', 'i2'], stageIndex: 0 },
     { id: 'b2', label: '工序B', ingredientIds: ['i2', 'i3'], stageIndex: 0 },
   ],
-  finalBlock: { label: '装盘' }
+  finalBlock: { label: '装盘', method: 'plating' }
 }
 
 console.log('Case 1 (Gap):', canRenderContinuousTable(recipeGap))

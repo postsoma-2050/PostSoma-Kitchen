@@ -10,7 +10,7 @@ const rawEpubRecipes = JSON.parse(
 
 // 2. 读取 legacy 102 食谱源码并以模块化动态导入
 // 为了获取旧版前 52 道的强类型对象，我们使用 runTs 或在 node 环境直接解析旧版
-const legacyPath = path.join(process.cwd(), 'src', 'data', 'chineseHealthyRecipes.legacy-102.ts')
+const legacyPath = path.join(process.cwd(), 'tests', 'fixtures', 'chineseHealthyRecipes.legacy-102.ts')
 const legacyContent = fs.readFileSync(legacyPath, 'utf8')
 
 /**

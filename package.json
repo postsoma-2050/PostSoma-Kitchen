@@ -38,12 +38,12 @@
         "test:icons": "node scripts/runTsHermetic.js tests/domain/iconSystem.test.ts",
         "test:repo": "node scripts/runTs.js tests/domain/repository.test.ts",
         "migrate:samples": "node scripts/runTs.js scripts/migrateSampleRecipes.ts",
-        "migrate:all": "node scripts/runTs.js scripts/migrateAllRecipes.ts"
+        "migrate:all": "node scripts/runTs.js scripts/migrateAllRecipes.ts",
+        "sync:covers": "node scripts/runTs.js scripts/applyConfirmedRecipeCovers.ts --actual"
     },
     "dependencies": {
         "@remixicon/vue": "^4.9.0",
         "@supabase/supabase-js": "^2.109.0",
-        "@vueuse/core": "^10.7.0",
         "vue": "^3.4.0",
         "vue-router": "^4.2.0"
     },

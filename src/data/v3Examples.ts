@@ -8,6 +8,7 @@ export const espressoBrowniesV3: VisualRecipeV3 = {
     version: '3.0',
     status: 'complete',
     title: 'Espresso Brownies 意式浓缩布朗尼',
+    coverImageUrl: '/recipe-covers/v3-espresso-brownies.webp',
     description: '浓郁醇厚、外脆内软的经典意式浓缩咖啡布朗尼',
     cuisine: 'western',
     difficulty: 'medium',
@@ -71,7 +72,8 @@ export const espressoBrowniesV3: VisualRecipeV3 = {
         temperatureC: 170,
         temperatureF: 350,
         durationText: '30 to 40 min',
-        instructions: '倒入抹油防沾的 8x8 寸方模中，烘焙至表面结壳牙签插入微湿。'
+        instructions: '倒入抹油防沾的 8x8 寸方模中，烘焙至表面结壳牙签插入微湿。',
+        servingInstructions: '出炉后彻底冷却切块享用，外层薄脆微裂、内芯如生巧般绵密湿润、浓缩咖啡醇苦解腻'
     },
     provenance: {
         sourceType: 'internal_sample',
@@ -104,6 +106,7 @@ export const hongShaoRouV3: VisualRecipeV3 = {
     version: '3.0',
     status: 'complete',
     title: '毛氏红烧肉',
+    coverImageUrl: '/recipe-covers/v3-hong-shao-rou.webp',
     description: '肥而不腻、香浓红亮的经典家常红烧肉',
     cuisine: 'chinese',
     difficulty: 'medium',
@@ -163,7 +166,8 @@ export const hongShaoRouV3: VisualRecipeV3 = {
         method: 'stew',
         label: '慢炖 Stew',
         durationText: '45 to 60 min',
-        instructions: '小火盖盖慢炖 45 分钟后，开大火收汁至汤汁浓稠红亮装盘。'
+        instructions: '小火盖盖慢炖 45 分钟后，开大火收汁至汤汁浓稠红亮装盘。',
+        servingInstructions: '盛入砂锅趁热享用，五花肉红亮诱人、肥而不腻、瘦而不柴、入口即化裹满浓郁酱汁'
     },
     provenance: {
         sourceType: 'internal_sample',
@@ -196,6 +200,7 @@ export const caesarSaladV3: VisualRecipeV3 = {
     version: '3.0',
     status: 'complete',
     title: 'Classic Caesar Salad 经典凯撒沙拉',
+    coverImageUrl: '/recipe-covers/v3-caesar-salad.webp',
     description: '清脆爽口、蒜香乳化酱汁的经典冷食沙拉',
     cuisine: 'western',
     difficulty: 'easy',
@@ -239,7 +244,8 @@ export const caesarSaladV3: VisualRecipeV3 = {
     finalBlock: {
         method: 'serve',
         label: '装盘即享 Direct Serve',
-        instructions: '将充分挂汁的生菜装盘，撒上烤面包丁、现磨黑胡椒与帕玛森芝士碎即可享用。'
+        instructions: '将充分挂汁的生菜装盘，撒上烤面包丁、现磨黑胡椒与帕玛森芝士碎即可享用。',
+        servingInstructions: '装盘后立即享用，罗马生菜清脆多汁、乳化凯撒酱咸鲜醇厚、面包丁酥脆帕玛森芝士浓郁'
     },
     provenance: {
         sourceType: 'internal_sample',

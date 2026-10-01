@@ -19,7 +19,7 @@ const batches = [
 ]
 
 for (const b of batches) {
-  const problems = []
+  const problems: any[] = []
   for (const r of b.list) {
     const badIngredients = r.ingredients.filter(i => {
       const isCompoundName = /&|与|、|\band\b|\+|＋/.test(i.name)

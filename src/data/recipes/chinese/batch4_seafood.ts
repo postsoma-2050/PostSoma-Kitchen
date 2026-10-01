@@ -10,6 +10,7 @@ export const BATCH4_SEAFOOD: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🐟 泡椒蒸鱼块",
+    "coverImageUrl": "/recipe-covers/cn-55.webp",
     "description": "营养师张晔健康食谱·美味海鲜 让丰富矿物质和优质蛋白质滋补身体",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -146,7 +147,8 @@ export const BATCH4_SEAFOOD: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "steam",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "出锅浇热油撒香菜趁热享用，鱼肉细嫩入味、酸辣开胃爽口"
     },
     "provenance": {
       "sourceType": "book",
@@ -182,6 +184,7 @@ export const BATCH4_SEAFOOD: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🐟 红烧鱼豆腐",
+    "coverImageUrl": "/recipe-covers/cn-56.webp",
     "description": "营养师张晔健康食谱·美味海鲜 让丰富矿物质和优质蛋白质滋补身体",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -248,8 +251,14 @@ export const BATCH4_SEAFOOD: VisualRecipeV3[] = [
       },
       {
         "id": "i3",
-        "name": "葱段姜片",
-        "amountText": "适量",
+        "name": "葱段",
+        "amountText": "5克",
+        "category": "seasoning"
+      },
+      {
+        "id": "i13",
+        "name": "姜片",
+        "amountText": "5克",
         "category": "seasoning"
       },
       {
@@ -280,7 +289,8 @@ export const BATCH4_SEAFOOD: VisualRecipeV3[] = [
           "i8",
           "i9",
           "i10",
-          "i11"
+          "i11",
+          "i13"
         ],
         "note": "鲤鱼块加姜片、料酒、盐、胡椒粉腌渍；豆腐切片；取小碗放生抽、白糖、醋、盐、料酒、淀粉、水调成味汁。"
       },
@@ -314,7 +324,7 @@ export const BATCH4_SEAFOOD: VisualRecipeV3[] = [
       "method": "stew",
       "role": "outcome",
       "label": "完成",
-      "servingInstructions": "捞出装盘"
+      "servingInstructions": "连同浓郁红烧汤汁盛入煲中趁热享用，鱼块外酥内嫩、豆腐吸饱鲜汁"
     },
     "provenance": {
       "sourceType": "book",
@@ -350,6 +360,7 @@ export const BATCH4_SEAFOOD: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🐟 奶白鲫鱼汤",
+    "coverImageUrl": "/recipe-covers/cn-57.webp",
     "description": "营养师张晔健康食谱·美味海鲜 让丰富矿物质和优质蛋白质滋补身体",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -380,7 +391,19 @@ export const BATCH4_SEAFOOD: VisualRecipeV3[] = [
       },
       {
         "id": "i3",
-        "name": "盐葱段姜片",
+        "name": "盐",
+        "amountText": "适量",
+        "category": "seasoning"
+      },
+      {
+        "id": "i7",
+        "name": "葱段",
+        "amountText": "适量",
+        "category": "seasoning"
+      },
+      {
+        "id": "i8",
+        "name": "姜片",
         "amountText": "适量",
         "category": "seasoning"
       },
@@ -415,7 +438,11 @@ export const BATCH4_SEAFOOD: VisualRecipeV3[] = [
         "sublabel": "Boil",
         "stageIndex": 1,
         "ingredientIds": [
-          "i5"
+          "i6",
+          "i7",
+          "i8",
+          "i5",
+          "i3"
         ],
         "heatLevel": "大火",
         "note": "炒锅置火上，放油烧热，先下葱段、姜片，待爆出香味时，放入鲫鱼煎至两面金黄后，加料酒、盐，至酒香溢出时，加3大碗冷水大火煮沸。",
@@ -437,9 +464,7 @@ export const BATCH4_SEAFOOD: VisualRecipeV3[] = [
         "sublabel": "Simmer",
         "stageIndex": 2,
         "ingredientIds": [
-          "i4",
-          "i3",
-          "i6"
+          "i4"
         ],
         "heatLevel": "大火",
         "durationMinutes": 40,
@@ -460,7 +485,8 @@ export const BATCH4_SEAFOOD: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "盛入大汤碗趁热享用，汤色奶白醇厚、鱼肉鲜美豆腐细嫩"
     },
     "provenance": {
       "sourceType": "book",
@@ -496,6 +522,7 @@ export const BATCH4_SEAFOOD: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🦐 蒜蓉基围虾",
+    "coverImageUrl": "/recipe-covers/cn-58.webp",
     "description": "营养师张晔健康食谱·美味海鲜 让丰富矿物质和优质蛋白质滋补身体",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -637,7 +664,7 @@ export const BATCH4_SEAFOOD: VisualRecipeV3[] = [
       "method": "steam",
       "role": "outcome",
       "label": "完成",
-      "servingInstructions": "取出装盘"
+      "servingInstructions": "淋上滚烫明油整盘端上趁热享用，虾肉紧实弹牙、蒜香浓郁扑鼻"
     },
     "provenance": {
       "sourceType": "book",
@@ -673,6 +700,7 @@ export const BATCH4_SEAFOOD: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🍅 番茄炖牡蛎",
+    "coverImageUrl": "/recipe-covers/cn-59.webp",
     "description": "营养师张晔健康食谱·美味海鲜 让丰富矿物质和优质蛋白质滋补身体",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -753,7 +781,8 @@ export const BATCH4_SEAFOOD: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "盛入汤碗趁热享用，酸甜开胃、牡蛎肥嫩多汁鲜美"
     },
     "provenance": {
       "sourceType": "book",
@@ -789,6 +818,7 @@ export const BATCH4_SEAFOOD: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🦐 蒜蓉粉丝蒸扇贝",
+    "coverImageUrl": "/recipe-covers/cn-60.webp",
     "description": "营养师张晔健康食谱·美味海鲜 让丰富矿物质和优质蛋白质滋补身体",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -918,7 +948,7 @@ export const BATCH4_SEAFOOD: VisualRecipeV3[] = [
       "method": "steam",
       "role": "outcome",
       "label": "完成",
-      "servingInstructions": "取出装盘"
+      "servingInstructions": "出锅淋上滚烫明油趁热享用，扇贝鲜甜弹嫩、粉丝吸满蒜香精华"
     },
     "provenance": {
       "sourceType": "book",
@@ -943,7 +973,9 @@ export const BATCH4_SEAFOOD: VisualRecipeV3[] = [
         "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
-    "tips": [],
+    "tips": [
+      "营养笔记：扇贝富含蛋白质和核黄素，能帮助降低血清胆固醇；粉丝吸收贝肉鲜汁，大蒜素抗菌提鲜，低脂高蛋白。"
+    ],
     "createdAt": "2016-09-01T00:00:00Z",
     "updatedAt": "2026-09-16T12:00:00Z"
   },
@@ -952,6 +984,7 @@ export const BATCH4_SEAFOOD: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🦐 姜丝蒸蟹",
+    "coverImageUrl": "/recipe-covers/cn-61.webp",
     "description": "营养师张晔健康食谱·美味海鲜 让丰富矿物质和优质蛋白质滋补身体",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -1023,7 +1056,9 @@ export const BATCH4_SEAFOOD: VisualRecipeV3[] = [
         "label": "切配蒸制",
         "sublabel": "Steam",
         "stageIndex": 1,
-        "ingredientIds": [],
+        "ingredientIds": [
+          "i6"
+        ],
         "note": "姜洗净，切成两半，一半切丝，另一半切姜末，将姜丝放在螃蟹上，把蒸盘放到蒸锅里至螃蟹蒸熟。",
         "completionState": "螃蟹蒸熟",
         "dependencies": [
@@ -1046,8 +1081,7 @@ export const BATCH4_SEAFOOD: VisualRecipeV3[] = [
           "i2",
           "i3",
           "i4",
-          "i5",
-          "i6"
+          "i5"
         ],
         "note": "锅置火上，倒入醋和姜末，烧沸，关火，加白糖、鸡精、香油，制成蘸料，放在碗碟里，随蒸好的螃蟹一同上桌即可。",
         "dependencies": [
@@ -1065,7 +1099,8 @@ export const BATCH4_SEAFOOD: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "steam",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "趁热揭开蟹盖蘸姜醋汁享用，蟹肉鲜甜紧实、黄膏丰腴脂香"
     },
     "provenance": {
       "sourceType": "book",

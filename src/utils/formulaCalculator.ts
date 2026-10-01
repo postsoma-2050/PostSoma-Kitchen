@@ -33,19 +33,3 @@ export function calculateScaledFormula(
     }
   })
 }
-
-/**
- * 动态换算普通 Ingredient 的文本数量 (如 "100 g" -> "200 g" 或 "2 块" -> "4 块")
- */
-export function scaleIngredientAmountText(amountText: string | undefined, scaleRatio: number): string {
-  if (!amountText) return ''
-  if (scaleRatio === 1) return amountText
-
-  // 匹配开头数字 (如 "100 g", "2.5 tbsp", "400")
-  return amountText.replace(/(\d+(?:\.\d+)?)/g, (match) => {
-    const num = parseFloat(match)
-    if (isNaN(num)) return match
-    const scaled = Math.round(num * scaleRatio * 100) / 100
-    return scaled % 1 === 0 ? String(scaled) : scaled.toFixed(1)
-  })
-}

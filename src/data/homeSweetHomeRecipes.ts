@@ -10,6 +10,7 @@ const HOME_SWEET_HOME_RECIPES_DATA: VisualRecipeV3[] = [
     version: '3.0',
     status: 'published',
     title: '🏆 榛果摩卡特饮干粉 (Hazelnut Mocha Mix)',
+    coverImageUrl: '/recipe-covers/hsh-01-hazelnut-mocha.webp',
     description: '2003 Home Sweet Home 获奖饮品！Delora Bright 妈妈寄给 Tech 学子的温暖家乡味，香浓热可可与榛果咖啡的完美融合。',
     cuisine: 'western',
     difficulty: 'easy',
@@ -51,9 +52,14 @@ const HOME_SWEET_HOME_RECIPES_DATA: VisualRecipeV3[] = [
       method: 'serve',
       label: '热水冲泡 ☕',
       instructions: '取 3 满匙干粉，倒入 10 oz 沸水搅拌溶解即享',
+      servingInstructions: '取 3 满匙干粉倒入杯中，冲入沸水充分搅拌溶解，趁热捧杯啜饮，榛果香气浓郁、可可醇厚丝滑、咖啡微苦回甘暖心',
       durationText: '2 min',
       notes: '微波加热水 2 分钟'
     },
+    tips: [
+      '冲调秘诀：冲泡时水温建议在 90℃~95℃ 左右，搅拌至干粉完全溶解后可顶上一勺打发鲜奶油或棉花糖，风味更接近专业咖啡馆。',
+      '储存指南：调配好的干粉装入密封罐放置于干燥阴凉处可保存半年，是寒冬自饮或分装送给亲友的温馨暖心特饮。'
+    ],
     createdAt: '2003-10-01T00:00:00Z',
     updatedAt: '2026-08-03T12:00:00Z'
   },
@@ -64,6 +70,7 @@ const HOME_SWEET_HOME_RECIPES_DATA: VisualRecipeV3[] = [
     version: '3.0',
     status: 'published',
     title: '🏆 塔可墨西哥风味浓汤 (Taco Soup)',
+    coverImageUrl: '/recipe-covers/hsh-02-taco-soup.webp',
     description: '2003 Home Sweet Home 获奖汤品！Lou Pape 妈妈的健康蔬菜肉汤，非常适合搭配面包或饼干。',
     cuisine: 'western',
     difficulty: 'easy',
@@ -119,9 +126,14 @@ const HOME_SWEET_HOME_RECIPES_DATA: VisualRecipeV3[] = [
       method: 'stew',
       label: '慢炖浓汤 🍲',
       instructions: '小火慢炖 1 小时，或放慢炖锅低火滚煮一整天',
+      servingInstructions: '盛入大汤碗中趁热享用，汤色红亮诱人、豆香与玉米清甜浓郁、肉质香嫩微辣，搭配玉米脆片或酸奶油极其过瘾',
       durationText: '60 min',
       notes: '搭配热面包或玉米饼干食用'
     },
+    tips: [
+      '烹饪妙招：火鸡绞肉比传统牛肉绞肉脂肪含量更低、热量更轻，烹调时充分吸饱塔可香料与番茄果酸，浓郁而不油腻。',
+      '风味延伸：此汤冷藏过夜后风味更加融合醇厚，食用前撒上一把车达芝士碎和新鲜牛油果丁，口感层次更丰富。'
+    ],
     createdAt: '2003-10-01T00:00:00Z',
     updatedAt: '2026-08-03T12:00:00Z'
   },
@@ -132,6 +144,7 @@ const HOME_SWEET_HOME_RECIPES_DATA: VisualRecipeV3[] = [
     version: '3.0',
     status: 'published',
     title: '🏆 Ritz饼干金黄烤鸡 (Chicken Ritz)',
+    coverImageUrl: '/recipe-covers/hsh-03-chicken-ritz.webp',
     description: '2003 Home Sweet Home 获奖主菜！Linda Parson 的暖心家常烤鸡，浓郁奶油与酥脆饼干的绝妙结合。',
     cuisine: 'western',
     difficulty: 'easy',
@@ -187,8 +200,13 @@ const HOME_SWEET_HOME_RECIPES_DATA: VisualRecipeV3[] = [
       temperatureF: 350,
       temperatureC: 175,
       durationText: '30 min',
-      instructions: '入烤箱烘焙至表面金黄酥脆、内部冒泡 bubbling'
+      instructions: '入烤箱烘焙至表面金黄酥脆、内部冒泡 bubbling',
+      servingInstructions: '烤盘出炉趁热分切装盘享用，顶层Ritz饼干金黄酥脆咸香、内层鸡肉鲜嫩多汁裹满醇滑奶油汤汁，老少皆宜'
     },
+    tips: [
+      '烘焙秘诀：Ritz饼干本身带有黄油与微咸风味，碾成粗颗粒碎屑即可，保留颗粒感能使烤出的酥顶格外香脆。',
+      '搭配建议：传统美式家常吃法可搭配蒸西兰花或新鲜绿叶沙拉，清爽解腻，平衡奶油浓汤的丰厚口感。'
+    ],
     createdAt: '2003-10-01T00:00:00Z',
     updatedAt: '2026-08-03T12:00:00Z'
   },
@@ -199,6 +217,7 @@ const HOME_SWEET_HOME_RECIPES_DATA: VisualRecipeV3[] = [
     version: '3.0',
     status: 'published',
     title: '🏆 墨西哥风味千层饼 (Mexican Lasagna)',
+    coverImageUrl: '/recipe-covers/hsh-04-mexican-lasagna.webp',
     description: '2003 Home Sweet Home 获奖主菜！Gale Moore 妈妈的经典菜，孩子在学校念念不忘的丰盛午晚餐。',
     cuisine: 'western',
     difficulty: 'medium',
@@ -257,8 +276,13 @@ const HOME_SWEET_HOME_RECIPES_DATA: VisualRecipeV3[] = [
       temperatureF: 350,
       temperatureC: 175,
       durationText: '30 min',
-      instructions: '烘焙 30 分钟至顶层芝士完全融化冒泡'
+      instructions: '烘焙 30 分钟至顶层芝士完全融化冒泡',
+      servingInstructions: '出炉静置10分钟后切方块装盘享用，千层截面分明、马苏里拉与车达芝士拉丝浓郁、牛肉馅香辣爆汁'
     },
+    tips: [
+      '防塌要诀：出炉后务必静置10~15分钟再切块，让融化的双重芝士与酱汁稍作凝固收敛，切面才能整齐挺立不散架。',
+      '面条处理：千层面条煮至八成熟（al dente）即可捞出过冷水沥干，烘烤时吸收肉酱汤汁后软糯弹牙恰到好处。'
+    ],
     createdAt: '2003-10-01T00:00:00Z',
     updatedAt: '2026-08-03T12:00:00Z'
   },
@@ -269,6 +293,7 @@ const HOME_SWEET_HOME_RECIPES_DATA: VisualRecipeV3[] = [
     version: '3.0',
     status: 'published',
     title: '🏆 祖母秘制面条库格尔 (Grandma’s Noodle Kugel)',
+    coverImageUrl: '/recipe-covers/hsh-05-noodle-kugel.webp',
     description: '2003 Home Sweet Home 获奖副菜！Sara Cunningham 家族传承几代人的节庆必吃金黄烤面条。',
     cuisine: 'western',
     difficulty: 'medium',
@@ -336,8 +361,13 @@ const HOME_SWEET_HOME_RECIPES_DATA: VisualRecipeV3[] = [
       temperatureF: 350,
       temperatureC: 175,
       durationText: '60 min',
-      instructions: '烘焙 1 小时至凝固金黄，稍放凉 15 分钟后切块食用'
+      instructions: '烘焙 1 小时至凝固金黄，稍放凉 15 分钟后切块食用',
+      servingInstructions: '出炉稍放凉15分钟切块装盘享用，外层饼干碎酥香焦脆、内芯细蛋面柔嫩如布丁、芝士奶香浓郁清甜微酸'
     },
+    tips: [
+      '传统工艺：将奶油芝士提前室温彻底软化，与农夫鲜芝士搅打顺滑无颗粒后再与酸奶油融合，是库格尔如布丁般滑嫩的核心。',
+      '温食冷享皆宜：刚出炉温热食用奶香馥郁，冷藏后作为甜点切块冰凉紧实，别具风味。'
+    ],
     createdAt: '2003-10-01T00:00:00Z',
     updatedAt: '2026-08-03T12:00:00Z'
   },
@@ -348,6 +378,7 @@ const HOME_SWEET_HOME_RECIPES_DATA: VisualRecipeV3[] = [
     version: '3.0',
     status: 'published',
     title: '🏆 烧烤黄油豆 (Barbecued Butter Beans)',
+    coverImageUrl: '/recipe-covers/hsh-06-bbq-butter-beans.webp',
     description: '2003 Home Sweet Home 获奖副菜！Sandy Mackie 妈妈野餐与尾门派对最受欢迎的浓郁烘焙豆。',
     cuisine: 'western',
     difficulty: 'easy',
@@ -380,8 +411,13 @@ const HOME_SWEET_HOME_RECIPES_DATA: VisualRecipeV3[] = [
       temperatureF: 350,
       temperatureC: 175,
       durationText: '2.5 hours',
-      instructions: '入烤箱烘烤 2.5 小时，期间偶尔翻动，至培根香酥、酱汁浓稠'
+      instructions: '入烤箱烘烤 2.5 小时，期间偶尔翻动，至培根香酥、酱汁浓稠',
+      servingInstructions: '盛入深盘或砂锅趁热享用，黄油豆沙软粉润、培根香脆咸香、烧烤酱汁红亮浓稠、甜咸微熏极其下饭'
     },
+    tips: [
+      '慢烤秘诀：长达2.5小时的低温慢烤能使培根中的油脂充分渗透到黄油豆内部，番茄酱与红糖自然焦糖化裹住每一颗豆子。',
+      '派对百搭：这是美式BBQ烧烤聚会和野餐中最受欢迎的经典配菜，搭配烤排骨、手撕猪肉或汉堡堪称绝配。'
+    ],
     createdAt: '2003-10-01T00:00:00Z',
     updatedAt: '2026-08-03T12:00:00Z'
   },
@@ -392,6 +428,7 @@ const HOME_SWEET_HOME_RECIPES_DATA: VisualRecipeV3[] = [
     version: '3.0',
     status: 'published',
     title: '🏆 菠萝香面包填料 (Pineapple Stuffing)',
+    coverImageUrl: '/recipe-covers/hsh-07-pineapple-stuffing.webp',
     description: '2003 Home Sweet Home 获奖副菜！Carol Carson 的复活节与火腿绝配甜美填料。',
     cuisine: 'western',
     difficulty: 'easy',
@@ -443,8 +480,13 @@ const HOME_SWEET_HOME_RECIPES_DATA: VisualRecipeV3[] = [
       temperatureF: 350,
       temperatureC: 175,
       durationText: '60 min',
-      instructions: '烤箱烘焙 1 小时至表面金黄蓬松'
+      instructions: '烤箱烘焙 1 小时至表面金黄蓬松',
+      servingInstructions: '出炉稍晾温热挖大勺装盘享用，表皮金黄微酥、内里蓬松湿润、黄油奶香与菠萝酸甜交织，果香四溢'
     },
+    tips: [
+      '去水关键：碎菠萝罐头必须用滤网彻底沥干汁水，避免面糊含水量过高导致烘烤后内部湿粘不起发。',
+      '节日经典：在美国家庭感恩节和复活节盛宴中，甜美果香的面包填料是咸鲜烤火腿（Baked Ham）不可替代的灵魂伴侣。'
+    ],
     createdAt: '2003-10-01T00:00:00Z',
     updatedAt: '2026-08-03T12:00:00Z'
   },
@@ -455,6 +497,7 @@ const HOME_SWEET_HOME_RECIPES_DATA: VisualRecipeV3[] = [
     version: '3.0',
     status: 'published',
     title: '🏆 碧根果果仁米饭 (Pecan Rice)',
+    coverImageUrl: '/recipe-covers/hsh-08-pecan-rice.webp',
     description: '2003 Home Sweet Home 获奖副菜！Patti Faulkner 妈妈感恩节的招牌美洲山核桃香米饭。',
     cuisine: 'western',
     difficulty: 'medium',
@@ -513,8 +556,13 @@ const HOME_SWEET_HOME_RECIPES_DATA: VisualRecipeV3[] = [
       temperatureF: 350,
       temperatureC: 175,
       durationText: '20 min',
-      instructions: '入烤箱 350°F 烘烤 20 分钟至香味溢出'
+      instructions: '入烤箱 350°F 烘烤 20 分钟至香味溢出',
+      servingInstructions: '出炉拌匀盛入饭碗趁热享用，米饭粒粒分明吸收鸡汤鲜味、碧根果香脆甘甜、帕玛森芝士醇香诱人'
     },
+    tips: [
+      '生米预炒：用橄榄油与黄油将生米粒炒至微金黄琥珀色，可锁住米粒淀粉，使后续焖烤后的米饭粒粒散落、弹牙不粘坨。',
+      '果仁香气：碧根果碎入菜前如果提前干锅微烘或烤出香气，融入米饭后坚果油脂风味会更加浓郁爆发。'
+    ],
     createdAt: '2003-10-01T00:00:00Z',
     updatedAt: '2026-08-03T12:00:00Z'
   },
@@ -525,6 +573,7 @@ const HOME_SWEET_HOME_RECIPES_DATA: VisualRecipeV3[] = [
     version: '3.0',
     status: 'published',
     title: '🏆 酥脆花生酱大理石布朗尼 (Crunchy PB Brownies)',
+    coverImageUrl: '/recipe-covers/hsh-09-peanut-butter-brownie.webp',
     description: '2003 Home Sweet Home 获奖甜品！Pam Pillmore 妈妈聚餐秒光的花生酱布朗尼大理石蛋糕。',
     cuisine: 'western',
     difficulty: 'medium',
@@ -582,8 +631,13 @@ const HOME_SWEET_HOME_RECIPES_DATA: VisualRecipeV3[] = [
       temperatureF: 350,
       temperatureC: 175,
       durationText: '28-33 min',
-      instructions: '烤箱烘焙 28-33 分钟，切勿过烤，完全冷却后切块冷藏'
+      instructions: '烤箱烘焙 28-33 分钟，切勿过烤，完全冷却后切块冷藏',
+      servingInstructions: '出炉完全放凉后切24方块装盘享用，大理石花纹雅致、外层微脆、内芯浓厚花生酱与黑巧布朗尼交融、碎花生香脆爆棚'
     },
+    tips: [
+      '冷藏切块要诀：布朗尼烘烤完成后切勿温热切块，室温完全放凉后放入冰箱冷藏1小时再切，切口整齐利落、花纹绝美。',
+      '火候把控：竹签插入中心带有少许湿润蛋糕屑即可出炉，余温会使布朗尼内部达到如同生巧软心（Fudge）的绝佳口感。'
+    ],
     createdAt: '2003-10-01T00:00:00Z',
     updatedAt: '2026-08-03T12:00:00Z'
   },
@@ -594,6 +648,7 @@ const HOME_SWEET_HOME_RECIPES_DATA: VisualRecipeV3[] = [
     version: '3.0',
     status: 'published',
     title: '👨‍🍳 主厨意式酿烤蘑菇 (Italian Mushrooms)',
+    coverImageUrl: '/recipe-covers/hsh-10-italian-mushrooms.webp',
     description: 'Virginia Tech 行政总厨 Chad Brodkin (国际烹饪奥林匹克金奖主厨) 特别献贡献的招牌迎宾菜。',
     cuisine: 'western',
     difficulty: 'medium',
@@ -650,8 +705,13 @@ const HOME_SWEET_HOME_RECIPES_DATA: VisualRecipeV3[] = [
       temperatureF: 350,
       temperatureC: 175,
       durationText: '14 min',
-      instructions: '入烤箱 350°F 烘烤 14 分钟至馅料融化金黄、蘑菇鲜嫩'
+      instructions: '入烤箱 350°F 烘烤 14 分钟至馅料融化金黄、蘑菇鲜嫩',
+      servingInstructions: '烤盘出炉稍晾2分钟移入温热餐盘趁热享用，蘑菇肉厚嫩滑汁水丰盈、双重芝士金黄融化微拉丝、香草蒜香浓烈开胃'
     },
+    tips: [
+      '主厨工艺：蘑菇底座切平能保证在烤盘上平稳直立不倾倒，保留住烤制时析出的每一滴鲜美蘑菇原汁。',
+      '香气升级：烤大蒜瓣提前捣成细腻蒜泥融入馅料，既有大蒜的温和甘甜，又不会有生蒜的辛辣刺激，尽显意式优雅。'
+    ],
     createdAt: '2003-10-01T00:00:00Z',
     updatedAt: '2026-08-03T12:00:00Z'
   },
@@ -662,6 +722,7 @@ const HOME_SWEET_HOME_RECIPES_DATA: VisualRecipeV3[] = [
     version: '3.0',
     status: 'published',
     title: '🥐 过夜美洲山核桃肉桂卷 (Overnight Pecan Rolls)',
+    coverImageUrl: '/recipe-covers/hsh-11-pecan-rolls.webp',
     description: 'Kalene Orndorff 妈妈平安夜准备、圣诞早晨烘焙的香甜面包卷，满屋肉桂与核桃甜香。',
     cuisine: 'western',
     difficulty: 'hard',
@@ -720,8 +781,13 @@ const HOME_SWEET_HOME_RECIPES_DATA: VisualRecipeV3[] = [
       temperatureF: 350,
       temperatureC: 175,
       durationText: '25 min',
-      instructions: '早晨拿出室温放置 1 小时，烘烤 25 分钟后倒扣入大盘'
+      instructions: '早晨拿出室温放置 1 小时，烘烤 25 分钟后倒扣入大盘',
+      servingInstructions: '出炉趁热迅速倒扣在大浅盘中享用，底盘焦糖蜂蜜核桃液瞬间浇淋覆盖面包卷、满屋肉桂甜香、松软拉丝甜而不腻'
     },
+    tips: [
+      '倒扣关键：出炉后必须趁热（1~2分钟内）迅速倒扣，此时焦糖呈流动状态能均匀挂附；若放凉焦糖变硬会粘在烤盘底部。',
+      '过夜发酵：平安夜将面卷冷藏低温慢发酵一整夜，能让面团形成细腻的气孔组织与更深邃的麦香与肉桂融合风味。'
+    ],
     createdAt: '2003-10-01T00:00:00Z',
     updatedAt: '2026-08-03T12:00:00Z'
   },
@@ -732,6 +798,7 @@ const HOME_SWEET_HOME_RECIPES_DATA: VisualRecipeV3[] = [
     version: '3.0',
     status: 'published',
     title: '🍰 老式酸奶油磅蛋糕 (Sour Cream Pound Cake)',
+    coverImageUrl: '/recipe-covers/hsh-12-pound-cake.webp',
     description: 'Kathy P. Evans 妈妈的传统手作磅蛋糕，手工打发，糕体细腻绵密、奶香浓郁。',
     cuisine: 'western',
     difficulty: 'medium',
@@ -786,8 +853,13 @@ const HOME_SWEET_HOME_RECIPES_DATA: VisualRecipeV3[] = [
       temperatureF: 325,
       temperatureC: 165,
       durationText: '75 min',
-      instructions: '放烤箱底层烘烤 1 小时 15 分钟，插入竹签无粘连即成'
+      instructions: '放烤箱底层烘烤 1 小时 15 分钟，插入竹签无粘连即成',
+      servingInstructions: '蛋糕模中倒扣脱模彻底放凉后厚切享用，糕体金黄紧实细腻、奶香浓郁醇厚、酸奶油带来微妙湿润度与柔和果酸'
     },
+    tips: [
+      '手工打发精髓：黄油、起酥油与砂糖用木勺手工充分打发至发白羽毛状，是传统美式南方磅蛋糕拥有细密紧致气孔的秘诀。',
+      '三次过筛：面粉与膨松剂反复过筛三次，能充分充入空气，防止面糊起筋，烤出的磅蛋糕松润不干咽。'
+    ],
     createdAt: '2003-10-01T00:00:00Z',
     updatedAt: '2026-08-03T12:00:00Z'
   },
@@ -798,6 +870,7 @@ const HOME_SWEET_HOME_RECIPES_DATA: VisualRecipeV3[] = [
     version: '3.0',
     status: 'published',
     title: '🍲 牛肉大麦蔬菜浓汤 (Beef & Barley Vegetable Soup)',
+    coverImageUrl: '/recipe-covers/hsh-13-beef-barley-soup.webp',
     description: 'Margaret Hardage 妈妈在寒冷秋冬为全家准备的暖心健康浓汤，新鲜蔬菜与丰富大麦、豌豆粒极具饱腹感。',
     cuisine: 'western',
     difficulty: 'medium',
@@ -858,8 +931,13 @@ const HOME_SWEET_HOME_RECIPES_DATA: VisualRecipeV3[] = [
       method: 'stew',
       label: '丰盛浓汤 🍲',
       durationText: '60 min',
-      instructions: '热气腾腾，搭配烤芝士三明治或热比司吉极其美味'
+      instructions: '热气腾腾，搭配烤芝士三明治或热比司吉极其美味',
+      servingInstructions: '盛入宽口汤碗趁热享用，浓汤红亮温润、大麦粒粒Q弹有嚼劲、碎牛肉与番茄芹菜鲜美交融、饱腹暖胃极度舒适'
     },
+    tips: [
+      '慢炖分批：大麦和干豌豆需要较长时间吸水膨胀软化，先与牛肉炖煮30分钟，再加入胡萝卜和芹菜，能保持蔬菜的鲜甜与脆嫩。',
+      '健康主食汤：大麦富含β-葡聚糖水溶性膳食纤维，这道全合一（All-in-one）浓汤营养均衡，特别适合作为控糖低脂的健康正餐。'
+    ],
     createdAt: '2003-10-01T00:00:00Z',
     updatedAt: '2026-08-03T12:00:00Z'
   },
@@ -870,6 +948,7 @@ const HOME_SWEET_HOME_RECIPES_DATA: VisualRecipeV3[] = [
     version: '3.0',
     status: 'published',
     title: '🥐 祖母天使比司吉饼干 (Angel Biscuits)',
+    coverImageUrl: '/recipe-covers/hsh-14-angel-biscuits.webp',
     description: 'Nancy Robeson 祖母每逢感恩节与圣诞节必做的爱心面点，酵母与泡打粉结合，松软如羽毛。',
     cuisine: 'western',
     difficulty: 'medium',
@@ -924,8 +1003,13 @@ const HOME_SWEET_HOME_RECIPES_DATA: VisualRecipeV3[] = [
       temperatureF: 400,
       temperatureC: 200,
       durationText: '12-15 min',
-      instructions: '入烤箱 400°F 烘烤 12-15 分钟至表面金黄蓬松'
+      instructions: '入烤箱 400°F 烘烤 12-15 分钟至表面金黄蓬松',
+      servingInstructions: '出炉趁热掰开抹上黄油或果酱享用，外壳金黄酥脆薄如纸、内层轻盈如羽毛般分层蓬松、麦香与酪乳清香扑鼻'
     },
+    tips: [
+      '双重膨松力量：同时采用活性干酵母与泡打粉、小苏打，既有发酵面团的麦香层次，又有经典比司吉的酥松起层。',
+      '切模手法：压切圆饼模具时切忌左右旋转，应垂直下压并利落提起，这样可以保护边缘面筋层，烘烤时比司吉才会垂直高高爬升。'
+    ],
     createdAt: '2003-10-01T00:00:00Z',
     updatedAt: '2026-08-03T12:00:00Z'
   },
@@ -936,6 +1020,7 @@ const HOME_SWEET_HOME_RECIPES_DATA: VisualRecipeV3[] = [
     version: '3.0',
     status: 'published',
     title: '🍲 家常美式鸡肉炖面团 (Chicken & Dumplings)',
+    coverImageUrl: '/recipe-covers/hsh-15-chicken-dumplings.webp',
     description: 'Marion MacLeod Caudle 妈妈传下的经典主菜。鲜嫩鸡肉配软糯面团，搭配土豆泥与豌豆，温暖满足。',
     cuisine: 'western',
     difficulty: 'medium',
@@ -993,8 +1078,13 @@ const HOME_SWEET_HOME_RECIPES_DATA: VisualRecipeV3[] = [
       method: 'stew',
       label: '软糯面团 🍲',
       durationText: '40 min',
-      instructions: '汤汁浓郁，面团吸饱鸡汤香气'
+      instructions: '汤汁浓郁，面团吸饱鸡汤香气',
+      servingInstructions: '盛入深口汤碗趁热享用，汤汁奶白浓厚顺滑、鸡肉块软嫩鲜美、面团吸饱鸡汤蓬松软糯如云朵、暖意融融'
     },
+    tips: [
+      '面团烹制两步法：舀入面团后前10分钟不盖锅盖让水汽挥发定型，后10分钟盖紧锅盖利用蒸汽将面团内部蒸至蓬松如云。',
+      '调味精要：禽类复合香料（Poultry Seasoning，含鼠尾草、百里香、墨角兰）是美式家常炖鸡面团的地道灵魂香气来源。'
+    ],
     createdAt: '2003-10-01T00:00:00Z',
     updatedAt: '2026-08-03T12:00:00Z'
   },
@@ -1005,6 +1095,7 @@ const HOME_SWEET_HOME_RECIPES_DATA: VisualRecipeV3[] = [
     version: '3.0',
     status: 'published',
     title: '🥔 橄榄球硬汉土豆饼芝士焗煲 (Hashbrown Casserole)',
+    coverImageUrl: '/recipe-covers/hsh-16-hashbrown-casserole.webp',
     description: 'Donna Weatherford 妈妈为 Hokie 橄榄球运动员儿子准备的丰盛蛋白质能量副菜，浓郁奶油与酥脆面包渣。',
     cuisine: 'western',
     difficulty: 'easy',
@@ -1061,8 +1152,13 @@ const HOME_SWEET_HOME_RECIPES_DATA: VisualRecipeV3[] = [
       temperatureF: 300,
       temperatureC: 150,
       durationText: '20 min',
-      instructions: '入烤箱 300°F 烘烤 20 分钟至顶层芝士融化金黄'
+      instructions: '入烤箱 300°F 烘烤 20 分钟至顶层芝士融化金黄',
+      servingInstructions: '焗盘出炉趁热用大铲挖出装盘享用，顶层芝士与面包糠金黄香脆、底层土豆丁软糯湿润裹满浓厚酸奶油与融化车达芝士'
     },
+    tips: [
+      '水分管理：如果使用冷冻土豆饼（Hashbrowns），建议提前稍微解冻并用厨房纸吸去表面冰霜水汽，烘烤后口感更香浓不水。',
+      '运动能量餐：高碳水化合物搭配优质乳酪蛋白，是弗吉尼亚理工橄榄球运动员高强度赛后快速补充糖原与热量的传统能量盛宴。'
+    ],
     createdAt: '2003-10-01T00:00:00Z',
     updatedAt: '2026-08-03T12:00:00Z'
   }

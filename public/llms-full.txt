@@ -1,6 +1,6 @@
 # PostSoma Kitchen — Full LLM Knowledge Base Feed
 Canonical Domain: https://recipelab.cc/
-Generated Date: 2026-09-17T03:51:39.811Z
+Generated Date: 2026-10-01T07:32:13.044Z
 
 ---
 
@@ -23,22 +23,23 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
 - **Cuisine Style**: chinese
 - **Difficulty**: easy
 - **Description**: 营养师张晔健康食谱·解馋肉、蛋 为身体提供丰富的优质蛋白质和脂肪
-- **Prerequisites**: Container: 高保温厚底砂锅 / 铸铁炖锅 | Servings: 2-3 人份 | Preheat: 腌渍20分钟
+- **Prerequisites**: Container: 平底煎锅 / 炖锅 | Servings: 2-3 人份 | Preheat: 腌渍20分钟
 - **Ingredients**:
   * 五花肉片: 300克 (main)
   * 大蒜: 1头 (produce)
-  * 植物油: 适量 (seasoning)
   * 卷心菜丝: 30克 (produce)
   * 葱花: 10克 (seasoning)
   * 味极鲜酱油: 25克 (seasoning)
   * 料酒: 10克 (seasoning)
   * 白糖: 10克 (seasoning)
   * 盐: 适量 (seasoning)
+  * 植物油: 适量 (seasoning)
 - **Action Steps (Flow Blocks)**:
-  1. **切配拌匀腌浆** [Time: 20 min]: 大蒜切丁，与除植物油外的所有调料一起放入容器中拌匀，放入猪肉片腌渍20分钟。
-  2. **炖煮装盘** [Heat: 中火]: 平底锅放油，待油热后放入猪肉片，用中火煎至两面金黄，然后将腌汁倒入（包括葱花、蒜丁），炖至收汁即可装盘，摆上卷心菜丝配餐。
+  1. **切配腌渍**: 大蒜切丁，与葱花、味极鲜酱油、料酒、白糖、盐放入容器拌匀，放入五花肉片充分抓匀，腌渍20分钟入味。
+  2. **双面煎黄** [Heat: 中火] [Time: 10 min]: 平底锅倒入少许植物油，烧至微热后平铺放入腌好的五花肉片，中火煎至两面金黄并溢出多余油脂，用厨房纸吸干油分。
+  3. **慢炖收汁** [Heat: 中火] [Time: 20 min]: 将容器内剩余腌汁（含蒜丁、葱花）全部倒入锅中，加盖中火慢炖约20分钟至汤汁浓稠收紧入味，起锅装盘并摆上爽口卷心菜丝配餐。
 - **Final Plating / Instructions**: 完成 - 完成
-- **Tips**: 烹饪技巧：在煎的过程中将猪肉渗出的油用厨房纸吸干，以便减少油脂的摄入。
+- **Tips**: 营养笔记：五花肉提供丰富优质蛋白质，通过平底锅中火慢煎可逼出多余油脂，吸净后能大幅降低油脂摄入；大蒜素具抗氧化与保护心血管作用。; 烹饪技巧：在煎的过程中将猪肉渗出的油用厨房纸吸干，以便减少油脂的摄入。
 
 ---
 
@@ -48,25 +49,26 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
 - **Cuisine Style**: chinese
 - **Difficulty**: easy
 - **Description**: 营养师张晔健康食谱·解馋肉、蛋 为身体提供丰富的优质蛋白质和脂肪
-- **Prerequisites**: Container: 高保温厚底砂锅 / 铸铁炖锅 | Servings: 2-3 人份
+- **Prerequisites**: Container: 高保温厚底砂锅 / 铸铁炖锅 | Servings: 2-3 人份 | Preheat: 温水泡发红薯粉条
 - **Ingredients**:
   * 五花肉: 200克 (main)
   * 红薯粉条: 100克 (produce)
   * 土豆: 100克 (produce)
+  * 植物油: 适量 (seasoning)
+  * 白糖: 10克 (seasoning)
+  * 姜末: 5克 (seasoning)
+  * 花椒: 适量 (seasoning)
   * 酱油: 10克 (seasoning)
   * 料酒: 10克 (seasoning)
-  * 白糖: 10克 (seasoning)
-  * 葱段: 5克 (seasoning)
-  * 姜末: 5克 (seasoning)
-  * 植物油: 适量 (seasoning)
   * 盐: 适量 (seasoning)
-  * 花椒: 适量 (seasoning)
   * 鸡精: 适量 (seasoning)
+  * 葱段: 5克 (seasoning)
 - **Action Steps (Flow Blocks)**:
-  1. **切配沥干备用泡发**: 土豆洗净，切块备用；五花肉切块，用沸水焯三分钟，洗净白沫；红薯粉条泡软。
-  2. **翻炒调味** [Heat: 大火]: 油烧热，放白糖炒出糖色，加肉块炒匀，放入姜末、花椒、酱油、料酒、盐和清水，大火烧开后加粉条、土豆块，转小火炖至肉熟入味，加鸡精调味，撒上葱段即可。
+  1. **焯水备料** [Heat: 大火] [Time: 3 min]: 土豆洗净切厚块；红薯粉条用温水泡软剪段；五花肉切块放入沸水中大火焯烫3分钟，撇清浮沫捞出沥干。
+  2. **炒糖色翻炒** [Heat: 中小火] [Time: 7 min]: 锅内倒油烧热，下白糖小火翻炒融化呈琥珀红褐色糖色，倒入五花肉块快速翻炒上色，加入姜末、花椒粒、酱油、料酒和盐大火炒香。
+  3. **砂锅慢炖** [Heat: 小火] [Time: 35 min]: 倒入足量清水没过肉块，大火煮沸后合入泡软的红薯粉条和土豆块，盖上锅盖转小火慢炖35分钟至肉块酥烂、土豆粉糯透味，撒入鸡精和葱段拌匀即可。
 - **Final Plating / Instructions**: 完成 - 完成
-- **Tips**: 营养笔记：尽量选择瘦肉多的五花肉，或者直接选用猪瘦肉做，以减少胆固醇的摄入。
+- **Tips**: 营养笔记：五花肉提供高密度热量与脂溶性风味，尽量选择精瘦肉比例高的五花肉或部分选用前腿瘦肉，可减少饱和脂肪与胆固醇摄入；红薯粉条与土豆提供丰富慢碳水复合淀粉与膳食纤维。
 
 ---
 
@@ -74,25 +76,24 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
 - **URL**: https://recipelab.cc/recipe/cn-03
 - **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
 - **Cuisine Style**: chinese
-- **Difficulty**: medium
+- **Difficulty**: easy
 - **Description**: 营养师张晔健康食谱·解馋肉、蛋 为身体提供丰富的优质蛋白质和脂肪
-- **Prerequisites**: Container: 中式熟铁炒锅 (Wok) | Servings: 2-3 人份
+- **Prerequisites**: Container: 中式炒锅 / 平底炒锅 | Servings: 2-3 人份 | Preheat: 肉丝上浆静置15分钟
 - **Ingredients**:
   * 猪里脊肉丝: 250克 (main)
-  * 胡萝卜: 100克 (produce)
-  * 黄豆芽: 100克 (produce)
-  * 水淀粉: 20克 (seasoning)
   * 料酒: 5克 (seasoning)
   * 盐: 2克 (seasoning)
+  * 水淀粉: 20克 (grain)
+  * 胡萝卜: 100克 (produce)
+  * 黄豆芽: 100克 (produce)
   * 葱白丝: 50克 (produce)
-  * 甜面酱: 80克 (seasoning)
   * 植物油: 适量 (seasoning)
+  * 甜面酱: 80克 (seasoning)
 - **Action Steps (Flow Blocks)**:
-  1. **勾芡腌浆切配**: 里脊肉丝加料酒、盐、水淀粉上浆；胡萝卜洗净，切丝；黄豆芽洗净。
-  2. **腌浆滑炒翻炒**: 油烧热后倒入上浆的肉丝，滑熟，盛出。继续在锅中放入甜面酱，再放肉丝炒熟。
-  3. **焯烫**: 胡萝卜丝、黄豆芽用沸水焯熟，和葱丝一起摆盘，然后将肉丝放在盘中即可。
+  1. **焯水时蔬摆盘** [Heat: 大火] [Time: 2 min]: 锅中宽水烧沸，放入胡萝卜丝与黄豆芽焯烫2分钟至断生爽脆，捞出沥干水分，与葱白丝在盘底铺底摆匀备用。
+  2. **滑肉丝裹酱** [Heat: 中大火] [Time: 3 min]: 里脊肉丝抓匀料酒、盐与水淀粉上浆。炒锅放油烧热，倒入上浆肉丝快速滑炒变色盛出；锅底留少许油下甜面酱小火炒出酱香冒泡，迅速倒入肉丝大火翻炒包裹均匀酱汁出锅。
 - **Final Plating / Instructions**: 完成 - 完成
-- **Tips**: 营养笔记：打破传统京酱肉丝的做法，加入胡萝卜丝、黄豆芽，均衡了蔬菜与肉的膳食比例。也可以依照个人口味加入其他蔬菜。
+- **Tips**: 营养笔记：打破传统京酱肉丝全肉高纳的做法，创新加入鲜甜胡萝卜丝与爽脆黄豆芽，既均衡了蔬菜与肉类的黄金膳食比例，又大幅补充了膳食纤维、类胡萝卜素与大豆异黄酮；口感清爽解腻。
 
 ---
 
@@ -100,23 +101,23 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
 - **URL**: https://recipelab.cc/recipe/cn-04
 - **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
 - **Cuisine Style**: chinese
-- **Difficulty**: medium
+- **Difficulty**: easy
 - **Description**: 营养师张晔健康食谱·解馋肉、蛋 为身体提供丰富的优质蛋白质和脂肪
-- **Prerequisites**: Container: 中式熟铁炒锅 (Wok) | Servings: 2-3 人份
+- **Prerequisites**: Container: 平底不粘锅 / 铸铁炒锅 | Servings: 2-3 人份
 - **Ingredients**:
   * 牛肉: 200克 (main)
   * 杏鲍菇: 100克 (produce)
+  * 植物油: 适量 (seasoning)
   * 老抽: 适量 (seasoning)
+  * 白糖: 适量 (seasoning)
   * 盐: 适量 (seasoning)
   * 黑胡椒末: 适量 (seasoning)
-  * 白糖: 适量 (seasoning)
-  * 植物油: 适量 (seasoning)
 - **Action Steps (Flow Blocks)**:
-  1. **切配**: 牛肉洗净血水，切方块；杏鲍菇洗净，切方块。
-  2. **装盘** [Heat: 小火]: 待油烧至六七分热，将杏鲍菇分批倒入锅内小火慢炒，至四面金黄色后盛出待用。
-  3. **翻炒调味装盘**: 锅内再倒油，油热后倒入牛肉块速翻炒，断生后倒入杏鲍菇，加入老抽、白糖，快速翻炒至肉熟，加盐炒匀，盛出后撒上黑胡椒末即可。
+  1. **切配方块**: 牛肉洗净血水切成1.5cm见方肉块；杏鲍菇洗净同样切成方块备用。
+  2. **慢煎煸炒杏鲍菇** [Heat: 小火] [Time: 20 min]: 平底锅中倒入植物油烧至六七成热，倒入杏鲍菇丁，小火慢煎煸炒20分钟，逼出水分，直至菇块四面金黄微焦、香气浓郁时盛出待用。
+  3. **大火炒肉合炒** [Heat: 中大火] [Time: 10 min]: 锅内补少许油大火烧热，倒入牛肉粒大火快速滑炒至表面变色断生，立即合入煸香的杏鲍菇，调入老抽、白糖翻炒上色入味，烹至肉质紧致熟透，加盐炒匀，盛出后均匀撒上现磨黑胡椒末即可。
 - **Final Plating / Instructions**: 完成 - 完成
-- **Tips**: 营养笔记：牛肉含有丰富的铁、蛋白质和维生素，能有效补充体力，适合工作量大的上班族、发育中的青少年和身体较为虚弱的人。
+- **Tips**: 营养笔记：牛肉含有丰富的血红素铁、优质蛋白质和B族维生素，能强健筋骨并迅速补充体力，非常适合高负荷上班族与生长发育期的青少年；杏鲍菇质地肥厚如同肉类，富含多糖与多重氨基酸，能降脂助消化，与牛肉搭配鲜味加倍。
 
 ---
 
@@ -130,18 +131,19 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
 - **Ingredients**:
   * 牛腩块: 400克 (main)
   * 番茄: 250克 (produce)
-  * 料酒: 15克 (seasoning)
-  * 姜末: 5克 (seasoning)
   * 植物油: 适量 (seasoning)
+  * 姜末: 5克 (seasoning)
   * 酱油: 适量 (seasoning)
-  * 葱末: 5克 (seasoning)
+  * 料酒: 15克 (seasoning)
   * 盐: 4克 (seasoning)
+  * 葱末: 5克 (seasoning)
 - **Action Steps (Flow Blocks)**:
-  1. **切配焯烫沥干备用**: 牛腩块洗净，入沸水中焯一下，捞出沥干；番茄洗净、去皮，一半切碎，另一半切块。
-  2. **炝香翻炒煮制** [Heat: 大火]: 油烧至六成热，爆香姜末，放入番茄碎，大火翻炒之后转小火熬煮成酱，再加牛肉、酱油、料酒翻匀。
-  3. **煮制炖煮** [Heat: 小火] [Time: 30 min]: 倒入砂锅中加水，烧开后小火炖一个小时，放番茄块、盐炖30分钟，撒葱末即可。
+  1. **焯水切配**: 牛腩块洗净入沸水中焯烫去血沫后捞出沥干；番茄烫去外皮，一半切成细腻碎丁用于熬酱，另一半切成滚刀大块备用。
+  2. **炒酱炒肉** [Heat: 中火] [Time: 10 min]: 炒锅倒油烧至六成热，爆香姜末，放入番茄碎大火翻炒出沙后转小火熬成浓郁番茄酱，加入焯水牛腩、酱油和料酒翻炒均匀上色。
+  3. **砂锅慢炖** [Heat: 小火] [Time: 60 min]: 将炒好的番茄牛腩转入砂锅中，加入足量开水没过食材，大火烧开后盖上锅盖，转小火慢炖60分钟至牛腩软烂入味。
+  4. **合入番茄块合炖** [Heat: 小火] [Time: 20 min]: 揭盖放入留存的番茄滚刀大块和盐，继续加盖小火焖炖20分钟使番茄块软而不烂，出锅前撒上翠绿葱末即可。
 - **Final Plating / Instructions**: 完成 - 完成
-- **Tips**: 营养笔记：牛肉搭配番茄有利于铁的吸收，也能促进牛肉中胶原蛋白的转化。
+- **Tips**: 营养笔记：牛肉搭配番茄有利于铁质的吸收利用；番茄中的强抗氧化剂番茄红素属于脂溶性营养素，在油脂炒制和牛腩脂肪的加热共融下吸收率可提升数倍，同时果酸能软化肉质纤维，促进牛腩中胶原蛋白的软化转化。
 
 ---
 
@@ -151,20 +153,22 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
 - **Cuisine Style**: chinese
 - **Difficulty**: easy
 - **Description**: 营养师张晔健康食谱·解馋肉、蛋 为身体提供丰富的优质蛋白质和脂肪
-- **Prerequisites**: Container: 中式熟铁炒锅 (Wok) | Servings: 2-3 人份
+- **Prerequisites**: Container: 大口中式炒锅 | Servings: 2-3 人份
 - **Ingredients**:
   * 肥牛片: 400克 (main)
   * 金针菇: 150克 (produce)
-  * 水淀粉: 20克 (seasoning)
-  * 盐: 4克 (seasoning)
   * 红尖椒碎: 15克 (produce)
-  * 高汤: 50克 (seasoning)
-  * 鸡精: 适量 (seasoning)
   * 植物油: 适量 (seasoning)
+  * 高汤: 50克 (liquid)
+  * 水淀粉: 20克 (grain)
+  * 盐: 4克 (seasoning)
+  * 鸡精: 适量 (seasoning)
 - **Action Steps (Flow Blocks)**:
-  1. **勾芡拌匀切配**: 肥牛片用水淀粉、盐拌匀；金针菇去根，洗净。
-  2. **炝香勾芡** [Heat: 六成热]: 油烧至六成热，爆香红尖椒碎，加入高汤、肥牛片和金针菇，炒至将熟，调入盐、鸡精，再用水淀粉勾芡即可。
+  1. **拌匀切配**: 肥牛片加少许盐和水淀粉轻轻抓拌均匀腌制上浆；金针菇切去老根，彻底洗净撕散沥干备用。
+  2. **爆香高汤滑炒** [Heat: 大火] [Time: 3 min]: 锅中倒入植物油烧至六成热，下红尖椒碎大火爆香，倒入鲜醇高汤烧沸，倒入肥牛片和金针菇快速大火翻炒至变色八成熟，调入盐和鸡精炒匀。
+  3. **勾芡出锅** [Heat: 大火] [Time: 2 min]: 淋入剩余水淀粉勾薄芡，大火颠锅翻炒让芡汁均匀包裹肥牛与菌菇，关火装盘。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 营养笔记：金针菇含有人体必需的多重氨基酸，其中赖氨酸和精氨酸含量尤其丰富，与牛肉高蛋白同食，有助于增强智力和免疫抗病力；红尖椒富含维生素C，能促进牛肉中铁质的吸收。
 
 ---
 
@@ -174,20 +178,20 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
 - **Cuisine Style**: chinese
 - **Difficulty**: medium
 - **Description**: 营养师张晔健康食谱·解馋肉、蛋 为身体提供丰富的优质蛋白质和脂肪
-- **Prerequisites**: Container: 多层不锈钢蒸锅 (Steamer) | Servings: 2-3 人份 | Preheat: 腌渍15分钟
+- **Prerequisites**: Container: 大口蒸锅 / 多层竹蒸笼 | Servings: 1-2 人份 | Preheat: 肉馅腌渍15分钟
 - **Ingredients**:
-  * 羊肉: 50克 (main)
   * 白萝卜: 100克 (produce)
+  * 羊肉: 50克 (main)
   * 姜末: 3克 (seasoning)
   * 蒜末: 3克 (seasoning)
-  * 盐: 2克 (seasoning)
   * 酱油: 适量 (seasoning)
+  * 盐: 2克 (seasoning)
 - **Action Steps (Flow Blocks)**:
-  1. **切配拌匀腌浆** [Time: 15 min]: 白萝卜洗净，切薄片，用沸水焯软；羊肉剁成馅，放入碗内，加姜末、蒜末、酱油、盐后用勺子朝一个方向搅拌均匀，腌渍15分钟。
-  2. **成型**: 将羊肉末放在萝卜片上，卷成卷，完全包住肉末，用干净的牙签穿插固定，放进蒸盘中。
-  3. **煮制蒸制** [Time: 15 min]: 蒸锅置火上，加水烧开后，放入盛羊肉卷的蒸盘蒸15分钟即可。
+  1. **焯水软化萝卜** [Heat: 大火] [Time: 5 min]: 白萝卜洗净去皮切成半透明薄片，沸水锅中大火焯烫5分钟至软韧能卷曲，捞出过凉水沥干备用。
+  2. **调馅卷制**: 羊肉剁成细腻肉馅，加姜末、蒜末、酱油、盐朝一个方向充分搅打上劲腌渍15分钟。取焯软萝卜片包裹肉馅卷成紧实圆卷，用牙签固定码入蒸盘。
+  3. **大火蒸透** [Heat: 大火] [Time: 25 min]: 蒸锅内注入清水大火烧至大汽上涌，放入盛放羊肉卷的蒸盘，加盖大火蒸制25分钟至羊肉馅鲜嫩熟透、肉汁与萝卜清甜充分融和，出锅拔除牙签即可食用。
 - **Final Plating / Instructions**: 完成 - 完成
-- **Tips**: 营养笔记：白萝卜性凉，与羊肉同食不仅可以中和羊肉的温热之性，还能去除羊肉的膻味、解油腻。
+- **Tips**: 营养笔记：白萝卜性凉，味辛甘；与温燥补益的羊肉同食，不仅能中和羊肉的温热之性，还能利用萝卜芥子油有效去除羊肉膻味、解腻化痰、助胃肠消化，是秋冬防燥温补的黄金搭配。
 
 ---
 
@@ -201,12 +205,19 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
 - **Ingredients**:
   * 羊肉块: 150克 (main)
   * 胡萝卜: 200克 (produce)
-  * 枸杞子料酒大料花椒桂皮小茴香酱油香叶葱段姜片: 适量 (seasoning)
+  * 葱段: 适量 (seasoning)
+  * 姜片: 适量 (seasoning)
+  * 调料包(大料花椒桂皮小茴香香叶): 适量 (seasoning)
+  * 料酒: 适量 (seasoning)
+  * 酱油: 适量 (seasoning)
+  * 枸杞子: 适量 (produce)
   * 盐: 适量 (seasoning)
 - **Action Steps (Flow Blocks)**:
-  1. **切配**: 羊肉块洗净；胡萝卜洗净，切大块；大料、花椒、桂皮、小茴香、香叶放入调料钢球中。
-  2. **煮制调味炖煮** [Heat: 大火]: 羊肉冷水下锅，烧开后撇净血沫，下葱段、姜片、调味料钢球、料酒、酱油，大火烧开后，加胡萝卜块、枸杞子转小火慢炖1个小时，加盐调味即可。
+  1. **冷水焯水** [Heat: 大火] [Time: 10 min]: 羊肉块冲洗干净，冷水下入炖锅中大火烧开，持续撇清表面浮沫与杂质约10分钟直至汤水清亮。
+  2. **香料慢炖羊肉** [Heat: 小火] [Time: 60 min]: 放入葱段、姜片、料酒、酱油以及装有大料、花椒、桂皮、小茴香、香叶的调料钢球，大火沸腾后盖严锅盖，转小火慢炖1小时至羊肉七分软烂。
+  3. **合入胡萝卜合炖** [Heat: 小火] [Time: 20 min]: 下入胡萝卜滚刀大块和枸杞子，加盖继续小火慢炖20分钟至胡萝卜软糯入味、红油析出，调入适量盐拌匀即可起锅。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 营养笔记：胡萝卜富含大量的脂溶性β-胡萝卜素，在羊肉天然油脂的融汇下吸收转化率可成倍提高；同时胡萝卜独特的甘甜能强力吸附并消除羊肉的膻味，温中祛寒、补气健脾。
 
 ---
 
@@ -216,23 +227,24 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
 - **Cuisine Style**: chinese
 - **Difficulty**: easy
 - **Description**: 营养师张晔健康食谱·解馋肉、蛋 为身体提供丰富的优质蛋白质和脂肪
-- **Prerequisites**: Container: 中式熟铁炒锅 (Wok) | Servings: 2-3 人份 | Preheat: 腌渍15分钟
+- **Prerequisites**: Container: 大火中式熟铁炒锅 | Servings: 2-3 人份 | Preheat: 肉片腌渍上浆15分钟
 - **Ingredients**:
   * 羊肉: 300克 (main)
   * 酱油: 10克 (seasoning)
   * 料酒: 10克 (seasoning)
-  * 水淀粉: 适量 (seasoning)
+  * 水淀粉: 适量 (grain)
   * 胡椒粉: 适量 (seasoning)
+  * 植物油: 适量 (seasoning)
+  * 蒜片: 5克 (produce)
   * 葱段: 150克 (produce)
-  * 蒜片: 适量 (seasoning)
   * 醋: 5克 (seasoning)
   * 香油: 适量 (seasoning)
-  * 植物油: 适量 (seasoning)
 - **Action Steps (Flow Blocks)**:
-  1. **切配腌浆** [Time: 15 min]: 羊肉洗净，切片；取少许酱油、料酒、水淀粉、胡椒粉，与羊肉片拌匀腌渍15分钟。
-  2. **炝香翻炒拌匀** [Heat: 大火]: 油烧热，爆香蒜片，放入羊肉片大火翻炒10秒钟后入葱段，稍翻炒后沿着锅边淋下料酒烹香，然后加酱油翻炒，再沿锅边淋醋，滴香油，炒拌均匀，至大葱断生即可。
+  1. **切片腌渍上浆**: 羊肉顶刀切薄片；取酱油、料酒、水淀粉与白胡椒粉与肉片充分抓拌均匀，静置腌渍15分钟上浆锁水。
+  2. **热油爆炒羊肉** [Heat: 大火] [Time: 2 min]: 熟铁炒锅倒油大火烧至冒轻烟，下蒜片迅速爆香，滑入腌好的羊肉片大火猛火翻炒至八成熟变色。
+  3. **投入大葱烹醋出锅** [Heat: 大火] [Time: 3 min]: 立即投入大葱斜段大火爆炒，沿滚烫锅边淋入料酒烹出锅气，加酱油炒匀，再沿锅边烹入香醋激发出香气，淋入少许香油，翻炒至大葱断生透出清甜立即出锅。
 - **Final Plating / Instructions**: 完成 - 完成
-- **Tips**: 营养笔记：葱爆羊肉补阳、强腰、健肾，适合体弱虚寒和腰膝酸软的人食用。
+- **Tips**: 营养笔记：葱爆羊肉补阳温中、强腰健肾，特别适合体弱畏寒与腰膝酸软者食用；大葱富含葱素挥发油，具有天然抑菌与通阳发汗作用，能有效激发羊肉脂香，同时促使肉类蛋白质更易消化吸收。
 
 ---
 
@@ -240,28 +252,28 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
 - **URL**: https://recipelab.cc/recipe/cn-10
 - **Dataset Provenance**: Nutrition Book Dataset (Phase-1 Collection) (Zhang Ye's Steaming, Stewing & Stir-Frying Healthy Recipe Guide)
 - **Cuisine Style**: chinese
-- **Difficulty**: hard
+- **Difficulty**: medium
 - **Description**: 营养师张晔健康食谱·解馋肉、蛋 为身体提供丰富的优质蛋白质和脂肪
-- **Prerequisites**: Container: 高保温厚底砂锅 / 铸铁炖锅 | Servings: 2-3 人份
+- **Prerequisites**: Container: 铸铁炖锅 / 深底炒锅 | Servings: 3-4 人份 | Preheat: 温水泡发干香菇
 - **Ingredients**:
-  * 土鸡半只: 适量 (main)
+  * 土鸡: 半只 (main)
   * 干香菇: 10朵 (produce)
-  * 香葱: 4根 (seasoning)
-  * 蒜: 3瓣 (seasoning)
-  * 糖: 5克 (seasoning)
-  * 老抽: 15克 (seasoning)
-  * 料酒: 15克 (seasoning)
+  * 香葱: 4根 (produce)
+  * 植物油: 适量 (seasoning)
   * 姜片: 适量 (seasoning)
+  * 蒜: 3瓣 (seasoning)
+  * 白糖: 5克 (seasoning)
+  * 料酒: 15克 (seasoning)
+  * 老抽: 15克 (seasoning)
   * 去壳板栗: 400克 (produce)
   * 蚝油: 15克 (seasoning)
   * 盐: 5克 (seasoning)
-  * 植物油: 适量 (seasoning)
 - **Action Steps (Flow Blocks)**:
-  1. **切配泡发**: 土鸡切块，洗净血水；干香菇用温水泡发；香葱取一根切段，其余的挽成结。
-  2. **翻炒** [Heat: 七成热]: 锅中倒少量油，烧到七成热后，放入鸡块煸炒，炒干血水，直到锅里没有水分。
-  3. **炖煮翻炒煮制** [Heat: 大火]: 放入姜片、蒜瓣同炒，出香味后，放入糖、料酒、老抽翻炒均匀，再放入香菇，倒入适量开水，放入葱结后盖上盖，大火烧开后转小火慢炖至鸡肉熟软。
-  4. **炖煮调味收汁** [Heat: 大火] [Time: 20 min]: 加入板栗，盖盖继续炖20分钟，然后调入蚝油、盐，大火收汁，撒上葱段即可。
+  1. **煸干鸡肉** [Heat: 中大火] [Time: 10 min]: 锅中倒入少量植物油烧至七成热，下土鸡块持续大火煸炒10分钟，彻底煸干血水与多余皮脂，至鸡皮微黄出香、锅内水分蒸发。
+  2. **爆香加菇慢炖** [Heat: 小火] [Time: 30 min]: 放入姜片和蒜瓣炒出香气，调入白糖、料酒与老抽翻炒均匀上色；倒入泡发香菇及适量开水，放入葱结，大火烧开后加盖转小火慢炖30分钟至鸡肉熟软。
+  3. **合入板栗焖透收汁** [Heat: 中小火] [Time: 20 min]: 揭盖倒入去壳板栗，盖盖继续小火焖炖20分钟至板栗面糯，调入蚝油与盐，转大火翻炒收浓汤汁，撒上新鲜葱段即可出锅。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 营养笔记：板栗富含碳水化合物、不饱和脂肪酸以及维生素C与多种微量元素，与优质土鸡同烹，具有益气补肾、健脾养胃、强筋健骨之功效，是秋冬滋补的经典健康膳食。
 
 ---
 
@@ -469,8 +481,10 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   * 蚝油: 适量 (seasoning)
   * 植物油: 适量 (seasoning)
 - **Action Steps (Flow Blocks)**:
-  1. **切配**: 茄子去蒂洗净，切长条，蘸匀淀粉；红椒、洋葱洗净、切块；鲜虾洗净，去掉虾须，挑去虾线。
-  2. **炖煮煮制** [Heat: 中火] [Time: 7 min]: 煲锅内倒入植物油烧热，放入葱姜蒜片及豆瓣酱炒香，加入鲜虾炒至变色，再放茄条、蚝油，翻炒至茄条七分熟时，加入红椒、洋葱块，翻炒3分钟，加少量温水，盖盖烧开后，转中火炖4分钟左右即可。
+  1. **切配蘸粉**: 茄子去蒂洗净，切长条，蘸匀干淀粉；红椒、洋葱洗净切块；鲜虾洗净，去掉虾须，挑去虾线。
+  2. **爆香炒虾** [Heat: 中大火] [Time: 3 min]: 煲锅内倒入植物油烧热，放入葱姜蒜片及豆瓣酱大火炒香，加入鲜虾滑炒至表面变红变色盛出备用。
+  3. **煸炒茄条** [Heat: 中火] [Time: 8 min]: 锅中放入蘸匀淀粉的茄条和蚝油，中火翻炒至茄条七分熟变软，加入红椒、洋葱块继续翻炒3分钟入味。
+  4. **砂锅焖炖** [Heat: 中火] [Time: 4 min]: 合入鲜虾，加少量温水，盖盖烧开后转中火加盖焖炖4分钟左右，至茄条软烂、浓郁入味即可。
 - **Final Plating / Instructions**: 完成 - 完成
 
 ---
@@ -1073,7 +1087,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
 - **Ingredients**:
   * 莴笋: 200克 (produce)
   * 竹笋: 150克 (produce)
-  * 芋头: 适量 (produce)
+  * 芋头: 100克 (produce)
   * 土豆: 100克 (produce)
   * 干红辣椒段: 3克 (seasoning)
   * 花椒粉: 适量 (seasoning)
@@ -1103,7 +1117,9 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   * 莴笋: 250克 (produce)
   * 淀粉: 适量 (seasoning)
   * 盐: 3克 (seasoning)
-  * 红辣椒段酱油姜片: 适量 (seasoning)
+  * 红辣椒段: 适量 (seasoning)
+  * 酱油: 少许 (seasoning)
+  * 姜片: 适量 (seasoning)
   * 醋: 适量 (seasoning)
   * 糖: 适量 (seasoning)
   * 料酒: 适量 (seasoning)
@@ -1183,6 +1199,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   2. **拌匀成型蒸制**: 将香菇碎、肉末、藕蓉盛入同一个碗内，加入适量淀粉、少许盐，朝一个方向搅拌均匀后，用力捏成一个个小丸子。将小丸子放入蒸盘中。
   3. **煮制蒸制调味** [Time: 20 min]: 蒸锅内放清水煮沸后，将装小丸子的蒸盘放入锅内，盖上盖子，蒸20分钟左右，调入香油，撒上葱花即可。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 营养笔记：香菇富含微量元素与香菇多糖，莲藕清热润燥、健脾开胃，与瘦肉搭配蒸食高蛋白低脂养胃。
 
 ---
 
@@ -1299,6 +1316,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   3. **组合装填成型**: 取寿司帘，将海苔平铺在寿司帘上，接着取适量山药泥铺在海苔上，从寿司帘一端慢慢卷起来，尽量卷紧。海苔边缘的山药泥易散，可在海苔边侧撒几滴水黏合。
   4. **继续切配蒸制** [Time: 15 min]: 用刀将山药卷斜切成大小一致的小段，装入蒸盘放入开水锅内蒸15分钟左右，取出蘸寿司酱油食用即可。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 营养笔记：山药健脾益胃、滋肾益精；胡萝卜与海苔提供丰富胡萝卜素与矿物质碘，蒸食清淡少油，非常适合脾虚胃弱者。
 
 ---
 
@@ -1328,6 +1346,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   2. **炖煮煮制调味** [Heat: 大火]: 炖锅内放清水，放入步骤1的所有食材，大火煮开后，加盐、酱油，再加适量清水，转小火慢炖2小时左右，成为汤底。
   3. **切配煮制淋汁** [Heat: 中火]: 山药、芋头去皮、洗净，切片。娃娃菜洗净，与山药片、芋头片、鱼豆腐一同放入盛有汤底的锅中，中火煮至所有食材熟透，捞出，浇上少许汤汁，淋入适量甜辣酱即可食用。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 营养笔记：芋头富含膳食纤维与黏液蛋白，多种菌菇与时蔬久煮慢炖出天然鲜甜汤底，低卡高纤、暖胃润肠。
 
 ---
 
@@ -1399,7 +1418,8 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   * 盐: 4克 (seasoning)
   * 淀粉: 适量 (seasoning)
   * 胡椒粉: 适量 (seasoning)
-  * 葱段姜片: 适量 (seasoning)
+  * 葱段: 5克 (seasoning)
+  * 姜片: 5克 (seasoning)
   * 蒜片: 适量 (seasoning)
   * 植物油: 适量 (seasoning)
 - **Action Steps (Flow Blocks)**:
@@ -1421,7 +1441,9 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   * 鲫鱼: 300克 (main)
   * 豆腐: 200克 (main)
   * 料酒: 适量 (seasoning)
-  * 盐葱段姜片: 适量 (seasoning)
+  * 盐: 适量 (seasoning)
+  * 葱段: 适量 (seasoning)
+  * 姜片: 适量 (seasoning)
   * 香菜段: 适量 (seasoning)
   * 植物油: 适量 (seasoning)
 - **Action Steps (Flow Blocks)**:
@@ -1504,6 +1526,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   2. **拌匀**: 取一小碗，放入白糖、豉汁、蒜蓉、姜末、盐拌匀。
   3. **淋汁蒸制** [Heat: 大火] [Time: 5 min]: 把粉丝放在贝壳上，然后依次放入扇贝肉，淋上拌好的调料，上笼大火蒸约5分钟后取出，撒上葱花，再浇上少许熟植物油即可。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 营养笔记：扇贝富含蛋白质和核黄素，能帮助降低血清胆固醇；粉丝吸收贝肉鲜汁，大蒜素抗菌提鲜，低脂高蛋白。
 
 ---
 
@@ -1573,6 +1596,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   2. **煮制** [Heat: 大火]: 待黄豆煮至快软烂时，加入番茄块，大火煮开后，转小火继续煮。
   3. **收汁勾芡** [Heat: 大火]: 待番茄煮烂成汁且黄豆完全煮熟后，用大火收汁，用水淀粉勾芡即可。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 营养笔记：番茄富含番茄红素与有机酸，黄豆富含大豆异黄酮与植物蛋白，红润养心、软糯酸甜健脾。
 
 ---
 
@@ -1595,6 +1619,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   1. **切配**: 将胡萝卜洗净，去蒂，切成丝；木耳洗净，撕片。
   2. **炝香翻炒调味** [Heat: 中火]: 锅中放少量油，中火烧至六成热时，用姜末爆香，烹入料酒，倒入胡萝卜丝、水发木耳煸炒几下，加入盐和少许清水，稍焖，待胡萝卜丝烂熟后，用鸡精调味，翻炒均匀即可。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 营养笔记：胡萝卜富含胡萝卜素与红色抗氧化物，木耳富含多糖与膳食纤维，清心润燥、降脂清肠。
 
 ---
 
@@ -1661,6 +1686,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   1. **切配泡发**: 豆腐切块；香菇洗净，去蒂，切块；干木耳用温水泡发后洗净，去掉没有泡发的部分，撕成块；竹笋洗净，切块。
   2. **翻炒调味** [Heat: 大火] [Time: 5 min]: 油烧热后，先倒入香菇和木耳翻炒，再倒入竹笋翻炒，倒入没过食材的清水，大火烧开后加入豆腐，再放入蚝油、盐和白糖调味，小火稍炖5分钟即可。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 营养笔记：木耳与香菇富含菌类多糖，竹笋高纤消积，搭配嫩豆腐富含优质植物蛋白，护肝降脂、清补脾胃。
 
 ---
 
@@ -1686,6 +1712,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   1. **切配煎制**: 带鱼收拾干净，洗净切段，裹匀淀粉，用少许油煎至两面金黄。
   2. **炝香翻炒调味** [Time: 2 min]: 锅内留少量油，加花椒、姜末、蒜末炒香，烹入酱油、醋，加少许料酒，倒入煎好的带鱼段翻炒，稍焖2分钟入味，加鸡精调味即可。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 营养笔记：带鱼表面银皮富含不饱和脂肪酸与卵磷脂，醋烹能软化鱼刺并激发鱼香，护肝益智、酸香解腻。
 
 ---
 
@@ -1740,6 +1767,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   2. **切配拌匀成型**: 羊肉洗净剁碎，加姜末、葱末搅打至上劲，打入鸡蛋清，加入淀粉、盐、料酒调拌均匀，做成羊肉丸。
   3. **煮制调味** [Time: 2 min]: 锅中加入清水煮沸，放入黄芪，下羊肉丸煮至丸子浮起，放入白菜丝、豆腐丝煮2分钟调入盐，撒上葱末，滴几滴香油即可。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 营养笔记：羊肉温补肾阳、补虚益气，搭配黄芪强壮元气；白菜与豆腐皮吸收鲜美汤汁，荤素相济、暖中补虚。
 
 ---
 
@@ -1769,6 +1797,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   1. **切配沥干备用**: 鸡胸肉洗净切丁；鸡蛋取蛋清，将鸡丁用盐、料酒、胡椒粉、蛋清、水淀粉调匀；将盐、鸡精、白糖、胡椒粉、香油调成汁备用。
   2. **炝香翻炒**: 油烧热，下葱末、姜末、蒜末爆香，将鸡丁下锅，随后将已调好的汁倒入锅内，再放核桃仁炒匀即可。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 营养笔记：核桃仁温补肾阳、强腰健脑，鸡肉富含高消化率优质蛋白质，二者同炒酥香补气、健脑益智。
 
 ---
 
@@ -1780,7 +1809,8 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
 - **Description**: 营养师张晔健康食谱·健脾 养好脾胃，营养吸收更全面
 - **Prerequisites**: Container: 多层不锈钢蒸锅 (Steamer) | Servings: 2-3 人份 | Preheat: 腌渍20分钟
 - **Ingredients**:
-  * 葱段姜片: 适量 (seasoning)
+  * 葱段: 5克 (seasoning)
+  * 姜片: 5克 (seasoning)
   * 盐: 5克 (seasoning)
   * 料酒: 10克 (seasoning)
   * 胡椒粉: 适量 (seasoning)
@@ -1816,6 +1846,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   1. **泡发切配焯烫**: 黄豆用水泡一晚；将豆腐切块，放入沸水锅内烫一下，捞出，放入清水盆中；将五花肉切成丝；雪里蕻切成3厘米长的段，用温水浸泡。
   2. **炝香炖煮** [Heat: 小火] [Time: 35 min]: 油烧热，用葱段、姜末炝锅，加入水、盐、花椒，放入黄豆炖25分钟，放入五花肉丝、豆腐块、雪里蕻段，用小火炖10分钟即可。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 营养笔记：黄豆与豆腐提供双重植物蛋白与钙质，雪里蕻开胃消食，搭配五花肉慢炖咸香浓郁、健脾开胃。
 
 ---
 
@@ -1836,6 +1867,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   2. **焯烫**: 烧一锅水，加一小勺盐和几滴油，水开后放入扁豆丝灼一下，捞出过凉水。
   3. **炝香调味**: 炒锅放油，爆香蒜末，加入扁豆丝快炒，加盐调味即可。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 营养笔记：扁豆味甘平，能健脾和中、消暑化湿；焯透快炒可彻底消除皂素天然毒素，清脆可口、化湿健脾。
 
 ---
 
@@ -1863,6 +1895,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   3. **组合装填蒸制切配**: 取一片白菜叶铺在案板上，抹一层鸡蛋糊，将肉馅抹在白菜叶上，卷成圆柱形，剩余白菜叶按相同方法卷成卷，上屉蒸熟取出。凉凉，顶刀切成l厘米厚的圆片，码在盘内，共码3层。
   4. **调味装盘**: 锅中加适量水，加盐、鸡精，水开时用水淀粉勾芡，淋香油，浇在白菜卷上即可。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 营养笔记：白菜性平微寒，生津润燥、清热养肺；卷入瘦肉蒸制多汁软嫩，形如如意、养肺润燥。
 
 ---
 
@@ -1930,6 +1963,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   1. **腌浆切配** [Time: 30 min]: 猪里脊肉丝，用老抽、盐腌30分钟，加水淀粉与麻油拌匀；荸荠去皮，切片；青椒和小米椒分别斜切成圈。
   2. **炝香调味** [Heat: 大火]: 油微热，煸香蒜末，入肉丝大火滑炒变色后，放荸荠片和椒圈同炒至荸荠断生，加盐调味即可。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 营养笔记：荸荠被称为“地下雪梨”，性寒味甘，清热生津、化痰明目；搭配滑嫩肉丝鲜甜脆爽、润肺下气。
 
 ---
 
@@ -1985,6 +2019,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   2. **切配调味**: 鸡肉洗净，切碎，加葱末、姜末、蒜末、盐、香油、胡椒粉、酱油调味。
   3. **焯烫蒸制**: 在竹笋的每节间加鸡肉，加适量清水，放入沸水蒸锅中蒸至水干，撒上鸡蛋丝装饰即可。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 营养笔记：竹笋富含植物纤维，能促进肠道蠕动、吸附油脂排毒；夹入鸡肉蓉蒸熟，鲜嫩爽脆、低脂高纤清肠。
 
 ---
 
@@ -2027,6 +2062,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   1. **切配焯烫沥干备用**: 菠菜择洗干净，用开水焯烫，捞出冲凉后，沥干水分，切段；豆腐干切条。
   2. **翻炒调味**: 锅中放少量油，待油热后将豆腐干条放入锅中翻炒出香味，放入菠菜，翻炒几下，加入盐、香油炒匀即可。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 营养笔记：菠菜富含膳食纤维与类胡萝卜素，豆腐干提供丰富大豆蛋白与钙质，二者同炒通肠排毒、清热解毒。
 
 ---
 
@@ -2048,6 +2084,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   1. **切配装盘蒸制** [Time: 10 min]: 食材洗净后，西蓝花撕小朵，蘑菇切丁，装盘，蒸10分钟。
   2. **拌匀蒸制**: 将所有调料加10克清水放入锅中，快速搅拌至汤汁浓稠，浇于蒸熟的食材表面即可。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 营养笔记：西蓝花富含维生素C与异硫氰酸酯，蘑菇富含多糖与硒元素，蒸制少油最大化保留抗氧化营养素，延缓衰老。
 
 ---
 
@@ -2072,6 +2109,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   1. **腌浆**: 牛肉片用料酒、蚝油、淀粉腌入味。
   2. **炝香翻炒**: 油烧热，爆香姜末，加牛肉片、青椒丝翻炒，再加沙茶酱炒匀，撒上香菜段即可。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 营养笔记：牛肉富含肌氨酸与优质蛋白质，能强健筋骨；沙茶酱提鲜增香，搭配青椒补充维生素C，抗衰防老、增强活力。
 
 ---
 
@@ -2242,7 +2280,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
 - **Description**: 营养师张晔健康食谱·痛风 中低嘌呤饮食，补充蛋白质
 - **Prerequisites**: Container: 高保温厚底砂锅 / 铸铁炖锅 | Servings: 2-3 人份
 - **Ingredients**:
-  * 豆腐1块: 适量 (main)
+  * 豆腐: 1块 (main)
   * 番茄: 2个 (produce)
   * 葱花: 适量 (seasoning)
   * 盐: 3克 (seasoning)
@@ -2354,17 +2392,18 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
 - **Prerequisites**: Container: 中式熟铁炒锅 (Wok) | Servings: 2-3 人份
 - **Ingredients**:
   * 莴笋: 300克 (produce)
-  * 山药片: 适量 (produce)
+  * 山药片: 50克 (produce)
   * 水发木耳: 50克 (produce)
   * 醋: 5克 (seasoning)
   * 葱丝: 3克 (seasoning)
   * 白糖: 3克 (seasoning)
-  * 盐个: 3克 (seasoning)
+  * 盐: 3克 (seasoning)
   * 植物油: 适量 (seasoning)
 - **Action Steps (Flow Blocks)**:
   1. **切配焯烫**: 莴笋去叶、去皮，切片；木耳洗净，撕小朵；山药片入沸水中焯一下。
   2. **炝香翻炒调味**: 油锅烧热，爆香葱丝，倒莴笋片、木耳、山药片炒熟，放盐、白糖、醋调味即可。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 烹饪妙招：干木耳烹调前宜用温水泡发，但是，泡发后仍紧缩在一起的部分不宜吃，应扔掉。; 营养笔记：莴笋富含膳食纤维与钾，山药健脾益胃，木耳润肠通便，三色相间脆嫩清爽，有效改善便秘。
 
 ---
 
@@ -2378,7 +2417,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
 - **Ingredients**:
   * 木瓜: 350克 (produce)
   * 苦杏仁: 10克 (produce)
-  * 水发银耳1大朵: 适量 (produce)
+  * 水发银耳: 1大朵 (produce)
   * 冰糖: 适量 (seasoning)
 - **Action Steps (Flow Blocks)**:
   1. **切配**: 苦杏仁去外皮，洗净；木瓜去皮，切块；银耳去蒂，撕成片。
@@ -2448,6 +2487,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   1. **切配沥干备用**: 将绿豆芽掐去两头，洗净，沥干。
   2. **炝香勾芡** [Heat: 大火]: 油烧热后，爆香葱丝，放入绿豆芽，大火快速翻炒，加入盐、醋调味，再颠炒几下，用水淀粉勾芡即可。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 烹饪妙招：烹调时油、盐不宜太多，要尽量保持其清淡的口味和爽口的特点。; 营养笔记：绿豆芽清热解毒、利水通便，加醋急火快炒不仅保护维生素C不受破坏，还能促进消化、化解积食。
 
 ---
 
@@ -2560,6 +2600,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   1. **切配焯烫**: 羊瘦肉去净筋膜，洗净，切块，放入沸水中，焯烫去血水；当归洗净浮尘。
   2. **炝香调味** [Heat: 大火]: 锅置火上，倒油烧至七成热，炒香姜片，放入羊肉块、当归翻炒均匀，倒入适量清水，大火烧开后转小火煮至羊肉烂熟，加盐和鸡精调味，捞去当归、生姜即可。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 营养笔记：当归补血活血、调经止痛，羊肉温中补虚、祛寒止痛，生姜温胃散寒，三者合用温经散寒、养血调经，特别适合经期体虚畏寒、痛经女性。
 
 ---
 
@@ -2604,6 +2645,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   1. **泡发切配**: 干木耳用清水泡发，择洗干净，切丝；海米洗净，用清水泡软；白菜心洗净，切成三段。
   2. **拌匀煮制淋汁** [Heat: 大火] [Time: 15 min]: 取碗，放入白菜段，放上木耳、海米、葱丝和姜丝，加料酒、50克清水及少许泡海米的水，搅拌均匀，送入烧开的蒸锅上，大火蒸15分钟，取出，加盐调味，淋上香油即可。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 营养笔记：白菜心富含维生素C、胡萝卜素与粗纤维，清蒸少油低脂，木耳润肠清毒，海米鲜香提味，能有效减轻身体代谢负担，预防乳腺增生。
 
 ---
 
@@ -2642,13 +2684,14 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   * 羊肉: 120克 (main)
   * 苹果: 150克 (produce)
   * 豌豆: 80克 (produce)
-  * 姜片: 适量 (seasoning)
+  * 姜片: 5克 (seasoning)
   * 香菜: 5克 (seasoning)
   * 盐: 3克 (seasoning)
 - **Action Steps (Flow Blocks)**:
   1. **切配**: 羊肉洗净，切块；苹果洗净，切块。
   2. **炖煮煮制调味** [Heat: 大火]: 将羊肉、豌豆、姜片放入锅内，加适量水大火煮沸，再放入苹果块，小火炖煮至熟，放盐、香菜调味即可。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 烹饪妙招：烹制这款汤时，水一定要一次性加足，千万不要在煲的过程中再加水，否则会使汤品味道的浓郁度大打折扣。; 营养笔记：羊肉温补气血，苹果健脾开胃生津、去腥解腻，豌豆清利下气，荤素互补温润不燥。
 
 ---
 
@@ -2890,8 +2933,10 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   * 青椒: 2个 (produce)
   * 泡椒: 2个 (seasoning)
   * 郫县豆瓣: 1匙 (seasoning)
-  * 白酒半匙: 适量 (seasoning)
-  * 老抽花椒姜片: 适量 (seasoning)
+  * 白酒: 半匙 (seasoning)
+  * 老抽: 适量 (seasoning)
+  * 花椒: 适量 (seasoning)
+  * 姜片: 适量 (seasoning)
   * 蒜: 适量 (seasoning)
   * 葱段: 适量 (seasoning)
   * 盐: 适量 (seasoning)
@@ -2954,6 +2999,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   2. **煎制装盘**: 油烧热后，放鸡胸肉，煎至两面金黄盛出，继续放蒜片、洋葱丝炒出香味，放入番茄块。
   3. **炖煮收汁** [Heat: 大火] [Time: 20 min]: 等番茄稍软，放入鸡胸，翻炒匀，盖上锅盖，中小火炖到番茄变成酱汁，放入盐、罗勒碎、白糖调味，大火收汁，关火焖20分钟即可。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 营养笔记：鸡胸肉是高蛋白、极低脂肪的优质健身食材，番茄富含番茄红素与有机酸能刺激食欲促进消化，搭配罗勒香草增香去腥，减脂增肌期极佳高蛋白料理。
 
 ---
 
@@ -2997,6 +3043,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   2. **炖煮煮制** [Heat: 大火]: 汤锅加清水，放入排骨、葱段、姜片同煮，大火烧开后放入银耳，小火慢炖约1小时。
   3. **炖煮调味** [Time: 15 min]: 把木瓜放入汤中，再炖15分钟，调入盐搅匀即可。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 营养笔记：银耳滋阴润肺、木瓜健脾消食分解蛋白质，搭配排骨补充优质蛋白与钙质，能有效减轻烟酒对呼吸道和消化道的黏膜损伤。
 
 ---
 
@@ -3072,7 +3119,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
 - **Prerequisites**: Container: 高保温厚底砂锅 / 铸铁炖锅 | Servings: 2-3 人份
 - **Ingredients**:
   * 排骨块: 400克 (main)
-  * 料酒2大匙: 适量 (seasoning)
+  * 料酒: 2大匙 (seasoning)
   * 蒜瓣: 适量 (seasoning)
   * 姜片: 适量 (seasoning)
   * 豆角: 100克 (produce)
@@ -3087,6 +3134,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   2. **炝香翻炒** [Heat: 六成热]: 热锅中放少许油、烧至六成热，煸香蒜瓣、姜片，倒入排骨、料酒炒至排骨变色出油。
   3. **煮制炖煮** [Heat: 中火]: 倒入砂锅中，加没过食材的水烧开后用中火炖1小时，然后放入备好的蔬菜和盐，再炖30分钟即可。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 营养笔记：排骨补充优质动物蛋白与钙质，搭配土豆、豆角、莲藕、胡萝卜、玉米多种时蔬，荤素搭配营养全面，提供丰富的膳食纤维与多种维生素，助力青少年骨骼发育与体力恢复。
 
 ---
 
@@ -3131,6 +3179,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   1. **切配焯烫泡发**: 菜花洗净，切小块，放入沸水锅内焯水后捞出备用；干香菇用温水泡发后，去蒂洗净，切片。
   2. **调味煮制勾芡** [Heat: 大火]: 烧热后，放入葱段、姜末煸出香味，再放入适量清水，加入盐调味，大火烧开后，放入香菇、菜花，用小火煨入味后，用水淀粉勾芡即可。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 营养笔记：香菇富含香菇多糖能提高人体免疫机能，菜花富含维生素C与矿物质，小火煨入味鲜香适口，非常适合儿童日常强健体质、防病抗病。
 
 ---
 
@@ -3173,6 +3222,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   1. **调汁**: 新鲜牡蛎刷洗干净；生抽加香油调成味汁。
   2. **煮制蒸制装盘**: 锅内放水烧开，将牡蛎平面朝上、凹面向下地放入蒸屉。蒸至牡蛎开口，再过3～5分钟出锅，蘸味汁食用即可。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 烹饪妙招：如果买的是牡蛎肉，里面往往混有破碎的牡蛎壳或其他杂质，只要在其中滴入适量的植物油，就比较容易清洗干净了。; 营养笔记：牡蛎富含优质蛋白、糖原及锌、牛磺酸，清蒸能锁住原汁原味，蘸食姜醋汁能温中散寒、滋阴补肾、生津抗疲劳。
 
 ---
 
@@ -3233,7 +3283,8 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
 - **Prerequisites**: Container: 多层不锈钢蒸锅 (Steamer) | Servings: 2-3 人份
 - **Ingredients**:
   * 鳕鱼: 250克 (main)
-  * 葱丝姜片: 适量 (seasoning)
+  * 姜片: 10克 (seasoning)
+  * 葱丝: 10克 (seasoning)
   * 盐: 3克 (seasoning)
   * 蒜末: 10克 (seasoning)
   * 生抽: 10克 (seasoning)
@@ -3247,6 +3298,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   2. **蒸制** [Heat: 大火] [Time: 8 min]: 锅内加水，放入鳕鱼盘，水开后入蒸笼大火蒸6分钟，熄火焖2分钟，取出蒸好的鳕鱼，上面放上葱丝。
   3. **炝香淋汁** [Heat: 小火]: 另起锅倒入橄榄油，烧至六成热，放入蒜末炒香，依次放入少许水、盐、生抽、白糖、蚝油，调中小火烧开，用水淀粉勾芡，加香油调味，离火，浇到蒸好的鱼片上即可。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 营养笔记：鳕鱼富含DHA与高品质易消化蛋白，肉质细嫩清爽，清蒸后浇淋蒜香薄芡，能有效保护视力、缓解视疲劳，非常适合用眼过度的学生和上班族。
 
 ---
 
@@ -3262,8 +3314,10 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   * 白萝卜: 50克 (produce)
   * 胡萝卜: 25克 (produce)
   * 熟板栗: 25克 (produce)
-  * 盐2植物油: 2克 (seasoning)
-  * 葱段姜片: 适量 (seasoning)
+  * 盐: 2克 (seasoning)
+  * 植物油: 2克 (seasoning)
+  * 葱段: 5克 (seasoning)
+  * 姜片: 5克 (seasoning)
   * 酱油: 5克 (seasoning)
   * 料酒: 5克 (seasoning)
 - **Action Steps (Flow Blocks)**:
@@ -3271,6 +3325,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   2. **煮制沥干备用**: 将牛肉放入凉水锅中煮至七成熟，捞出备用。
   3. **炝香收汁** [Heat: 大火]: 锅烧热放油，将葱段、姜片爆香，放牛肉、开水、酱油、料酒，用大火烧开，然后放入白萝卜块、胡萝卜块及板栗，炒至变软后加盐调味，稍煮收汁即可。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 营养笔记：牛肉含丰富蛋白质与铁，胡萝卜富含β-胡萝卜素能在体内转化成维生素A，与板栗、白萝卜同烧既补气健脾又能护眼明目、预防干眼症。
 
 ---
 
@@ -3283,7 +3338,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
 - **Prerequisites**: Container: 中式熟铁炒锅 (Wok) | Servings: 2-3 人份
 - **Ingredients**:
   * 鲜猪肝: 50克 (main)
-  * 青椒半个: 适量 (produce)
+  * 青椒: 半个 (produce)
   * 姜丝: 2克 (seasoning)
   * 盐: 少许 (seasoning)
   * 植物油: 适量 (seasoning)
@@ -3292,6 +3347,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   2. **装盘**: 锅内倒油烧热，放入姜丝和猪肝片略炒片刻，盛出。
   3. **翻炒调味** [Heat: 大火] [Time: 3 min]: 锅内再倒油烧热，放入青椒丝炒至五成熟，倒猪肝片，加盐调味，大火爆炒3分钟即可。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 烹饪妙招：肝脏是重要的解毒器官，新买的猪肝要仔细清洗。可在清水中加少许白醋浸泡半小时后反复冲洗；切片后用流动水反复冲洗至无血水渗出再泡白醋水沥干。; 营养笔记：猪肝富含维生素A和铁，是明目养血的传统佳品；青椒富含维生素C，能促进铁的吸收与转化，二者合炒能强效缓解眼疲劳与夜盲症。
 
 ---
 
@@ -3303,7 +3359,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
 - **Description**: 营养师张晔健康食谱·保护视力 多补充保护视力的营养素
 - **Prerequisites**: Container: 中式熟铁炒锅 (Wok) | Servings: 2-3 人份
 - **Ingredients**:
-  * 鸡蛋两个: 适量 (main)
+  * 鸡蛋: 2个 (main)
   * 西蓝花: 300克 (produce)
   * 培根: 100克 (produce)
   * 盐: 适量 (seasoning)
@@ -3476,6 +3532,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   3. **蒸制揉面醒发** [Time: 20 min]: 将揉好的面做出馒头形状，放入蒸笼里，盖上锅盖，再次让它醒发20分钟，这步很关键，第二次发酵后蒸出来的馒头更松软。
   4. **蒸制** [Time: 20 min]: 凉水上锅蒸15分钟，时间到后关火，焖5分钟开盖即可。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 烹饪妙招：馒头揉成形后放入蒸笼进行二次醒发20分钟是松软的关键；关火后焖5分钟再开盖，可防止馒头表面回缩塌陷。; 营养笔记：牛奶富含优质钙与优质蛋白，用牛奶替代温水和面做馒头，不仅奶香浓郁，还能强化主食中的钙和B族维生素，促进骨骼强健。
 
 ---
 
@@ -3531,7 +3588,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
 - **Cuisine Style**: chinese
 - **Difficulty**: easy
 - **Description**: 营养师张晔健康食谱·周六　从食物中补铁，防止老年人贫血
-- **Prerequisites**: Container: 常用家用炒锅 | Servings: 2-3 人份 | Preheat: 提前一晚浸泡
+- **Prerequisites**: Container: 全自动豆浆机 (Soy Milk Maker) | Servings: 2-3 人份 | Preheat: 提前一晚浸泡
 - **Ingredients**:
   * 红豆: 50克 (produce)
   * 枸杞子: 10克 (produce)
@@ -3614,6 +3671,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   1. **切配调味腌浆** [Time: 10 min]: 牛肉洗净，切成肉丝，用葱段、姜末、淀粉、料酒和酱油调味，腌渍10分钟；胡萝卜洗净，切成细丝。
   2. **翻炒调味**: 锅内倒油烧热，放入牛肉丝迅速翻炒，倒入胡萝卜丝，炒至变熟，加盐调味即可。
 - **Final Plating / Instructions**: 完成 - 完成
+- **Tips**: 烹饪妙招：牛肉丝顺着纹理切条，加料酒、淀粉和酱油抓匀腌渍上浆，下锅迅速滑散，肉质鲜嫩不柴。; 营养笔记：胡萝卜富含β-胡萝卜素，牛肉富含优质蛋白质与血红素铁，胡萝卜素溶于油脂后更易被人体吸收转化，二者同炒可滋养脾胃、改善贫血、提高老年人机体抗病力。
 
 ---
 
@@ -3636,6 +3694,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   1. **充分混合**: 充分混合
   2. **密封装袋**: 密封装袋
 - **Final Plating / Instructions**: 热水冲泡 ☕ - 取 3 满匙干粉，倒入 10 oz 沸水搅拌溶解即享
+- **Tips**: 冲调秘诀：冲泡时水温建议在 90℃~95℃ 左右，搅拌至干粉完全溶解后可顶上一勺打发鲜奶油或棉花糖，风味更接近专业咖啡馆。; 储存指南：调配好的干粉装入密封罐放置于干燥阴凉处可保存半年，是寒冬自饮或分装送给亲友的温馨暖心特饮。
 
 ---
 
@@ -3661,6 +3720,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   2. **炒香火鸡肉** [Heat: 中大火] [Time: 8 min]: 炒香火鸡肉
   3. **倒入罐头与调料** [Heat: 中火]: 倒入罐头与调料
 - **Final Plating / Instructions**: 慢炖浓汤 🍲 - 小火慢炖 1 小时，或放慢炖锅低火滚煮一整天
+- **Tips**: 烹饪妙招：火鸡绞肉比传统牛肉绞肉脂肪含量更低、热量更轻，烹调时充分吸饱塔可香料与番茄果酸，浓郁而不油腻。; 风味延伸：此汤冷藏过夜后风味更加融合醇厚，食用前撒上一把车达芝士碎和新鲜牛油果丁，口感层次更丰富。
 
 ---
 
@@ -3682,6 +3742,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   2. **调制汤酱**: 调制汤酱
   3. **浇酱并撒饼干碎**: 浇酱并撒饼干碎
 - **Final Plating / Instructions**: 金黄烘焙 🍗 - 入烤箱烘焙至表面金黄酥脆、内部冒泡 bubbling
+- **Tips**: 烘焙秘诀：Ritz饼干本身带有黄油与微咸风味，碾成粗颗粒碎屑即可，保留颗粒感能使烤出的酥顶格外香脆。; 搭配建议：传统美式家常吃法可搭配蒸西兰花或新鲜绿叶沙拉，清爽解腻，平衡奶油浓汤的丰厚口感。
 
 ---
 
@@ -3705,6 +3766,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   2. **炒牛肉加调料** [Heat: 中火] [Time: 12 min]: 炒牛肉加调料
   3. **交替铺层**: 交替铺层
 - **Final Plating / Instructions**: 熔岩烘焙 🧀 - 烘焙 30 分钟至顶层芝士完全融化冒泡
+- **Tips**: 防塌要诀：出炉后务必静置10~15分钟再切块，让融化的双重芝士与酱汁稍作凝固收敛，切面才能整齐挺立不散架。; 面条处理：千层面条煮至八成熟（al dente）即可捞出过冷水沥干，烘烤时吸收肉酱汤汁后软糯弹牙恰到好处。
 
 ---
 
@@ -3730,6 +3792,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   3. **混合液与面条**: 混合液与面条
   4. **铺上饼干酥顶**: 铺上饼干酥顶
 - **Final Plating / Instructions**: 金黄烘焙 🥧 - 烘焙 1 小时至凝固金黄，稍放凉 15 分钟后切块食用
+- **Tips**: 传统工艺：将奶油芝士提前室温彻底软化，与农夫鲜芝士搅打顺滑无颗粒后再与酸奶油融合，是库格尔如布丁般滑嫩的核心。; 温食冷享皆宜：刚出炉温热食用奶香馥郁，冷藏后作为甜点切块冰凉紧实，别具风味。
 
 ---
 
@@ -3748,6 +3811,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
 - **Action Steps (Flow Blocks)**:
   1. **混合全部食材**: 混合全部食材
 - **Final Plating / Instructions**: 慢烤收汁 🫘 - 入烤箱烘烤 2.5 小时，期间偶尔翻动，至培根香酥、酱汁浓稠
+- **Tips**: 慢烤秘诀：长达2.5小时的低温慢烤能使培根中的油脂充分渗透到黄油豆内部，番茄酱与红糖自然焦糖化裹住每一颗豆子。; 派对百搭：这是美式BBQ烧烤聚会和野餐中最受欢迎的经典配菜，搭配烤排骨、手撕猪肉或汉堡堪称绝配。
 
 ---
 
@@ -3769,6 +3833,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   2. **逐个搅入鸡蛋**: 逐个搅入鸡蛋
   3. **折叠面包与菠萝**: 折叠面包与菠萝
 - **Final Plating / Instructions**: 烘焙至金黄 🍍 - 烤箱烘焙 1 小时至表面金黄蓬松
+- **Tips**: 去水关键：碎菠萝罐头必须用滤网彻底沥干汁水，避免面糊含水量过高导致烘烤后内部湿粘不起发。; 节日经典：在美国家庭感恩节和复活节盛宴中，甜美果香的面包填料是咸鲜烤火腿（Baked Ham）不可替代的灵魂伴侣。
 
 ---
 
@@ -3793,6 +3858,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   2. **鸡汤焖煮** [Heat: 小火] [Time: 20 min]: 鸡汤焖煮
   3. **拌入果仁与芝士**: 拌入果仁与芝士
 - **Final Plating / Instructions**: 焗烤果仁饭 🍚 - 入烤箱 350°F 烘烤 20 分钟至香味溢出
+- **Tips**: 生米预炒：用橄榄油与黄油将生米粒炒至微金黄琥珀色，可锁住米粒淀粉，使后续焖烤后的米饭粒粒散落、弹牙不粘坨。; 果仁香气：碧根果碎入菜前如果提前干锅微烘或烤出香气，融入米饭后坚果油脂风味会更加浓郁爆发。
 
 ---
 
@@ -3818,6 +3884,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   2. **调制布朗尼面糊**: 调制布朗尼面糊
   3. **铺层拉花与撒花生**: 铺层拉花与撒花生
 - **Final Plating / Instructions**: 烘焙冷却切块 🍫 - 烤箱烘焙 28-33 分钟，切勿过烤，完全冷却后切块冷藏
+- **Tips**: 冷藏切块要诀：布朗尼烘烤完成后切勿温热切块，室温完全放凉后放入冰箱冷藏1小时再切，切口整齐利落、花纹绝美。; 火候把控：竹签插入中心带有少许湿润蛋糕屑即可出炉，余温会使布朗尼内部达到如同生巧软心（Fudge）的绝佳口感。
 
 ---
 
@@ -3843,6 +3910,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   2. **调制芝士填料**: 调制芝士填料
   3. **填入蘑菇伞**: 填入蘑菇伞
 - **Final Plating / Instructions**: 金黄酿烤 🍄 - 入烤箱 350°F 烘烤 14 分钟至馅料融化金黄、蘑菇鲜嫩
+- **Tips**: 主厨工艺：蘑菇底座切平能保证在烤盘上平稳直立不倾倒，保留住烤制时析出的每一滴鲜美蘑菇原汁。; 香气升级：烤大蒜瓣提前捣成细腻蒜泥融入馅料，既有大蒜的温和甘甜，又不会有生蒜的辛辣刺激，尽显意式优雅。
 
 ---
 
@@ -3870,6 +3938,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   2. **擀开抹肉桂卷起**: 擀开抹肉桂卷起
   3. **铺焦糖底盘冷藏**: 铺焦糖底盘冷藏
 - **Final Plating / Instructions**: 焦糖香烤 🍞 - 早晨拿出室温放置 1 小时，烘烤 25 分钟后倒扣入大盘
+- **Tips**: 倒扣关键：出炉后必须趁热（1~2分钟内）迅速倒扣，此时焦糖呈流动状态能均匀挂附；若放凉焦糖变硬会粘在烤盘底部。; 过夜发酵：平安夜将面卷冷藏低温慢发酵一整夜，能让面团形成细腻的气孔组织与更深邃的麦香与肉桂融合风味。
 
 ---
 
@@ -3895,6 +3964,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   2. **分次加入鸡蛋香精**: 分次加入鸡蛋香精
   3. **过筛面粉与翻拌酸奶油**: 过筛面粉与翻拌酸奶油
 - **Final Plating / Instructions**: 慢烤磅蛋糕 🎂 - 放烤箱底层烘烤 1 小时 15 分钟，插入竹签无粘连即成
+- **Tips**: 手工打发精髓：黄油、起酥油与砂糖用木勺手工充分打发至发白羽毛状，是传统美式南方磅蛋糕拥有细密紧致气孔的秘诀。; 三次过筛：面粉与膨松剂反复过筛三次，能充分充入空气，防止面糊起筋，烤出的磅蛋糕松润不干咽。
 
 ---
 
@@ -3922,6 +3992,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   2. **加水大麦焖炖** [Heat: 小火] [Time: 30 min]: 加水大麦焖炖
   3. **下胡萝卜芹菜** [Heat: 小火] [Time: 30 min]: 下胡萝卜芹菜
 - **Final Plating / Instructions**: 丰盛浓汤 🍲 - 热气腾腾，搭配烤芝士三明治或热比司吉极其美味
+- **Tips**: 慢炖分批：大麦和干豌豆需要较长时间吸水膨胀软化，先与牛肉炖煮30分钟，再加入胡萝卜和芹菜，能保持蔬菜的鲜甜与脆嫩。; 健康主食汤：大麦富含β-葡聚糖水溶性膳食纤维，这道全合一（All-in-one）浓汤营养均衡，特别适合作为控糖低脂的健康正餐。
 
 ---
 
@@ -3947,6 +4018,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   2. **搓入起酥油与和面**: 搓入起酥油与和面
   3. **揉面压模成型**: 揉面压模成型
 - **Final Plating / Instructions**: 金黄烘焙 🥯 - 入烤箱 400°F 烘烤 12-15 分钟至表面金黄蓬松
+- **Tips**: 双重膨松力量：同时采用活性干酵母与泡打粉、小苏打，既有发酵面团的麦香层次，又有经典比司吉的酥松起层。; 切模手法：压切圆饼模具时切忌左右旋转，应垂直下压并利落提起，这样可以保护边缘面筋层，烘烤时比司吉才会垂直高高爬升。
 
 ---
 
@@ -3972,6 +4044,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   2. **加入浓汤与青豌豆** [Heat: 中火] [Time: 10 min]: 加入浓汤与青豌豆
   3. **调制面团并舀入滚汤** [Heat: 大火] [Time: 20 min]: 调制面团并舀入滚汤
 - **Final Plating / Instructions**: 软糯面团 🍲 - 汤汁浓郁，面团吸饱鸡汤香气
+- **Tips**: 面团烹制两步法：舀入面团后前10分钟不盖锅盖让水汽挥发定型，后10分钟盖紧锅盖利用蒸汽将面团内部蒸至蓬松如云。; 调味精要：禽类复合香料（Poultry Seasoning，含鼠尾草、百里香、墨角兰）是美式家常炖鸡面团的地道灵魂香气来源。
 
 ---
 
@@ -3997,6 +4070,7 @@ PostSoma Kitchen represents the VisualRecipeV3.0 specification & multi-source mo
   2. **混合芝士酸奶油酱**: 混合芝士酸奶油酱
   3. **加入薯丁与撒顶层**: 加入薯丁与撒顶层
 - **Final Plating / Instructions**: 香浓焗烤 🧀 - 入烤箱 300°F 烘烤 20 分钟至顶层芝士融化金黄
+- **Tips**: 水分管理：如果使用冷冻土豆饼（Hashbrowns），建议提前稍微解冻并用厨房纸吸去表面冰霜水汽，烘烤后口感更香浓不水。; 运动能量餐：高碳水化合物搭配优质乳酪蛋白，是弗吉尼亚理工橄榄球运动员高强度赛后快速补充糖原与热量的传统能量盛宴。
 
 ---
 

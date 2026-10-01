@@ -380,7 +380,7 @@ assert.equal(
 const firstSourceStep = porkNoodlesLayout.processCells.find(cell => cell.id === 'b1')!
 const secondSourceStep = porkNoodlesLayout.processCells.find(cell => cell.id === 'b2')!
 assert.ok(firstSourceStep && secondSourceStep, '原书两个步骤必须完整进入连续工序表')
-assert.deepEqual(secondSourceStep.incomingMaterials, ['切配沥干备用泡发'], '第二步必须承接第一步处理物')
+assert.deepEqual(secondSourceStep.incomingMaterials, ['焯水备料'], '第二步必须承接第一步处理物')
 assert.ok(secondSourceStep.newIngredients?.includes('酱油'), '第二步必须明确接入本步新增调料')
 console.log('✅ 契约 13 通过: 原书定位、建模状态、物料承接与结果型终点职责一致')
 

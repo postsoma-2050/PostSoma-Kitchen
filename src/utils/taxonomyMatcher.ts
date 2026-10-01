@@ -654,14 +654,3 @@ export function validateRecipe(recipe: VisualRecipeV3): RecipeValidationResult {
     warnings,
   }
 }
-
-/**
- * @deprecated 使用 validateRecipe() 替代此函数，保留为向后兼容
- */
-export function validateRecipeTaxonomyForPublish(recipe: VisualRecipeV3): { isValid: boolean; missingFields: string[] } {
-  const result = validateRecipe(recipe)
-  return {
-    isValid: result.canPublish,
-    missingFields: result.errors.map(e => e.message),
-  }
-}

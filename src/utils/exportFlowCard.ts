@@ -450,7 +450,7 @@ export function splitRecipeIntoPages(recipe: VisualRecipeV3): Array<{ ingredient
     const ROWS_PER_PAGE = 25
     const ingredients = recipe.ingredients || []
     const pagesCount = Math.ceil(ingredients.length / ROWS_PER_PAGE)
-    const result = []
+    const result: Array<{ ingredients: typeof ingredients; pageIndex: number; totalPages: number }> = []
 
     for (let i = 0; i < pagesCount; i++) {
         const chunk = ingredients.slice(i * ROWS_PER_PAGE, (i + 1) * ROWS_PER_PAGE)

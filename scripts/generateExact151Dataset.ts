@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import type { VisualRecipeV3 } from '../src/types/recipeV3'
-import { CHINESE_HEALTHY_RECIPES as ALL_LEGACY } from '../src/data/chineseHealthyRecipes.legacy-102'
+import { CHINESE_HEALTHY_RECIPES as ALL_LEGACY } from '../tests/fixtures/chineseHealthyRecipes.legacy-102'
 import { cleanLegacyRecipe } from './decompoundLegacy52'
 import { buildRecipeV3 } from './buildAuthenticChineseRecipes'
 

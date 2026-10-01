@@ -19,6 +19,6 @@ if (recipe) {
     );
   });
   console.log(
-    `Final block (${layout.finalBlockLayout.finalBlock.actionName || layout.finalBlockLayout.finalBlock.title}) col:final cardH:${layout.finalBlockLayout.h}`
+    `Final block (${(layout.finalBlockLayout.finalBlock as any).actionName || (layout.finalBlockLayout.finalBlock as any).title || layout.finalBlockLayout.finalBlock.label}) col:final cardH:${layout.finalBlockLayout.h}`
   );
 }

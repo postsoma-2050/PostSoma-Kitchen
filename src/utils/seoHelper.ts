@@ -123,14 +123,17 @@ export function updateSeoMeta(options: SeoMetaOptions = {}): void {
     setMetaTag('meta[property="og:description"]', 'property', 'og:description', finalDesc)
     setMetaTag('meta[property="og:url"]', 'property', 'og:url', canonical)
     setMetaTag('meta[property="og:type"]', 'property', 'og:type', options.ogType || 'website')
-    setMetaTag('meta[property="og:site_name"]', 'property', 'og:site_name', 'PostSoma Kitchen')
-    setMetaTag('meta[property="og:image"]', 'property', 'og:image', options.ogImage || `${DEFAULT_DOMAIN}/logo.svg`)
+    const finalOgImage = options.ogImage || `${DEFAULT_DOMAIN}/og-image.png`
+    setMetaTag('meta[property="og:image"]', 'property', 'og:image', finalOgImage)
+    setMetaTag('meta[property="og:image:width"]', 'property', 'og:image:width', '1200')
+    setMetaTag('meta[property="og:image:height"]', 'property', 'og:image:height', '630')
+    setMetaTag('meta[property="og:image:type"]', 'property', 'og:image:type', 'image/png')
 
     // 5. Twitter Card
     setMetaTag('meta[name="twitter:card"]', 'name', 'twitter:card', 'summary_large_image')
     setMetaTag('meta[name="twitter:title"]', 'name', 'twitter:title', finalTitle)
     setMetaTag('meta[name="twitter:description"]', 'name', 'twitter:description', finalDesc)
-    setMetaTag('meta[name="twitter:image"]', 'name', 'twitter:image', options.ogImage || `${DEFAULT_DOMAIN}/logo.svg`)
+    setMetaTag('meta[name="twitter:image"]', 'name', 'twitter:image', finalOgImage)
 
     // 6. JSON-LD Injection
     if (options.jsonLdSchemas && options.jsonLdSchemas.length > 0) {

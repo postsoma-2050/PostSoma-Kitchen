@@ -33,3 +33,6 @@ reports/
 
 # Local copyrighted source archives used by provenance audits.
 /*.epub
+
+# Scratch investigation directory
+scratch/

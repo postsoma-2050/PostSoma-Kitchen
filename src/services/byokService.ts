@@ -29,19 +29,6 @@ export function sanitizeHeaderValue(val: string): string {
 }
 
 /**
- * 校验 HTTP Header 值是否符合 W3C ByteString 标准 (字符码点必须 <= 255)
- */
-export function isValidHeaderByteString(val: string): boolean {
-    if (typeof val !== 'string') return false
-    for (let i = 0; i < val.length; i++) {
-        if (val.charCodeAt(i) > 255) {
-            return false
-        }
-    }
-    return true
-}
-
-/**
  * 获取本地 BYOK 配置 (自动清洗安全过滤)
  */
 export function getByokConfig(): ByokConfig {

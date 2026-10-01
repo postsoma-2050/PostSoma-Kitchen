@@ -10,6 +10,7 @@ export const BATCH8_ELDERLY_BREAKFAST: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥣 茄汁莜面窝窝",
+    "coverImageUrl": "/recipe-covers/cn-139.webp",
     "description": "营养师张晔健康食谱·周一　适量搭配粗粮，减少老年慢性病",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -101,7 +102,8 @@ export const BATCH8_ELDERLY_BREAKFAST: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "steam",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "端出蒸笼趁热浇上浓郁茄汁享用，莜面窝窝筋道弹牙、番茄汁酸甜爽口、开胃降糖"
     },
     "provenance": {
       "sourceType": "book",
@@ -137,6 +139,7 @@ export const BATCH8_ELDERLY_BREAKFAST: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥔 红薯糙米饭",
+    "coverImageUrl": "/recipe-covers/cn-140.webp",
     "description": "营养师张晔健康食谱·周二　摄入维生素C和不饱和脂肪酸，保护心血管",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -197,7 +200,8 @@ export const BATCH8_ELDERLY_BREAKFAST: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "steam",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "盛入饭碗趁热享用，糙米饭粒粒有嚼劲、红薯块软甜粉润、甘香饱腹护血管"
     },
     "provenance": {
       "sourceType": "book",
@@ -233,6 +237,7 @@ export const BATCH8_ELDERLY_BREAKFAST: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🐟 芹菜鱼丝",
+    "coverImageUrl": "/recipe-covers/cn-141.webp",
     "description": "营养师张晔健康食谱·周二　摄入维生素C和不饱和脂肪酸，保护心血管",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -343,7 +348,8 @@ export const BATCH8_ELDERLY_BREAKFAST: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "出锅装盘趁热享用，鱼丝滑嫩洁白不碎、芹丝翠绿清脆爽口、鲜香滑润护血管"
     },
     "provenance": {
       "sourceType": "book",
@@ -379,6 +385,7 @@ export const BATCH8_ELDERLY_BREAKFAST: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🧈 牡蛎豆腐羹",
+    "coverImageUrl": "/recipe-covers/cn-142.webp",
     "description": "营养师张晔健康食谱·周三　适量补充矿物质，预防老年慢性病",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -520,7 +527,8 @@ export const BATCH8_ELDERLY_BREAKFAST: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "盛入汤碗趁热享用，羹汤浓稠滑润、牡蛎鲜美嫩滑、豆腐软嫩温润，高锌补钙"
     },
     "provenance": {
       "sourceType": "book",
@@ -556,6 +564,7 @@ export const BATCH8_ELDERLY_BREAKFAST: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🦐 蒜香海带丝",
+    "coverImageUrl": "/recipe-covers/cn-143.webp",
     "description": "营养师张晔健康食谱·周三　适量补充矿物质，预防老年慢性病",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -647,9 +656,10 @@ export const BATCH8_ELDERLY_BREAKFAST: VisualRecipeV3[] = [
       }
     ],
     "finalBlock": {
-      "method": "fry",
+      "method": "serve",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "装盘稍浸入味享用，海带丝爽脆滑嫩、蒜香浓郁微酸开胃、芝麻醇香补钾排钠"
     },
     "provenance": {
       "sourceType": "book",
@@ -685,6 +695,7 @@ export const BATCH8_ELDERLY_BREAKFAST: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🦐 紫菜虾皮蛋花汤",
+    "coverImageUrl": "/recipe-covers/cn-144.webp",
     "description": "营养师张晔健康食谱·周四　补充钙和维生素D，壮骨强身",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -786,7 +797,8 @@ export const BATCH8_ELDERLY_BREAKFAST: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "盛入汤碗趁热享用，蛋花如丝云轻柔滑、紫菜虾皮鲜香醇浓、黄瓜清脆爽口补钙壮骨"
     },
     "provenance": {
       "sourceType": "book",
@@ -822,6 +834,7 @@ export const BATCH8_ELDERLY_BREAKFAST: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥩 玲珑牛奶馒头",
+    "coverImageUrl": "/recipe-covers/cn-145.webp",
     "description": "营养师张晔健康食谱·周四　补充钙和维生素D，壮骨强身",
     "cuisine": "chinese",
     "difficulty": "hard",
@@ -934,7 +947,8 @@ export const BATCH8_ELDERLY_BREAKFAST: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "steam",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "趁热揭盖捡出装盘享用，馒头小巧玲珑、洁白松软、奶香浓郁清甜适口"
     },
     "provenance": {
       "sourceType": "book",
@@ -959,7 +973,10 @@ export const BATCH8_ELDERLY_BREAKFAST: VisualRecipeV3[] = [
         "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
-    "tips": [],
+    "tips": [
+      "烹饪妙招：馒头揉成形后放入蒸笼进行二次醒发20分钟是松软的关键；关火后焖5分钟再开盖，可防止馒头表面回缩塌陷。",
+      "营养笔记：牛奶富含优质钙与优质蛋白，用牛奶替代温水和面做馒头，不仅奶香浓郁，还能强化主食中的钙和B族维生素，促进骨骼强健。"
+    ],
     "createdAt": "2016-09-01T00:00:00Z",
     "updatedAt": "2026-09-16T12:00:00Z"
   },
@@ -968,6 +985,7 @@ export const BATCH8_ELDERLY_BREAKFAST: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🍗 小葱炒鸡蛋",
+    "coverImageUrl": "/recipe-covers/cn-146.webp",
     "description": "营养师张晔健康食谱·周五　食物松软易消化，健脾利胃",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -1040,7 +1058,8 @@ export const BATCH8_ELDERLY_BREAKFAST: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "出锅装盘趁热享用，蛋块金黄松软、葱香扑鼻柔滑多汁、开胃健脾极易消化"
     },
     "provenance": {
       "sourceType": "book",
@@ -1076,6 +1095,7 @@ export const BATCH8_ELDERLY_BREAKFAST: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🍳 松仁玉米",
+    "coverImageUrl": "/recipe-covers/cn-147.webp",
     "description": "营养师张晔健康食谱·周五　食物松软易消化，健脾利胃",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -1206,7 +1226,7 @@ export const BATCH8_ELDERLY_BREAKFAST: VisualRecipeV3[] = [
       "method": "fry",
       "role": "outcome",
       "label": "完成",
-      "servingInstructions": "出锅装盘"
+      "servingInstructions": "出锅装盘趁热享用，松仁金黄香脆、玉米粒清甜爆汁、色彩缤纷甘香润肠"
     },
     "provenance": {
       "sourceType": "book",
@@ -1242,11 +1262,12 @@ export const BATCH8_ELDERLY_BREAKFAST: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥢 红枣芝麻红豆豆浆",
+    "coverImageUrl": "/recipe-covers/cn-148.webp",
     "description": "营养师张晔健康食谱·周六　从食物中补铁，防止老年人贫血",
     "cuisine": "chinese",
     "difficulty": "easy",
     "prerequisites": {
-      "containerSize": "常用家用炒锅",
+      "containerSize": "全自动豆浆机 (Soy Milk Maker)",
       "preheat": "提前一晚浸泡",
       "servings": "2-3 人份",
       "prepNotes": "准备8小时 · 烹调20分钟"
@@ -1287,7 +1308,8 @@ export const BATCH8_ELDERLY_BREAKFAST: VisualRecipeV3[] = [
         "ingredientIds": [
           "i1",
           "i2",
-          "i3"
+          "i3",
+          "i4"
         ],
         "note": "红豆用清水洗净，提前一晚浸泡；红枣洗净，去核，切碎；黑芝麻擀碎；枸杞子清洗干净。"
       },
@@ -1296,9 +1318,7 @@ export const BATCH8_ELDERLY_BREAKFAST: VisualRecipeV3[] = [
         "label": "煮制",
         "sublabel": "Boil",
         "stageIndex": 1,
-        "ingredientIds": [
-          "i4"
-        ],
+        "ingredientIds": [],
         "note": "将上述食材一同倒入全自动豆浆机中，加水至上、下水位线之间，按下“豆浆”键，煮至豆浆机提示豆浆做好，凉至温热饮用即可。",
         "completionState": "上、下水位线之间",
         "dependencies": [
@@ -1314,9 +1334,10 @@ export const BATCH8_ELDERLY_BREAKFAST: VisualRecipeV3[] = [
       }
     ],
     "finalBlock": {
-      "method": "fry",
+      "method": "boil",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "倒入杯中趁温热饮用，豆浆细腻浓醇、枣香芝麻香浓郁甘醇、温润补血益气"
     },
     "provenance": {
       "sourceType": "book",
@@ -1352,6 +1373,7 @@ export const BATCH8_ELDERLY_BREAKFAST: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥩 菠菜炒猪肝",
+    "coverImageUrl": "/recipe-covers/cn-149.webp",
     "description": "营养师张晔健康食谱·周六　从食物中补铁，防止老年人贫血",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -1482,7 +1504,8 @@ export const BATCH8_ELDERLY_BREAKFAST: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "出锅装盘趁热享用，猪肝鲜嫩爽滑不腥、菠菜碧绿柔嫩微甜、酸甜咸鲜补血明目"
     },
     "provenance": {
       "sourceType": "book",
@@ -1518,6 +1541,7 @@ export const BATCH8_ELDERLY_BREAKFAST: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥣 小窝窝头",
+    "coverImageUrl": "/recipe-covers/cn-150.webp",
     "description": "营养师张晔健康食谱·周日　适量补充维生素，提高抗病能力",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -1602,7 +1626,8 @@ export const BATCH8_ELDERLY_BREAKFAST: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "steam",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "趁热捡出装盘享用，窝头金黄规整、口感松软清香、微甜适口、富含粗纤维"
     },
     "provenance": {
       "sourceType": "book",
@@ -1638,6 +1663,7 @@ export const BATCH8_ELDERLY_BREAKFAST: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥩 胡萝卜炒牛肉丝",
+    "coverImageUrl": "/recipe-covers/cn-151.webp",
     "description": "营养师张晔健康食谱·周日　适量补充维生素，提高抗病能力",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -1748,7 +1774,8 @@ export const BATCH8_ELDERLY_BREAKFAST: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "出锅装盘趁热享用，牛肉丝滑嫩多汁、胡萝卜丝软甜油润、营养丰富增强免疫力"
     },
     "provenance": {
       "sourceType": "book",
@@ -1773,7 +1800,10 @@ export const BATCH8_ELDERLY_BREAKFAST: VisualRecipeV3[] = [
         "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
-    "tips": [],
+    "tips": [
+      "烹饪妙招：牛肉丝顺着纹理切条，加料酒、淀粉和酱油抓匀腌渍上浆，下锅迅速滑散，肉质鲜嫩不柴。",
+      "营养笔记：胡萝卜富含β-胡萝卜素，牛肉富含优质蛋白质与血红素铁，胡萝卜素溶于油脂后更易被人体吸收转化，二者同炒可滋养脾胃、改善贫血、提高老年人机体抗病力。"
+    ],
     "createdAt": "2016-09-01T00:00:00Z",
     "updatedAt": "2026-09-16T12:00:00Z"
   }

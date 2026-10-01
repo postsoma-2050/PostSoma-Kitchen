@@ -96,48 +96,6 @@ export function checkStepIngredientContiguity(
 }
 
 /**
- * 计算工序在物理时序执行时的“全量有效物料” (包含上游中间产物)
- */
-export function resolveEffectiveStepIngredients(
-  _ingredients: V3Ingredient[],
-  actionBlocks: V3ActionBlock[]
-): Map<string, string[]> {
-  const result = new Map<string, string[]>()
-  const sortedBlocks = [...actionBlocks].sort((a, b) => (a.stageIndex ?? 0) - (b.stageIndex ?? 0))
-
-  for (let i = 0; i < sortedBlocks.length; i++) {
-    const block = sortedBlocks[i]
-    const effective = new Set<string>(block.ingredientIds || [])
-
-    // 1. 显式父节点依赖物料
-    const parentIds = [
-      ...(block.inputBlockIds || []),
-      ...(block.dependencies?.filter(d => d.type === 'material').map(d => d.sourceBlockId) || [])
-    ]
-    for (const pId of parentIds) {
-      const parentIngs = result.get(pId)
-      if (parentIngs) {
-        parentIngs.forEach(id => effective.add(id))
-      }
-    }
-
-    // 2. 隐式单锅流转：如果本工序包含上个工序的任一食材（主料），说明上个工序的产物已进入本工序
-    if (i > 0) {
-      const prevBlock = sortedBlocks[i - 1]
-      const prevIngs = result.get(prevBlock.id) || prevBlock.ingredientIds || []
-      const hasOverlap = (block.ingredientIds || []).some(id => prevIngs.includes(id))
-      if (hasOverlap) {
-        prevIngs.forEach(id => effective.add(id))
-      }
-    }
-
-    result.set(block.id, Array.from(effective))
-  }
-
-  return result
-}
-
-/**
  * 按照工序时序进入先后与物料合并关系，对食材进行高级拓扑排序
  * 确保所有工序形成的矩阵色块 100% 连续无空洞
  */

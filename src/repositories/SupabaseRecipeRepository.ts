@@ -304,6 +304,11 @@ export class SupabaseRecipeRepository implements IRecipeRepository {
 
             // 2. 将云端数据与本地做双向版本仲裁 (本地最新审计优先，但继承云端已有的封面图片)
             for (const cloud of cloudRecipes) {
+                // 彻底阻断历史废弃原型非标 Slug 污染记录 (如 cn-13-suan-shao-wuhuarou)
+                if (/^cn-\d+-[a-z]/i.test(cloud.id)) {
+                    continue
+                }
+
                 const local = localMap.get(cloud.id)
                 if (local && this.shouldPreferLocalPreset(local, cloud)) {
                     mergedMap.set(cloud.id, {
@@ -358,7 +363,7 @@ export class SupabaseRecipeRepository implements IRecipeRepository {
     private shouldPreferLocalPreset(local: VisualRecipeV3 | null | undefined, cloud: VisualRecipeV3 | null | undefined): boolean {
         if (!local) return false
         if (!cloud) return true
-        const CODEBASE_AUDIT_EPOCH = new Date('2026-09-16T12:00:00.000Z').getTime()
+        const CODEBASE_AUDIT_EPOCH = new Date('2026-10-01T00:00:00.000Z').getTime()
         const localTime = local.updatedAt ? new Date(local.updatedAt).getTime() : CODEBASE_AUDIT_EPOCH
         const effectiveLocalTime = Math.max(localTime, CODEBASE_AUDIT_EPOCH)
         const cloudTime = cloud.updatedAt ? new Date(cloud.updatedAt).getTime() : 0
@@ -384,17 +389,19 @@ export class SupabaseRecipeRepository implements IRecipeRepository {
                 throw new Error(error?.message || '云端未返回 Admin 食谱列表')
             }
 
-            return data.map(row => {
-                const cloud = this.normalizeRow(row as RecipeRow)
-                const local = localMap.get(cloud.id)
-                if (this.shouldPreferLocalPreset(local, cloud)) {
-                    return {
-                        ...local!,
-                        coverImageUrl: local!.coverImageUrl || cloud.coverImageUrl,
+            return data
+                .filter(row => !/^cn-\d+-[a-z]/i.test((row as any).id || (row as any).content?.id || ''))
+                .map(row => {
+                    const cloud = this.normalizeRow(row as RecipeRow)
+                    const local = localMap.get(cloud.id)
+                    if (this.shouldPreferLocalPreset(local, cloud)) {
+                        return {
+                            ...local!,
+                            coverImageUrl: local!.coverImageUrl || cloud.coverImageUrl,
+                        }
                     }
-                }
-                return cloud
-            })
+                    return cloud
+                })
         } catch (e) {
             console.error('[SupabaseRepo] Admin 食谱列表读取失败:', e)
             return this.localFallback.getAllRecipes()

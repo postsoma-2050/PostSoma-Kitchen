@@ -227,14 +227,36 @@
         <!-- 3.3 核心 Visual Recipe Flow Card (Matrix Flow 矩阵流程卡) 舞台 -->
         <RecipeFlowWorkspaceV3 :recipe="recipe" />
 
-        <!-- 3.4 烹饪秘诀与 Tips (如有) -->
-        <div v-if="recipe.tips && recipe.tips.length > 0" class="bg-amber-50/60 rounded-3xl border border-amber-200/80 p-6 md:p-8 shadow-sm space-y-3">
-          <div class="flex items-center gap-2 text-sm font-black text-amber-950">
-            <span>烹饪小贴士</span>
+        <!-- 3.4 营养师健康笔记 (张晔权威营养与搭配指南) -->
+        <div v-if="nutritionTips.length > 0" class="bg-emerald-50/70 rounded-3xl border border-emerald-200/80 p-6 md:p-8 shadow-sm space-y-3">
+          <div class="flex items-center gap-2.5 text-sm font-black text-emerald-950">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-lg bg-emerald-600 text-white text-xs">
+              <AppIcon name="leaf" :size="14" />
+            </span>
+            <span>营养师专业笔记 · 科学膳食与健康指引</span>
           </div>
-          <ul class="list-disc list-inside space-y-1.5 text-xs text-amber-950/90 leading-relaxed font-medium">
-            <li v-for="(tip, idx) in recipe.tips" :key="idx">{{ tip }}</li>
-          </ul>
+          <div class="space-y-2 text-xs md:text-sm text-emerald-900/90 leading-relaxed font-medium">
+            <p v-for="(tip, idx) in nutritionTips" :key="idx" class="bg-white/70 p-3.5 rounded-2xl border border-emerald-100/90 flex items-start gap-2.5 shadow-xs">
+              <span class="text-emerald-600 font-bold shrink-0 mt-0.5">•</span>
+              <span>{{ tip }}</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- 3.5 厨房实操技巧 (如有) -->
+        <div v-if="cookingTips.length > 0" class="bg-amber-50/70 rounded-3xl border border-amber-200/80 p-6 md:p-8 shadow-sm space-y-3">
+          <div class="flex items-center gap-2.5 text-sm font-black text-amber-950">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-lg bg-amber-600 text-white text-xs">
+              <AppIcon name="lightbulb" :size="14" />
+            </span>
+            <span>烹饪要点与操作技巧</span>
+          </div>
+          <div class="space-y-2 text-xs md:text-sm text-amber-950/90 leading-relaxed font-medium">
+            <p v-for="(tip, idx) in cookingTips" :key="idx" class="bg-white/70 p-3.5 rounded-2xl border border-amber-100/90 flex items-start gap-2.5 shadow-xs">
+              <span class="text-amber-600 font-bold shrink-0 mt-0.5">•</span>
+              <span>{{ tip }}</span>
+            </p>
+          </div>
         </div>
 
       </div>
@@ -453,6 +475,21 @@ const mainIngredients = computed(() => {
 const seasoningIngredients = computed(() => {
   if (!recipe.value || !Array.isArray(recipe.value.ingredients)) return []
   return recipe.value.ingredients.filter(i => i.category === 'seasoning' || i.category === 'liquid')
+})
+
+// 区分营养师专业建议与厨房实操技巧
+const nutritionTips = computed(() => {
+  if (!recipe.value || !Array.isArray(recipe.value.tips)) return []
+  return recipe.value.tips.filter(t => 
+    t.includes('营养') || t.includes('功效') || t.includes('搭配') || t.includes('健康') || t.includes('膳食') || t.includes('维生素')
+  )
+})
+
+const cookingTips = computed(() => {
+  if (!recipe.value || !Array.isArray(recipe.value.tips)) return []
+  return recipe.value.tips.filter(t => 
+    !t.includes('营养') && !t.includes('功效') && !t.includes('搭配') && !t.includes('健康') && !t.includes('膳食') && !t.includes('维生素')
+  )
 })
 
 function getFormulaCategoryLabel(cat?: string): string {

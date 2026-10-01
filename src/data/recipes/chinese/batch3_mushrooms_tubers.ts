@@ -10,6 +10,7 @@ export const BATCH3_MUSHROOMS_TUBERS: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🍄 香菇藕丸",
+    "coverImageUrl": "/recipe-covers/cn-47.webp",
     "description": "营养师张晔健康食谱·营养菌类及制品 优质蛋白质和微量元素的提供者",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -123,7 +124,8 @@ export const BATCH3_MUSHROOMS_TUBERS: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "steam",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "连同蒸盘原汁撒上葱花香油，藕丸爽脆鲜嫩、香菇浓郁多汁"
     },
     "provenance": {
       "sourceType": "book",
@@ -148,7 +150,9 @@ export const BATCH3_MUSHROOMS_TUBERS: VisualRecipeV3[] = [
         "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
-    "tips": [],
+    "tips": [
+      "营养笔记：香菇富含微量元素与香菇多糖，莲藕清热润燥、健脾开胃，与瘦肉搭配蒸食高蛋白低脂养胃。"
+    ],
     "createdAt": "2016-09-01T00:00:00Z",
     "updatedAt": "2026-09-16T12:00:00Z"
   },
@@ -157,6 +161,7 @@ export const BATCH3_MUSHROOMS_TUBERS: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🍄 金针菇培根卷",
+    "coverImageUrl": "/recipe-covers/cn-48.webp",
     "description": "营养师张晔健康食谱·营养菌类及制品 优质蛋白质和微量元素的提供者",
     "cuisine": "chinese",
     "difficulty": "hard",
@@ -282,7 +287,8 @@ export const BATCH3_MUSHROOMS_TUBERS: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "steam",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "趁热浇上浓郁芡汁，培根焦香咸润、金针菇脆嫩爆汁"
     },
     "provenance": {
       "sourceType": "book",
@@ -318,6 +324,7 @@ export const BATCH3_MUSHROOMS_TUBERS: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🍳 醋熘素什锦",
+    "coverImageUrl": "/recipe-covers/cn-49.webp",
     "description": "营养师张晔健康食谱·营养菌类及制品 优质蛋白质和微量元素的提供者",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -448,7 +455,8 @@ export const BATCH3_MUSHROOMS_TUBERS: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "出锅装盘趁热享用，酸甜适口、爽脆丰富解腻"
     },
     "provenance": {
       "sourceType": "book",
@@ -484,6 +492,7 @@ export const BATCH3_MUSHROOMS_TUBERS: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🍄 银耳百合雪梨汤",
+    "coverImageUrl": "/recipe-covers/cn-50.webp",
     "description": "营养师张晔健康食谱·营养菌类及制品 优质蛋白质和微量元素的提供者",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -566,7 +575,8 @@ export const BATCH3_MUSHROOMS_TUBERS: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "盛入甜汤小盅温热享用，汤汁胶质浓稠、梨肉温润清甜"
     },
     "provenance": {
       "sourceType": "book",
@@ -602,6 +612,7 @@ export const BATCH3_MUSHROOMS_TUBERS: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥔 荷香小米蒸红薯",
+    "coverImageUrl": "/recipe-covers/cn-51.webp",
     "description": "营养师张晔健康食谱·不可或缺的薯类 富含膳食纤维，既可做主食也能当蔬菜",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -691,7 +702,8 @@ export const BATCH3_MUSHROOMS_TUBERS: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "steam",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "整屉出锅揭开荷叶趁热享用，荷香扑鼻、小米软糯红薯香甜"
     },
     "provenance": {
       "sourceType": "book",
@@ -727,6 +739,7 @@ export const BATCH3_MUSHROOMS_TUBERS: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥔 山药寿司",
+    "coverImageUrl": "/recipe-covers/cn-52.webp",
     "description": "营养师张晔健康食谱·不可或缺的薯类 富含膳食纤维，既可做主食也能当蔬菜",
     "cuisine": "chinese",
     "difficulty": "hard",
@@ -838,7 +851,7 @@ export const BATCH3_MUSHROOMS_TUBERS: VisualRecipeV3[] = [
       "method": "steam",
       "role": "outcome",
       "label": "完成",
-      "servingInstructions": "取出装盘"
+      "servingInstructions": "整齐码盘配蘸寿司酱油趁热享用，口感软糯清香、健脾开胃"
     },
     "provenance": {
       "sourceType": "book",
@@ -863,7 +876,9 @@ export const BATCH3_MUSHROOMS_TUBERS: VisualRecipeV3[] = [
         "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
-    "tips": [],
+    "tips": [
+      "营养笔记：山药健脾益胃、滋肾益精；胡萝卜与海苔提供丰富胡萝卜素与矿物质碘，蒸食清淡少油，非常适合脾虚胃弱者。"
+    ],
     "createdAt": "2016-09-01T00:00:00Z",
     "updatedAt": "2026-09-16T12:00:00Z"
   },
@@ -872,6 +887,7 @@ export const BATCH3_MUSHROOMS_TUBERS: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🍲 关东煮",
+    "coverImageUrl": "/recipe-covers/cn-53.webp",
     "description": "营养师张晔健康食谱·不可或缺的薯类 富含膳食纤维，既可做主食也能当蔬菜",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -1031,7 +1047,7 @@ export const BATCH3_MUSHROOMS_TUBERS: VisualRecipeV3[] = [
       "method": "stew",
       "role": "outcome",
       "label": "完成",
-      "servingInstructions": "捞出装盘"
+      "servingInstructions": "食材捞入深碗浇少许清汤淋甜辣酱享用，鲜甜入味、暖胃舒心"
     },
     "provenance": {
       "sourceType": "book",
@@ -1056,7 +1072,9 @@ export const BATCH3_MUSHROOMS_TUBERS: VisualRecipeV3[] = [
         "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
-    "tips": [],
+    "tips": [
+      "营养笔记：芋头富含膳食纤维与黏液蛋白，多种菌菇与时蔬久煮慢炖出天然鲜甜汤底，低卡高纤、暖胃润肠。"
+    ],
     "createdAt": "2016-09-01T00:00:00Z",
     "updatedAt": "2026-09-16T12:00:00Z"
   },
@@ -1065,6 +1083,7 @@ export const BATCH3_MUSHROOMS_TUBERS: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥔 奶香土豆泥",
+    "coverImageUrl": "/recipe-covers/cn-54.webp",
     "description": "营养师张晔健康食谱·不可或缺的薯类 富含膳食纤维，既可做主食也能当蔬菜",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -1176,7 +1195,8 @@ export const BATCH3_MUSHROOMS_TUBERS: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "steam",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "装入精致小碗趁热享用，奶香浓郁、细腻绵密入口即化"
     },
     "provenance": {
       "sourceType": "book",

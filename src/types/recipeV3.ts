@@ -21,7 +21,7 @@ export type IngredientCategory =
  * 旧 category 字符串到标准 IngredientCategory 的映射字典
  * 用于 normalizeRecipe() 向前兼容迁移
  */
-export const LEGACY_CATEGORY_MAP: Record<string, IngredientCategory> = {
+const LEGACY_CATEGORY_MAP: Record<string, IngredientCategory> = {
   // 保持不变的合法值
   main: 'main',
   produce: 'produce',

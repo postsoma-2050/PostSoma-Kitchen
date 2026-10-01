@@ -2,7 +2,7 @@ import { createRecipeRepository } from '../src/repositories/index'
 import { filterRecipesWithConfirmedCovers } from '../src/domain/recipeCoverPublication'
 
 async function main() {
-  const repo = createRecipeRepository('supabase')
+  const repo = createRecipeRepository()
   const published = await repo.getPublishedRecipes()
   console.log('Total published returned by repo:', published.length)
   const browsable = filterRecipesWithConfirmedCovers(published)

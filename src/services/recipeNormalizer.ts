@@ -5,6 +5,7 @@ import {
   type CookingMethodCode,
   type CuisineStyleCode,
 } from '@/constants/taxonomy'
+import { CONFIRMED_COVERS } from '@/utils/recipeCoverAsset'
 
 export function mapLegacyMethodToTaxonomy(legacyMethod?: string, label?: string): CookingMethodCode {
   if (!legacyMethod && !label) return 'other'
@@ -51,12 +52,25 @@ export function normalizeRecipe(raw: unknown): VisualRecipeV3 {
     : 'unreviewed'
 
   const ingredients = Array.isArray(recipe.ingredients)
-    ? recipe.ingredients.map((ingredient: Record<string, any>) => ({
-        ...ingredient,
-        category: normalizeIngredientCategory(ingredient.category),
-        note: ingredient.note || ingredient.notes || undefined,
-        notes: undefined,
-      }))
+    ? recipe.ingredients.map((ingredient: Record<string, any>) => {
+        let cleanName = typeof ingredient.name === 'string' ? ingredient.name.trim() : ''
+        let extractedNote = ingredient.note || ingredient.notes || undefined
+        // 若食材名尾部带有诸如 (切丁)、(配餐)、（切段）等加工或修饰括号，清洗出纯净食材名
+        const parenMatch = cleanName.match(/^(.*?)\s*([（(](.*?)[）)])$/)
+        if (parenMatch && parenMatch[1].trim()) {
+          cleanName = parenMatch[1].trim()
+          if (!extractedNote && parenMatch[3].trim()) {
+            extractedNote = parenMatch[3].trim()
+          }
+        }
+        return {
+          ...ingredient,
+          name: cleanName,
+          category: normalizeIngredientCategory(ingredient.category),
+          note: extractedNote,
+          notes: undefined,
+        }
+      })
     : []
 
   const actionBlocks = Array.isArray(recipe.actionBlocks)
@@ -147,17 +161,63 @@ export function normalizeRecipe(raw: unknown): VisualRecipeV3 {
       })
     : []
 
-  const finalBlock = recipe.finalBlock
-    ? {
-        ...recipe.finalBlock,
-        method: mapLegacyMethodToTaxonomy(rawMethod, rawLabel),
-        note: recipe.finalBlock.note || recipe.finalBlock.notes || undefined,
-        notes: undefined,
+  const rawFinal = recipe.finalBlock
+  let finalBlock: VisualRecipeV3['finalBlock'] = undefined
+  if (rawFinal) {
+    let finalRole: 'operation' | 'outcome' | undefined = rawFinal.role
+    let finalLabel = rawFinal.label || '完成'
+    let resultDesc = rawFinal.resultDescription
+
+    const isExplicitOutcomeLabel = /^(完成|制作完成|装盘完成|出锅装盘)$/.test(finalLabel.trim())
+    // 识别纯口感评价/风味描述（如 "蒜香浓郁 🧄", "鲜嫩多汁", "酥脆可口" 等主观形容词而非烹饪动作）
+    const isTasteComment = /\p{Extended_Pictographic}|浓郁|鲜嫩|美味|酥脆|多汁|香气|爽口|可口/u.test(finalLabel)
+      && !rawFinal.appliance && !rawFinal.temperatureC && !rawFinal.durationMinutes && !rawFinal.durationText
+
+    if (!finalRole) {
+      if (isExplicitOutcomeLabel || isTasteComment) {
+        finalRole = 'outcome'
+        if (isTasteComment) {
+          if (!resultDesc) resultDesc = finalLabel
+          finalLabel = '完成'
+        }
+      } else {
+        finalRole = 'operation'
       }
-    : undefined
+    } else if (finalRole === 'outcome' && !isExplicitOutcomeLabel) {
+      if (isTasteComment && !resultDesc) {
+        resultDesc = finalLabel
+      }
+      finalLabel = '完成'
+    }
+
+    finalBlock = {
+      ...rawFinal,
+      role: finalRole,
+      label: finalLabel,
+      method: mapLegacyMethodToTaxonomy(rawMethod, rawLabel),
+      resultDescription: resultDesc,
+      note: rawFinal.note || rawFinal.notes || undefined,
+      notes: undefined,
+    }
+  }
+
+  let coverImageUrl = typeof recipe.coverImageUrl === 'string' && recipe.coverImageUrl.trim() ? recipe.coverImageUrl.trim() : undefined
+  if (coverImageUrl && coverImageUrl.startsWith('/recipe-covers/') && coverImageUrl.endsWith('.jpg')) {
+    coverImageUrl = coverImageUrl.replace(/\.jpg$/, '.webp')
+  }
+  if (!coverImageUrl) {
+    const rawId = typeof recipe.id === 'string' ? recipe.id.trim() : ''
+    const prefixId = rawId.split('-').slice(0, 2).join('-')
+    if (CONFIRMED_COVERS.has(rawId)) {
+      coverImageUrl = `/recipe-covers/${rawId}.webp`
+    } else if (CONFIRMED_COVERS.has(prefixId)) {
+      coverImageUrl = `/recipe-covers/${prefixId}.webp`
+    }
+  }
 
   return {
     ...recipe,
+    coverImageUrl,
     status,
     deletedAt: recipe.deletedAt || undefined,
     legacyMethodLabel: legacyBackup,

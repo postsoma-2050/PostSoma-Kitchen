@@ -253,7 +253,7 @@ import {
 } from '@/services/recipeCoverPublicationService'
 import RecipeCardV3 from '@/components/recipe-flow-v3/RecipeCardV3.vue'
 import ByokSettingsModal from '@/components/common/ByokSettingsModal.vue'
-import { validateRecipeTaxonomyForPublish } from '@/utils/taxonomyMatcher'
+import { validateRecipe } from '@/utils/taxonomyMatcher'
 import {
   buildAdminBrowsePath,
   parseAdminBrowseQuery,
@@ -274,7 +274,7 @@ const coverReconcilePending = ref(false)
 const coverReconcileNotice = ref('')
 
 const uncategorizedCount = computed(() => {
-  return allRecipes.value.filter(r => !validateRecipeTaxonomyForPublish(r).isValid).length
+  return allRecipes.value.filter(r => !validateRecipe(r).canPublish).length
 })
 
 async function loadRecipes() {
@@ -455,7 +455,7 @@ const filteredRecipes = computed(() => {
   // 3. 状态筛选 (含目标 B & C: 待分类视角与回收站视角)
   if (filterStatus.value !== 'all') {
     if (filterStatus.value === 'uncategorized') {
-      list = list.filter(r => !validateRecipeTaxonomyForPublish(r).isValid)
+      list = list.filter(r => !validateRecipe(r).canPublish)
     } else if (filterStatus.value === 'deleted') {
       list = [...deletedRecipes.value]
     } else {

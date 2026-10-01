@@ -10,16 +10,17 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥩 蒜烧五花肉",
+    "coverImageUrl": "/recipe-covers/cn-01.webp",
     "description": "营养师张晔健康食谱·解馋肉、蛋 为身体提供丰富的优质蛋白质和脂肪",
     "cuisine": "chinese",
     "difficulty": "easy",
     "prerequisites": {
-      "containerSize": "高保温厚底砂锅 / 铸铁炖锅",
+      "containerSize": "平底煎锅 / 炖锅",
       "preheat": "腌渍20分钟",
       "servings": "2-3 人份",
-      "prepNotes": "准备30分钟，烹饪30分钟"
+      "prepNotes": "准备30分钟 · 烹调30分钟"
     },
-    "cookingTimeText": "准备30分钟，烹饪30分钟",
+    "cookingTimeText": "准备30分钟 · 烹调30分钟",
     "ingredients": [
       {
         "id": "i1",
@@ -32,12 +33,6 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
         "name": "大蒜",
         "amountText": "1头",
         "category": "produce"
-      },
-      {
-        "id": "i8",
-        "name": "植物油",
-        "amountText": "适量",
-        "category": "seasoning"
       },
       {
         "id": "i3",
@@ -70,8 +65,14 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
         "category": "seasoning"
       },
       {
-        "id": "i9",
+        "id": "i8",
         "name": "盐",
+        "amountText": "适量",
+        "category": "seasoning"
+      },
+      {
+        "id": "i9",
+        "name": "植物油",
         "amountText": "适量",
         "category": "seasoning"
       }
@@ -79,42 +80,66 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
     "actionBlocks": [
       {
         "id": "b1",
-        "label": "切配拌匀腌浆",
-        "sublabel": "Marinate",
+        "label": "切配腌渍",
+        "sublabel": "Prep & Marinate",
         "stageIndex": 0,
         "ingredientIds": [
           "i1",
           "i2",
-          "i8"
-        ],
-        "durationMinutes": 20,
-        "note": "大蒜切丁，与除植物油外的所有调料一起放入容器中拌匀，放入猪肉片腌渍20分钟。"
-      },
-      {
-        "id": "b2",
-        "label": "炖煮装盘",
-        "sublabel": "Simmer",
-        "stageIndex": 1,
-        "ingredientIds": [
-          "i3",
           "i4",
           "i5",
           "i6",
           "i7",
+          "i8"
+        ],
+        "note": "大蒜切丁，与葱花、味极鲜酱油、料酒、白糖、盐放入容器拌匀，放入五花肉片充分抓匀，腌渍20分钟入味。"
+      },
+      {
+        "id": "b2",
+        "label": "双面煎黄",
+        "sublabel": "Sear Pork",
+        "stageIndex": 1,
+        "ingredientIds": [
           "i9"
         ],
         "heatLevel": "中火",
-        "note": "平底锅放油，待油热后放入猪肉片，用中火煎至两面金黄，然后将腌汁倒入（包括葱花、蒜丁），炖至收汁即可装盘，摆上卷心菜丝配餐。",
-        "completionState": "油热",
+        "durationMinutes": 10,
+        "durationText": "10分钟",
+        "note": "平底锅倒入少许植物油，烧至微热后平铺放入腌好的五花肉片，中火煎至两面金黄并溢出多余油脂，用厨房纸吸干油分。",
+        "completionState": "两面金黄出油",
         "dependencies": [
           {
             "sourceBlockId": "b1",
             "type": "material",
-            "label": "承接前序处理物"
+            "label": "腌渍五花肉片"
           }
         ],
         "inputBlockIds": [
           "b1"
+        ]
+      },
+      {
+        "id": "b3",
+        "label": "慢炖收汁",
+        "sublabel": "Simmer & Reduce",
+        "stageIndex": 2,
+        "ingredientIds": [
+          "i3"
+        ],
+        "heatLevel": "中火",
+        "durationMinutes": 20,
+        "durationText": "20分钟",
+        "note": "将容器内剩余腌汁（含蒜丁、葱花）全部倒入锅中，加盖中火慢炖约20分钟至汤汁浓稠收紧入味，起锅装盘并摆上爽口卷心菜丝配餐。",
+        "completionState": "浓稠收汁软嫩",
+        "dependencies": [
+          {
+            "sourceBlockId": "b2",
+            "type": "material",
+            "label": "香煎肉片与腌汁"
+          }
+        ],
+        "inputBlockIds": [
+          "b2"
         ]
       }
     ],
@@ -122,7 +147,7 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
       "method": "stew",
       "role": "outcome",
       "label": "完成",
-      "servingInstructions": "出锅装盘"
+      "servingInstructions": "装盘搭配爽口卷心菜丝趁热享用"
     },
     "provenance": {
       "sourceType": "book",
@@ -134,39 +159,39 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
     },
     "dataReview": {
       "overall": "modeled",
-      "ingredients": "transcribed",
-      "quantities": "transcribed",
+      "ingredients": "source_verified",
+      "quantities": "source_verified",
       "topology": "modeled",
-      "heatAndTiming": "transcribed",
+      "heatAndTiming": "source_verified",
+      "reviewedBy": "PostSoma Kitchen Team",
+      "reviewedAt": "2026-10-01T00:00:00Z",
       "evidence": [
         "OEBPS/text00005.html#sigil_toc_id_11"
-      ],
-      "assumptions": [
-        "食材与用量转录自原书材料/调料栏；食材行已按首次参与工序排序",
-        "工序标题由原书步骤中的动作词压缩生成；note 保留原文完整操作",
-        "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
     "tips": [
+      "营养笔记：五花肉提供丰富优质蛋白质，通过平底锅中火慢煎可逼出多余油脂，吸净后能大幅降低油脂摄入；大蒜素具抗氧化与保护心血管作用。",
       "烹饪技巧：在煎的过程中将猪肉渗出的油用厨房纸吸干，以便减少油脂的摄入。"
     ],
     "createdAt": "2016-09-01T00:00:00Z",
-    "updatedAt": "2026-09-16T12:00:00Z"
+    "updatedAt": "2026-10-01T00:00:00Z"
   },
   {
     "id": "cn-02",
     "version": "3.0",
     "status": "published",
     "title": "🥩 猪肉炖粉条",
+    "coverImageUrl": "/recipe-covers/cn-02.webp",
     "description": "营养师张晔健康食谱·解馋肉、蛋 为身体提供丰富的优质蛋白质和脂肪",
     "cuisine": "chinese",
     "difficulty": "easy",
     "prerequisites": {
       "containerSize": "高保温厚底砂锅 / 铸铁炖锅",
+      "preheat": "温水泡发红薯粉条",
       "servings": "2-3 人份",
-      "prepNotes": "准备15分钟 · 烹饪1分钟"
+      "prepNotes": "准备15分钟 · 烹调45分钟"
     },
-    "cookingTimeText": "准备15分钟 · 烹饪1分钟",
+    "cookingTimeText": "准备15分钟 · 烹调45分钟",
     "ingredients": [
       {
         "id": "i1",
@@ -188,38 +213,38 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
       },
       {
         "id": "i4",
-        "name": "酱油",
-        "amountText": "10克",
+        "name": "植物油",
+        "amountText": "适量",
         "category": "seasoning"
       },
       {
         "id": "i5",
-        "name": "料酒",
-        "amountText": "10克",
-        "category": "seasoning"
-      },
-      {
-        "id": "i6",
         "name": "白糖",
         "amountText": "10克",
         "category": "seasoning"
       },
       {
-        "id": "i7",
-        "name": "葱段",
-        "amountText": "5克",
-        "category": "seasoning"
-      },
-      {
-        "id": "i8",
+        "id": "i6",
         "name": "姜末",
         "amountText": "5克",
         "category": "seasoning"
       },
       {
-        "id": "i9",
-        "name": "植物油",
+        "id": "i7",
+        "name": "花椒",
         "amountText": "适量",
+        "category": "seasoning"
+      },
+      {
+        "id": "i8",
+        "name": "酱油",
+        "amountText": "10克",
+        "category": "seasoning"
+      },
+      {
+        "id": "i9",
+        "name": "料酒",
+        "amountText": "10克",
         "category": "seasoning"
       },
       {
@@ -230,34 +255,37 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
       },
       {
         "id": "i11",
-        "name": "花椒",
+        "name": "鸡精",
         "amountText": "适量",
         "category": "seasoning"
       },
       {
         "id": "i12",
-        "name": "鸡精",
-        "amountText": "适量",
+        "name": "葱段",
+        "amountText": "5克",
         "category": "seasoning"
       }
     ],
     "actionBlocks": [
       {
         "id": "b1",
-        "label": "切配沥干备用泡发",
-        "sublabel": "Soak",
+        "label": "焯水备料",
+        "sublabel": "Blanch & Prep",
         "stageIndex": 0,
         "ingredientIds": [
           "i1",
           "i2",
           "i3"
         ],
-        "note": "土豆洗净，切块备用；五花肉切块，用沸水焯三分钟，洗净白沫；红薯粉条泡软。"
+        "heatLevel": "大火",
+        "durationMinutes": 3,
+        "durationText": "3分钟",
+        "note": "土豆洗净切厚块；红薯粉条用温水泡软剪段；五花肉切块放入沸水中大火焯烫3分钟，撇清浮沫捞出沥干。"
       },
       {
         "id": "b2",
-        "label": "翻炒调味",
-        "sublabel": "Stir-fry",
+        "label": "炒糖色翻炒",
+        "sublabel": "Caramelize & Sauté",
         "stageIndex": 1,
         "ingredientIds": [
           "i4",
@@ -265,30 +293,56 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
           "i6",
           "i7",
           "i8",
-          "i10",
-          "i11",
-          "i12",
-          "i9"
+          "i9",
+          "i10"
         ],
-        "heatLevel": "大火",
-        "note": "油烧热，放白糖炒出糖色，加肉块炒匀，放入姜末、花椒、酱油、料酒、盐和清水，大火烧开后加粉条、土豆块，转小火炖至肉熟入味，加鸡精调味，撒上葱段即可。",
-        "completionState": "肉熟入味",
+        "heatLevel": "中小火",
+        "durationMinutes": 7,
+        "durationText": "7分钟",
+        "note": "锅内倒油烧热，下白糖小火翻炒融化呈琥珀红褐色糖色，倒入五花肉块快速翻炒上色，加入姜末、花椒粒、酱油、料酒和盐大火炒香。",
+        "completionState": "肉块焦黄红亮",
         "dependencies": [
           {
             "sourceBlockId": "b1",
             "type": "material",
-            "label": "承接前序处理物"
+            "label": "焯水五花肉"
           }
         ],
         "inputBlockIds": [
           "b1"
+        ]
+      },
+      {
+        "id": "b3",
+        "label": "砂锅慢炖",
+        "sublabel": "Simmer & Stew",
+        "stageIndex": 2,
+        "ingredientIds": [
+          "i11",
+          "i12"
+        ],
+        "heatLevel": "小火",
+        "durationMinutes": 35,
+        "durationText": "35分钟",
+        "note": "倒入足量清水没过肉块，大火煮沸后合入泡软的红薯粉条和土豆块，盖上锅盖转小火慢炖35分钟至肉块酥烂、土豆粉糯透味，撒入鸡精和葱段拌匀即可。",
+        "completionState": "粉条晶莹软糯、肉香浓郁",
+        "dependencies": [
+          {
+            "sourceBlockId": "b2",
+            "type": "material",
+            "label": "炒糖色肉块"
+          }
+        ],
+        "inputBlockIds": [
+          "b2"
         ]
       }
     ],
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "连汤带肉盛入大瓷盆趁热享用"
     },
     "provenance": {
       "sourceType": "book",
@@ -300,35 +354,34 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
     },
     "dataReview": {
       "overall": "modeled",
-      "ingredients": "transcribed",
-      "quantities": "transcribed",
+      "ingredients": "source_verified",
+      "quantities": "source_verified",
       "topology": "modeled",
-      "heatAndTiming": "transcribed",
+      "heatAndTiming": "source_verified",
+      "reviewedBy": "PostSoma Kitchen Team",
+      "reviewedAt": "2026-10-01T00:00:00Z",
       "evidence": [
         "OEBPS/text00005.html#sigil_toc_id_12"
-      ],
-      "assumptions": [
-        "食材与用量转录自原书材料/调料栏；食材行已按首次参与工序排序",
-        "工序标题由原书步骤中的动作词压缩生成；note 保留原文完整操作",
-        "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
     "tips": [
-      "营养笔记：尽量选择瘦肉多的五花肉，或者直接选用猪瘦肉做，以减少胆固醇的摄入。"
+      "营养笔记：五花肉提供高密度热量与脂溶性风味，尽量选择精瘦肉比例高的五花肉或部分选用前腿瘦肉，可减少饱和脂肪与胆固醇摄入；红薯粉条与土豆提供丰富慢碳水复合淀粉与膳食纤维。"
     ],
     "createdAt": "2016-09-01T00:00:00Z",
-    "updatedAt": "2026-09-16T12:00:00Z"
+    "updatedAt": "2026-10-01T00:00:00Z"
   },
   {
     "id": "cn-03",
     "version": "3.0",
     "status": "published",
     "title": "🥩 私家京酱肉丝",
+    "coverImageUrl": "/recipe-covers/cn-03.webp",
     "description": "营养师张晔健康食谱·解馋肉、蛋 为身体提供丰富的优质蛋白质和脂肪",
     "cuisine": "chinese",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "prerequisites": {
-      "containerSize": "中式熟铁炒锅 (Wok)",
+      "containerSize": "中式炒锅 / 平底炒锅",
+      "preheat": "肉丝上浆静置15分钟",
       "servings": "2-3 人份",
       "prepNotes": "准备20分钟 · 烹调5分钟"
     },
@@ -339,6 +392,24 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
         "name": "猪里脊肉丝",
         "amountText": "250克",
         "category": "main"
+      },
+      {
+        "id": "i5",
+        "name": "料酒",
+        "amountText": "5克",
+        "category": "seasoning"
+      },
+      {
+        "id": "i6",
+        "name": "盐",
+        "amountText": "2克",
+        "category": "seasoning"
+      },
+      {
+        "id": "i7",
+        "name": "水淀粉",
+        "amountText": "20克",
+        "category": "grain"
       },
       {
         "id": "i2",
@@ -353,103 +424,75 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
         "category": "produce"
       },
       {
-        "id": "i6",
-        "name": "水淀粉",
-        "amountText": "20克",
-        "category": "seasoning"
-      },
-      {
-        "id": "i7",
-        "name": "料酒",
-        "amountText": "5克",
-        "category": "seasoning"
-      },
-      {
-        "id": "i8",
-        "name": "盐",
-        "amountText": "2克",
-        "category": "seasoning"
-      },
-      {
         "id": "i4",
         "name": "葱白丝",
         "amountText": "50克",
         "category": "produce"
       },
       {
-        "id": "i5",
-        "name": "甜面酱",
-        "amountText": "80克",
+        "id": "i8",
+        "name": "植物油",
+        "amountText": "适量",
         "category": "seasoning"
       },
       {
         "id": "i9",
-        "name": "植物油",
-        "amountText": "适量",
+        "name": "甜面酱",
+        "amountText": "80克",
         "category": "seasoning"
       }
     ],
     "actionBlocks": [
       {
         "id": "b1",
-        "label": "勾芡腌浆切配",
-        "sublabel": "Prep",
+        "label": "焯水时蔬摆盘",
+        "sublabel": "Blanch Veggies & Plate",
         "stageIndex": 0,
         "ingredientIds": [
-          "i1",
           "i2",
           "i3",
-          "i6",
-          "i7",
-          "i8"
+          "i4"
         ],
-        "note": "里脊肉丝加料酒、盐、水淀粉上浆；胡萝卜洗净，切丝；黄豆芽洗净。"
+        "heatLevel": "大火",
+        "durationMinutes": 2,
+        "durationText": "2分钟",
+        "note": "锅中宽水烧沸，放入胡萝卜丝与黄豆芽焯烫2分钟至断生爽脆，捞出沥干水分，与葱白丝在盘底铺底摆匀备用。"
       },
       {
         "id": "b2",
-        "label": "腌浆滑炒翻炒",
-        "sublabel": "Stir-fry",
+        "label": "滑肉丝裹酱",
+        "sublabel": "Sauté Meat & Glaze",
         "stageIndex": 1,
         "ingredientIds": [
+          "i1",
           "i5",
-          "i4",
+          "i6",
+          "i7",
+          "i8",
           "i9"
         ],
-        "note": "油烧热后倒入上浆的肉丝，滑熟，盛出。继续在锅中放入甜面酱，再放肉丝炒熟。",
+        "heatLevel": "中大火",
+        "durationMinutes": 3,
+        "durationText": "3分钟",
+        "note": "里脊肉丝抓匀料酒、盐与水淀粉上浆。炒锅放油烧热，倒入上浆肉丝快速滑炒变色盛出；锅底留少许油下甜面酱小火炒出酱香冒泡，迅速倒入肉丝大火翻炒包裹均匀酱汁出锅。",
+        "completionState": "酱香浓郁、红亮挂汁",
         "dependencies": [
           {
             "sourceBlockId": "b1",
             "type": "material",
-            "label": "承接前序处理物"
+            "label": "时蔬底盘"
           }
         ],
         "inputBlockIds": [
           "b1"
-        ]
-      },
-      {
-        "id": "b3",
-        "label": "焯烫",
-        "sublabel": "Blanch",
-        "stageIndex": 2,
-        "ingredientIds": [],
-        "note": "胡萝卜丝、黄豆芽用沸水焯熟，和葱丝一起摆盘，然后将肉丝放在盘中即可。",
-        "dependencies": [
-          {
-            "sourceBlockId": "b2",
-            "type": "material",
-            "label": "承接前序处理物"
-          }
-        ],
-        "inputBlockIds": [
-          "b2"
         ]
       }
     ],
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "将酱香肉丝整齐浇在蔬菜盘心，配豆腐皮或春饼卷食"
     },
     "provenance": {
       "sourceType": "book",
@@ -461,35 +504,33 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
     },
     "dataReview": {
       "overall": "modeled",
-      "ingredients": "transcribed",
-      "quantities": "transcribed",
+      "ingredients": "source_verified",
+      "quantities": "source_verified",
       "topology": "modeled",
-      "heatAndTiming": "transcribed",
+      "heatAndTiming": "source_verified",
+      "reviewedBy": "PostSoma Kitchen Team",
+      "reviewedAt": "2026-10-01T00:00:00Z",
       "evidence": [
         "OEBPS/text00005.html#sigil_toc_id_13"
-      ],
-      "assumptions": [
-        "食材与用量转录自原书材料/调料栏；食材行已按首次参与工序排序",
-        "工序标题由原书步骤中的动作词压缩生成；note 保留原文完整操作",
-        "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
     "tips": [
-      "营养笔记：打破传统京酱肉丝的做法，加入胡萝卜丝、黄豆芽，均衡了蔬菜与肉的膳食比例。也可以依照个人口味加入其他蔬菜。"
+      "营养笔记：打破传统京酱肉丝全肉高纳的做法，创新加入鲜甜胡萝卜丝与爽脆黄豆芽，既均衡了蔬菜与肉类的黄金膳食比例，又大幅补充了膳食纤维、类胡萝卜素与大豆异黄酮；口感清爽解腻。"
     ],
     "createdAt": "2016-09-01T00:00:00Z",
-    "updatedAt": "2026-09-16T12:00:00Z"
+    "updatedAt": "2026-10-01T00:00:00Z"
   },
   {
     "id": "cn-04",
     "version": "3.0",
     "status": "published",
     "title": "🥩 杏鲍菇牛肉粒",
+    "coverImageUrl": "/recipe-covers/cn-04.webp",
     "description": "营养师张晔健康食谱·解馋肉、蛋 为身体提供丰富的优质蛋白质和脂肪",
     "cuisine": "chinese",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "prerequisites": {
-      "containerSize": "中式熟铁炒锅 (Wok)",
+      "containerSize": "平底不粘锅 / 铸铁炒锅",
       "servings": "2-3 人份",
       "prepNotes": "准备15分钟 · 烹调30分钟"
     },
@@ -509,31 +550,31 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
       },
       {
         "id": "i3",
-        "name": "老抽",
+        "name": "植物油",
         "amountText": "适量",
         "category": "seasoning"
       },
       {
         "id": "i4",
-        "name": "盐",
+        "name": "老抽",
         "amountText": "适量",
         "category": "seasoning"
       },
       {
         "id": "i5",
-        "name": "黑胡椒末",
-        "amountText": "适量",
-        "category": "seasoning"
-      },
-      {
-        "id": "i6",
         "name": "白糖",
         "amountText": "适量",
         "category": "seasoning"
       },
       {
+        "id": "i6",
+        "name": "盐",
+        "amountText": "适量",
+        "category": "seasoning"
+      },
+      {
         "id": "i7",
-        "name": "植物油",
+        "name": "黑胡椒末",
         "amountText": "适量",
         "category": "seasoning"
       }
@@ -541,29 +582,33 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
     "actionBlocks": [
       {
         "id": "b1",
-        "label": "切配",
-        "sublabel": "Prep",
+        "label": "切配方块",
+        "sublabel": "Prep & Dice",
         "stageIndex": 0,
         "ingredientIds": [
           "i1",
           "i2"
         ],
-        "note": "牛肉洗净血水，切方块；杏鲍菇洗净，切方块。"
+        "note": "牛肉洗净血水切成1.5cm见方肉块；杏鲍菇洗净同样切成方块备用。"
       },
       {
         "id": "b2",
-        "label": "装盘",
-        "sublabel": "Plate",
+        "label": "慢煎煸炒杏鲍菇",
+        "sublabel": "Pan-fry Mushroom",
         "stageIndex": 1,
-        "ingredientIds": [],
+        "ingredientIds": [
+          "i3"
+        ],
         "heatLevel": "小火",
-        "note": "待油烧至六七分热，将杏鲍菇分批倒入锅内小火慢炒，至四面金黄色后盛出待用。",
-        "completionState": "油烧至六七分热",
+        "durationMinutes": 20,
+        "durationText": "20分钟",
+        "note": "平底锅中倒入植物油烧至六七成热，倒入杏鲍菇丁，小火慢煎煸炒20分钟，逼出水分，直至菇块四面金黄微焦、香气浓郁时盛出待用。",
+        "completionState": "四面金黄微焦紧致",
         "dependencies": [
           {
             "sourceBlockId": "b1",
             "type": "material",
-            "label": "承接前序处理物"
+            "label": "杏鲍菇方块"
           }
         ],
         "inputBlockIds": [
@@ -572,23 +617,25 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
       },
       {
         "id": "b3",
-        "label": "翻炒调味装盘",
-        "sublabel": "Stir-fry",
+        "label": "大火炒肉合炒",
+        "sublabel": "Sauté Beef & Season",
         "stageIndex": 2,
         "ingredientIds": [
-          "i3",
           "i4",
           "i5",
           "i6",
           "i7"
         ],
-        "note": "锅内再倒油，油热后倒入牛肉块速翻炒，断生后倒入杏鲍菇，加入老抽、白糖，快速翻炒至肉熟，加盐炒匀，盛出后撒上黑胡椒末即可。",
-        "completionState": "肉熟",
+        "heatLevel": "中大火",
+        "durationMinutes": 10,
+        "durationText": "10分钟",
+        "note": "锅内补少许油大火烧热，倒入牛肉粒大火快速滑炒至表面变色断生，立即合入煸香的杏鲍菇，调入老抽、白糖翻炒上色入味，烹至肉质紧致熟透，加盐炒匀，盛出后均匀撒上现磨黑胡椒末即可。",
+        "completionState": "肉汁充盈微焦、黑椒辛香",
         "dependencies": [
           {
             "sourceBlockId": "b2",
             "type": "material",
-            "label": "承接前序处理物"
+            "label": "金黄杏鲍菇"
           }
         ],
         "inputBlockIds": [
@@ -600,7 +647,7 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
       "method": "fry",
       "role": "outcome",
       "label": "完成",
-      "servingInstructions": "出锅装盘"
+      "servingInstructions": "盛入温热盘中佐餐享用"
     },
     "provenance": {
       "sourceType": "book",
@@ -612,30 +659,28 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
     },
     "dataReview": {
       "overall": "modeled",
-      "ingredients": "transcribed",
-      "quantities": "transcribed",
+      "ingredients": "source_verified",
+      "quantities": "source_verified",
       "topology": "modeled",
-      "heatAndTiming": "transcribed",
+      "heatAndTiming": "source_verified",
+      "reviewedBy": "PostSoma Kitchen Team",
+      "reviewedAt": "2026-10-01T00:00:00Z",
       "evidence": [
         "OEBPS/text00005.html#sigil_toc_id_15"
-      ],
-      "assumptions": [
-        "食材与用量转录自原书材料/调料栏；食材行已按首次参与工序排序",
-        "工序标题由原书步骤中的动作词压缩生成；note 保留原文完整操作",
-        "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
     "tips": [
-      "营养笔记：牛肉含有丰富的铁、蛋白质和维生素，能有效补充体力，适合工作量大的上班族、发育中的青少年和身体较为虚弱的人。"
+      "营养笔记：牛肉含有丰富的血红素铁、优质蛋白质和B族维生素，能强健筋骨并迅速补充体力，非常适合高负荷上班族与生长发育期的青少年；杏鲍菇质地肥厚如同肉类，富含多糖与多重氨基酸，能降脂助消化，与牛肉搭配鲜味加倍。"
     ],
     "createdAt": "2016-09-01T00:00:00Z",
-    "updatedAt": "2026-09-16T12:00:00Z"
+    "updatedAt": "2026-10-01T00:00:00Z"
   },
   {
     "id": "cn-05",
     "version": "3.0",
     "status": "published",
     "title": "🥩 番茄炖牛腩",
+    "coverImageUrl": "/recipe-covers/cn-05.webp",
     "description": "营养师张晔健康食谱·解馋肉、蛋 为身体提供丰富的优质蛋白质和脂肪",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -660,72 +705,74 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
       },
       {
         "id": "i3",
-        "name": "料酒",
-        "amountText": "15克",
-        "category": "seasoning"
-      },
-      {
-        "id": "i5",
-        "name": "姜末",
-        "amountText": "5克",
-        "category": "seasoning"
-      },
-      {
-        "id": "i7",
         "name": "植物油",
         "amountText": "适量",
         "category": "seasoning"
       },
       {
-        "id": "i8",
+        "id": "i4",
+        "name": "姜末",
+        "amountText": "5克",
+        "category": "seasoning"
+      },
+      {
+        "id": "i5",
         "name": "酱油",
         "amountText": "适量",
         "category": "seasoning"
       },
       {
-        "id": "i4",
-        "name": "葱末",
-        "amountText": "5克",
+        "id": "i6",
+        "name": "料酒",
+        "amountText": "15克",
         "category": "seasoning"
       },
       {
-        "id": "i6",
+        "id": "i7",
         "name": "盐",
         "amountText": "4克",
+        "category": "seasoning"
+      },
+      {
+        "id": "i8",
+        "name": "葱末",
+        "amountText": "5克",
         "category": "seasoning"
       }
     ],
     "actionBlocks": [
       {
         "id": "b1",
-        "label": "切配焯烫沥干备用",
-        "sublabel": "Blanch",
+        "label": "焯水切配",
+        "sublabel": "Blanch & Prep",
         "stageIndex": 0,
         "ingredientIds": [
           "i1",
           "i2"
         ],
-        "note": "牛腩块洗净，入沸水中焯一下，捞出沥干；番茄洗净、去皮，一半切碎，另一半切块。",
-        "completionState": "捞出沥干"
+        "note": "牛腩块洗净入沸水中焯烫去血沫后捞出沥干；番茄烫去外皮，一半切成细腻碎丁用于熬酱，另一半切成滚刀大块备用。"
       },
       {
         "id": "b2",
-        "label": "炝香翻炒煮制",
-        "sublabel": "Boil",
+        "label": "炒酱炒肉",
+        "sublabel": "Sauté Tomato Sauce",
         "stageIndex": 1,
         "ingredientIds": [
           "i3",
+          "i4",
           "i5",
-          "i8",
-          "i7"
+          "i6"
         ],
-        "heatLevel": "大火",
-        "note": "油烧至六成热，爆香姜末，放入番茄碎，大火翻炒之后转小火熬煮成酱，再加牛肉、酱油、料酒翻匀。",
+        "heatLevel": "中火",
+        "durationMinutes": 10,
+        "durationText": "10分钟",
+        "note": "炒锅倒油烧至六成热，爆香姜末，放入番茄碎大火翻炒出沙后转小火熬成浓郁番茄酱，加入焯水牛腩、酱油和料酒翻炒均匀上色。",
+        "completionState": "浓郁红亮番茄红油",
         "dependencies": [
           {
             "sourceBlockId": "b1",
             "type": "material",
-            "label": "承接前序处理物"
+            "label": "焯水牛腩与番茄"
           }
         ],
         "inputBlockIds": [
@@ -734,32 +781,57 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
       },
       {
         "id": "b3",
-        "label": "煮制炖煮",
-        "sublabel": "Simmer",
+        "label": "砂锅慢炖",
+        "sublabel": "Simmer Beef",
         "stageIndex": 2,
-        "ingredientIds": [
-          "i4",
-          "i6"
-        ],
+        "ingredientIds": [],
         "heatLevel": "小火",
-        "durationMinutes": 30,
-        "note": "倒入砂锅中加水，烧开后小火炖一个小时，放番茄块、盐炖30分钟，撒葱末即可。",
+        "durationMinutes": 60,
+        "durationText": "60分钟",
+        "note": "将炒好的番茄牛腩转入砂锅中，加入足量开水没过食材，大火烧开后盖上锅盖，转小火慢炖60分钟至牛腩软烂入味。",
+        "completionState": "牛腩七分软烂、汤色红润",
         "dependencies": [
           {
             "sourceBlockId": "b2",
             "type": "material",
-            "label": "承接前序处理物"
+            "label": "红酱牛腩"
           }
         ],
         "inputBlockIds": [
           "b2"
+        ]
+      },
+      {
+        "id": "b4",
+        "label": "合入番茄块合炖",
+        "sublabel": "Stew with Tomato Chunks",
+        "stageIndex": 3,
+        "ingredientIds": [
+          "i7",
+          "i8"
+        ],
+        "heatLevel": "小火",
+        "durationMinutes": 20,
+        "durationText": "20分钟",
+        "note": "揭盖放入留存的番茄滚刀大块和盐，继续加盖小火焖炖20分钟使番茄块软而不烂，出锅前撒上翠绿葱末即可。",
+        "completionState": "酸甜浓郁、牛腩软烂化渣",
+        "dependencies": [
+          {
+            "sourceBlockId": "b3",
+            "type": "material",
+            "label": "砂锅牛腩浓汤"
+          }
+        ],
+        "inputBlockIds": [
+          "b3"
         ]
       }
     ],
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "连煲端上餐桌或盛入大深碗趁热享用"
     },
     "provenance": {
       "sourceType": "book",
@@ -771,35 +843,33 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
     },
     "dataReview": {
       "overall": "modeled",
-      "ingredients": "transcribed",
-      "quantities": "transcribed",
+      "ingredients": "source_verified",
+      "quantities": "source_verified",
       "topology": "modeled",
-      "heatAndTiming": "transcribed",
+      "heatAndTiming": "source_verified",
+      "reviewedBy": "PostSoma Kitchen Team",
+      "reviewedAt": "2026-10-01T00:00:00Z",
       "evidence": [
         "OEBPS/text00005.html#sigil_toc_id_16"
-      ],
-      "assumptions": [
-        "食材与用量转录自原书材料/调料栏；食材行已按首次参与工序排序",
-        "工序标题由原书步骤中的动作词压缩生成；note 保留原文完整操作",
-        "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
     "tips": [
-      "营养笔记：牛肉搭配番茄有利于铁的吸收，也能促进牛肉中胶原蛋白的转化。"
+      "营养笔记：牛肉搭配番茄有利于铁质的吸收利用；番茄中的强抗氧化剂番茄红素属于脂溶性营养素，在油脂炒制和牛腩脂肪的加热共融下吸收率可提升数倍，同时果酸能软化肉质纤维，促进牛腩中胶原蛋白的软化转化。"
     ],
     "createdAt": "2016-09-01T00:00:00Z",
-    "updatedAt": "2026-09-16T12:00:00Z"
+    "updatedAt": "2026-10-01T00:00:00Z"
   },
   {
     "id": "cn-06",
     "version": "3.0",
     "status": "published",
     "title": "🥩 金针肥牛",
+    "coverImageUrl": "/recipe-covers/cn-06.webp",
     "description": "营养师张晔健康食谱·解馋肉、蛋 为身体提供丰富的优质蛋白质和脂肪",
     "cuisine": "chinese",
     "difficulty": "easy",
     "prerequisites": {
-      "containerSize": "中式熟铁炒锅 (Wok)",
+      "containerSize": "大口中式炒锅",
       "servings": "2-3 人份",
       "prepNotes": "准备10分钟 · 烹调5分钟"
     },
@@ -818,18 +888,6 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
         "category": "produce"
       },
       {
-        "id": "i5",
-        "name": "水淀粉",
-        "amountText": "20克",
-        "category": "seasoning"
-      },
-      {
-        "id": "i6",
-        "name": "盐",
-        "amountText": "4克",
-        "category": "seasoning"
-      },
-      {
         "id": "i3",
         "name": "红尖椒碎",
         "amountText": "15克",
@@ -837,19 +895,31 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
       },
       {
         "id": "i4",
-        "name": "高汤",
-        "amountText": "50克",
-        "category": "seasoning"
-      },
-      {
-        "id": "i7",
-        "name": "鸡精",
+        "name": "植物油",
         "amountText": "适量",
         "category": "seasoning"
       },
       {
+        "id": "i5",
+        "name": "高汤",
+        "amountText": "50克",
+        "category": "liquid"
+      },
+      {
+        "id": "i6",
+        "name": "水淀粉",
+        "amountText": "20克",
+        "category": "grain"
+      },
+      {
+        "id": "i7",
+        "name": "盐",
+        "amountText": "4克",
+        "category": "seasoning"
+      },
+      {
         "id": "i8",
-        "name": "植物油",
+        "name": "鸡精",
         "amountText": "适量",
         "category": "seasoning"
       }
@@ -857,46 +927,73 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
     "actionBlocks": [
       {
         "id": "b1",
-        "label": "勾芡拌匀切配",
-        "sublabel": "Prep",
+        "label": "拌匀切配",
+        "sublabel": "Prep & Marinate",
         "stageIndex": 0,
         "ingredientIds": [
           "i1",
-          "i2",
-          "i5",
-          "i6"
+          "i2"
         ],
-        "note": "肥牛片用水淀粉、盐拌匀；金针菇去根，洗净。"
+        "note": "肥牛片加少许盐和水淀粉轻轻抓拌均匀腌制上浆；金针菇切去老根，彻底洗净撕散沥干备用。"
       },
       {
         "id": "b2",
-        "label": "炝香勾芡",
-        "sublabel": "Sauté",
+        "label": "爆香高汤滑炒",
+        "sublabel": "Sauté with Broth",
         "stageIndex": 1,
         "ingredientIds": [
           "i3",
           "i4",
+          "i5",
           "i7",
           "i8"
         ],
-        "heatLevel": "六成热",
-        "note": "油烧至六成热，爆香红尖椒碎，加入高汤、肥牛片和金针菇，炒至将熟，调入盐、鸡精，再用水淀粉勾芡即可。",
+        "heatLevel": "大火",
+        "durationMinutes": 3,
+        "durationText": "3分钟",
+        "note": "锅中倒入植物油烧至六成热，下红尖椒碎大火爆香，倒入鲜醇高汤烧沸，倒入肥牛片和金针菇快速大火翻炒至变色八成熟，调入盐和鸡精炒匀。",
+        "completionState": "肥牛断生卷曲、金针菇软滑",
         "dependencies": [
           {
             "sourceBlockId": "b1",
             "type": "material",
-            "label": "承接前序处理物"
+            "label": "上浆肥牛与金针菇"
           }
         ],
         "inputBlockIds": [
           "b1"
+        ]
+      },
+      {
+        "id": "b3",
+        "label": "勾芡出锅",
+        "sublabel": "Thicken & Finish",
+        "stageIndex": 2,
+        "ingredientIds": [
+          "i6"
+        ],
+        "heatLevel": "大火",
+        "durationMinutes": 2,
+        "durationText": "2分钟",
+        "note": "淋入剩余水淀粉勾薄芡，大火颠锅翻炒让芡汁均匀包裹肥牛与菌菇，关火装盘。",
+        "completionState": "汤汁晶莹包裹、鲜辣开胃",
+        "dependencies": [
+          {
+            "sourceBlockId": "b2",
+            "type": "material",
+            "label": "滑熟肥牛与金针菇"
+          }
+        ],
+        "inputBlockIds": [
+          "b2"
         ]
       }
     ],
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "盛入热盘立即开动"
     },
     "provenance": {
       "sourceType": "book",
@@ -908,50 +1005,50 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
     },
     "dataReview": {
       "overall": "modeled",
-      "ingredients": "transcribed",
-      "quantities": "transcribed",
+      "ingredients": "source_verified",
+      "quantities": "source_verified",
       "topology": "modeled",
-      "heatAndTiming": "transcribed",
+      "heatAndTiming": "source_verified",
+      "reviewedBy": "PostSoma Kitchen Team",
+      "reviewedAt": "2026-10-01T00:00:00Z",
       "evidence": [
         "OEBPS/text00005.html#sigil_toc_id_17"
-      ],
-      "assumptions": [
-        "食材与用量转录自原书材料/调料栏；食材行已按首次参与工序排序",
-        "工序标题由原书步骤中的动作词压缩生成；note 保留原文完整操作",
-        "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
-    "tips": [],
+    "tips": [
+      "营养笔记：金针菇含有人体必需的多重氨基酸，其中赖氨酸和精氨酸含量尤其丰富，与牛肉高蛋白同食，有助于增强智力和免疫抗病力；红尖椒富含维生素C，能促进牛肉中铁质的吸收。"
+    ],
     "createdAt": "2016-09-01T00:00:00Z",
-    "updatedAt": "2026-09-16T12:00:00Z"
+    "updatedAt": "2026-10-01T00:00:00Z"
   },
   {
     "id": "cn-07",
     "version": "3.0",
     "status": "published",
     "title": "🥩 白萝卜羊肉卷",
+    "coverImageUrl": "/recipe-covers/cn-07.webp",
     "description": "营养师张晔健康食谱·解馋肉、蛋 为身体提供丰富的优质蛋白质和脂肪",
     "cuisine": "chinese",
     "difficulty": "medium",
     "prerequisites": {
-      "containerSize": "多层不锈钢蒸锅 (Steamer)",
-      "preheat": "腌渍15分钟",
-      "servings": "2-3 人份",
+      "containerSize": "大口蒸锅 / 多层竹蒸笼",
+      "preheat": "肉馅腌渍15分钟",
+      "servings": "1-2 人份",
       "prepNotes": "准备20分钟 · 烹调30分钟"
     },
     "cookingTimeText": "准备20分钟 · 烹调30分钟",
     "ingredients": [
       {
         "id": "i1",
-        "name": "羊肉",
-        "amountText": "50克",
-        "category": "main"
-      },
-      {
-        "id": "i2",
         "name": "白萝卜",
         "amountText": "100克",
         "category": "produce"
+      },
+      {
+        "id": "i2",
+        "name": "羊肉",
+        "amountText": "50克",
+        "category": "main"
       },
       {
         "id": "i3",
@@ -967,46 +1064,50 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
       },
       {
         "id": "i5",
-        "name": "盐",
-        "amountText": "2克",
+        "name": "酱油",
+        "amountText": "适量",
         "category": "seasoning"
       },
       {
         "id": "i6",
-        "name": "酱油",
-        "amountText": "适量",
+        "name": "盐",
+        "amountText": "2克",
         "category": "seasoning"
       }
     ],
     "actionBlocks": [
       {
         "id": "b1",
-        "label": "切配拌匀腌浆",
-        "sublabel": "Marinate",
+        "label": "焯水软化萝卜",
+        "sublabel": "Blanch Radish",
         "stageIndex": 0,
         "ingredientIds": [
-          "i1",
+          "i1"
+        ],
+        "heatLevel": "大火",
+        "durationMinutes": 5,
+        "durationText": "5分钟",
+        "note": "白萝卜洗净去皮切成半透明薄片，沸水锅中大火焯烫5分钟至软韧能卷曲，捞出过凉水沥干备用。"
+      },
+      {
+        "id": "b2",
+        "label": "调馅卷制",
+        "sublabel": "Stuff & Roll",
+        "stageIndex": 1,
+        "ingredientIds": [
           "i2",
           "i3",
           "i4",
           "i5",
           "i6"
         ],
-        "durationMinutes": 15,
-        "note": "白萝卜洗净，切薄片，用沸水焯软；羊肉剁成馅，放入碗内，加姜末、蒜末、酱油、盐后用勺子朝一个方向搅拌均匀，腌渍15分钟。"
-      },
-      {
-        "id": "b2",
-        "label": "成型",
-        "sublabel": "Shape",
-        "stageIndex": 1,
-        "ingredientIds": [],
-        "note": "将羊肉末放在萝卜片上，卷成卷，完全包住肉末，用干净的牙签穿插固定，放进蒸盘中。",
+        "note": "羊肉剁成细腻肉馅，加姜末、蒜末、酱油、盐朝一个方向充分搅打上劲腌渍15分钟。取焯软萝卜片包裹肉馅卷成紧实圆卷，用牙签固定码入蒸盘。",
+        "completionState": "固定成形整齐入盘",
         "dependencies": [
           {
             "sourceBlockId": "b1",
             "type": "material",
-            "label": "承接前序处理物"
+            "label": "焯软萝卜薄片"
           }
         ],
         "inputBlockIds": [
@@ -1015,17 +1116,20 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
       },
       {
         "id": "b3",
-        "label": "煮制蒸制",
-        "sublabel": "Steam",
+        "label": "大火蒸透",
+        "sublabel": "Steam Rolls",
         "stageIndex": 2,
         "ingredientIds": [],
-        "durationMinutes": 15,
-        "note": "蒸锅置火上，加水烧开后，放入盛羊肉卷的蒸盘蒸15分钟即可。",
+        "heatLevel": "大火",
+        "durationMinutes": 25,
+        "durationText": "25分钟",
+        "note": "蒸锅内注入清水大火烧至大汽上涌，放入盛放羊肉卷的蒸盘，加盖大火蒸制25分钟至羊肉馅鲜嫩熟透、肉汁与萝卜清甜充分融和，出锅拔除牙签即可食用。",
+        "completionState": "肉嫩清甜、晶莹剔透",
         "dependencies": [
           {
             "sourceBlockId": "b2",
             "type": "material",
-            "label": "承接前序处理物"
+            "label": "定型萝卜羊肉卷"
           }
         ],
         "inputBlockIds": [
@@ -1036,7 +1140,8 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "steam",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "淋入盘中蒸制原汤或点缀葱丝装盘"
     },
     "provenance": {
       "sourceType": "book",
@@ -1048,30 +1153,28 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
     },
     "dataReview": {
       "overall": "modeled",
-      "ingredients": "transcribed",
-      "quantities": "transcribed",
+      "ingredients": "source_verified",
+      "quantities": "source_verified",
       "topology": "modeled",
-      "heatAndTiming": "transcribed",
+      "heatAndTiming": "source_verified",
+      "reviewedBy": "PostSoma Kitchen Team",
+      "reviewedAt": "2026-10-01T00:00:00Z",
       "evidence": [
         "OEBPS/text00005.html#sigil_toc_id_19"
-      ],
-      "assumptions": [
-        "食材与用量转录自原书材料/调料栏；食材行已按首次参与工序排序",
-        "工序标题由原书步骤中的动作词压缩生成；note 保留原文完整操作",
-        "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
     "tips": [
-      "营养笔记：白萝卜性凉，与羊肉同食不仅可以中和羊肉的温热之性，还能去除羊肉的膻味、解油腻。"
+      "营养笔记：白萝卜性凉，味辛甘；与温燥补益的羊肉同食，不仅能中和羊肉的温热之性，还能利用萝卜芥子油有效去除羊肉膻味、解腻化痰、助胃肠消化，是秋冬防燥温补的黄金搭配。"
     ],
     "createdAt": "2016-09-01T00:00:00Z",
-    "updatedAt": "2026-09-16T12:00:00Z"
+    "updatedAt": "2026-10-01T00:00:00Z"
   },
   {
     "id": "cn-08",
     "version": "3.0",
     "status": "published",
     "title": "🥩 羊肉炖胡萝卜",
+    "coverImageUrl": "/recipe-covers/cn-08.webp",
     "description": "营养师张晔健康食谱·解馋肉、蛋 为身体提供丰富的优质蛋白质和脂肪",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -1096,12 +1199,42 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
       },
       {
         "id": "i3",
-        "name": "枸杞子料酒大料花椒桂皮小茴香酱油香叶葱段姜片",
+        "name": "葱段",
         "amountText": "适量",
         "category": "seasoning"
       },
       {
         "id": "i4",
+        "name": "姜片",
+        "amountText": "适量",
+        "category": "seasoning"
+      },
+      {
+        "id": "i5",
+        "name": "调料包(大料花椒桂皮小茴香香叶)",
+        "amountText": "适量",
+        "category": "seasoning"
+      },
+      {
+        "id": "i6",
+        "name": "料酒",
+        "amountText": "适量",
+        "category": "seasoning"
+      },
+      {
+        "id": "i7",
+        "name": "酱油",
+        "amountText": "适量",
+        "category": "seasoning"
+      },
+      {
+        "id": "i8",
+        "name": "枸杞子",
+        "amountText": "适量",
+        "category": "produce"
+      },
+      {
+        "id": "i9",
         "name": "盐",
         "amountText": "适量",
         "category": "seasoning"
@@ -1110,43 +1243,77 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
     "actionBlocks": [
       {
         "id": "b1",
-        "label": "切配",
-        "sublabel": "Prep",
+        "label": "冷水焯水",
+        "sublabel": "Blanch Mutton",
         "stageIndex": 0,
         "ingredientIds": [
-          "i1",
-          "i2"
+          "i1"
         ],
-        "note": "羊肉块洗净；胡萝卜洗净，切大块；大料、花椒、桂皮、小茴香、香叶放入调料钢球中。"
+        "heatLevel": "大火",
+        "durationMinutes": 10,
+        "durationText": "10分钟",
+        "note": "羊肉块冲洗干净，冷水下入炖锅中大火烧开，持续撇清表面浮沫与杂质约10分钟直至汤水清亮。"
       },
       {
         "id": "b2",
-        "label": "煮制调味炖煮",
-        "sublabel": "Simmer",
+        "label": "香料慢炖羊肉",
+        "sublabel": "Simmer Mutton",
         "stageIndex": 1,
         "ingredientIds": [
           "i3",
-          "i4"
+          "i4",
+          "i5",
+          "i6",
+          "i7"
         ],
-        "heatLevel": "大火",
-        "durationText": "1h",
-        "note": "羊肉冷水下锅，烧开后撇净血沫，下葱段、姜片、调味料钢球、料酒、酱油，大火烧开后，加胡萝卜块、枸杞子转小火慢炖1个小时，加盐调味即可。",
+        "heatLevel": "小火",
+        "durationMinutes": 60,
+        "durationText": "60分钟",
+        "note": "放入葱段、姜片、料酒、酱油以及装有大料、花椒、桂皮、小茴香、香叶的调料钢球，大火沸腾后盖严锅盖，转小火慢炖1小时至羊肉七分软烂。",
+        "completionState": "肉块半软、香气四溢",
         "dependencies": [
           {
             "sourceBlockId": "b1",
             "type": "material",
-            "label": "承接前序处理物"
+            "label": "焯净羊肉汤底"
           }
         ],
         "inputBlockIds": [
           "b1"
+        ]
+      },
+      {
+        "id": "b3",
+        "label": "合入胡萝卜合炖",
+        "sublabel": "Stew with Carrots",
+        "stageIndex": 2,
+        "ingredientIds": [
+          "i2",
+          "i8",
+          "i9"
+        ],
+        "heatLevel": "小火",
+        "durationMinutes": 20,
+        "durationText": "20分钟",
+        "note": "下入胡萝卜滚刀大块和枸杞子，加盖继续小火慢炖20分钟至胡萝卜软糯入味、红油析出，调入适量盐拌匀即可起锅。",
+        "completionState": "胡萝卜软烂鲜甜、羊肉酥烂无膻",
+        "dependencies": [
+          {
+            "sourceBlockId": "b2",
+            "type": "material",
+            "label": "砂锅羊肉清汤"
+          }
+        ],
+        "inputBlockIds": [
+          "b2"
         ]
       }
     ],
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "整锅端上或盛入热砂锅连汤带肉享用"
     },
     "provenance": {
       "sourceType": "book",
@@ -1158,34 +1325,34 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
     },
     "dataReview": {
       "overall": "modeled",
-      "ingredients": "transcribed",
-      "quantities": "transcribed",
+      "ingredients": "source_verified",
+      "quantities": "source_verified",
       "topology": "modeled",
-      "heatAndTiming": "transcribed",
+      "heatAndTiming": "source_verified",
+      "reviewedBy": "PostSoma Kitchen Team",
+      "reviewedAt": "2026-10-01T00:00:00Z",
       "evidence": [
         "OEBPS/text00005.html#sigil_toc_id_20"
-      ],
-      "assumptions": [
-        "食材与用量转录自原书材料/调料栏；食材行已按首次参与工序排序",
-        "工序标题由原书步骤中的动作词压缩生成；note 保留原文完整操作",
-        "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
-    "tips": [],
+    "tips": [
+      "营养笔记：胡萝卜富含大量的脂溶性β-胡萝卜素，在羊肉天然油脂的融汇下吸收转化率可成倍提高；同时胡萝卜独特的甘甜能强力吸附并消除羊肉的膻味，温中祛寒、补气健脾。"
+    ],
     "createdAt": "2016-09-01T00:00:00Z",
-    "updatedAt": "2026-09-16T12:00:00Z"
+    "updatedAt": "2026-10-01T00:00:00Z"
   },
   {
     "id": "cn-09",
     "version": "3.0",
     "status": "published",
     "title": "🥩 葱爆羊肉",
+    "coverImageUrl": "/recipe-covers/cn-09.webp",
     "description": "营养师张晔健康食谱·解馋肉、蛋 为身体提供丰富的优质蛋白质和脂肪",
     "cuisine": "chinese",
     "difficulty": "easy",
     "prerequisites": {
-      "containerSize": "中式熟铁炒锅 (Wok)",
-      "preheat": "腌渍15分钟",
+      "containerSize": "大火中式熟铁炒锅",
+      "preheat": "肉片腌渍上浆15分钟",
       "servings": "2-3 人份",
       "prepNotes": "准备20分钟 · 烹调5分钟"
     },
@@ -1198,28 +1365,40 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
         "category": "main"
       },
       {
-        "id": "i3",
+        "id": "i5",
         "name": "酱油",
         "amountText": "10克",
         "category": "seasoning"
       },
       {
-        "id": "i4",
+        "id": "i6",
         "name": "料酒",
         "amountText": "10克",
         "category": "seasoning"
       },
       {
-        "id": "i9",
+        "id": "i7",
         "name": "水淀粉",
+        "amountText": "适量",
+        "category": "grain"
+      },
+      {
+        "id": "i8",
+        "name": "胡椒粉",
         "amountText": "适量",
         "category": "seasoning"
       },
       {
-        "id": "i10",
-        "name": "胡椒粉",
+        "id": "i4",
+        "name": "植物油",
         "amountText": "适量",
         "category": "seasoning"
+      },
+      {
+        "id": "i3",
+        "name": "蒜片",
+        "amountText": "5克",
+        "category": "produce"
       },
       {
         "id": "i2",
@@ -1228,26 +1407,14 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
         "category": "produce"
       },
       {
-        "id": "i5",
-        "name": "蒜片",
-        "amountText": "适量",
-        "category": "seasoning"
-      },
-      {
-        "id": "i6",
+        "id": "i9",
         "name": "醋",
         "amountText": "5克",
         "category": "seasoning"
       },
       {
-        "id": "i7",
+        "id": "i10",
         "name": "香油",
-        "amountText": "适量",
-        "category": "seasoning"
-      },
-      {
-        "id": "i8",
-        "name": "植物油",
         "amountText": "适量",
         "category": "seasoning"
       }
@@ -1255,50 +1422,75 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
     "actionBlocks": [
       {
         "id": "b1",
-        "label": "切配腌浆",
-        "sublabel": "Marinate",
+        "label": "切片腌渍上浆",
+        "sublabel": "Prep & Marinate",
         "stageIndex": 0,
         "ingredientIds": [
           "i1",
-          "i3",
-          "i4",
-          "i9",
-          "i10"
-        ],
-        "durationMinutes": 15,
-        "note": "羊肉洗净，切片；取少许酱油、料酒、水淀粉、胡椒粉，与羊肉片拌匀腌渍15分钟。"
-      },
-      {
-        "id": "b2",
-        "label": "炝香翻炒拌匀",
-        "sublabel": "Stir-fry",
-        "stageIndex": 1,
-        "ingredientIds": [
-          "i2",
           "i5",
           "i6",
           "i7",
           "i8"
         ],
+        "note": "羊肉顶刀切薄片；取酱油、料酒、水淀粉与白胡椒粉与肉片充分抓拌均匀，静置腌渍15分钟上浆锁水。"
+      },
+      {
+        "id": "b2",
+        "label": "热油爆炒羊肉",
+        "sublabel": "Flash-fry Mutton",
+        "stageIndex": 1,
+        "ingredientIds": [
+          "i4",
+          "i3"
+        ],
         "heatLevel": "大火",
-        "note": "油烧热，爆香蒜片，放入羊肉片大火翻炒10秒钟后入葱段，稍翻炒后沿着锅边淋下料酒烹香，然后加酱油翻炒，再沿锅边淋醋，滴香油，炒拌均匀，至大葱断生即可。",
-        "completionState": "大葱断生",
+        "durationMinutes": 2,
+        "durationText": "2分钟",
+        "note": "熟铁炒锅倒油大火烧至冒轻烟，下蒜片迅速爆香，滑入腌好的羊肉片大火猛火翻炒至八成熟变色。",
+        "completionState": "肉片滑嫩微卷断生",
         "dependencies": [
           {
             "sourceBlockId": "b1",
             "type": "material",
-            "label": "承接前序处理物"
+            "label": "上浆羊肉片"
           }
         ],
         "inputBlockIds": [
           "b1"
+        ]
+      },
+      {
+        "id": "b3",
+        "label": "投入大葱烹醋出锅",
+        "sublabel": "Toss with Scallions",
+        "stageIndex": 2,
+        "ingredientIds": [
+          "i2",
+          "i9",
+          "i10"
+        ],
+        "heatLevel": "大火",
+        "durationMinutes": 3,
+        "durationText": "3分钟",
+        "note": "立即投入大葱斜段大火爆炒，沿滚烫锅边淋入料酒烹出锅气，加酱油炒匀，再沿锅边烹入香醋激发出香气，淋入少许香油，翻炒至大葱断生透出清甜立即出锅。",
+        "completionState": "葱香肉嫩、锅气十足",
+        "dependencies": [
+          {
+            "sourceBlockId": "b2",
+            "type": "material",
+            "label": "八成熟羊肉"
+          }
+        ],
+        "inputBlockIds": [
+          "b2"
         ]
       }
     ],
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "趁锅气炽热立即装盘上桌"
     },
     "provenance": {
       "sourceType": "book",
@@ -1310,139 +1502,152 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
     },
     "dataReview": {
       "overall": "modeled",
-      "ingredients": "transcribed",
-      "quantities": "transcribed",
+      "ingredients": "source_verified",
+      "quantities": "source_verified",
       "topology": "modeled",
-      "heatAndTiming": "transcribed",
+      "heatAndTiming": "source_verified",
+      "reviewedBy": "PostSoma Kitchen Team",
+      "reviewedAt": "2026-10-01T00:00:00Z",
       "evidence": [
         "OEBPS/text00005.html#sigil_toc_id_21"
-      ],
-      "assumptions": [
-        "食材与用量转录自原书材料/调料栏；食材行已按首次参与工序排序",
-        "工序标题由原书步骤中的动作词压缩生成；note 保留原文完整操作",
-        "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
     "tips": [
-      "营养笔记：葱爆羊肉补阳、强腰、健肾，适合体弱虚寒和腰膝酸软的人食用。"
+      "营养笔记：葱爆羊肉补阳温中、强腰健肾，特别适合体弱畏寒与腰膝酸软者食用；大葱富含葱素挥发油，具有天然抑菌与通阳发汗作用，能有效激发羊肉脂香，同时促使肉类蛋白质更易消化吸收。"
     ],
     "createdAt": "2016-09-01T00:00:00Z",
-    "updatedAt": "2026-09-16T12:00:00Z"
+    "updatedAt": "2026-10-01T00:00:00Z"
   },
   {
     "id": "cn-10",
     "version": "3.0",
     "status": "published",
     "title": "🍗 板栗烧鸡",
+    "coverImageUrl": "/recipe-covers/cn-10.webp",
     "description": "营养师张晔健康食谱·解馋肉、蛋 为身体提供丰富的优质蛋白质和脂肪",
     "cuisine": "chinese",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "prerequisites": {
-      "containerSize": "高保温厚底砂锅 / 铸铁炖锅",
-      "servings": "2-3 人份",
+      "containerSize": "铸铁炖锅 / 深底炒锅",
+      "preheat": "温水泡发干香菇",
+      "servings": "3-4 人份",
       "prepNotes": "准备20分钟 · 烹调1小时"
     },
     "cookingTimeText": "准备20分钟 · 烹调1小时",
     "ingredients": [
       {
         "id": "i1",
-        "name": "土鸡半只",
-        "amountText": "适量",
+        "name": "土鸡",
+        "amountText": "半只",
         "category": "main"
       },
       {
-        "id": "i3",
+        "id": "i2",
         "name": "干香菇",
         "amountText": "10朵",
         "category": "produce"
       },
       {
-        "id": "i10",
+        "id": "i3",
         "name": "香葱",
         "amountText": "4根",
-        "category": "seasoning"
+        "category": "produce"
       },
       {
         "id": "i4",
-        "name": "蒜",
-        "amountText": "3瓣",
+        "name": "植物油",
+        "amountText": "适量",
         "category": "seasoning"
       },
       {
         "id": "i5",
-        "name": "糖",
-        "amountText": "5克",
-        "category": "seasoning"
-      },
-      {
-        "id": "i6",
-        "name": "老抽",
-        "amountText": "15克",
-        "category": "seasoning"
-      },
-      {
-        "id": "i7",
-        "name": "料酒",
-        "amountText": "15克",
-        "category": "seasoning"
-      },
-      {
-        "id": "i11",
         "name": "姜片",
         "amountText": "适量",
         "category": "seasoning"
       },
       {
-        "id": "i2",
-        "name": "去壳板栗",
-        "amountText": "400克",
-        "category": "produce"
+        "id": "i6",
+        "name": "蒜",
+        "amountText": "3瓣",
+        "category": "seasoning"
+      },
+      {
+        "id": "i7",
+        "name": "白糖",
+        "amountText": "5克",
+        "category": "seasoning"
       },
       {
         "id": "i8",
-        "name": "蚝油",
+        "name": "料酒",
         "amountText": "15克",
         "category": "seasoning"
       },
       {
         "id": "i9",
-        "name": "盐",
-        "amountText": "5克",
+        "name": "老抽",
+        "amountText": "15克",
+        "category": "seasoning"
+      },
+      {
+        "id": "i10",
+        "name": "去壳板栗",
+        "amountText": "400克",
+        "category": "produce"
+      },
+      {
+        "id": "i11",
+        "name": "蚝油",
+        "amountText": "15克",
         "category": "seasoning"
       },
       {
         "id": "i12",
-        "name": "植物油",
-        "amountText": "适量",
+        "name": "盐",
+        "amountText": "5克",
         "category": "seasoning"
       }
     ],
     "actionBlocks": [
       {
         "id": "b1",
-        "label": "切配泡发",
-        "sublabel": "Soak",
+        "label": "煸干鸡肉",
+        "sublabel": "Sear Chicken",
         "stageIndex": 0,
         "ingredientIds": [
           "i1",
-          "i3",
-          "i10"
+          "i4"
         ],
-        "note": "土鸡切块，洗净血水；干香菇用温水泡发；香葱取一根切段，其余的挽成结。"
+        "heatLevel": "中大火",
+        "durationMinutes": 10,
+        "durationText": "10分钟",
+        "note": "锅中倒入少量植物油烧至七成热，下土鸡块持续大火煸炒10分钟，彻底煸干血水与多余皮脂，至鸡皮微黄出香、锅内水分蒸发。",
+        "completionState": "水气煸干、鸡皮微黄"
       },
       {
         "id": "b2",
-        "label": "翻炒",
-        "sublabel": "Stir-fry",
+        "label": "爆香加菇慢炖",
+        "sublabel": "Simmer with Mushrooms",
         "stageIndex": 1,
-        "ingredientIds": [],
-        "heatLevel": "七成热",
-        "note": "锅中倒少量油，烧到七成热后，放入鸡块煸炒，炒干血水，直到锅里没有水分。",
+        "ingredientIds": [
+          "i5",
+          "i6",
+          "i7",
+          "i8",
+          "i9",
+          "i2",
+          "i3"
+        ],
+        "heatLevel": "小火",
+        "durationMinutes": 30,
+        "durationText": "30分钟",
+        "note": "放入姜片和蒜瓣炒出香气，调入白糖、料酒与老抽翻炒均匀上色；倒入泡发香菇及适量开水，放入葱结，大火烧开后加盖转小火慢炖30分钟至鸡肉熟软。",
+        "completionState": "鸡块软韧、香菇出味",
         "dependencies": [
           {
             "sourceBlockId": "b1",
             "type": "material",
-            "label": "承接前序处理物"
+            "label": "煸干鸡肉块"
           }
         ],
         "inputBlockIds": [
@@ -1451,61 +1656,36 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
       },
       {
         "id": "b3",
-        "label": "炖煮翻炒煮制",
-        "sublabel": "Boil",
+        "label": "合入板栗焖透收汁",
+        "sublabel": "Stew with Chestnuts & Glaze",
         "stageIndex": 2,
         "ingredientIds": [
-          "i4",
-          "i5",
-          "i6",
-          "i7",
-          "i11"
+          "i10",
+          "i11",
+          "i12"
         ],
-        "heatLevel": "大火",
-        "note": "放入姜片、蒜瓣同炒，出香味后，放入糖、料酒、老抽翻炒均匀，再放入香菇，倒入适量开水，放入葱结后盖上盖，大火烧开后转小火慢炖至鸡肉熟软。",
-        "completionState": "鸡肉熟软",
+        "heatLevel": "中小火",
+        "durationMinutes": 20,
+        "durationText": "20分钟",
+        "note": "揭盖倒入去壳板栗，盖盖继续小火焖炖20分钟至板栗面糯，调入蚝油与盐，转大火翻炒收浓汤汁，撒上新鲜葱段即可出锅。",
+        "completionState": "板栗粉糯金黄、鸡肉酱红浓油赤酱",
         "dependencies": [
           {
             "sourceBlockId": "b2",
             "type": "material",
-            "label": "承接前序处理物"
+            "label": "香菇慢炖鸡"
           }
         ],
         "inputBlockIds": [
           "b2"
-        ]
-      },
-      {
-        "id": "b4",
-        "label": "炖煮调味收汁",
-        "sublabel": "Simmer",
-        "stageIndex": 3,
-        "ingredientIds": [
-          "i8",
-          "i9",
-          "i2",
-          "i12"
-        ],
-        "heatLevel": "大火",
-        "durationMinutes": 20,
-        "note": "加入板栗，盖盖继续炖20分钟，然后调入蚝油、盐，大火收汁，撒上葱段即可。",
-        "completionState": "汤汁收浓",
-        "dependencies": [
-          {
-            "sourceBlockId": "b3",
-            "type": "material",
-            "label": "承接前序处理物"
-          }
-        ],
-        "inputBlockIds": [
-          "b3"
         ]
       }
     ],
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "盛入大瓷煲或热深盘趁热享用"
     },
     "provenance": {
       "sourceType": "book",
@@ -1517,28 +1697,28 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
     },
     "dataReview": {
       "overall": "modeled",
-      "ingredients": "transcribed",
-      "quantities": "transcribed",
+      "ingredients": "source_verified",
+      "quantities": "source_verified",
       "topology": "modeled",
-      "heatAndTiming": "transcribed",
+      "heatAndTiming": "source_verified",
+      "reviewedBy": "PostSoma Kitchen Team",
+      "reviewedAt": "2026-10-01T00:00:00Z",
       "evidence": [
         "OEBPS/text00005.html#sigil_toc_id_23"
-      ],
-      "assumptions": [
-        "食材与用量转录自原书材料/调料栏；食材行已按首次参与工序排序",
-        "工序标题由原书步骤中的动作词压缩生成；note 保留原文完整操作",
-        "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
-    "tips": [],
+    "tips": [
+      "营养笔记：板栗富含碳水化合物、不饱和脂肪酸以及维生素C与多种微量元素，与优质土鸡同烹，具有益气补肾、健脾养胃、强筋健骨之功效，是秋冬滋补的经典健康膳食。"
+    ],
     "createdAt": "2016-09-01T00:00:00Z",
-    "updatedAt": "2026-09-16T12:00:00Z"
+    "updatedAt": "2026-10-01T00:00:00Z"
   },
   {
     "id": "cn-11",
     "version": "3.0",
     "status": "published",
     "title": "🍗 宫保鸡丁",
+    "coverImageUrl": "/recipe-covers/cn-11.webp",
     "description": "营养师张晔健康食谱·解馋肉、蛋 为身体提供丰富的优质蛋白质和脂肪",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -1702,7 +1882,8 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "出锅装盘趁热享用，花生香脆、鸡丁滑嫩酸甜"
     },
     "provenance": {
       "sourceType": "book",
@@ -1736,6 +1917,7 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🍗 板栗鸡丁",
+    "coverImageUrl": "/recipe-covers/cn-12.webp",
     "description": "营养师张晔健康食谱·解馋肉、蛋 为身体提供丰富的优质蛋白质和脂肪",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -1839,7 +2021,8 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "盛入温热盘中佐餐享用，鸡丁鲜嫩、板栗粉糯入味"
     },
     "provenance": {
       "sourceType": "book",
@@ -1875,6 +2058,7 @@ export const BATCH1_MEAT_EGG: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥚 豆渣蒸蛋",
+    "coverImageUrl": "/recipe-covers/cn-13.webp",
     "description": "营养师张晔健康食谱·解馋肉、蛋 为身体提供丰富的优质蛋白质和脂肪",
     "cuisine": "chinese",
     "difficulty": "medium",

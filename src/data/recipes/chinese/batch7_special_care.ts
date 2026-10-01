@@ -10,6 +10,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥕 蜂蜜白萝卜盅",
+    "coverImageUrl": "/recipe-covers/cn-103.webp",
     "description": "营养师张晔健康食谱·益气养血 气血充足，女人健康不爱老",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -95,7 +96,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
       "method": "steam",
       "role": "outcome",
       "label": "完成",
-      "servingInstructions": "出锅装盘"
+      "servingInstructions": "端出蒸盘稍晾温热享用，萝卜盅剔透软甜、蜜汁润喉清甜生津"
     },
     "provenance": {
       "sourceType": "book",
@@ -131,6 +132,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🍗 西洋参板栗蒸乌鸡",
+    "coverImageUrl": "/recipe-covers/cn-104.webp",
     "description": "营养师张晔健康食谱·益气养血 气血充足，女人健康不爱老",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -209,6 +211,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
         "stageIndex": 1,
         "ingredientIds": [
           "i4",
+          "i5",
           "i8"
         ],
         "durationMinutes": 5,
@@ -232,8 +235,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
         "ingredientIds": [
           "i2",
           "i6",
-          "i7",
-          "i5"
+          "i7"
         ],
         "durationMinutes": 20,
         "note": "把腌好的乌鸡块和板栗肉装盘，放入蒸锅中，再入西洋参、枸杞子、姜丝，蒸20分钟取出即可。",
@@ -253,7 +255,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
       "method": "steam",
       "role": "outcome",
       "label": "完成",
-      "servingInstructions": "出锅装盘"
+      "servingInstructions": "端出蒸盘趁热享用，乌鸡鲜嫩酥烂、板栗粉甜软糯、参香浓郁滋补"
     },
     "provenance": {
       "sourceType": "book",
@@ -289,6 +291,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥩 丝瓜猪肝瘦肉汤",
+    "coverImageUrl": "/recipe-covers/cn-105.webp",
     "description": "营养师张晔健康食谱·益气养血 气血充足，女人健康不爱老",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -385,7 +388,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "盛入汤碗趁热享用，丝瓜翠绿滑嫩、猪肝瘦肉鲜嫩不柴、汤清味美"
     },
     "provenance": {
       "sourceType": "book",
@@ -421,6 +425,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥩 当归生姜羊肉汤",
+    "coverImageUrl": "/recipe-covers/cn-106.webp",
     "description": "营养师张晔健康食谱·调理经期不适 温热、清淡、补血食物，缓解经期不适",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -508,7 +513,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "盛入汤碗趁热享用，羊肉软烂无膻、汤汁醇香温润暖胃、温经散寒"
     },
     "provenance": {
       "sourceType": "book",
@@ -533,7 +539,9 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
         "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
-    "tips": [],
+    "tips": [
+      "营养笔记：当归补血活血、调经止痛，羊肉温中补虚、祛寒止痛，生姜温胃散寒，三者合用温经散寒、养血调经，特别适合经期体虚畏寒、痛经女性。"
+    ],
     "createdAt": "2016-09-01T00:00:00Z",
     "updatedAt": "2026-09-16T12:00:00Z"
   },
@@ -542,6 +550,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🍲 荔枝桂圆山楂汤",
+    "coverImageUrl": "/recipe-covers/cn-107.webp",
     "description": "营养师张晔健康食谱·调理经期不适 温热、清淡、补血食物，缓解经期不适",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -625,7 +634,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "盛入汤盅温热享用，酸甜可口果香浓郁、红糖暖润活血化淤"
     },
     "provenance": {
       "sourceType": "book",
@@ -661,6 +671,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥬 鲜蒸白菜心",
+    "coverImageUrl": "/recipe-covers/cn-108.webp",
     "description": "营养师张晔健康食谱·缓解乳腺增生 舒缓心情、饮食调理，缓解乳房胀痛",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -764,7 +775,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
       "method": "steam",
       "role": "outcome",
       "label": "完成",
-      "servingInstructions": "取出装盘"
+      "servingInstructions": "端出蒸碗趁热享用，白菜心软嫩清甜、海米鲜美微咸、香油扑鼻解腻"
     },
     "provenance": {
       "sourceType": "book",
@@ -789,7 +800,9 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
         "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
-    "tips": [],
+    "tips": [
+      "营养笔记：白菜心富含维生素C、胡萝卜素与粗纤维，清蒸少油低脂，木耳润肠清毒，海米鲜香提味，能有效减轻身体代谢负担，预防乳腺增生。"
+    ],
     "createdAt": "2016-09-01T00:00:00Z",
     "updatedAt": "2026-09-16T12:00:00Z"
   },
@@ -798,6 +811,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🧈 菠萝豆腐",
+    "coverImageUrl": "/recipe-covers/cn-109.webp",
     "description": "营养师张晔健康食谱·缓解乳腺增生 舒缓心情、饮食调理，缓解乳房胀痛",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -900,7 +914,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "出锅装盘趁热享用，豆腐软嫩微酸、菠萝果香清甜、开胃爽口"
     },
     "provenance": {
       "sourceType": "book",
@@ -936,6 +951,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥩 羊肉苹果汤",
+    "coverImageUrl": "/recipe-covers/cn-110.webp",
     "description": "营养师张晔健康食谱·缓解更年期综合征 补充维生素、钙是关键",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -967,7 +983,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
       {
         "id": "i4",
         "name": "姜片",
-        "amountText": "适量",
+        "amountText": "5克",
         "category": "seasoning"
       },
       {
@@ -1023,7 +1039,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "盛入汤碗趁热享用，羊肉鲜嫩酥烂、苹果果香甘甜消解膻味、汤清醇甜"
     },
     "provenance": {
       "sourceType": "book",
@@ -1048,7 +1065,10 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
         "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
-    "tips": [],
+    "tips": [
+      "烹饪妙招：烹制这款汤时，水一定要一次性加足，千万不要在煲的过程中再加水，否则会使汤品味道的浓郁度大打折扣。",
+      "营养笔记：羊肉温补气血，苹果健脾开胃生津、去腥解腻，豌豆清利下气，荤素互补温润不燥。"
+    ],
     "createdAt": "2016-09-01T00:00:00Z",
     "updatedAt": "2026-09-16T12:00:00Z"
   },
@@ -1057,6 +1077,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥩 莲藕排骨汤",
+    "coverImageUrl": "/recipe-covers/cn-111.webp",
     "description": "营养师张晔健康食谱·缓解更年期综合征 补充维生素、钙是关键",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -1152,7 +1173,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "连汤盛入大汤碗趁热享用，排骨软烂脱骨、莲藕粉糯清甜、汤清润脾"
     },
     "provenance": {
       "sourceType": "book",
@@ -1188,6 +1210,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥒 梅干菜蒸苦瓜",
+    "coverImageUrl": "/recipe-covers/cn-112.webp",
     "description": "营养师张晔健康食谱·减肥瘦身 管住嘴、迈开腿，瘦身效果佳",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -1287,7 +1310,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "steam",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "端出蒸盘趁热享用，梅干菜咸甜适口、苦瓜清香爽脆、解腻清热"
     },
     "provenance": {
       "sourceType": "book",
@@ -1323,6 +1347,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🍳 海米冬瓜",
+    "coverImageUrl": "/recipe-covers/cn-113.webp",
     "description": "营养师张晔健康食谱·减肥瘦身 管住嘴、迈开腿，瘦身效果佳",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -1425,7 +1450,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "出锅装盘趁热享用，冬瓜晶莹剔透滑软入味、海米咸鲜回甜"
     },
     "provenance": {
       "sourceType": "book",
@@ -1461,6 +1487,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🍅 番茄炒草菇",
+    "coverImageUrl": "/recipe-covers/cn-114.webp",
     "description": "营养师张晔健康食谱·淡斑祛斑 内养外调，肌肤光泽有活力",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -1554,7 +1581,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "出锅装盘趁热享用，草菇爽滑肥嫩、番茄酸甜多汁、抗氧化养颜"
     },
     "provenance": {
       "sourceType": "book",
@@ -1590,6 +1618,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🐟 豉汁蒸盘龙白鳝",
+    "coverImageUrl": "/recipe-covers/cn-115.webp",
     "description": "营养师张晔健康食谱·强肾健体 肾是先天之本，养肾就是养命",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -1749,7 +1778,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
       "method": "steam",
       "role": "outcome",
       "label": "完成",
-      "servingInstructions": "取出装盘"
+      "servingInstructions": "端出蒸盘趁热享用，鳝肉肥美弹牙、豉香浓郁鲜滑、油润光亮"
     },
     "provenance": {
       "sourceType": "book",
@@ -1785,6 +1814,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🧈 泥鳅豆腐汤",
+    "coverImageUrl": "/recipe-covers/cn-116.webp",
     "description": "营养师张晔健康食谱·强肾健体 肾是先天之本，养肾就是养命",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -1894,7 +1924,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "连汤盛入大汤碗趁热享用，泥鳅肉质酥嫩、豆腐细嫩吸汁、汤汁浓白鲜香"
     },
     "provenance": {
       "sourceType": "book",
@@ -1930,6 +1961,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🦐 蚕豆炒虾仁",
+    "coverImageUrl": "/recipe-covers/cn-117.webp",
     "description": "营养师张晔健康食谱·强肾健体 肾是先天之本，养肾就是养命",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -2067,7 +2099,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "出锅装盘趁热享用，蚕豆清香粉糯、虾仁脆嫩弹牙、碧绿红白诱人"
     },
     "provenance": {
       "sourceType": "book",
@@ -2103,6 +2136,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🍲 酒炖蛤蜊",
+    "coverImageUrl": "/recipe-covers/cn-118.webp",
     "description": "营养师张晔健康食谱·壮阳固精 缓解压力，展现男人风采",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -2205,7 +2239,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "连锅端上趁热享用，蛤蜊鲜嫩多汁、酒香与黄油香交织浓郁、微辣鲜美"
     },
     "provenance": {
       "sourceType": "book",
@@ -2241,6 +2276,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🧈 私家山药炖豆腐",
+    "coverImageUrl": "/recipe-covers/cn-119.webp",
     "description": "营养师张晔健康食谱·壮阳固精 缓解压力，展现男人风采",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -2358,7 +2394,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "盛入深汤碗趁热享用，豆腐软嫩入味、山药粉甜、番茄汤底微酸适口开胃"
     },
     "provenance": {
       "sourceType": "book",
@@ -2394,6 +2431,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥩 爆炒羊肝",
+    "coverImageUrl": "/recipe-covers/cn-120.webp",
     "description": "营养师张晔健康食谱·壮阳固精 缓解压力，展现男人风采",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -2431,36 +2469,48 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
       },
       {
         "id": "i5",
-        "name": "白酒半匙",
-        "amountText": "适量",
+        "name": "白酒",
+        "amountText": "半匙",
         "category": "seasoning"
       },
       {
         "id": "i6",
-        "name": "老抽花椒姜片",
-        "amountText": "适量",
-        "category": "seasoning"
-      },
-      {
-        "id": "i8",
-        "name": "蒜",
+        "name": "老抽",
         "amountText": "适量",
         "category": "seasoning"
       },
       {
         "id": "i7",
-        "name": "葱段",
+        "name": "花椒",
+        "amountText": "适量",
+        "category": "seasoning"
+      },
+      {
+        "id": "i8",
+        "name": "姜片",
         "amountText": "适量",
         "category": "seasoning"
       },
       {
         "id": "i9",
-        "name": "盐",
+        "name": "蒜",
         "amountText": "适量",
         "category": "seasoning"
       },
       {
         "id": "i10",
+        "name": "葱段",
+        "amountText": "适量",
+        "category": "seasoning"
+      },
+      {
+        "id": "i11",
+        "name": "盐",
+        "amountText": "适量",
+        "category": "seasoning"
+      },
+      {
+        "id": "i12",
         "name": "植物油",
         "amountText": "适量",
         "category": "seasoning"
@@ -2479,7 +2529,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
           "i4",
           "i5",
           "i6",
-          "i8"
+          "i9"
         ],
         "durationMinutes": 5,
         "note": "羊肝洗净，切薄片，用白酒、郫县豆瓣、老抽腌5分钟；青椒洗净，切片；泡椒切片；蒜切片。"
@@ -2490,9 +2540,11 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
         "sublabel": "Stir-fry",
         "stageIndex": 1,
         "ingredientIds": [
+          "i12",
           "i7",
-          "i9",
-          "i10"
+          "i8",
+          "i10",
+          "i11"
         ],
         "heatLevel": "八成热",
         "durationMinutes": 3,
@@ -2512,7 +2564,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "出锅装盘趁热享用，羊肝滑嫩不腥、酱香浓郁微辣开胃、椒香扑鼻"
     },
     "provenance": {
       "sourceType": "book",
@@ -2548,6 +2601,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥩 农家粉蒸牛肉",
+    "coverImageUrl": "/recipe-covers/cn-121.webp",
     "description": "营养师张晔健康食谱·增肌塑形 挑选肉食，补充蛋白质",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -2671,7 +2725,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
       "method": "steam",
       "role": "outcome",
       "label": "完成",
-      "servingInstructions": "取出装盘"
+      "servingInstructions": "端出蒸碗趁热享用，牛肉软烂咸鲜、五香扑鼻、米粉油润吸汁"
     },
     "provenance": {
       "sourceType": "book",
@@ -2707,6 +2761,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🍗 番茄罗勒炖鸡胸",
+    "coverImageUrl": "/recipe-covers/cn-122.webp",
     "description": "营养师张晔健康食谱·增肌塑形 挑选肉食，补充蛋白质",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -2846,7 +2901,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "盛入盘中趁热享用，鸡胸鲜嫩多汁吸饱番茄酱汁、罗勒清香诱人、酸甜开胃"
     },
     "provenance": {
       "sourceType": "book",
@@ -2871,7 +2927,9 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
         "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
-    "tips": [],
+    "tips": [
+      "营养笔记：鸡胸肉是高蛋白、极低脂肪的优质健身食材，番茄富含番茄红素与有机酸能刺激食欲促进消化，搭配罗勒香草增香去腥，减脂增肌期极佳高蛋白料理。"
+    ],
     "createdAt": "2016-09-01T00:00:00Z",
     "updatedAt": "2026-09-16T12:00:00Z"
   },
@@ -2880,6 +2938,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🍗 栗子杜仲鸡爪汤",
+    "coverImageUrl": "/recipe-covers/cn-123.webp",
     "description": "营养师张晔健康食谱·调理烟酒伤害 增强身体的排毒和抗病能力",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -2961,7 +3020,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "连汤盛入大汤碗趁热享用，鸡爪软烂胶质丰厚、板栗粉甜香软、药香温润滋补"
     },
     "provenance": {
       "sourceType": "book",
@@ -2997,6 +3057,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥩 银耳木瓜排骨汤",
+    "coverImageUrl": "/recipe-covers/cn-124.webp",
     "description": "营养师张晔健康食谱·调理烟酒伤害 增强身体的排毒和抗病能力",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -3052,6 +3113,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
         "stageIndex": 0,
         "ingredientIds": [
           "i1",
+          "i2",
           "i3"
         ],
         "note": "银耳泡发，洗净，撕成小朵；木瓜去皮、子，切成滚刀块；排骨洗净，切段，焯水备用。"
@@ -3085,8 +3147,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
         "sublabel": "Simmer",
         "stageIndex": 2,
         "ingredientIds": [
-          "i4",
-          "i2"
+          "i4"
         ],
         "durationMinutes": 15,
         "note": "把木瓜放入汤中，再炖15分钟，调入盐搅匀即可。",
@@ -3105,7 +3166,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "盛入汤碗趁热享用，排骨酥烂无渣、银耳浓稠出胶、木瓜甘甜清润"
     },
     "provenance": {
       "sourceType": "book",
@@ -3130,7 +3192,9 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
         "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
-    "tips": [],
+    "tips": [
+      "营养笔记：银耳滋阴润肺、木瓜健脾消食分解蛋白质，搭配排骨补充优质蛋白与钙质，能有效减轻烟酒对呼吸道和消化道的黏膜损伤。"
+    ],
     "createdAt": "2016-09-01T00:00:00Z",
     "updatedAt": "2026-09-16T12:00:00Z"
   },
@@ -3139,6 +3203,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥚 鸽蛋西蓝花",
+    "coverImageUrl": "/recipe-covers/cn-125.webp",
     "description": "营养师张晔健康食谱·调理烟酒伤害 增强身体的排毒和抗病能力",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -3218,7 +3283,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "出锅装盘趁热享用，西蓝花翠绿脆嫩、鸽蛋滑嫩鲜香、清淡爽口解油腻"
     },
     "provenance": {
       "sourceType": "book",
@@ -3254,6 +3320,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🍲 蛤蜊冬瓜汤",
+    "coverImageUrl": "/recipe-covers/cn-126.webp",
     "description": "营养师张晔健康食谱·预防前列腺疾病 多吃富含锌的食物",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -3342,7 +3409,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "盛入大汤碗趁热享用，蛤蜊鲜嫩多汁、冬瓜软烂清甜、豆芽脆爽利水消肿"
     },
     "provenance": {
       "sourceType": "book",
@@ -3378,6 +3446,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥚 香菇蒸蛋",
+    "coverImageUrl": "/recipe-covers/cn-127.webp",
     "description": "营养师张晔健康食谱·促进生长发育 补充脂肪、碳水化合物、蛋白质",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -3451,7 +3520,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "steam",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "端出蒸碗淋少许生抽趁热享用，蛋羹平滑如镜细嫩爽滑、虾皮鲜香微咸补钙"
     },
     "provenance": {
       "sourceType": "book",
@@ -3487,6 +3557,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🍲 时蔬乱炖",
+    "coverImageUrl": "/recipe-covers/cn-128.webp",
     "description": "营养师张晔健康食谱·促进生长发育 补充脂肪、碳水化合物、蛋白质",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -3505,8 +3576,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
       },
       {
         "id": "i7",
-        "name": "料酒2大匙",
-        "amountText": "适量",
+        "name": "料酒",
+        "amountText": "2大匙",
         "category": "seasoning"
       },
       {
@@ -3571,7 +3642,12 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
         "sublabel": "Hold",
         "stageIndex": 0,
         "ingredientIds": [
-          "i1"
+          "i1",
+          "i2",
+          "i3",
+          "i4",
+          "i5",
+          "i6"
         ],
         "note": "排骨块洗净血水；其余材料洗净后切大块，备用。"
       },
@@ -3581,9 +3657,10 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
         "sublabel": "Stir-fry",
         "stageIndex": 1,
         "ingredientIds": [
-          "i7",
+          "i11",
           "i8",
-          "i9"
+          "i9",
+          "i7"
         ],
         "heatLevel": "六成热",
         "note": "热锅中放少许油、烧至六成热，煸香蒜瓣、姜片，倒入排骨、料酒炒至排骨变色出油。",
@@ -3604,13 +3681,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
         "sublabel": "Simmer",
         "stageIndex": 2,
         "ingredientIds": [
-          "i10",
-          "i2",
-          "i3",
-          "i4",
-          "i5",
-          "i6",
-          "i11"
+          "i10"
         ],
         "heatLevel": "中火",
         "durationText": "1h + 30m",
@@ -3630,7 +3701,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "连锅端上趁热享用，排骨酥香软烂脱骨、蔬菜软糯浓香、汤汁醇厚拌饭极佳"
     },
     "provenance": {
       "sourceType": "book",
@@ -3655,7 +3727,9 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
         "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
-    "tips": [],
+    "tips": [
+      "营养笔记：排骨补充优质动物蛋白与钙质，搭配土豆、豆角、莲藕、胡萝卜、玉米多种时蔬，荤素搭配营养全面，提供丰富的膳食纤维与多种维生素，助力青少年骨骼发育与体力恢复。"
+    ],
     "createdAt": "2016-09-01T00:00:00Z",
     "updatedAt": "2026-09-16T12:00:00Z"
   },
@@ -3664,6 +3738,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥩 豆豉牛肉",
+    "coverImageUrl": "/recipe-covers/cn-129.webp",
     "description": "营养师张晔健康食谱·促进生长发育 补充脂肪、碳水化合物、蛋白质",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -3751,7 +3826,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "出锅装盘趁热享用，牛肉滑嫩入味、豆豉浓香扑鼻、青椒脆嫩微辣开胃"
     },
     "provenance": {
       "sourceType": "book",
@@ -3787,6 +3863,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🍄 香菇菜花",
+    "coverImageUrl": "/recipe-covers/cn-130.webp",
     "description": "营养师张晔健康食谱·调节孩子免疫力 平衡膳食、丰富营养，增强抗病能力",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -3881,7 +3958,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "出锅装盘趁热享用，菜花清脆甘甜入味、香菇肥厚多汁、鲜美清淡提免疫"
     },
     "provenance": {
       "sourceType": "book",
@@ -3906,7 +3984,9 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
         "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
-    "tips": [],
+    "tips": [
+      "营养笔记：香菇富含香菇多糖能提高人体免疫机能，菜花富含维生素C与矿物质，小火煨入味鲜香适口，非常适合儿童日常强健体质、防病抗病。"
+    ],
     "createdAt": "2016-09-01T00:00:00Z",
     "updatedAt": "2026-09-16T12:00:00Z"
   },
@@ -3915,6 +3995,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥩 肉炒胡萝卜丝",
+    "coverImageUrl": "/recipe-covers/cn-131.webp",
     "description": "营养师张晔健康食谱·调节孩子免疫力 平衡膳食、丰富营养，增强抗病能力",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -4016,7 +4097,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "出锅装盘趁热享用，肉丝滑嫩鲜香、胡萝卜甜软多汁、色泽红亮诱人"
     },
     "provenance": {
       "sourceType": "book",
@@ -4052,6 +4134,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "♨️ 清蒸牡蛎",
+    "coverImageUrl": "/recipe-covers/cn-132.webp",
     "description": "营养师张晔健康食谱·健脾开胃 补充B族维生素、维生素A",
     "cuisine": "chinese",
     "difficulty": "easy",
@@ -4119,7 +4202,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
       "method": "steam",
       "role": "outcome",
       "label": "完成",
-      "servingInstructions": "出锅装盘"
+      "servingInstructions": "端出蒸屉趁热蘸生抽香油味汁享用，牡蛎肥美多汁、鲜甜滑嫩无沙"
     },
     "provenance": {
       "sourceType": "book",
@@ -4144,7 +4227,10 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
         "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
-    "tips": [],
+    "tips": [
+      "烹饪妙招：如果买的是牡蛎肉，里面往往混有破碎的牡蛎壳或其他杂质，只要在其中滴入适量的植物油，就比较容易清洗干净了。",
+      "营养笔记：牡蛎富含优质蛋白、糖原及锌、牛磺酸，清蒸能锁住原汁原味，蘸食姜醋汁能温中散寒、滋阴补肾、生津抗疲劳。"
+    ],
     "createdAt": "2016-09-01T00:00:00Z",
     "updatedAt": "2026-09-16T12:00:00Z"
   },
@@ -4153,6 +4239,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🐟 木瓜鲫鱼汤",
+    "coverImageUrl": "/recipe-covers/cn-133.webp",
     "description": "营养师张晔健康食谱·健脾开胃 补充B族维生素、维生素A",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -4282,7 +4369,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "stew",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "盛入大汤碗趁热享用，鲫鱼肉嫩汤白、木瓜清香软烂、健脾开胃促吸收"
     },
     "provenance": {
       "sourceType": "book",
@@ -4318,6 +4406,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥚 咸蛋黄炒南瓜",
+    "coverImageUrl": "/recipe-covers/cn-134.webp",
     "description": "营养师张晔健康食谱·健脾开胃 补充B族维生素、维生素A",
     "cuisine": "chinese",
     "difficulty": "hard",
@@ -4427,7 +4516,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "出锅装盘趁热享用，南瓜粉糯甜润、咸蛋黄沙软鲜香沙沙裹匀"
     },
     "provenance": {
       "sourceType": "book",
@@ -4463,6 +4553,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🐟 清蒸鳕鱼",
+    "coverImageUrl": "/recipe-covers/cn-135.webp",
     "description": "营养师张晔健康食谱·健脑益智 补充Ω-3脂肪酸和锌",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -4481,8 +4572,14 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
       },
       {
         "id": "i3",
-        "name": "葱丝姜片",
-        "amountText": "适量",
+        "name": "姜片",
+        "amountText": "10克",
+        "category": "seasoning"
+      },
+      {
+        "id": "i11",
+        "name": "葱丝",
+        "amountText": "10克",
         "category": "seasoning"
       },
       {
@@ -4541,7 +4638,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
         "sublabel": "Hold",
         "stageIndex": 0,
         "ingredientIds": [
-          "i1"
+          "i1",
+          "i3"
         ],
         "note": "将鳕鱼洗净沥水，装盘，姜片放在其上备用。"
       },
@@ -4551,7 +4649,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
         "sublabel": "Steam",
         "stageIndex": 1,
         "ingredientIds": [
-          "i3"
+          "i11"
         ],
         "heatLevel": "大火",
         "durationMinutes": 8,
@@ -4600,7 +4698,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "steam",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "端出蒸盘趁热享用，鳕鱼肉质洁白如雪、细腻爽滑入口即化、蒜香浓郁清鲜"
     },
     "provenance": {
       "sourceType": "book",
@@ -4625,7 +4724,9 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
         "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
-    "tips": [],
+    "tips": [
+      "营养笔记：鳕鱼富含DHA与高品质易消化蛋白，肉质细嫩清爽，清蒸后浇淋蒜香薄芡，能有效保护视力、缓解视疲劳，非常适合用眼过度的学生和上班族。"
+    ],
     "createdAt": "2016-09-01T00:00:00Z",
     "updatedAt": "2026-09-16T12:00:00Z"
   },
@@ -4634,6 +4735,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥩 萝卜烧牛肉",
+    "coverImageUrl": "/recipe-covers/cn-136.webp",
     "description": "营养师张晔健康食谱·健脑益智 补充Ω-3脂肪酸和锌",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -4670,14 +4772,26 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
       },
       {
         "id": "i5",
-        "name": "盐2植物油",
+        "name": "盐",
+        "amountText": "2克",
+        "category": "seasoning"
+      },
+      {
+        "id": "i9",
+        "name": "植物油",
         "amountText": "2克",
         "category": "seasoning"
       },
       {
         "id": "i6",
-        "name": "葱段姜片",
-        "amountText": "适量",
+        "name": "葱段",
+        "amountText": "5克",
+        "category": "seasoning"
+      },
+      {
+        "id": "i10",
+        "name": "姜片",
+        "amountText": "5克",
         "category": "seasoning"
       },
       {
@@ -4732,7 +4846,9 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
         "sublabel": "Sauté",
         "stageIndex": 2,
         "ingredientIds": [
+          "i9",
           "i6",
+          "i10",
           "i7",
           "i8",
           "i5"
@@ -4755,7 +4871,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "出锅装盘趁热享用，牛肉酥烂浓香、白萝卜胡萝卜吸汁软烂、板栗粉糯甘甜"
     },
     "provenance": {
       "sourceType": "book",
@@ -4780,7 +4897,9 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
         "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
-    "tips": [],
+    "tips": [
+      "营养笔记：牛肉含丰富蛋白质与铁，胡萝卜富含β-胡萝卜素能在体内转化成维生素A，与板栗、白萝卜同烧既补气健脾又能护眼明目、预防干眼症。"
+    ],
     "createdAt": "2016-09-01T00:00:00Z",
     "updatedAt": "2026-09-16T12:00:00Z"
   },
@@ -4789,6 +4908,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥩 青椒炒猪肝",
+    "coverImageUrl": "/recipe-covers/cn-137.webp",
     "description": "营养师张晔健康食谱·保护视力 多补充保护视力的营养素",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -4807,8 +4927,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
       },
       {
         "id": "i1",
-        "name": "青椒半个",
-        "amountText": "适量",
+        "name": "青椒",
+        "amountText": "半个",
         "category": "produce"
       },
       {
@@ -4891,7 +5011,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "出锅装盘趁热享用，猪肝鲜嫩滑口不腥不老、青椒爽脆微辣入味、明目补血"
     },
     "provenance": {
       "sourceType": "book",
@@ -4916,7 +5037,10 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
         "编号步骤默认只确认先后顺序；仅在继续处理既有食材时标记 material"
       ]
     },
-    "tips": [],
+    "tips": [
+      "烹饪妙招：肝脏是重要的解毒器官，新买的猪肝要仔细清洗。可在清水中加少许白醋浸泡半小时后反复冲洗；切片后用流动水反复冲洗至无血水渗出再泡白醋水沥干。",
+      "营养笔记：猪肝富含维生素A和铁，是明目养血的传统佳品；青椒富含维生素C，能促进铁的吸收与转化，二者合炒能强效缓解眼疲劳与夜盲症。"
+    ],
     "createdAt": "2016-09-01T00:00:00Z",
     "updatedAt": "2026-09-16T12:00:00Z"
   },
@@ -4925,6 +5049,7 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "version": "3.0",
     "status": "published",
     "title": "🥚 培根滑蛋西蓝花",
+    "coverImageUrl": "/recipe-covers/cn-138.webp",
     "description": "营养师张晔健康食谱·保护视力 多补充保护视力的营养素",
     "cuisine": "chinese",
     "difficulty": "medium",
@@ -4937,8 +5062,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "ingredients": [
       {
         "id": "i3",
-        "name": "鸡蛋两个",
-        "amountText": "适量",
+        "name": "鸡蛋",
+        "amountText": "2个",
         "category": "main"
       },
       {
@@ -5040,7 +5165,8 @@ export const BATCH7_SPECIAL_CARE: VisualRecipeV3[] = [
     "finalBlock": {
       "method": "fry",
       "role": "outcome",
-      "label": "完成"
+      "label": "完成",
+      "servingInstructions": "出锅装盘趁热享用，西蓝花脆嫩清甜、滑蛋软嫩香滑、培根咸香扑鼻"
     },
     "provenance": {
       "sourceType": "book",
