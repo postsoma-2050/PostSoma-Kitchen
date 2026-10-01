@@ -1,0 +1,4034 @@
+[
+  {
+    "id": "allspice",
+    "label": "allspice",
+    "influence": 148,
+    "cat": "cond"
+  },
+  {
+    "id": "anise",
+    "label": "anise",
+    "influence": 103,
+    "cat": "cond"
+  },
+  {
+    "id": "anise hyssop",
+    "label": "anise hyssop",
+    "influence": 55,
+    "cat": "cond"
+  },
+  {
+    "id": "anise seeds",
+    "label": "anise seeds",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "anise, star",
+    "label": "anise, star",
+    "influence": 74,
+    "cat": "cond"
+  },
+  {
+    "id": "artichokes",
+    "label": "artichokes",
+    "influence": 139,
+    "cat": "veg"
+  },
+  {
+    "id": "artichokes, jerusalem",
+    "label": "artichokes, jerusalem",
+    "influence": 55,
+    "cat": "veg"
+  },
+  {
+    "id": "arugula",
+    "label": "arugula",
+    "influence": 118,
+    "cat": "veg"
+  },
+  {
+    "id": "asparagus",
+    "label": "asparagus",
+    "influence": 166,
+    "cat": "veg"
+  },
+  {
+    "id": "asparagus, white",
+    "label": "asparagus, white",
+    "influence": 60,
+    "cat": "veg"
+  },
+  {
+    "id": "bacon",
+    "label": "bacon",
+    "influence": 165,
+    "cat": "meat"
+  },
+  {
+    "id": "bacon and pancetta",
+    "label": "bacon and pancetta",
+    "influence": 3,
+    "cat": "meat"
+  },
+  {
+    "id": "balsamic vinegar",
+    "label": "balsamic vinegar",
+    "influence": 112,
+    "cat": "cond"
+  },
+  {
+    "id": "barbecue sauce",
+    "label": "barbecue sauce",
+    "influence": 7,
+    "cat": "cond"
+  },
+  {
+    "id": "basil",
+    "label": "basil",
+    "influence": 270,
+    "cat": "cond"
+  },
+  {
+    "id": "basil, thai",
+    "label": "basil, thai",
+    "influence": 15,
+    "cat": "cond"
+  },
+  {
+    "id": "bay leaf",
+    "label": "bay leaf",
+    "influence": 206,
+    "cat": "cond"
+  },
+  {
+    "id": "bean soups",
+    "label": "bean soups",
+    "influence": 4,
+    "cat": "veg"
+  },
+  {
+    "id": "beans",
+    "label": "beans",
+    "influence": 47,
+    "cat": "veg"
+  },
+  {
+    "id": "beans, black",
+    "label": "beans, black",
+    "influence": 88,
+    "cat": "veg"
+  },
+  {
+    "id": "beans, cannellini",
+    "label": "beans, cannellini",
+    "influence": 29,
+    "cat": "veg"
+  },
+  {
+    "id": "beans, fava",
+    "label": "beans, fava",
+    "influence": 94,
+    "cat": "veg"
+  },
+  {
+    "id": "beans, flageolet",
+    "label": "beans, flageolet",
+    "influence": 48,
+    "cat": "veg"
+  },
+  {
+    "id": "beans, green",
+    "label": "beans, green",
+    "influence": 115,
+    "cat": "veg"
+  },
+  {
+    "id": "beans, kidney",
+    "label": "beans, kidney",
+    "influence": 37,
+    "cat": "veg"
+  },
+  {
+    "id": "beans, lima",
+    "label": "beans, lima",
+    "influence": 48,
+    "cat": "veg"
+  },
+  {
+    "id": "beans, navy",
+    "label": "beans, navy",
+    "influence": 27,
+    "cat": "veg"
+  },
+  {
+    "id": "beans, pinto",
+    "label": "beans, pinto",
+    "influence": 27,
+    "cat": "veg"
+  },
+  {
+    "id": "beans, red",
+    "label": "beans, red",
+    "influence": 14,
+    "cat": "veg"
+  },
+  {
+    "id": "beans, white",
+    "label": "beans, white",
+    "influence": 82,
+    "cat": "veg"
+  },
+  {
+    "id": "beef",
+    "label": "beef",
+    "influence": 192,
+    "cat": "meat"
+  },
+  {
+    "id": "beef  braised",
+    "label": "beef  braised",
+    "influence": 3,
+    "cat": "meat"
+  },
+  {
+    "id": "beef  raw",
+    "label": "beef  raw",
+    "influence": 3,
+    "cat": "meat"
+  },
+  {
+    "id": "beef  roasted",
+    "label": "beef  roasted",
+    "influence": 3,
+    "cat": "meat"
+  },
+  {
+    "id": "beef stock",
+    "label": "beef stock",
+    "influence": 5,
+    "cat": "cond"
+  },
+  {
+    "id": "beef stocks",
+    "label": "beef stocks",
+    "influence": 12,
+    "cat": "cond"
+  },
+  {
+    "id": "beef — brisket",
+    "label": "beef — brisket",
+    "influence": 31,
+    "cat": "meat"
+  },
+  {
+    "id": "beef — cheeks",
+    "label": "beef — cheeks",
+    "influence": 37,
+    "cat": "meat"
+  },
+  {
+    "id": "beef — kobe",
+    "label": "beef — kobe",
+    "influence": 22,
+    "cat": "meat"
+  },
+  {
+    "id": "beef — loin",
+    "label": "beef — loin",
+    "influence": 16,
+    "cat": "meat"
+  },
+  {
+    "id": "beef — oxtails",
+    "label": "beef — oxtails",
+    "influence": 42,
+    "cat": "meat"
+  },
+  {
+    "id": "beef — ribs",
+    "label": "beef — ribs",
+    "influence": 1,
+    "cat": "meat"
+  },
+  {
+    "id": "beef — roast",
+    "label": "beef — roast",
+    "influence": 14,
+    "cat": "meat"
+  },
+  {
+    "id": "beef — round",
+    "label": "beef — round",
+    "influence": 15,
+    "cat": "meat"
+  },
+  {
+    "id": "beef — shank",
+    "label": "beef — shank",
+    "influence": 11,
+    "cat": "meat"
+  },
+  {
+    "id": "beef — short ribs",
+    "label": "beef — short ribs",
+    "influence": 81,
+    "cat": "meat"
+  },
+  {
+    "id": "beef — steak: filet mignon",
+    "label": "beef — steak: filet mignon",
+    "influence": 31,
+    "cat": "meat"
+  },
+  {
+    "id": "beef — steak: flank",
+    "label": "beef — steak: flank",
+    "influence": 20,
+    "cat": "meat"
+  },
+  {
+    "id": "beef — steak: hanger",
+    "label": "beef — steak: hanger",
+    "influence": 15,
+    "cat": "meat"
+  },
+  {
+    "id": "beef — steak: in general",
+    "label": "beef — steak: in general",
+    "influence": 82,
+    "cat": "meat"
+  },
+  {
+    "id": "beef — steak: rib eye",
+    "label": "beef — steak: rib eye",
+    "influence": 9,
+    "cat": "meat"
+  },
+  {
+    "id": "beef — steak: skirt",
+    "label": "beef — steak: skirt",
+    "influence": 31,
+    "cat": "meat"
+  },
+  {
+    "id": "beets",
+    "label": "beets",
+    "influence": 177,
+    "cat": "veg"
+  },
+  {
+    "id": "bell peppers",
+    "label": "bell peppers",
+    "influence": 148,
+    "cat": "veg"
+  },
+  {
+    "id": "bell peppers, esp. green",
+    "label": "bell peppers, esp. green",
+    "influence": 3,
+    "cat": "veg"
+  },
+  {
+    "id": "bell peppers, esp. red",
+    "label": "bell peppers, esp. red",
+    "influence": 13,
+    "cat": "veg"
+  },
+  {
+    "id": "bell peppers, green",
+    "label": "bell peppers, green",
+    "influence": 4,
+    "cat": "veg"
+  },
+  {
+    "id": "bell peppers, red",
+    "label": "bell peppers, red",
+    "influence": 11,
+    "cat": "veg"
+  },
+  {
+    "id": "bell peppers, roasted",
+    "label": "bell peppers, roasted",
+    "influence": 6,
+    "cat": "veg"
+  },
+  {
+    "id": "black beans",
+    "label": "black beans",
+    "influence": 11,
+    "cat": "veg"
+  },
+  {
+    "id": "black olive",
+    "label": "black olive",
+    "influence": 4,
+    "cat": "cond"
+  },
+  {
+    "id": "black pepper",
+    "label": "black pepper",
+    "influence": 234,
+    "cat": "cond"
+  },
+  {
+    "id": "black sesame seeds",
+    "label": "black sesame seeds",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "black truffles",
+    "label": "black truffles",
+    "influence": 4,
+    "cat": "veg"
+  },
+  {
+    "id": "black-eyed peas",
+    "label": "black-eyed peas",
+    "influence": 44,
+    "cat": "veg"
+  },
+  {
+    "id": "bok choy",
+    "label": "bok choy",
+    "influence": 52,
+    "cat": "veg"
+  },
+  {
+    "id": "broccoli",
+    "label": "broccoli",
+    "influence": 73,
+    "cat": "veg"
+  },
+  {
+    "id": "broccoli rabe",
+    "label": "broccoli rabe",
+    "influence": 46,
+    "cat": "veg"
+  },
+  {
+    "id": "broccolini",
+    "label": "broccolini",
+    "influence": 17,
+    "cat": "veg"
+  },
+  {
+    "id": "brown butter",
+    "label": "brown butter",
+    "influence": 15,
+    "cat": "cond"
+  },
+  {
+    "id": "brown butter sauce",
+    "label": "brown butter sauce",
+    "influence": 4,
+    "cat": "cond"
+  },
+  {
+    "id": "brown sugar",
+    "label": "brown sugar",
+    "influence": 89,
+    "cat": "cond"
+  },
+  {
+    "id": "brussels sprouts",
+    "label": "brussels sprouts",
+    "influence": 76,
+    "cat": "veg"
+  },
+  {
+    "id": "butter",
+    "label": "butter",
+    "influence": 205,
+    "cat": "cond"
+  },
+  {
+    "id": "butter  brown",
+    "label": "butter  brown",
+    "influence": 4,
+    "cat": "cond"
+  },
+  {
+    "id": "butter  unsalted",
+    "label": "butter  unsalted",
+    "influence": 120,
+    "cat": "cond"
+  },
+  {
+    "id": "butter clarified",
+    "label": "butter clarified",
+    "influence": 7,
+    "cat": "cond"
+  },
+  {
+    "id": "butter, brown",
+    "label": "butter, brown",
+    "influence": 12,
+    "cat": "cond"
+  },
+  {
+    "id": "butter, unsalted",
+    "label": "butter, unsalted",
+    "influence": 112,
+    "cat": "cond"
+  },
+  {
+    "id": "butternut squash",
+    "label": "butternut squash",
+    "influence": 8,
+    "cat": "veg"
+  },
+  {
+    "id": "button mushrooms",
+    "label": "button mushrooms",
+    "influence": 8,
+    "cat": "veg"
+  },
+  {
+    "id": "cabbage",
+    "label": "cabbage",
+    "influence": 135,
+    "cat": "veg"
+  },
+  {
+    "id": "cabbage, green",
+    "label": "cabbage, green",
+    "influence": 5,
+    "cat": "veg"
+  },
+  {
+    "id": "cabbage, napa",
+    "label": "cabbage, napa",
+    "influence": 37,
+    "cat": "veg"
+  },
+  {
+    "id": "cabbage, red",
+    "label": "cabbage, red",
+    "influence": 62,
+    "cat": "veg"
+  },
+  {
+    "id": "cabbage, savoy",
+    "label": "cabbage, savoy",
+    "influence": 36,
+    "cat": "veg"
+  },
+  {
+    "id": "cabernet sauvignon wine",
+    "label": "cabernet sauvignon wine",
+    "influence": 5,
+    "cat": "cond"
+  },
+  {
+    "id": "canned tomatoes",
+    "label": "canned tomatoes",
+    "influence": 3,
+    "cat": "veg"
+  },
+  {
+    "id": "canola oil",
+    "label": "canola oil",
+    "influence": 62,
+    "cat": "cond"
+  },
+  {
+    "id": "capers",
+    "label": "capers",
+    "influence": 116,
+    "cat": "cond"
+  },
+  {
+    "id": "caraway",
+    "label": "caraway",
+    "influence": 7,
+    "cat": "cond"
+  },
+  {
+    "id": "caraway seeds",
+    "label": "caraway seeds",
+    "influence": 63,
+    "cat": "cond"
+  },
+  {
+    "id": "cardamom",
+    "label": "cardamom",
+    "influence": 139,
+    "cat": "cond"
+  },
+  {
+    "id": "carrots",
+    "label": "carrots",
+    "influence": 227,
+    "cat": "veg"
+  },
+  {
+    "id": "carrots and carrot juice",
+    "label": "carrots and carrot juice",
+    "influence": 6,
+    "cat": "veg"
+  },
+  {
+    "id": "cauliflower",
+    "label": "cauliflower",
+    "influence": 130,
+    "cat": "veg"
+  },
+  {
+    "id": "cayenne",
+    "label": "cayenne",
+    "influence": 88,
+    "cat": "cond"
+  },
+  {
+    "id": "cayenne, ground",
+    "label": "cayenne, ground",
+    "influence": 32,
+    "cat": "cond"
+  },
+  {
+    "id": "celery",
+    "label": "celery",
+    "influence": 144,
+    "cat": "veg"
+  },
+  {
+    "id": "celery and celery leaves",
+    "label": "celery and celery leaves",
+    "influence": 3,
+    "cat": "veg"
+  },
+  {
+    "id": "celery root",
+    "label": "celery root",
+    "influence": 107,
+    "cat": "veg"
+  },
+  {
+    "id": "celery salt",
+    "label": "celery salt",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "celery seed",
+    "label": "celery seed",
+    "influence": 35,
+    "cat": "cond"
+  },
+  {
+    "id": "celery seeds",
+    "label": "celery seeds",
+    "influence": 6,
+    "cat": "cond"
+  },
+  {
+    "id": "cepes mushrooms",
+    "label": "cepes mushrooms",
+    "influence": 4,
+    "cat": "veg"
+  },
+  {
+    "id": "champagne vinegar",
+    "label": "champagne vinegar",
+    "influence": 43,
+    "cat": "cond"
+  },
+  {
+    "id": "champagne wine",
+    "label": "champagne wine",
+    "influence": 7,
+    "cat": "cond"
+  },
+  {
+    "id": "chanterelle mushrooms",
+    "label": "chanterelle mushrooms",
+    "influence": 6,
+    "cat": "veg"
+  },
+  {
+    "id": "chanterelles",
+    "label": "chanterelles",
+    "influence": 8,
+    "cat": "veg"
+  },
+  {
+    "id": "chanterelles mushrooms",
+    "label": "chanterelles mushrooms",
+    "influence": 8,
+    "cat": "veg"
+  },
+  {
+    "id": "chard",
+    "label": "chard",
+    "influence": 72,
+    "cat": "veg"
+  },
+  {
+    "id": "chardonnay wine",
+    "label": "chardonnay wine",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "chervil",
+    "label": "chervil",
+    "influence": 129,
+    "cat": "cond"
+  },
+  {
+    "id": "chestnut honey",
+    "label": "chestnut honey",
+    "influence": 7,
+    "cat": "cond"
+  },
+  {
+    "id": "chicken",
+    "label": "chicken",
+    "influence": 399,
+    "cat": "meat"
+  },
+  {
+    "id": "chicken  grilled",
+    "label": "chicken  grilled",
+    "influence": 3,
+    "cat": "meat"
+  },
+  {
+    "id": "chicken  roasted",
+    "label": "chicken  roasted",
+    "influence": 7,
+    "cat": "meat"
+  },
+  {
+    "id": "chicken fat",
+    "label": "chicken fat",
+    "influence": 3,
+    "cat": "meat"
+  },
+  {
+    "id": "chicken livers",
+    "label": "chicken livers",
+    "influence": 4,
+    "cat": "meat"
+  },
+  {
+    "id": "chicken soups",
+    "label": "chicken soups",
+    "influence": 4,
+    "cat": "meat"
+  },
+  {
+    "id": "chicken stock",
+    "label": "chicken stock",
+    "influence": 55,
+    "cat": "cond"
+  },
+  {
+    "id": "chicken stocks",
+    "label": "chicken stocks",
+    "influence": 70,
+    "cat": "cond"
+  },
+  {
+    "id": "chicken, esp. grilled",
+    "label": "chicken, esp. grilled",
+    "influence": 3,
+    "cat": "meat"
+  },
+  {
+    "id": "chicken, esp. roasted",
+    "label": "chicken, esp. roasted",
+    "influence": 7,
+    "cat": "meat"
+  },
+  {
+    "id": "chicory",
+    "label": "chicory",
+    "influence": 35,
+    "cat": "veg"
+  },
+  {
+    "id": "chile peppers",
+    "label": "chile peppers",
+    "influence": 217,
+    "cat": "cond"
+  },
+  {
+    "id": "chile peppers  chipotle",
+    "label": "chile peppers  chipotle",
+    "influence": 6,
+    "cat": "cond"
+  },
+  {
+    "id": "chile peppers  dried red",
+    "label": "chile peppers  dried red",
+    "influence": 6,
+    "cat": "cond"
+  },
+  {
+    "id": "chile peppers  fresh green",
+    "label": "chile peppers  fresh green",
+    "influence": 9,
+    "cat": "cond"
+  },
+  {
+    "id": "chile peppers  green",
+    "label": "chile peppers  green",
+    "influence": 4,
+    "cat": "cond"
+  },
+  {
+    "id": "chile peppers  jalapeño",
+    "label": "chile peppers  jalapeño",
+    "influence": 25,
+    "cat": "cond"
+  },
+  {
+    "id": "chile peppers  red",
+    "label": "chile peppers  red",
+    "influence": 5,
+    "cat": "cond"
+  },
+  {
+    "id": "chile peppers  serrano",
+    "label": "chile peppers  serrano",
+    "influence": 12,
+    "cat": "cond"
+  },
+  {
+    "id": "chile peppers  thai",
+    "label": "chile peppers  thai",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "chile peppers chipotle",
+    "label": "chile peppers chipotle",
+    "influence": 7,
+    "cat": "cond"
+  },
+  {
+    "id": "chile peppers dried",
+    "label": "chile peppers dried",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "chile peppers dried red",
+    "label": "chile peppers dried red",
+    "influence": 11,
+    "cat": "cond"
+  },
+  {
+    "id": "chile peppers fresh green",
+    "label": "chile peppers fresh green",
+    "influence": 6,
+    "cat": "cond"
+  },
+  {
+    "id": "chile peppers jalapeño",
+    "label": "chile peppers jalapeño",
+    "influence": 12,
+    "cat": "cond"
+  },
+  {
+    "id": "chile peppers, anaheim",
+    "label": "chile peppers, anaheim",
+    "influence": 2,
+    "cat": "cond"
+  },
+  {
+    "id": "chile peppers, ancho",
+    "label": "chile peppers, ancho",
+    "influence": 6,
+    "cat": "cond"
+  },
+  {
+    "id": "chile peppers, chipotle",
+    "label": "chile peppers, chipotle",
+    "influence": 40,
+    "cat": "cond"
+  },
+  {
+    "id": "chile peppers, dried red",
+    "label": "chile peppers, dried red",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "chile peppers, esp. jalapeño",
+    "label": "chile peppers, esp. jalapeño",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "chile peppers, guajillo",
+    "label": "chile peppers, guajillo",
+    "influence": 8,
+    "cat": "cond"
+  },
+  {
+    "id": "chile peppers, habanero",
+    "label": "chile peppers, habanero",
+    "influence": 9,
+    "cat": "cond"
+  },
+  {
+    "id": "chile peppers, jalapeño",
+    "label": "chile peppers, jalapeño",
+    "influence": 20,
+    "cat": "cond"
+  },
+  {
+    "id": "chile peppers, pasilla",
+    "label": "chile peppers, pasilla",
+    "influence": 2,
+    "cat": "cond"
+  },
+  {
+    "id": "chile peppers, piments d’espelette",
+    "label": "chile peppers, piments d’espelette",
+    "influence": 1,
+    "cat": "cond"
+  },
+  {
+    "id": "chile peppers, poblano",
+    "label": "chile peppers, poblano",
+    "influence": 11,
+    "cat": "cond"
+  },
+  {
+    "id": "chile peppers, serrano",
+    "label": "chile peppers, serrano",
+    "influence": 19,
+    "cat": "cond"
+  },
+  {
+    "id": "chiles",
+    "label": "chiles",
+    "influence": 8,
+    "cat": "cond"
+  },
+  {
+    "id": "chili",
+    "label": "chili",
+    "influence": 12,
+    "cat": "cond"
+  },
+  {
+    "id": "chili oil",
+    "label": "chili oil",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "chili paste",
+    "label": "chili paste",
+    "influence": 9,
+    "cat": "cond"
+  },
+  {
+    "id": "chili powder",
+    "label": "chili powder",
+    "influence": 36,
+    "cat": "cond"
+  },
+  {
+    "id": "chili sauce",
+    "label": "chili sauce",
+    "influence": 13,
+    "cat": "cond"
+  },
+  {
+    "id": "chives",
+    "label": "chives",
+    "influence": 178,
+    "cat": "cond"
+  },
+  {
+    "id": "chives (garnish)",
+    "label": "chives (garnish)",
+    "influence": 4,
+    "cat": "cond"
+  },
+  {
+    "id": "chorizo",
+    "label": "chorizo",
+    "influence": 37,
+    "cat": "meat"
+  },
+  {
+    "id": "chorizo sausage",
+    "label": "chorizo sausage",
+    "influence": 5,
+    "cat": "meat"
+  },
+  {
+    "id": "cider vinegar",
+    "label": "cider vinegar",
+    "influence": 42,
+    "cat": "cond"
+  },
+  {
+    "id": "cilantro",
+    "label": "cilantro",
+    "influence": 225,
+    "cat": "cond"
+  },
+  {
+    "id": "cinnamon",
+    "label": "cinnamon",
+    "influence": 262,
+    "cat": "cond"
+  },
+  {
+    "id": "cipollini onions",
+    "label": "cipollini onions",
+    "influence": 4,
+    "cat": "cond"
+  },
+  {
+    "id": "clam stocks",
+    "label": "clam stocks",
+    "influence": 6,
+    "cat": "cond"
+  },
+  {
+    "id": "clove",
+    "label": "clove",
+    "influence": 4,
+    "cat": "cond"
+  },
+  {
+    "id": "cloves",
+    "label": "cloves",
+    "influence": 179,
+    "cat": "cond"
+  },
+  {
+    "id": "cod, salt",
+    "label": "cod, salt",
+    "influence": 52,
+    "cat": "cond"
+  },
+  {
+    "id": "confectioners’ sugar",
+    "label": "confectioners’ sugar",
+    "influence": 5,
+    "cat": "cond"
+  },
+  {
+    "id": "coriander",
+    "label": "coriander",
+    "influence": 202,
+    "cat": "cond"
+  },
+  {
+    "id": "corn",
+    "label": "corn",
+    "influence": 174,
+    "cat": "veg"
+  },
+  {
+    "id": "corn oil",
+    "label": "corn oil",
+    "influence": 14,
+    "cat": "cond"
+  },
+  {
+    "id": "corn syrup",
+    "label": "corn syrup",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "cremini mushrooms",
+    "label": "cremini mushrooms",
+    "influence": 4,
+    "cat": "veg"
+  },
+  {
+    "id": "cucumber",
+    "label": "cucumber",
+    "influence": 19,
+    "cat": "veg"
+  },
+  {
+    "id": "cucumbers",
+    "label": "cucumbers",
+    "influence": 137,
+    "cat": "veg"
+  },
+  {
+    "id": "cumin",
+    "label": "cumin",
+    "influence": 214,
+    "cat": "cond"
+  },
+  {
+    "id": "cured meats",
+    "label": "cured meats",
+    "influence": 9,
+    "cat": "meat"
+  },
+  {
+    "id": "curries and curry powder",
+    "label": "curries and curry powder",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "curry",
+    "label": "curry",
+    "influence": 38,
+    "cat": "cond"
+  },
+  {
+    "id": "curry  powder",
+    "label": "curry  powder",
+    "influence": 4,
+    "cat": "cond"
+  },
+  {
+    "id": "curry leaf",
+    "label": "curry leaf",
+    "influence": 5,
+    "cat": "cond"
+  },
+  {
+    "id": "curry leaves",
+    "label": "curry leaves",
+    "influence": 45,
+    "cat": "cond"
+  },
+  {
+    "id": "curry powder",
+    "label": "curry powder",
+    "influence": 24,
+    "cat": "cond"
+  },
+  {
+    "id": "curry powder and sauces",
+    "label": "curry powder and sauces",
+    "influence": 58,
+    "cat": "cond"
+  },
+  {
+    "id": "daikon",
+    "label": "daikon",
+    "influence": 56,
+    "cat": "veg"
+  },
+  {
+    "id": "dandelion greens",
+    "label": "dandelion greens",
+    "influence": 4,
+    "cat": "veg"
+  },
+  {
+    "id": "dashi",
+    "label": "dashi",
+    "influence": 7,
+    "cat": "cond"
+  },
+  {
+    "id": "dijon mustard",
+    "label": "dijon mustard",
+    "influence": 13,
+    "cat": "cond"
+  },
+  {
+    "id": "dill",
+    "label": "dill",
+    "influence": 161,
+    "cat": "cond"
+  },
+  {
+    "id": "dried beans",
+    "label": "dried beans",
+    "influence": 5,
+    "cat": "veg"
+  },
+  {
+    "id": "dry mustard",
+    "label": "dry mustard",
+    "influence": 10,
+    "cat": "cond"
+  },
+  {
+    "id": "dry red wine",
+    "label": "dry red wine",
+    "influence": 16,
+    "cat": "cond"
+  },
+  {
+    "id": "dry to off-dry white wine",
+    "label": "dry to off-dry white wine",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "dry white wine",
+    "label": "dry white wine",
+    "influence": 47,
+    "cat": "cond"
+  },
+  {
+    "id": "dry wine",
+    "label": "dry wine",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "duck",
+    "label": "duck",
+    "influence": 237,
+    "cat": "meat"
+  },
+  {
+    "id": "duck confit",
+    "label": "duck confit",
+    "influence": 22,
+    "cat": "meat"
+  },
+  {
+    "id": "duck fat",
+    "label": "duck fat",
+    "influence": 6,
+    "cat": "meat"
+  },
+  {
+    "id": "egg dishes",
+    "label": "egg dishes",
+    "influence": 6,
+    "cat": "meat"
+  },
+  {
+    "id": "eggplant",
+    "label": "eggplant",
+    "influence": 158,
+    "cat": "veg"
+  },
+  {
+    "id": "eggs",
+    "label": "eggs",
+    "influence": 50,
+    "cat": "meat"
+  },
+  {
+    "id": "eggs and egg dishes",
+    "label": "eggs and egg dishes",
+    "influence": 14,
+    "cat": "meat"
+  },
+  {
+    "id": "eggs and egg- based dishes",
+    "label": "eggs and egg- based dishes",
+    "influence": 43,
+    "cat": "meat"
+  },
+  {
+    "id": "eggs, esp. hard-boiled",
+    "label": "eggs, esp. hard-boiled",
+    "influence": 8,
+    "cat": "meat"
+  },
+  {
+    "id": "eggs, frittata",
+    "label": "eggs, frittata",
+    "influence": 26,
+    "cat": "meat"
+  },
+  {
+    "id": "eggs, hard-boiled",
+    "label": "eggs, hard-boiled",
+    "influence": 49,
+    "cat": "meat"
+  },
+  {
+    "id": "endive",
+    "label": "endive",
+    "influence": 126,
+    "cat": "veg"
+  },
+  {
+    "id": "endive, belgian",
+    "label": "endive, belgian",
+    "influence": 4,
+    "cat": "veg"
+  },
+  {
+    "id": "escarole",
+    "label": "escarole",
+    "influence": 46,
+    "cat": "veg"
+  },
+  {
+    "id": "fatty meats",
+    "label": "fatty meats",
+    "influence": 3,
+    "cat": "meat"
+  },
+  {
+    "id": "fava beans",
+    "label": "fava beans",
+    "influence": 27,
+    "cat": "veg"
+  },
+  {
+    "id": "fennel",
+    "label": "fennel",
+    "influence": 236,
+    "cat": "veg"
+  },
+  {
+    "id": "fennel bulb",
+    "label": "fennel bulb",
+    "influence": 3,
+    "cat": "veg"
+  },
+  {
+    "id": "fennel leaves",
+    "label": "fennel leaves",
+    "influence": 5,
+    "cat": "veg"
+  },
+  {
+    "id": "fennel pollen",
+    "label": "fennel pollen",
+    "influence": 25,
+    "cat": "veg"
+  },
+  {
+    "id": "fennel seeds",
+    "label": "fennel seeds",
+    "influence": 101,
+    "cat": "cond"
+  },
+  {
+    "id": "fines herbes (i.e., chervil, chives, parsley, tarragon)",
+    "label": "fines herbes (i.e., chervil, chives, parsley, tarragon)",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "fish sauce",
+    "label": "fish sauce",
+    "influence": 18,
+    "cat": "cond"
+  },
+  {
+    "id": "fish sauce, asian",
+    "label": "fish sauce, asian",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "fish sauce, thai",
+    "label": "fish sauce, thai",
+    "influence": 13,
+    "cat": "cond"
+  },
+  {
+    "id": "fish stock",
+    "label": "fish stock",
+    "influence": 8,
+    "cat": "cond"
+  },
+  {
+    "id": "fish stocks",
+    "label": "fish stocks",
+    "influence": 22,
+    "cat": "cond"
+  },
+  {
+    "id": "flageolets beans",
+    "label": "flageolets beans",
+    "influence": 4,
+    "cat": "veg"
+  },
+  {
+    "id": "flat-leaf parsley",
+    "label": "flat-leaf parsley",
+    "influence": 130,
+    "cat": "cond"
+  },
+  {
+    "id": "fleur de sel salt",
+    "label": "fleur de sel salt",
+    "influence": 10,
+    "cat": "cond"
+  },
+  {
+    "id": "fresh ginger",
+    "label": "fresh ginger",
+    "influence": 30,
+    "cat": "cond"
+  },
+  {
+    "id": "garam masala",
+    "label": "garam masala",
+    "influence": 19,
+    "cat": "cond"
+  },
+  {
+    "id": "garam masala (key ingredient)",
+    "label": "garam masala (key ingredient)",
+    "influence": 4,
+    "cat": "cond"
+  },
+  {
+    "id": "garlic",
+    "label": "garlic",
+    "influence": 403,
+    "cat": "cond"
+  },
+  {
+    "id": "ginger",
+    "label": "ginger",
+    "influence": 355,
+    "cat": "cond"
+  },
+  {
+    "id": "ginger, esp. fresh",
+    "label": "ginger, esp. fresh",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "ginger, fresh",
+    "label": "ginger, fresh",
+    "influence": 19,
+    "cat": "cond"
+  },
+  {
+    "id": "ginger, ground",
+    "label": "ginger, ground",
+    "influence": 42,
+    "cat": "cond"
+  },
+  {
+    "id": "goose",
+    "label": "goose",
+    "influence": 5,
+    "cat": "meat"
+  },
+  {
+    "id": "goose fat",
+    "label": "goose fat",
+    "influence": 3,
+    "cat": "meat"
+  },
+  {
+    "id": "grapeseed oil",
+    "label": "grapeseed oil",
+    "influence": 36,
+    "cat": "cond"
+  },
+  {
+    "id": "green beans",
+    "label": "green beans",
+    "influence": 38,
+    "cat": "veg"
+  },
+  {
+    "id": "green bell peppers",
+    "label": "green bell peppers",
+    "influence": 30,
+    "cat": "veg"
+  },
+  {
+    "id": "green cabbage",
+    "label": "green cabbage",
+    "influence": 11,
+    "cat": "veg"
+  },
+  {
+    "id": "green onions",
+    "label": "green onions",
+    "influence": 26,
+    "cat": "cond"
+  },
+  {
+    "id": "green pepper",
+    "label": "green pepper",
+    "influence": 14,
+    "cat": "cond"
+  },
+  {
+    "id": "greens",
+    "label": "greens",
+    "influence": 114,
+    "cat": "veg"
+  },
+  {
+    "id": "greens  bitter",
+    "label": "greens  bitter",
+    "influence": 12,
+    "cat": "veg"
+  },
+  {
+    "id": "greens  collard",
+    "label": "greens  collard",
+    "influence": 5,
+    "cat": "veg"
+  },
+  {
+    "id": "greens  salad",
+    "label": "greens  salad",
+    "influence": 6,
+    "cat": "veg"
+  },
+  {
+    "id": "greens, bitter",
+    "label": "greens, bitter",
+    "influence": 11,
+    "cat": "veg"
+  },
+  {
+    "id": "greens, collard",
+    "label": "greens, collard",
+    "influence": 25,
+    "cat": "veg"
+  },
+  {
+    "id": "greens, dandelion",
+    "label": "greens, dandelion",
+    "influence": 12,
+    "cat": "veg"
+  },
+  {
+    "id": "greens, mustard",
+    "label": "greens, mustard",
+    "influence": 13,
+    "cat": "veg"
+  },
+  {
+    "id": "greens, salad",
+    "label": "greens, salad",
+    "influence": 14,
+    "cat": "veg"
+  },
+  {
+    "id": "greens, turnip",
+    "label": "greens, turnip",
+    "influence": 5,
+    "cat": "veg"
+  },
+  {
+    "id": "grilled meats",
+    "label": "grilled meats",
+    "influence": 14,
+    "cat": "meat"
+  },
+  {
+    "id": "ground ginger",
+    "label": "ground ginger",
+    "influence": 7,
+    "cat": "cond"
+  },
+  {
+    "id": "ground pepper",
+    "label": "ground pepper",
+    "influence": 6,
+    "cat": "cond"
+  },
+  {
+    "id": "ham",
+    "label": "ham",
+    "influence": 112,
+    "cat": "meat"
+  },
+  {
+    "id": "ham and ham hocks",
+    "label": "ham and ham hocks",
+    "influence": 4,
+    "cat": "meat"
+  },
+  {
+    "id": "ham hocks",
+    "label": "ham hocks",
+    "influence": 5,
+    "cat": "meat"
+  },
+  {
+    "id": "ham, esp. serrano",
+    "label": "ham, esp. serrano",
+    "influence": 3,
+    "cat": "meat"
+  },
+  {
+    "id": "ham, ibérico",
+    "label": "ham, ibérico",
+    "influence": 1,
+    "cat": "meat"
+  },
+  {
+    "id": "ham, serrano",
+    "label": "ham, serrano",
+    "influence": 15,
+    "cat": "meat"
+  },
+  {
+    "id": "haricots verts beans",
+    "label": "haricots verts beans",
+    "influence": 3,
+    "cat": "veg"
+  },
+  {
+    "id": "hazelnut oil",
+    "label": "hazelnut oil",
+    "influence": 23,
+    "cat": "cond"
+  },
+  {
+    "id": "hoisin sauce",
+    "label": "hoisin sauce",
+    "influence": 9,
+    "cat": "cond"
+  },
+  {
+    "id": "hollandaise sauce",
+    "label": "hollandaise sauce",
+    "influence": 9,
+    "cat": "cond"
+  },
+  {
+    "id": "honey",
+    "label": "honey",
+    "influence": 248,
+    "cat": "cond"
+  },
+  {
+    "id": "honey, blueberry",
+    "label": "honey, blueberry",
+    "influence": 1,
+    "cat": "cond"
+  },
+  {
+    "id": "honey, chestnut",
+    "label": "honey, chestnut",
+    "influence": 2,
+    "cat": "cond"
+  },
+  {
+    "id": "honey, esp. chestnut",
+    "label": "honey, esp. chestnut",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "honey, raspberry",
+    "label": "honey, raspberry",
+    "influence": 1,
+    "cat": "cond"
+  },
+  {
+    "id": "horseradish",
+    "label": "horseradish",
+    "influence": 100,
+    "cat": "cond"
+  },
+  {
+    "id": "hot sauce",
+    "label": "hot sauce",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "ice cream, vanilla",
+    "label": "ice cream, vanilla",
+    "influence": 4,
+    "cat": "cond"
+  },
+  {
+    "id": "ice wine wine",
+    "label": "ice wine wine",
+    "influence": 4,
+    "cat": "cond"
+  },
+  {
+    "id": "jicama",
+    "label": "jicama",
+    "influence": 53,
+    "cat": "veg"
+  },
+  {
+    "id": "juniper berries",
+    "label": "juniper berries",
+    "influence": 63,
+    "cat": "cond"
+  },
+  {
+    "id": "kaffir lime",
+    "label": "kaffir lime",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "kaffir limes and kaffir lime leaf",
+    "label": "kaffir limes and kaffir lime leaf",
+    "influence": 33,
+    "cat": "cond"
+  },
+  {
+    "id": "kale",
+    "label": "kale",
+    "influence": 52,
+    "cat": "veg"
+  },
+  {
+    "id": "ketchup",
+    "label": "ketchup",
+    "influence": 13,
+    "cat": "cond"
+  },
+  {
+    "id": "kohlrabi",
+    "label": "kohlrabi",
+    "influence": 43,
+    "cat": "veg"
+  },
+  {
+    "id": "kosher salt",
+    "label": "kosher salt",
+    "influence": 134,
+    "cat": "cond"
+  },
+  {
+    "id": "lamb",
+    "label": "lamb",
+    "influence": 257,
+    "cat": "meat"
+  },
+  {
+    "id": "lamb  grilled",
+    "label": "lamb  grilled",
+    "influence": 5,
+    "cat": "meat"
+  },
+  {
+    "id": "lamb, chops",
+    "label": "lamb, chops",
+    "influence": 62,
+    "cat": "meat"
+  },
+  {
+    "id": "lamb, esp. grilled",
+    "label": "lamb, esp. grilled",
+    "influence": 3,
+    "cat": "meat"
+  },
+  {
+    "id": "lavender",
+    "label": "lavender",
+    "influence": 84,
+    "cat": "cond"
+  },
+  {
+    "id": "leeks",
+    "label": "leeks",
+    "influence": 171,
+    "cat": "cond"
+  },
+  {
+    "id": "lemon basil",
+    "label": "lemon basil",
+    "influence": 14,
+    "cat": "cond"
+  },
+  {
+    "id": "lemon thyme",
+    "label": "lemon thyme",
+    "influence": 59,
+    "cat": "cond"
+  },
+  {
+    "id": "lemongrass",
+    "label": "lemongrass",
+    "influence": 105,
+    "cat": "cond"
+  },
+  {
+    "id": "lettuce",
+    "label": "lettuce",
+    "influence": 9,
+    "cat": "veg"
+  },
+  {
+    "id": "lettuce, bibb",
+    "label": "lettuce, bibb",
+    "influence": 20,
+    "cat": "veg"
+  },
+  {
+    "id": "lettuce, romaine",
+    "label": "lettuce, romaine",
+    "influence": 62,
+    "cat": "veg"
+  },
+  {
+    "id": "lettuces — bitter greens and chicories",
+    "label": "lettuces — bitter greens and chicories",
+    "influence": 34,
+    "cat": "veg"
+  },
+  {
+    "id": "lettuces — mesclun greens",
+    "label": "lettuces — mesclun greens",
+    "influence": 23,
+    "cat": "veg"
+  },
+  {
+    "id": "light corn syrup",
+    "label": "light corn syrup",
+    "influence": 4,
+    "cat": "cond"
+  },
+  {
+    "id": "lima beans",
+    "label": "lima beans",
+    "influence": 5,
+    "cat": "veg"
+  },
+  {
+    "id": "liver",
+    "label": "liver",
+    "influence": 6,
+    "cat": "meat"
+  },
+  {
+    "id": "liver, calf’s",
+    "label": "liver, calf’s",
+    "influence": 65,
+    "cat": "meat"
+  },
+  {
+    "id": "liver, chicken",
+    "label": "liver, chicken",
+    "influence": 49,
+    "cat": "meat"
+  },
+  {
+    "id": "lotus root",
+    "label": "lotus root",
+    "influence": 14,
+    "cat": "veg"
+  },
+  {
+    "id": "mace",
+    "label": "mace",
+    "influence": 78,
+    "cat": "cond"
+  },
+  {
+    "id": "madeira wine",
+    "label": "madeira wine",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "maple syrup",
+    "label": "maple syrup",
+    "influence": 143,
+    "cat": "cond"
+  },
+  {
+    "id": "marjoram",
+    "label": "marjoram",
+    "influence": 156,
+    "cat": "cond"
+  },
+  {
+    "id": "mashed potatoes",
+    "label": "mashed potatoes",
+    "influence": 9,
+    "cat": "veg"
+  },
+  {
+    "id": "mayonnaise",
+    "label": "mayonnaise",
+    "influence": 42,
+    "cat": "cond"
+  },
+  {
+    "id": "meat",
+    "label": "meat",
+    "influence": 8,
+    "cat": "meat"
+  },
+  {
+    "id": "meat, red",
+    "label": "meat, red",
+    "influence": 4,
+    "cat": "meat"
+  },
+  {
+    "id": "meats",
+    "label": "meats",
+    "influence": 68,
+    "cat": "meat"
+  },
+  {
+    "id": "meats, esp. grilled",
+    "label": "meats, esp. grilled",
+    "influence": 6,
+    "cat": "meat"
+  },
+  {
+    "id": "meats, esp. grilled, roasted",
+    "label": "meats, esp. grilled, roasted",
+    "influence": 4,
+    "cat": "meat"
+  },
+  {
+    "id": "meats, esp. roasted",
+    "label": "meats, esp. roasted",
+    "influence": 4,
+    "cat": "meat"
+  },
+  {
+    "id": "meats, roasted",
+    "label": "meats, roasted",
+    "influence": 4,
+    "cat": "meat"
+  },
+  {
+    "id": "meats, white",
+    "label": "meats, white",
+    "influence": 3,
+    "cat": "meat"
+  },
+  {
+    "id": "merlot wine",
+    "label": "merlot wine",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "mexican sauces",
+    "label": "mexican sauces",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "mint",
+    "label": "mint",
+    "influence": 287,
+    "cat": "cond"
+  },
+  {
+    "id": "mint  spearmint",
+    "label": "mint  spearmint",
+    "influence": 11,
+    "cat": "cond"
+  },
+  {
+    "id": "mint (garnish)",
+    "label": "mint (garnish)",
+    "influence": 6,
+    "cat": "cond"
+  },
+  {
+    "id": "mint, dried",
+    "label": "mint, dried",
+    "influence": 32,
+    "cat": "cond"
+  },
+  {
+    "id": "mint, esp. spearmint",
+    "label": "mint, esp. spearmint",
+    "influence": 10,
+    "cat": "cond"
+  },
+  {
+    "id": "mint, peppermint",
+    "label": "mint, peppermint",
+    "influence": 15,
+    "cat": "cond"
+  },
+  {
+    "id": "mirepoix",
+    "label": "mirepoix",
+    "influence": 20,
+    "cat": "veg"
+  },
+  {
+    "id": "mirepoix (carrots, celery, onions)",
+    "label": "mirepoix (carrots, celery, onions)",
+    "influence": 3,
+    "cat": "veg"
+  },
+  {
+    "id": "mirepoix (key ingredient)",
+    "label": "mirepoix (key ingredient)",
+    "influence": 3,
+    "cat": "veg"
+  },
+  {
+    "id": "mirin",
+    "label": "mirin",
+    "influence": 15,
+    "cat": "cond"
+  },
+  {
+    "id": "miso",
+    "label": "miso",
+    "influence": 17,
+    "cat": "soy"
+  },
+  {
+    "id": "miso and miso soup",
+    "label": "miso and miso soup",
+    "influence": 32,
+    "cat": "soy"
+  },
+  {
+    "id": "molasses",
+    "label": "molasses",
+    "influence": 52,
+    "cat": "cond"
+  },
+  {
+    "id": "mole sauce",
+    "label": "mole sauce",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "mole sauces",
+    "label": "mole sauces",
+    "influence": 7,
+    "cat": "cond"
+  },
+  {
+    "id": "morels",
+    "label": "morels",
+    "influence": 11,
+    "cat": "veg"
+  },
+  {
+    "id": "morels mushrooms",
+    "label": "morels mushrooms",
+    "influence": 9,
+    "cat": "veg"
+  },
+  {
+    "id": "mostarda (mustard fruits)",
+    "label": "mostarda (mustard fruits)",
+    "influence": 5,
+    "cat": "cond"
+  },
+  {
+    "id": "muscat wine",
+    "label": "muscat wine",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "mushroom stocks",
+    "label": "mushroom stocks",
+    "influence": 4,
+    "cat": "cond"
+  },
+  {
+    "id": "mushrooms",
+    "label": "mushrooms",
+    "influence": 221,
+    "cat": "veg"
+  },
+  {
+    "id": "mushrooms — chanterelles",
+    "label": "mushrooms — chanterelles",
+    "influence": 39,
+    "cat": "veg"
+  },
+  {
+    "id": "mushrooms — cremini",
+    "label": "mushrooms — cremini",
+    "influence": 18,
+    "cat": "veg"
+  },
+  {
+    "id": "mushrooms — matsutake",
+    "label": "mushrooms — matsutake",
+    "influence": 35,
+    "cat": "veg"
+  },
+  {
+    "id": "mushrooms — morels",
+    "label": "mushrooms — morels",
+    "influence": 66,
+    "cat": "veg"
+  },
+  {
+    "id": "mushrooms — porcini / cepes / king bolete",
+    "label": "mushrooms — porcini / cepes / king bolete",
+    "influence": 66,
+    "cat": "veg"
+  },
+  {
+    "id": "mushrooms — portobello",
+    "label": "mushrooms — portobello",
+    "influence": 13,
+    "cat": "veg"
+  },
+  {
+    "id": "mushrooms — shiitake",
+    "label": "mushrooms — shiitake",
+    "influence": 68,
+    "cat": "veg"
+  },
+  {
+    "id": "mushrooms, esp. shiitake",
+    "label": "mushrooms, esp. shiitake",
+    "influence": 5,
+    "cat": "veg"
+  },
+  {
+    "id": "mushrooms, esp. wild",
+    "label": "mushrooms, esp. wild",
+    "influence": 4,
+    "cat": "veg"
+  },
+  {
+    "id": "mushrooms, porcini",
+    "label": "mushrooms, porcini",
+    "influence": 4,
+    "cat": "veg"
+  },
+  {
+    "id": "mushrooms, wild",
+    "label": "mushrooms, wild",
+    "influence": 11,
+    "cat": "veg"
+  },
+  {
+    "id": "mustard",
+    "label": "mustard",
+    "influence": 140,
+    "cat": "cond"
+  },
+  {
+    "id": "mustard oil",
+    "label": "mustard oil",
+    "influence": 5,
+    "cat": "cond"
+  },
+  {
+    "id": "mustard seeds",
+    "label": "mustard seeds",
+    "influence": 22,
+    "cat": "cond"
+  },
+  {
+    "id": "mustard seeds, black",
+    "label": "mustard seeds, black",
+    "influence": 6,
+    "cat": "cond"
+  },
+  {
+    "id": "mustard vinaigrette",
+    "label": "mustard vinaigrette",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "mustard, dijon",
+    "label": "mustard, dijon",
+    "influence": 59,
+    "cat": "cond"
+  },
+  {
+    "id": "mustard, esp. dijon",
+    "label": "mustard, esp. dijon",
+    "influence": 6,
+    "cat": "cond"
+  },
+  {
+    "id": "napa cabbage",
+    "label": "napa cabbage",
+    "influence": 3,
+    "cat": "veg"
+  },
+  {
+    "id": "navy beans",
+    "label": "navy beans",
+    "influence": 3,
+    "cat": "veg"
+  },
+  {
+    "id": "new potatoes",
+    "label": "new potatoes",
+    "influence": 9,
+    "cat": "veg"
+  },
+  {
+    "id": "nut oil",
+    "label": "nut oil",
+    "influence": 4,
+    "cat": "cond"
+  },
+  {
+    "id": "nut oils",
+    "label": "nut oils",
+    "influence": 4,
+    "cat": "cond"
+  },
+  {
+    "id": "nutmeg",
+    "label": "nutmeg",
+    "influence": 206,
+    "cat": "cond"
+  },
+  {
+    "id": "oil",
+    "label": "oil",
+    "influence": 4,
+    "cat": "cond"
+  },
+  {
+    "id": "oil, almond",
+    "label": "oil, almond",
+    "influence": 17,
+    "cat": "cond"
+  },
+  {
+    "id": "oil, avocado",
+    "label": "oil, avocado",
+    "influence": 35,
+    "cat": "cond"
+  },
+  {
+    "id": "oil, canola",
+    "label": "oil, canola",
+    "influence": 11,
+    "cat": "cond"
+  },
+  {
+    "id": "oil, grapeseed",
+    "label": "oil, grapeseed",
+    "influence": 8,
+    "cat": "cond"
+  },
+  {
+    "id": "oil, hazelnut",
+    "label": "oil, hazelnut",
+    "influence": 24,
+    "cat": "cond"
+  },
+  {
+    "id": "oil, macadamia nut",
+    "label": "oil, macadamia nut",
+    "influence": 2,
+    "cat": "cond"
+  },
+  {
+    "id": "oil, peanut",
+    "label": "oil, peanut",
+    "influence": 27,
+    "cat": "cond"
+  },
+  {
+    "id": "oil, pecan",
+    "label": "oil, pecan",
+    "influence": 7,
+    "cat": "cond"
+  },
+  {
+    "id": "oil, pistachio",
+    "label": "oil, pistachio",
+    "influence": 10,
+    "cat": "cond"
+  },
+  {
+    "id": "oil, porcini",
+    "label": "oil, porcini",
+    "influence": 8,
+    "cat": "cond"
+  },
+  {
+    "id": "oil, pumpkin seed",
+    "label": "oil, pumpkin seed",
+    "influence": 16,
+    "cat": "cond"
+  },
+  {
+    "id": "oil, sesame",
+    "label": "oil, sesame",
+    "influence": 46,
+    "cat": "cond"
+  },
+  {
+    "id": "oil, truffle",
+    "label": "oil, truffle",
+    "influence": 7,
+    "cat": "cond"
+  },
+  {
+    "id": "oil, vegetable",
+    "label": "oil, vegetable",
+    "influence": 11,
+    "cat": "cond"
+  },
+  {
+    "id": "oil, walnut",
+    "label": "oil, walnut",
+    "influence": 31,
+    "cat": "cond"
+  },
+  {
+    "id": "okra",
+    "label": "okra",
+    "influence": 52,
+    "cat": "veg"
+  },
+  {
+    "id": "old bay seasoning",
+    "label": "old bay seasoning",
+    "influence": 5,
+    "cat": "cond"
+  },
+  {
+    "id": "olive niçoise",
+    "label": "olive niçoise",
+    "influence": 4,
+    "cat": "cond"
+  },
+  {
+    "id": "olive oil",
+    "label": "olive oil",
+    "influence": 283,
+    "cat": "cond"
+  },
+  {
+    "id": "olives",
+    "label": "olives",
+    "influence": 146,
+    "cat": "cond"
+  },
+  {
+    "id": "olives  black",
+    "label": "olives  black",
+    "influence": 20,
+    "cat": "cond"
+  },
+  {
+    "id": "olives  green",
+    "label": "olives  green",
+    "influence": 10,
+    "cat": "cond"
+  },
+  {
+    "id": "olives  kalamata",
+    "label": "olives  kalamata",
+    "influence": 8,
+    "cat": "cond"
+  },
+  {
+    "id": "olives  niçoise",
+    "label": "olives  niçoise",
+    "influence": 7,
+    "cat": "cond"
+  },
+  {
+    "id": "olives  picholine",
+    "label": "olives  picholine",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "olives black",
+    "label": "olives black",
+    "influence": 8,
+    "cat": "cond"
+  },
+  {
+    "id": "olives, black",
+    "label": "olives, black",
+    "influence": 13,
+    "cat": "cond"
+  },
+  {
+    "id": "onions",
+    "label": "onions",
+    "influence": 272,
+    "cat": "cond"
+  },
+  {
+    "id": "onions, esp. green",
+    "label": "onions, esp. green",
+    "influence": 6,
+    "cat": "cond"
+  },
+  {
+    "id": "onions, esp. green, red",
+    "label": "onions, esp. green, red",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "onions, esp. red",
+    "label": "onions, esp. red",
+    "influence": 11,
+    "cat": "cond"
+  },
+  {
+    "id": "onions, esp. spring",
+    "label": "onions, esp. spring",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "onions, esp. white",
+    "label": "onions, esp. white",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "onions, esp. yellow",
+    "label": "onions, esp. yellow",
+    "influence": 4,
+    "cat": "cond"
+  },
+  {
+    "id": "onions, green",
+    "label": "onions, green",
+    "influence": 5,
+    "cat": "cond"
+  },
+  {
+    "id": "onions, red",
+    "label": "onions, red",
+    "influence": 16,
+    "cat": "cond"
+  },
+  {
+    "id": "onions, sweet",
+    "label": "onions, sweet",
+    "influence": 25,
+    "cat": "cond"
+  },
+  {
+    "id": "onions, white",
+    "label": "onions, white",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "onions, yellow",
+    "label": "onions, yellow",
+    "influence": 5,
+    "cat": "cond"
+  },
+  {
+    "id": "oregano",
+    "label": "oregano",
+    "influence": 171,
+    "cat": "cond"
+  },
+  {
+    "id": "oxtails",
+    "label": "oxtails",
+    "influence": 3,
+    "cat": "meat"
+  },
+  {
+    "id": "oyster mushrooms",
+    "label": "oyster mushrooms",
+    "influence": 5,
+    "cat": "veg"
+  },
+  {
+    "id": "oyster sauce",
+    "label": "oyster sauce",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "palm sugar",
+    "label": "palm sugar",
+    "influence": 4,
+    "cat": "cond"
+  },
+  {
+    "id": "pancetta",
+    "label": "pancetta",
+    "influence": 60,
+    "cat": "meat"
+  },
+  {
+    "id": "paprika",
+    "label": "paprika",
+    "influence": 172,
+    "cat": "cond"
+  },
+  {
+    "id": "paprika  smoked",
+    "label": "paprika  smoked",
+    "influence": 7,
+    "cat": "cond"
+  },
+  {
+    "id": "paprika  sweet",
+    "label": "paprika  sweet",
+    "influence": 20,
+    "cat": "cond"
+  },
+  {
+    "id": "paprika smoked",
+    "label": "paprika smoked",
+    "influence": 4,
+    "cat": "cond"
+  },
+  {
+    "id": "paprika, esp. sweet",
+    "label": "paprika, esp. sweet",
+    "influence": 4,
+    "cat": "cond"
+  },
+  {
+    "id": "paprika, smoked",
+    "label": "paprika, smoked",
+    "influence": 40,
+    "cat": "cond"
+  },
+  {
+    "id": "paprika, sweet",
+    "label": "paprika, sweet",
+    "influence": 11,
+    "cat": "cond"
+  },
+  {
+    "id": "parsley",
+    "label": "parsley",
+    "influence": 191,
+    "cat": "cond"
+  },
+  {
+    "id": "parsley, flat-leaf",
+    "label": "parsley, flat-leaf",
+    "influence": 127,
+    "cat": "cond"
+  },
+  {
+    "id": "parsnips",
+    "label": "parsnips",
+    "influence": 108,
+    "cat": "veg"
+  },
+  {
+    "id": "pasta and pasta sauces",
+    "label": "pasta and pasta sauces",
+    "influence": 8,
+    "cat": "cond"
+  },
+  {
+    "id": "peanut oil",
+    "label": "peanut oil",
+    "influence": 75,
+    "cat": "cond"
+  },
+  {
+    "id": "peanuts and peanut butter",
+    "label": "peanuts and peanut butter",
+    "influence": 64,
+    "cat": "cond"
+  },
+  {
+    "id": "pearl onions",
+    "label": "pearl onions",
+    "influence": 18,
+    "cat": "cond"
+  },
+  {
+    "id": "peas",
+    "label": "peas",
+    "influence": 149,
+    "cat": "veg"
+  },
+  {
+    "id": "pepper",
+    "label": "pepper",
+    "influence": 28,
+    "cat": "cond"
+  },
+  {
+    "id": "pepper, black",
+    "label": "pepper, black",
+    "influence": 159,
+    "cat": "cond"
+  },
+  {
+    "id": "pepper, green",
+    "label": "pepper, green",
+    "influence": 31,
+    "cat": "cond"
+  },
+  {
+    "id": "pepper, ground",
+    "label": "pepper, ground",
+    "influence": 6,
+    "cat": "cond"
+  },
+  {
+    "id": "pepper, pink",
+    "label": "pepper, pink",
+    "influence": 33,
+    "cat": "cond"
+  },
+  {
+    "id": "pepper, red",
+    "label": "pepper, red",
+    "influence": 6,
+    "cat": "cond"
+  },
+  {
+    "id": "pepper, white",
+    "label": "pepper, white",
+    "influence": 31,
+    "cat": "cond"
+  },
+  {
+    "id": "pheasant",
+    "label": "pheasant",
+    "influence": 45,
+    "cat": "meat"
+  },
+  {
+    "id": "pickled ginger",
+    "label": "pickled ginger",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "pink pepper",
+    "label": "pink pepper",
+    "influence": 9,
+    "cat": "cond"
+  },
+  {
+    "id": "pomegranate molasses",
+    "label": "pomegranate molasses",
+    "influence": 24,
+    "cat": "cond"
+  },
+  {
+    "id": "pomegranates and pomegranate molasses",
+    "label": "pomegranates and pomegranate molasses",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "ponzu sauce",
+    "label": "ponzu sauce",
+    "influence": 12,
+    "cat": "cond"
+  },
+  {
+    "id": "poppy seeds",
+    "label": "poppy seeds",
+    "influence": 66,
+    "cat": "cond"
+  },
+  {
+    "id": "porcini mushrooms",
+    "label": "porcini mushrooms",
+    "influence": 19,
+    "cat": "veg"
+  },
+  {
+    "id": "pork",
+    "label": "pork",
+    "influence": 325,
+    "cat": "meat"
+  },
+  {
+    "id": "pork  loin",
+    "label": "pork  loin",
+    "influence": 3,
+    "cat": "meat"
+  },
+  {
+    "id": "pork  roasted",
+    "label": "pork  roasted",
+    "influence": 5,
+    "cat": "meat"
+  },
+  {
+    "id": "pork — belly",
+    "label": "pork — belly",
+    "influence": 41,
+    "cat": "meat"
+  },
+  {
+    "id": "pork — chops",
+    "label": "pork — chops",
+    "influence": 42,
+    "cat": "meat"
+  },
+  {
+    "id": "pork — loin",
+    "label": "pork — loin",
+    "influence": 32,
+    "cat": "meat"
+  },
+  {
+    "id": "pork — ribs",
+    "label": "pork — ribs",
+    "influence": 47,
+    "cat": "meat"
+  },
+  {
+    "id": "pork — shoulder",
+    "label": "pork — shoulder",
+    "influence": 38,
+    "cat": "meat"
+  },
+  {
+    "id": "pork — tenderloin",
+    "label": "pork — tenderloin",
+    "influence": 41,
+    "cat": "meat"
+  },
+  {
+    "id": "pork, esp. roasted",
+    "label": "pork, esp. roasted",
+    "influence": 5,
+    "cat": "meat"
+  },
+  {
+    "id": "port wine",
+    "label": "port wine",
+    "influence": 5,
+    "cat": "cond"
+  },
+  {
+    "id": "portobello mushrooms",
+    "label": "portobello mushrooms",
+    "influence": 5,
+    "cat": "veg"
+  },
+  {
+    "id": "potato salads",
+    "label": "potato salads",
+    "influence": 5,
+    "cat": "veg"
+  },
+  {
+    "id": "potatoes",
+    "label": "potatoes",
+    "influence": 272,
+    "cat": "veg"
+  },
+  {
+    "id": "potatoes, esp. mashed",
+    "label": "potatoes, esp. mashed",
+    "influence": 5,
+    "cat": "veg"
+  },
+  {
+    "id": "potatoes, esp. new",
+    "label": "potatoes, esp. new",
+    "influence": 5,
+    "cat": "veg"
+  },
+  {
+    "id": "potatoes, new",
+    "label": "potatoes, new",
+    "influence": 16,
+    "cat": "veg"
+  },
+  {
+    "id": "poultry",
+    "label": "poultry",
+    "influence": 65,
+    "cat": "meat"
+  },
+  {
+    "id": "prosciutto",
+    "label": "prosciutto",
+    "influence": 101,
+    "cat": "meat"
+  },
+  {
+    "id": "pumpkin",
+    "label": "pumpkin",
+    "influence": 140,
+    "cat": "veg"
+  },
+  {
+    "id": "pumpkin seeds",
+    "label": "pumpkin seeds",
+    "influence": 17,
+    "cat": "veg"
+  },
+  {
+    "id": "quail",
+    "label": "quail",
+    "influence": 117,
+    "cat": "meat"
+  },
+  {
+    "id": "quince paste",
+    "label": "quince paste",
+    "influence": 6,
+    "cat": "cond"
+  },
+  {
+    "id": "rabbit",
+    "label": "rabbit",
+    "influence": 143,
+    "cat": "meat"
+  },
+  {
+    "id": "radicchio",
+    "label": "radicchio",
+    "influence": 98,
+    "cat": "veg"
+  },
+  {
+    "id": "radishes",
+    "label": "radishes",
+    "influence": 77,
+    "cat": "veg"
+  },
+  {
+    "id": "raspberry vinegar",
+    "label": "raspberry vinegar",
+    "influence": 8,
+    "cat": "cond"
+  },
+  {
+    "id": "red bell peppers",
+    "label": "red bell peppers",
+    "influence": 52,
+    "cat": "veg"
+  },
+  {
+    "id": "red cabbage",
+    "label": "red cabbage",
+    "influence": 12,
+    "cat": "veg"
+  },
+  {
+    "id": "red meats",
+    "label": "red meats",
+    "influence": 6,
+    "cat": "meat"
+  },
+  {
+    "id": "red onions",
+    "label": "red onions",
+    "influence": 70,
+    "cat": "cond"
+  },
+  {
+    "id": "red pepper",
+    "label": "red pepper",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "red pepper flakes",
+    "label": "red pepper flakes",
+    "influence": 66,
+    "cat": "cond"
+  },
+  {
+    "id": "red potatoes",
+    "label": "red potatoes",
+    "influence": 4,
+    "cat": "veg"
+  },
+  {
+    "id": "red wine",
+    "label": "red wine",
+    "influence": 49,
+    "cat": "cond"
+  },
+  {
+    "id": "red wine vinegar",
+    "label": "red wine vinegar",
+    "influence": 87,
+    "cat": "cond"
+  },
+  {
+    "id": "rhubarb",
+    "label": "rhubarb",
+    "influence": 117,
+    "cat": "veg"
+  },
+  {
+    "id": "rice vinegar",
+    "label": "rice vinegar",
+    "influence": 19,
+    "cat": "cond"
+  },
+  {
+    "id": "rice wine",
+    "label": "rice wine",
+    "influence": 9,
+    "cat": "cond"
+  },
+  {
+    "id": "rice wine vinegar",
+    "label": "rice wine vinegar",
+    "influence": 30,
+    "cat": "cond"
+  },
+  {
+    "id": "riesling wine",
+    "label": "riesling wine",
+    "influence": 12,
+    "cat": "cond"
+  },
+  {
+    "id": "roasted bell peppers",
+    "label": "roasted bell peppers",
+    "influence": 10,
+    "cat": "veg"
+  },
+  {
+    "id": "roasted meats",
+    "label": "roasted meats",
+    "influence": 16,
+    "cat": "meat"
+  },
+  {
+    "id": "romaine lettuce",
+    "label": "romaine lettuce",
+    "influence": 3,
+    "cat": "veg"
+  },
+  {
+    "id": "rosemary",
+    "label": "rosemary",
+    "influence": 253,
+    "cat": "cond"
+  },
+  {
+    "id": "rosé wine",
+    "label": "rosé wine",
+    "influence": 4,
+    "cat": "cond"
+  },
+  {
+    "id": "safflower oil",
+    "label": "safflower oil",
+    "influence": 4,
+    "cat": "cond"
+  },
+  {
+    "id": "saffron",
+    "label": "saffron",
+    "influence": 154,
+    "cat": "cond"
+  },
+  {
+    "id": "sage",
+    "label": "sage",
+    "influence": 189,
+    "cat": "cond"
+  },
+  {
+    "id": "sake",
+    "label": "sake",
+    "influence": 35,
+    "cat": "cond"
+  },
+  {
+    "id": "salami",
+    "label": "salami",
+    "influence": 3,
+    "cat": "meat"
+  },
+  {
+    "id": "salmon, cured",
+    "label": "salmon, cured",
+    "influence": 41,
+    "cat": "meat"
+  },
+  {
+    "id": "salsas and sauces",
+    "label": "salsas and sauces",
+    "influence": 4,
+    "cat": "cond"
+  },
+  {
+    "id": "salsify",
+    "label": "salsify",
+    "influence": 46,
+    "cat": "veg"
+  },
+  {
+    "id": "salt",
+    "label": "salt",
+    "influence": 80,
+    "cat": "cond"
+  },
+  {
+    "id": "salt (pinch)",
+    "label": "salt (pinch)",
+    "influence": 5,
+    "cat": "cond"
+  },
+  {
+    "id": "salt cod",
+    "label": "salt cod",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "salt pork",
+    "label": "salt pork",
+    "influence": 3,
+    "cat": "meat"
+  },
+  {
+    "id": "salt, esp. kosher",
+    "label": "salt, esp. kosher",
+    "influence": 5,
+    "cat": "cond"
+  },
+  {
+    "id": "salt, esp. sea",
+    "label": "salt, esp. sea",
+    "influence": 4,
+    "cat": "cond"
+  },
+  {
+    "id": "salt, fleur de sel",
+    "label": "salt, fleur de sel",
+    "influence": 5,
+    "cat": "cond"
+  },
+  {
+    "id": "salt, hawaiian",
+    "label": "salt, hawaiian",
+    "influence": 6,
+    "cat": "cond"
+  },
+  {
+    "id": "salt, japanese",
+    "label": "salt, japanese",
+    "influence": 5,
+    "cat": "cond"
+  },
+  {
+    "id": "salt, kosher",
+    "label": "salt, kosher",
+    "influence": 57,
+    "cat": "cond"
+  },
+  {
+    "id": "salt, maldon",
+    "label": "salt, maldon",
+    "influence": 2,
+    "cat": "cond"
+  },
+  {
+    "id": "salt, sea",
+    "label": "salt, sea",
+    "influence": 18,
+    "cat": "cond"
+  },
+  {
+    "id": "salt, sea — coarse",
+    "label": "salt, sea — coarse",
+    "influence": 2,
+    "cat": "cond"
+  },
+  {
+    "id": "salt, sea — fine",
+    "label": "salt, sea — fine",
+    "influence": 1,
+    "cat": "cond"
+  },
+  {
+    "id": "salt, smoked",
+    "label": "salt, smoked",
+    "influence": 10,
+    "cat": "cond"
+  },
+  {
+    "id": "salt, truffle",
+    "label": "salt, truffle",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "salt, vanilla",
+    "label": "salt, vanilla",
+    "influence": 13,
+    "cat": "cond"
+  },
+  {
+    "id": "sauce",
+    "label": "sauce",
+    "influence": 6,
+    "cat": "cond"
+  },
+  {
+    "id": "sauces",
+    "label": "sauces",
+    "influence": 102,
+    "cat": "cond"
+  },
+  {
+    "id": "sauces, esp. creamy",
+    "label": "sauces, esp. creamy",
+    "influence": 4,
+    "cat": "cond"
+  },
+  {
+    "id": "sausage",
+    "label": "sausage",
+    "influence": 17,
+    "cat": "meat"
+  },
+  {
+    "id": "sausages",
+    "label": "sausages",
+    "influence": 81,
+    "cat": "meat"
+  },
+  {
+    "id": "sauternes wine",
+    "label": "sauternes wine",
+    "influence": 4,
+    "cat": "cond"
+  },
+  {
+    "id": "savory",
+    "label": "savory",
+    "influence": 109,
+    "cat": "cond"
+  },
+  {
+    "id": "savoy cabbage",
+    "label": "savoy cabbage",
+    "influence": 8,
+    "cat": "veg"
+  },
+  {
+    "id": "scallions",
+    "label": "scallions",
+    "influence": 140,
+    "cat": "cond"
+  },
+  {
+    "id": "sea salt",
+    "label": "sea salt",
+    "influence": 94,
+    "cat": "cond"
+  },
+  {
+    "id": "serrano ham",
+    "label": "serrano ham",
+    "influence": 14,
+    "cat": "meat"
+  },
+  {
+    "id": "sesame",
+    "label": "sesame",
+    "influence": 17,
+    "cat": "cond"
+  },
+  {
+    "id": "sesame  seeds",
+    "label": "sesame  seeds",
+    "influence": 13,
+    "cat": "cond"
+  },
+  {
+    "id": "sesame oil",
+    "label": "sesame oil",
+    "influence": 64,
+    "cat": "cond"
+  },
+  {
+    "id": "sesame seeds",
+    "label": "sesame seeds",
+    "influence": 35,
+    "cat": "cond"
+  },
+  {
+    "id": "sesame seeds, black",
+    "label": "sesame seeds, black",
+    "influence": 19,
+    "cat": "cond"
+  },
+  {
+    "id": "sesame seeds, white",
+    "label": "sesame seeds, white",
+    "influence": 56,
+    "cat": "cond"
+  },
+  {
+    "id": "shallots",
+    "label": "shallots",
+    "influence": 192,
+    "cat": "cond"
+  },
+  {
+    "id": "sherry",
+    "label": "sherry",
+    "influence": 20,
+    "cat": "cond"
+  },
+  {
+    "id": "sherry vinegar",
+    "label": "sherry vinegar",
+    "influence": 84,
+    "cat": "cond"
+  },
+  {
+    "id": "sherry, dry",
+    "label": "sherry, dry",
+    "influence": 5,
+    "cat": "cond"
+  },
+  {
+    "id": "shiitake",
+    "label": "shiitake",
+    "influence": 4,
+    "cat": "veg"
+  },
+  {
+    "id": "shiitake mushrooms",
+    "label": "shiitake mushrooms",
+    "influence": 17,
+    "cat": "veg"
+  },
+  {
+    "id": "shiitakes mushrooms",
+    "label": "shiitakes mushrooms",
+    "influence": 3,
+    "cat": "veg"
+  },
+  {
+    "id": "shrimp paste",
+    "label": "shrimp paste",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "shrimp stocks",
+    "label": "shrimp stocks",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "smoked meats",
+    "label": "smoked meats",
+    "influence": 4,
+    "cat": "meat"
+  },
+  {
+    "id": "smoked sausage",
+    "label": "smoked sausage",
+    "influence": 3,
+    "cat": "meat"
+  },
+  {
+    "id": "snap peas",
+    "label": "snap peas",
+    "influence": 43,
+    "cat": "veg"
+  },
+  {
+    "id": "snow peas",
+    "label": "snow peas",
+    "influence": 5,
+    "cat": "veg"
+  },
+  {
+    "id": "sorrel",
+    "label": "sorrel",
+    "influence": 108,
+    "cat": "veg"
+  },
+  {
+    "id": "soy sauce",
+    "label": "soy sauce",
+    "influence": 133,
+    "cat": "cond"
+  },
+  {
+    "id": "spanish onions",
+    "label": "spanish onions",
+    "influence": 16,
+    "cat": "cond"
+  },
+  {
+    "id": "sparkling wine",
+    "label": "sparkling wine",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "spinach",
+    "label": "spinach",
+    "influence": 205,
+    "cat": "veg"
+  },
+  {
+    "id": "spring onions",
+    "label": "spring onions",
+    "influence": 14,
+    "cat": "cond"
+  },
+  {
+    "id": "sprouts",
+    "label": "sprouts",
+    "influence": 5,
+    "cat": "veg"
+  },
+  {
+    "id": "squab",
+    "label": "squab",
+    "influence": 35,
+    "cat": "meat"
+  },
+  {
+    "id": "squash",
+    "label": "squash",
+    "influence": 15,
+    "cat": "veg"
+  },
+  {
+    "id": "squash, acorn",
+    "label": "squash, acorn",
+    "influence": 31,
+    "cat": "veg"
+  },
+  {
+    "id": "squash, butternut",
+    "label": "squash, butternut",
+    "influence": 121,
+    "cat": "veg"
+  },
+  {
+    "id": "squash, spaghetti",
+    "label": "squash, spaghetti",
+    "influence": 28,
+    "cat": "veg"
+  },
+  {
+    "id": "squash, summer",
+    "label": "squash, summer",
+    "influence": 51,
+    "cat": "veg"
+  },
+  {
+    "id": "squash, winter",
+    "label": "squash, winter",
+    "influence": 84,
+    "cat": "veg"
+  },
+  {
+    "id": "star anise",
+    "label": "star anise",
+    "influence": 53,
+    "cat": "cond"
+  },
+  {
+    "id": "steak",
+    "label": "steak",
+    "influence": 20,
+    "cat": "meat"
+  },
+  {
+    "id": "stock, chicken",
+    "label": "stock, chicken",
+    "influence": 53,
+    "cat": "cond"
+  },
+  {
+    "id": "stock, fish",
+    "label": "stock, fish",
+    "influence": 6,
+    "cat": "cond"
+  },
+  {
+    "id": "stocks",
+    "label": "stocks",
+    "influence": 9,
+    "cat": "cond"
+  },
+  {
+    "id": "stocks and broths",
+    "label": "stocks and broths",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "sugar",
+    "label": "sugar",
+    "influence": 85,
+    "cat": "cond"
+  },
+  {
+    "id": "sugar (pinch)",
+    "label": "sugar (pinch)",
+    "influence": 18,
+    "cat": "cond"
+  },
+  {
+    "id": "sugar, brown",
+    "label": "sugar, brown",
+    "influence": 23,
+    "cat": "cond"
+  },
+  {
+    "id": "sugar, esp. brown",
+    "label": "sugar, esp. brown",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "sugar, palm",
+    "label": "sugar, palm",
+    "influence": 7,
+    "cat": "cond"
+  },
+  {
+    "id": "summer squash",
+    "label": "summer squash",
+    "influence": 13,
+    "cat": "veg"
+  },
+  {
+    "id": "sweet basil",
+    "label": "sweet basil",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "sweet onions",
+    "label": "sweet onions",
+    "influence": 16,
+    "cat": "cond"
+  },
+  {
+    "id": "sweet potatoes",
+    "label": "sweet potatoes",
+    "influence": 175,
+    "cat": "veg"
+  },
+  {
+    "id": "sweet wine",
+    "label": "sweet wine",
+    "influence": 24,
+    "cat": "cond"
+  },
+  {
+    "id": "sweetbreads",
+    "label": "sweetbreads",
+    "influence": 59,
+    "cat": "meat"
+  },
+  {
+    "id": "szechuan pepper",
+    "label": "szechuan pepper",
+    "influence": 40,
+    "cat": "cond"
+  },
+  {
+    "id": "tabasco sauce",
+    "label": "tabasco sauce",
+    "influence": 39,
+    "cat": "cond"
+  },
+  {
+    "id": "tahini",
+    "label": "tahini",
+    "influence": 6,
+    "cat": "cond"
+  },
+  {
+    "id": "tamarind",
+    "label": "tamarind",
+    "influence": 115,
+    "cat": "cond"
+  },
+  {
+    "id": "tarragon",
+    "label": "tarragon",
+    "influence": 236,
+    "cat": "cond"
+  },
+  {
+    "id": "tarragon vinegar",
+    "label": "tarragon vinegar",
+    "influence": 13,
+    "cat": "cond"
+  },
+  {
+    "id": "tarragon, fresh",
+    "label": "tarragon, fresh",
+    "influence": 4,
+    "cat": "cond"
+  },
+  {
+    "id": "thai basil",
+    "label": "thai basil",
+    "influence": 7,
+    "cat": "cond"
+  },
+  {
+    "id": "thyme",
+    "label": "thyme",
+    "influence": 283,
+    "cat": "cond"
+  },
+  {
+    "id": "thyme, fresh",
+    "label": "thyme, fresh",
+    "influence": 17,
+    "cat": "cond"
+  },
+  {
+    "id": "thyme, lemon",
+    "label": "thyme, lemon",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "tofu",
+    "label": "tofu",
+    "influence": 22,
+    "cat": "soy"
+  },
+  {
+    "id": "tomatillos",
+    "label": "tomatillos",
+    "influence": 28,
+    "cat": "veg"
+  },
+  {
+    "id": "tomato juice",
+    "label": "tomato juice",
+    "influence": 4,
+    "cat": "veg"
+  },
+  {
+    "id": "tomato paste",
+    "label": "tomato paste",
+    "influence": 8,
+    "cat": "cond"
+  },
+  {
+    "id": "tomatoes",
+    "label": "tomatoes",
+    "influence": 331,
+    "cat": "veg"
+  },
+  {
+    "id": "tomatoes and tomato juice",
+    "label": "tomatoes and tomato juice",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "tomatoes and tomato paste",
+    "label": "tomatoes and tomato paste",
+    "influence": 13,
+    "cat": "cond"
+  },
+  {
+    "id": "tomatoes and tomato sauce",
+    "label": "tomatoes and tomato sauce",
+    "influence": 14,
+    "cat": "cond"
+  },
+  {
+    "id": "tomatoes and tomato sauces",
+    "label": "tomatoes and tomato sauces",
+    "influence": 14,
+    "cat": "cond"
+  },
+  {
+    "id": "tomatoes, sun-dried",
+    "label": "tomatoes, sun-dried",
+    "influence": 5,
+    "cat": "veg"
+  },
+  {
+    "id": "truffle oil",
+    "label": "truffle oil",
+    "influence": 8,
+    "cat": "cond"
+  },
+  {
+    "id": "truffles",
+    "label": "truffles",
+    "influence": 17,
+    "cat": "veg"
+  },
+  {
+    "id": "truffles, black",
+    "label": "truffles, black",
+    "influence": 36,
+    "cat": "veg"
+  },
+  {
+    "id": "truffles, pacific northwest",
+    "label": "truffles, pacific northwest",
+    "influence": 7,
+    "cat": "veg"
+  },
+  {
+    "id": "truffles, white",
+    "label": "truffles, white",
+    "influence": 23,
+    "cat": "veg"
+  },
+  {
+    "id": "turkey",
+    "label": "turkey",
+    "influence": 97,
+    "cat": "meat"
+  },
+  {
+    "id": "turkey stocks",
+    "label": "turkey stocks",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "turmeric",
+    "label": "turmeric",
+    "influence": 103,
+    "cat": "cond"
+  },
+  {
+    "id": "turnips",
+    "label": "turnips",
+    "influence": 70,
+    "cat": "veg"
+  },
+  {
+    "id": "vanilla",
+    "label": "vanilla",
+    "influence": 196,
+    "cat": "cond"
+  },
+  {
+    "id": "vanilla ice cream",
+    "label": "vanilla ice cream",
+    "influence": 7,
+    "cat": "cond"
+  },
+  {
+    "id": "veal",
+    "label": "veal",
+    "influence": 159,
+    "cat": "meat"
+  },
+  {
+    "id": "veal stock",
+    "label": "veal stock",
+    "influence": 4,
+    "cat": "cond"
+  },
+  {
+    "id": "veal stocks",
+    "label": "veal stocks",
+    "influence": 21,
+    "cat": "cond"
+  },
+  {
+    "id": "veal — breast",
+    "label": "veal — breast",
+    "influence": 16,
+    "cat": "meat"
+  },
+  {
+    "id": "veal — chop",
+    "label": "veal — chop",
+    "influence": 58,
+    "cat": "meat"
+  },
+  {
+    "id": "veal — loin",
+    "label": "veal — loin",
+    "influence": 31,
+    "cat": "meat"
+  },
+  {
+    "id": "veal — shanks",
+    "label": "veal — shanks",
+    "influence": 36,
+    "cat": "meat"
+  },
+  {
+    "id": "veal — tenderloin",
+    "label": "veal — tenderloin",
+    "influence": 17,
+    "cat": "meat"
+  },
+  {
+    "id": "vegetable oil",
+    "label": "vegetable oil",
+    "influence": 65,
+    "cat": "cond"
+  },
+  {
+    "id": "vegetable stock",
+    "label": "vegetable stock",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "vegetable stocks",
+    "label": "vegetable stocks",
+    "influence": 42,
+    "cat": "cond"
+  },
+  {
+    "id": "venison",
+    "label": "venison",
+    "influence": 114,
+    "cat": "meat"
+  },
+  {
+    "id": "vermouth wine",
+    "label": "vermouth wine",
+    "influence": 5,
+    "cat": "cond"
+  },
+  {
+    "id": "vidalia onions",
+    "label": "vidalia onions",
+    "influence": 10,
+    "cat": "cond"
+  },
+  {
+    "id": "vinegar",
+    "label": "vinegar",
+    "influence": 30,
+    "cat": "cond"
+  },
+  {
+    "id": "vinegar, balsamic",
+    "label": "vinegar, balsamic",
+    "influence": 75,
+    "cat": "cond"
+  },
+  {
+    "id": "vinegar, balsamic, esp. aged",
+    "label": "vinegar, balsamic, esp. aged",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "vinegar, banyuls",
+    "label": "vinegar, banyuls",
+    "influence": 28,
+    "cat": "cond"
+  },
+  {
+    "id": "vinegar, champagne",
+    "label": "vinegar, champagne",
+    "influence": 18,
+    "cat": "cond"
+  },
+  {
+    "id": "vinegar, cider",
+    "label": "vinegar, cider",
+    "influence": 22,
+    "cat": "cond"
+  },
+  {
+    "id": "vinegar, esp. balsamic",
+    "label": "vinegar, esp. balsamic",
+    "influence": 4,
+    "cat": "cond"
+  },
+  {
+    "id": "vinegar, fruit",
+    "label": "vinegar, fruit",
+    "influence": 14,
+    "cat": "cond"
+  },
+  {
+    "id": "vinegar, ice wine",
+    "label": "vinegar, ice wine",
+    "influence": 14,
+    "cat": "cond"
+  },
+  {
+    "id": "vinegar, malt",
+    "label": "vinegar, malt",
+    "influence": 5,
+    "cat": "cond"
+  },
+  {
+    "id": "vinegar, red wine",
+    "label": "vinegar, red wine",
+    "influence": 32,
+    "cat": "cond"
+  },
+  {
+    "id": "vinegar, rice",
+    "label": "vinegar, rice",
+    "influence": 5,
+    "cat": "cond"
+  },
+  {
+    "id": "vinegar, rice wine",
+    "label": "vinegar, rice wine",
+    "influence": 28,
+    "cat": "cond"
+  },
+  {
+    "id": "vinegar, sherry",
+    "label": "vinegar, sherry",
+    "influence": 31,
+    "cat": "cond"
+  },
+  {
+    "id": "vinegar, tarragon",
+    "label": "vinegar, tarragon",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "vinegar, vincotto",
+    "label": "vinegar, vincotto",
+    "influence": 15,
+    "cat": "cond"
+  },
+  {
+    "id": "vinegar, white",
+    "label": "vinegar, white",
+    "influence": 6,
+    "cat": "cond"
+  },
+  {
+    "id": "vinegar, white wine",
+    "label": "vinegar, white wine",
+    "influence": 12,
+    "cat": "cond"
+  },
+  {
+    "id": "walnut oil",
+    "label": "walnut oil",
+    "influence": 27,
+    "cat": "cond"
+  },
+  {
+    "id": "walnut oils",
+    "label": "walnut oils",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "wasabi",
+    "label": "wasabi",
+    "influence": 37,
+    "cat": "cond"
+  },
+  {
+    "id": "watercress",
+    "label": "watercress",
+    "influence": 145,
+    "cat": "veg"
+  },
+  {
+    "id": "white (pinch) sugar",
+    "label": "white (pinch) sugar",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "white asparagus",
+    "label": "white asparagus",
+    "influence": 3,
+    "cat": "veg"
+  },
+  {
+    "id": "white beans",
+    "label": "white beans",
+    "influence": 28,
+    "cat": "veg"
+  },
+  {
+    "id": "white meats",
+    "label": "white meats",
+    "influence": 5,
+    "cat": "meat"
+  },
+  {
+    "id": "white miso",
+    "label": "white miso",
+    "influence": 3,
+    "cat": "soy"
+  },
+  {
+    "id": "white mushrooms",
+    "label": "white mushrooms",
+    "influence": 4,
+    "cat": "veg"
+  },
+  {
+    "id": "white onions",
+    "label": "white onions",
+    "influence": 36,
+    "cat": "cond"
+  },
+  {
+    "id": "white pepper",
+    "label": "white pepper",
+    "influence": 130,
+    "cat": "cond"
+  },
+  {
+    "id": "white sesame seeds",
+    "label": "white sesame seeds",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "white sugar",
+    "label": "white sugar",
+    "influence": 64,
+    "cat": "cond"
+  },
+  {
+    "id": "white truffles",
+    "label": "white truffles",
+    "influence": 3,
+    "cat": "veg"
+  },
+  {
+    "id": "white vinegar",
+    "label": "white vinegar",
+    "influence": 16,
+    "cat": "cond"
+  },
+  {
+    "id": "white wine",
+    "label": "white wine",
+    "influence": 41,
+    "cat": "cond"
+  },
+  {
+    "id": "white wine vinegar",
+    "label": "white wine vinegar",
+    "influence": 52,
+    "cat": "cond"
+  },
+  {
+    "id": "wild mushrooms",
+    "label": "wild mushrooms",
+    "influence": 22,
+    "cat": "veg"
+  },
+  {
+    "id": "wildflower honey",
+    "label": "wildflower honey",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "wine",
+    "label": "wine",
+    "influence": 30,
+    "cat": "cond"
+  },
+  {
+    "id": "wine vinegar",
+    "label": "wine vinegar",
+    "influence": 7,
+    "cat": "cond"
+  },
+  {
+    "id": "wine, champagne",
+    "label": "wine, champagne",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "wine, dry red",
+    "label": "wine, dry red",
+    "influence": 3,
+    "cat": "cond"
+  },
+  {
+    "id": "wine, dry white",
+    "label": "wine, dry white",
+    "influence": 29,
+    "cat": "cond"
+  },
+  {
+    "id": "wine, red",
+    "label": "wine, red",
+    "influence": 14,
+    "cat": "cond"
+  },
+  {
+    "id": "wine, rice",
+    "label": "wine, rice",
+    "influence": 6,
+    "cat": "cond"
+  },
+  {
+    "id": "wine, sweet",
+    "label": "wine, sweet",
+    "influence": 6,
+    "cat": "cond"
+  },
+  {
+    "id": "wine, white",
+    "label": "wine, white",
+    "influence": 16,
+    "cat": "cond"
+  },
+  {
+    "id": "winter squash",
+    "label": "winter squash",
+    "influence": 17,
+    "cat": "veg"
+  },
+  {
+    "id": "worcestershire sauce",
+    "label": "worcestershire sauce",
+    "influence": 16,
+    "cat": "cond"
+  },
+  {
+    "id": "yams",
+    "label": "yams",
+    "influence": 5,
+    "cat": "veg"
+  },
+  {
+    "id": "yellow bell peppers",
+    "label": "yellow bell peppers",
+    "influence": 16,
+    "cat": "veg"
+  },
+  {
+    "id": "yellow onions",
+    "label": "yellow onions",
+    "influence": 30,
+    "cat": "cond"
+  },
+  {
+    "id": "zucchini",
+    "label": "zucchini",
+    "influence": 149,
+    "cat": "veg"
+  },
+  {
+    "id": "zucchini blossoms",
+    "label": "zucchini blossoms",
+    "influence": 31,
+    "cat": "veg"
+  }
+]

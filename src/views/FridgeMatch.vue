@@ -192,6 +192,15 @@
                 <p class="mt-1 text-sm text-[color:var(--pk-ink-secondary)]">
                   {{ hasSelection ? `共 ${selectedConceptIds.length + customInputs.length} 项；已识别与暂未识别内容分开处理。` : '尚未选择食材。你的库存会一直清楚列在这里。' }}
                 </p>
+                <div v-if="isCohesiveClassic" class="mt-2.5 flex flex-wrap items-center gap-2">
+                  <span class="inline-flex items-center gap-1.5 rounded-full border border-[color:var(--pk-border-strong)] bg-[color:var(--pk-surface-muted)] px-2.5 py-0.5 text-xs font-semibold text-[color:var(--pk-ink)]">
+                    <AppIcon name="sparkles" :size="12" class="text-[color:var(--pk-accent)]" />
+                    经典风味组合 · 契合度 {{ Math.round(cohesiveness.score * 100) }}%
+                  </span>
+                  <span class="text-xs text-[color:var(--pk-ink-secondary)]">
+                    {{ cohesiveness.connectedPairs }}/{{ cohesiveness.totalPairs }} 对食材在经典风味网络中紧密共现
+                  </span>
+                </div>
               </div>
             </div>
             <button v-if="hasSelection" type="button" class="pk-button pk-button-secondary" @click="clearSelection">清空库存</button>
@@ -260,9 +269,35 @@
             <p class="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-[color:var(--pk-ink-secondary)]">{{ noMatchDescription }}</p>
           </div>
 
-          <div v-else class="grid grid-cols-1 gap-5 lg:grid-cols-2">
-            <FridgeRecipeMatchCard v-for="result in matchPage.results" :key="result.recipe.id" :result="result" />
-          </div>
+          <template v-else>
+            <div v-if="minimalRestockRecipes.length > 0" class="rounded-xl border border-[color:var(--pk-border)] bg-[color:var(--pk-surface-muted)] p-4 text-xs">
+              <div class="flex flex-wrap items-center justify-between gap-1">
+                <span class="font-bold text-[color:var(--pk-ink)]">最小补货提示 · 仅差 1 味</span>
+                <span class="text-[color:var(--pk-ink-muted)]">补充以下 1 味食材即可解锁对应食谱</span>
+              </div>
+              <div class="mt-2.5 flex flex-wrap gap-2">
+                <span
+                  v-for="item in minimalRestockRecipes.slice(0, 4)"
+                  :key="item.recipeId"
+                  class="inline-flex items-center gap-1.5 rounded-md border border-[color:var(--pk-border)] bg-[color:var(--pk-surface)] px-2.5 py-1 text-xs"
+                >
+                  <span class="font-semibold text-[color:var(--pk-ink)]">{{ item.recipeTitle }}</span>
+                  <span class="text-[color:var(--pk-ink-muted)]">差</span>
+                  <span class="font-bold text-[color:var(--pk-accent-hover)]">{{ item.missingIngredient }}</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-5 lg:grid-cols-2">
+              <FridgeRecipeMatchCard
+                v-for="result in matchPage.results"
+                :key="result.recipe.id"
+                :result="result"
+                :flavor-evaluation="recipeEvaluations.get(result.recipe.id)"
+                :flavor-complements="getComplementsForRecipe(result.recipe)"
+              />
+            </div>
+          </template>
 
           <div v-if="matchPage.total > matchPage.results.length" class="flex justify-center pt-1">
             <button type="button" class="pk-button pk-button-secondary min-w-40" @click="visibleLimit += RESULT_BATCH_SIZE">
@@ -356,8 +391,23 @@
                   已取消生成，没有保存或修改任何食谱数据。
                 </p>
                 <div v-else-if="aiState.status === 'stale'" class="text-sm" role="status">
-                  <p class="font-bold text-[color:var(--pk-ink)]">库存已变化，请重新生成</p>
-                  <p class="mt-1 text-[color:var(--pk-ink-secondary)]">旧建议已退出当前结果区，不会自动使用或重新请求。</p>
+                  <div v-if="displayedAiSuggestion?.isStale" class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p class="font-bold text-[color:var(--pk-ink)]">库存已变化 · 下方保留上一版临时做法供参考</p>
+                      <p class="mt-1 text-xs text-[color:var(--pk-ink-secondary)]">页面未发起新请求；如需匹配最新手头食材，可随时点击上方按钮重新生成。</p>
+                    </div>
+                    <button
+                      type="button"
+                      class="text-xs font-semibold text-[color:var(--pk-ink-muted)] hover:text-[color:var(--pk-ink)] underline underline-offset-4 self-start sm:self-auto"
+                      @click="staleDismissed = true"
+                    >
+                      收起上一版参考
+                    </button>
+                  </div>
+                  <div v-else>
+                    <p class="font-bold text-[color:var(--pk-ink)]">库存已变化，请重新生成</p>
+                    <p class="mt-1 text-[color:var(--pk-ink-secondary)]">旧建议已退出当前结果区，不会自动使用或重新请求。</p>
+                  </div>
                 </div>
                 <div v-else-if="aiState.status === 'failure'" role="alert">
                   <p class="text-sm font-bold text-[color:var(--pk-danger)]">{{ aiFailureTitle }}</p>
@@ -370,10 +420,11 @@
             </div>
 
             <FridgeAiSuggestionCard
-              v-if="aiState.status === 'success'"
-              :suggestion="aiState.suggestion"
-              :snapshot="aiState.snapshot"
-              :related-recipes="aiRelatedRecipes"
+              v-if="displayedAiSuggestion"
+              :suggestion="displayedAiSuggestion.suggestion"
+              :snapshot="displayedAiSuggestion.snapshot"
+              :related-recipes="displayedAiSuggestion.relatedRecipes"
+              :is-stale="displayedAiSuggestion.isStale"
               @regenerate="generateAiSuggestion"
             />
           </template>
@@ -395,6 +446,9 @@ import {
   createAiIngredientSnapshot,
   getPublicSelectableConcepts,
   matchPublishedRecipes,
+  type AiFlavorContext,
+  type AiIngredientSnapshot,
+  type AiInstantSuggestion,
   type AiSuggestionErrorCode,
   type AiSuggestionState,
   type FridgeIngredientIndex,
@@ -409,6 +463,7 @@ import FridgeAiByokConfigPanel from '@/components/fridge/FridgeAiByokConfigPanel
 import FridgeAiSuggestionCard from '@/components/fridge/FridgeAiSuggestionCard.vue'
 import AppIcon from '@/components/common/AppIcon.vue'
 import { getRecipeDisplayTitle } from '@/utils/recipeCardPresentation'
+import { useFlavor } from '@/composables/useFlavor'
 
 const RESULT_BATCH_SIZE = 6
 const ingredientIndex = ref<FridgeIngredientIndex | null>(null)
@@ -544,6 +599,54 @@ const aiEligibilityMessage = computed(() => {
   return `将使用当前 ${selectedConceptIds.value.length} 项已识别库存生成，不会自动补入未选择的主要食材。`
 })
 
+const currentInventoryStrings = computed<string[]>(() => {
+  const list: string[] = []
+  if (ingredientIndex.value) {
+    for (const id of selectedConceptIds.value) {
+      const concept = ingredientIndex.value.conceptById.get(id)
+      if (concept?.displayName) {
+        list.push(concept.displayName)
+      }
+    }
+  }
+  for (const custom of customInputs.value) {
+    if (custom.trim()) {
+      list.push(custom.trim())
+    }
+  }
+  return list
+})
+
+const allPublishedRecipesForFlavor = computed(() => {
+  if (!ingredientIndex.value) return []
+  return ingredientIndex.value.recipes
+    .filter(item => item.recipe.status === 'published' && !item.recipe.deletedAt)
+    .map(item => ({
+      id: item.recipe.id,
+      title: getRecipeDisplayTitle(item.recipe.title),
+      ingredients: item.ingredients.map(i => ({
+        name: i.originalName,
+        role: i.role,
+        isBasicPantry: i.isBasicPantry,
+      })),
+    }))
+})
+
+const {
+  engine,
+  cohesiveness,
+  recipeEvaluations,
+  minimalRestockRecipes,
+  getComplementsForRecipe,
+} = useFlavor({
+  inventory: currentInventoryStrings,
+  recipes: allPublishedRecipesForFlavor,
+})
+
+const isCohesiveClassic = computed(() => {
+  return cohesiveness.value.connectedPairs >= 2 && cohesiveness.value.score >= 0.60
+})
+
 const matchPage = computed(() => {
   if (!ingredientIndex.value || !hasSelection.value) {
     return { results: [], unrecognizedUserInputs: [], total: 0, offset: 0, limit: visibleLimit.value }
@@ -551,13 +654,35 @@ const matchPage = computed(() => {
   return matchPublishedRecipes(ingredientIndex.value, {
     conceptIds: selectedConceptIds.value,
     customInputs: customInputs.value,
-  }, { limit: visibleLimit.value })
+  }, {
+    limit: visibleLimit.value,
+    flavorEngine: engine.value || undefined,
+  })
+})
+
+const substitutableCount = computed(() => {
+  let count = 0
+  for (const result of matchPage.value.results) {
+    if (result.isSubstituteMatch) {
+      count++
+      continue
+    }
+    const evalResult = recipeEvaluations.value.get(result.recipe.id)
+    if (evalResult?.status === 'substitutable' && evalResult.substitutes.length > 0) {
+      count++
+    }
+  }
+  return count
 })
 
 const resultSummary = computed(() => {
   if (!hasSelection.value) return '结果区会随库存变化即时更新，不保留旧候选。'
   if (matchPage.value.total === 0) return '当前库存没有产生可安全解释的正式食谱候选。'
-  return `找到 ${matchPage.value.total} 道正式食谱参考；当前显示 ${matchPage.value.results.length} 道。`
+  const base = `找到 ${matchPage.value.total} 道正式食谱参考；当前显示 ${matchPage.value.results.length} 道。`
+  if (substitutableCount.value > 0) {
+    return `${base} 其中 ${substitutableCount.value} 道支持手边食材风味平替。`
+  }
+  return base
 })
 
 const noMatchTitle = computed(() => {
@@ -596,25 +721,81 @@ const aiFailureDescription = computed(() => {
   return `${aiState.value.message}。${aiState.value.error.retryable ? '你可以检查配置后主动重试。' : '本次结果没有进入页面，也没有写入任何数据。'}`
 })
 
-const aiRelatedRecipes = computed(() => {
-  if (aiState.value?.status !== 'success' || !ingredientIndex.value) return []
-  const allowedIds = new Set(aiState.value.snapshot.relatedRecipeIds)
+const staleDismissed = ref(false)
+
+const currentInventoryComplements = computed(() => {
+  if (!engine.value || currentInventoryStrings.value.length === 0) return []
+  return engine.value.getRecipeFlavorComplements(currentInventoryStrings.value, {
+    inventory: currentInventoryStrings.value,
+    limit: 6,
+  })
+})
+
+const aiFlavorContext = computed<AiFlavorContext | undefined>(() => {
+  if (!engine.value) return undefined
+  const complements = currentInventoryComplements.value.map(c => c.zh)
+  return {
+    cohesivenessScore: cohesiveness.value.score,
+    isCohesiveClassic: isCohesiveClassic.value,
+    complements,
+  }
+})
+
+function getRelatedRecipesForSnapshot(
+  suggestion: AiInstantSuggestion,
+  snapshot: AiIngredientSnapshot,
+) {
+  if (!ingredientIndex.value) return []
+  const allowedIds = new Set(snapshot.relatedRecipeIds)
   const recipeById = new Map(ingredientIndex.value.recipes
     .filter(item => item.recipe.status === 'published' && !item.recipe.deletedAt)
     .map(item => [item.recipe.id, item.recipe] as const))
-  return aiState.value.suggestion.relatedRecipeIds
+  return suggestion.relatedRecipeIds
     .filter(id => allowedIds.has(id))
     .map(id => recipeById.get(id))
     .filter((recipe): recipe is NonNullable<typeof recipe> => Boolean(recipe))
     .map(recipe => ({ id: recipe.id, title: getRecipeDisplayTitle(recipe.title) }))
+}
+
+const aiRelatedRecipes = computed(() => {
+  if (aiState.value?.status !== 'success') return []
+  return getRelatedRecipesForSnapshot(aiState.value.suggestion, aiState.value.snapshot)
+})
+
+const displayedAiSuggestion = computed(() => {
+  if (!aiState.value) return null
+  if (aiState.value.status === 'success') {
+    return {
+      suggestion: aiState.value.suggestion,
+      snapshot: aiState.value.snapshot,
+      relatedRecipes: aiRelatedRecipes.value,
+      isStale: false,
+    }
+  }
+  if (aiState.value.status === 'stale' && aiState.value.previousSuggestion && !staleDismissed.value) {
+    const prevSnapshot = aiState.value.previousSnapshot || aiState.value.snapshot
+    return {
+      suggestion: aiState.value.previousSuggestion,
+      snapshot: prevSnapshot,
+      relatedRecipes: getRelatedRecipesForSnapshot(aiState.value.previousSuggestion, prevSnapshot),
+      isStale: true,
+    }
+  }
+  return null
 })
 
 function syncAiSnapshot() {
   if (!ingredientIndex.value) return
-  const snapshotResult = createAiIngredientSnapshot(ingredientIndex.value, {
-    conceptIds: selectedConceptIds.value,
-    customInputs: customInputs.value,
-  })
+  const snapshotResult = createAiIngredientSnapshot(
+    ingredientIndex.value,
+    {
+      conceptIds: selectedConceptIds.value,
+      customInputs: customInputs.value,
+    },
+    {
+      flavorContext: aiFlavorContext.value,
+    },
+  )
   if (!snapshotResult.ok) return
 
   if (!aiChannel.value) {
@@ -640,6 +821,7 @@ function closeAiConfig() {
 }
 
 function configureAi(config: OpenAiCompatibleByokConfigInput) {
+  staleDismissed.value = false
   aiChannel.value?.cancel()
   const result = aiGateway.configure(config)
   if (!result.ok) {
@@ -653,6 +835,7 @@ function configureAi(config: OpenAiCompatibleByokConfigInput) {
 }
 
 function clearAiConfig() {
+  staleDismissed.value = false
   aiChannel.value?.cancel()
   aiGateway.clear()
   aiPublicConfig.value = null
@@ -662,6 +845,8 @@ function clearAiConfig() {
 }
 
 function generateAiSuggestion() {
+  staleDismissed.value = false
+  syncAiSnapshot()
   void aiChannel.value?.requestSuggestion()
 }
 

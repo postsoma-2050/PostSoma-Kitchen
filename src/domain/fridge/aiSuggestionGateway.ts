@@ -49,6 +49,10 @@ function cloneSnapshot(snapshot: AiIngredientSnapshot): AiIngredientSnapshot {
     selectedIngredients: snapshot.selectedIngredients.map(item => ({ ...item })),
     customIngredients: snapshot.customIngredients.map(item => ({ ...item })),
     relatedRecipeIds: [...snapshot.relatedRecipeIds],
+    flavorContext: snapshot.flavorContext ? {
+      ...snapshot.flavorContext,
+      complements: snapshot.flavorContext.complements ? [...snapshot.flavorContext.complements] : undefined,
+    } : undefined,
   }
 }
 

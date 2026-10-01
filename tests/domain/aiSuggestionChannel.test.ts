@@ -64,7 +64,7 @@ function requireConceptId(index: ReturnType<typeof buildFridgeIngredientIndex>, 
 
 function requireSnapshot(result: ReturnType<typeof createAiIngredientSnapshot>): AiIngredientSnapshot {
   assert.equal(result.ok, true)
-  if (!result.ok) throw new Error(result.errors.join('；'))
+  if (!result.ok) throw new Error((result as any).errors.join('；'))
   return result.value
 }
 
@@ -155,6 +155,30 @@ async function run() {
   assert.equal(staleGateway.calls[0].signal.aborted, true, '库存变化必须撤销在途请求')
   resolveCall(staleGateway.calls[0], buildSuggestion(chickenSnapshot))
   assert.equal((await staleRequest).status, 'stale', '旧快照的迟到响应不得覆盖新库存状态')
+
+  // P0 下厨防抖回归断言：由成功状态转为 stale 时必须保留上版建议供参考，多次变更不丢失
+  const gracefulGateway = new DeferredGateway()
+  const gracefulChannel = new AiSuggestionChannel(chickenSnapshot, gracefulGateway)
+  const gracefulPromise = gracefulChannel.requestSuggestion()
+  resolveCall(gracefulGateway.calls[0], buildSuggestion(chickenSnapshot))
+  await gracefulPromise
+  assert.equal(gracefulChannel.getState().status, 'success')
+
+  gracefulChannel.updateSnapshot(tomatoSnapshot)
+  const gracefulStale1 = gracefulChannel.getState()
+  assert.equal(gracefulStale1.status, 'stale')
+  assert.equal(gracefulStale1.status === 'stale' && Boolean(gracefulStale1.previousSuggestion), true, '由 success 变更为 stale 时保留上一版建议')
+  assert.equal(gracefulStale1.status === 'stale' && gracefulStale1.previousSnapshot?.id, chickenSnapshot.id)
+
+  const thirdSnapshotResult = createAiIngredientSnapshot(index, { conceptIds: [tomatoId, saltId] })
+  assert.equal(thirdSnapshotResult.ok, true)
+  if (thirdSnapshotResult.ok) {
+    gracefulChannel.updateSnapshot(thirdSnapshotResult.value)
+    const gracefulStale2 = gracefulChannel.getState()
+    assert.equal(gracefulStale2.status, 'stale')
+    assert.equal(gracefulStale2.status === 'stale' && Boolean(gracefulStale2.previousSuggestion), true, '连续更新库存仍保留有效建议供参考')
+    assert.equal(gracefulStale2.status === 'stale' && gracefulStale2.previousSnapshot?.id, chickenSnapshot.id)
+  }
 
   const invalidGateway = new DeferredGateway()
   const invalidChannel = new AiSuggestionChannel(chickenSnapshot, invalidGateway)

@@ -22,11 +22,18 @@ export interface AiCustomIngredientInput {
   status: 'unrecognized'
 }
 
+export interface AiFlavorContext {
+  cohesivenessScore?: number
+  isCohesiveClassic?: boolean
+  complements?: string[]
+}
+
 export interface AiIngredientSnapshot {
   id: string
   selectedIngredients: AiSelectedIngredient[]
   customIngredients: AiCustomIngredientInput[]
   relatedRecipeIds: string[]
+  flavorContext?: AiFlavorContext
 }
 
 export type AiTimeExpectation = 'quick' | 'moderate' | 'long' | 'unknown'
@@ -101,6 +108,7 @@ export type AiSuggestionState =
     status: 'stale'
     snapshot: AiIngredientSnapshot
     previousSnapshotId: string
+    previousSnapshot?: AiIngredientSnapshot
     previousSuggestion?: AiInstantSuggestion
   }
 
@@ -188,6 +196,10 @@ function validateStringArray(
   return valid
 }
 
+export interface CreateAiIngredientSnapshotOptions {
+  flavorContext?: AiFlavorContext
+}
+
 /**
  * 生成与一次明确库存选择绑定的结构化快照。这里仅整理受控字段；不生成 prompt，
  * 不读取环境变量，也不具备网络请求能力。
@@ -195,6 +207,7 @@ function validateStringArray(
 export function createAiIngredientSnapshot(
   index: FridgeIngredientIndex,
   selection: UserIngredientSelection,
+  options?: CreateAiIngredientSnapshotOptions,
 ): ValidationResult<AiIngredientSnapshot> {
   const errors: string[] = []
   const uniqueConceptIds = [...new Set(selection.conceptIds)]
@@ -260,6 +273,7 @@ export function createAiIngredientSnapshot(
       selectedIngredients,
       customIngredients,
       relatedRecipeIds,
+      flavorContext: options?.flavorContext,
     },
   }
 }
@@ -381,6 +395,11 @@ export function reconcileAiSuggestionSnapshot(
     status: 'stale',
     snapshot: nextSnapshot,
     previousSnapshotId: state.snapshot.id,
-    previousSuggestion: state.status === 'success' ? state.suggestion : undefined,
+    previousSnapshot: state.status === 'success'
+      ? state.snapshot
+      : (state.status === 'stale' ? state.previousSnapshot : undefined),
+    previousSuggestion: state.status === 'success'
+      ? state.suggestion
+      : (state.status === 'stale' ? state.previousSuggestion : undefined),
   }
 }

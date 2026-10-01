@@ -1,9 +1,17 @@
 <template>
   <article class="pk-surface overflow-hidden" aria-labelledby="ai-suggestion-title">
     <header class="px-5 pb-5 pt-6 sm:px-7 sm:pb-6 sm:pt-7">
-      <p class="text-xs font-bold tracking-[0.12em] text-[color:var(--pk-accent)]">
-        AI 即时建议 · 临时生成
-      </p>
+      <div class="flex flex-wrap items-center gap-2">
+        <p class="text-xs font-bold tracking-[0.12em] text-[color:var(--pk-accent)]">
+          AI 即时建议 · 临时生成
+        </p>
+        <span
+          v-if="isStale"
+          class="rounded bg-[color:var(--pk-surface-muted)] px-2 py-0.5 text-xs font-semibold text-[color:var(--pk-ink-secondary)] border border-[color:var(--pk-border)]"
+        >
+          上一版参考
+        </span>
+      </div>
       <h3 id="ai-suggestion-title" class="mt-3 text-2xl font-bold leading-tight text-[color:var(--pk-ink)] sm:text-[1.75rem]">
         {{ suggestion.title }}
       </h3>
@@ -64,6 +72,15 @@
         </p>
       </section>
 
+      <section v-if="flavorComplements.length" class="mt-5 border-t border-[color:var(--pk-border)] pt-5" aria-labelledby="ai-complements-heading">
+        <h4 id="ai-complements-heading" class="text-xs font-bold text-[color:var(--pk-ink-secondary)]">
+          风味搭配参考（The Flavor Bible）
+        </h4>
+        <p class="mt-1.5 text-sm leading-6 text-[color:var(--pk-ink-muted)]">
+          烹调时加入少量以下辅料可增强风味层次：{{ flavorComplements.join('、') }}
+        </p>
+      </section>
+
       <section v-if="relatedRecipes.length" class="mt-5" aria-labelledby="ai-related-heading">
         <h4 id="ai-related-heading" class="text-xs font-bold text-[color:var(--pk-ink-secondary)]">相关正式食谱</h4>
         <p class="mt-1.5 text-sm leading-6 text-[color:var(--pk-ink-secondary)]">
@@ -91,11 +108,14 @@
 import { computed } from 'vue'
 import type { AiIngredientSnapshot, AiInstantSuggestion } from '@/domain/fridge'
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   suggestion: AiInstantSuggestion
   snapshot: AiIngredientSnapshot
   relatedRecipes: Array<{ id: string; title: string }>
-}>()
+  isStale?: boolean
+}>(), {
+  isStale: false,
+})
 
 const emit = defineEmits<{
   regenerate: []
@@ -126,4 +146,5 @@ const primaryRelatedRecipe = computed(() => props.relatedRecipes[0])
 const relatedRecipeTitles = computed(() => props.relatedRecipes.map(recipe => recipe.title).join('、'))
 const timeLabel = computed(() => timeLabels[props.suggestion.timeExpectation])
 const difficultyLabel = computed(() => difficultyLabels[props.suggestion.difficulty])
+const flavorComplements = computed(() => props.snapshot.flavorContext?.complements || [])
 </script>

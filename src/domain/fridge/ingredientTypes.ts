@@ -92,6 +92,13 @@ export interface MatchedIngredientExplanation {
   recipeSourceNames: string[]
 }
 
+export interface KeySubstituteDetail {
+  originalConceptId: string
+  originalDisplayName: string
+  substituteDisplayName: string
+  score: number
+}
+
 export interface RecipeIngredientMatchResult {
   recipe: VisualRecipeV3
   matchedIngredients: MatchedIngredientExplanation[]
@@ -112,6 +119,8 @@ export interface RecipeIngredientMatchResult {
     percentage: number
   }
   confidence: IngredientConfidence
+  isSubstituteMatch?: boolean
+  keySubstitute?: KeySubstituteDetail
 }
 
 export interface RecipeMatchPage {
@@ -125,4 +134,13 @@ export interface RecipeMatchPage {
 export interface RecipeMatchOptions {
   offset?: number
   limit?: number
+  flavorEngine?: {
+    findBestSubstitute: (missingIngredient: string, availableIngredients: string[], minScore?: number) => { substituteZh: string; substituteEn: string; score: number } | null
+  }
+  flavorDataset?: {
+    aliasMap: Record<string, string>
+    zhCanonical: Record<string, string>
+    similarityTop20: Record<string, Record<string, number>>
+  }
+  findSubstitute?: (missingName: string, availableNames: string[]) => { substituteZh: string; score: number } | null
 }

@@ -36,3 +36,6 @@ reports/
 
 # Scratch investigation directory
 scratch/
+
+# Intermediate raw ETL flavor matrices
+data/flavor-raw/

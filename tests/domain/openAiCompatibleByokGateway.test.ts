@@ -86,7 +86,7 @@ async function run() {
   assert.ok(chickenId)
   const snapshotResult = createAiIngredientSnapshot(index, { conceptIds: [chickenId], customInputs: ['紫苏叶'] })
   assert.equal(snapshotResult.ok, true)
-  if (!snapshotResult.ok) throw new Error(snapshotResult.errors.join('；'))
+  if (!snapshotResult.ok) throw new Error((snapshotResult as any).errors.join('；'))
   const request = createAiSuggestionRequest(snapshotResult.value, 'gateway-request-1')
 
   let capturedUrl = ''
@@ -119,6 +119,31 @@ async function run() {
   assert.equal(structuredInput.customIngredients[0].displayName, '紫苏叶')
   assert.equal(structuredInput.customIngredients[0].status, 'unrecognized')
   assert.equal(body.messages[1].content.includes('memory-only-secret'), false)
+
+  // P1 算法突破回归断言：携带 flavorContext 时，必须结构化传给大模型
+  const snapshotWithFlavorResult = createAiIngredientSnapshot(
+    index,
+    { conceptIds: [chickenId] },
+    {
+      flavorContext: {
+        cohesivenessScore: 0.75,
+        isCohesiveClassic: true,
+        complements: ['黑胡椒', '大蒜', '百里香'],
+      },
+    },
+  )
+  assert.equal(snapshotWithFlavorResult.ok, true)
+  if (snapshotWithFlavorResult.ok) {
+    const requestWithFlavor = createAiSuggestionRequest(snapshotWithFlavorResult.value, 'gateway-request-flavor')
+    await gateway.generate(requestWithFlavor, new AbortController().signal)
+    const flavorBody = JSON.parse(String(capturedInit?.body))
+    const flavorStructuredInput = JSON.parse(flavorBody.messages[1].content)
+    assert.deepEqual(flavorStructuredInput.flavorContext, {
+      theFlavorBibleComplements: ['黑胡椒', '大蒜', '百里香'],
+      isCohesiveClassic: true,
+      cohesivenessScore: 0.75,
+    }, '风味圣经搭档必须准确注入 user structured payload')
+  }
 
   gateway.clear()
   assert.equal(gateway.getReadiness().status, 'unconfigured')

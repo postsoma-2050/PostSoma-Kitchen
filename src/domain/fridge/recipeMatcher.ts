@@ -3,6 +3,7 @@ import type {
   IndexedRecipeIngredient,
   IngredientConfidence,
   IngredientMatchRole,
+  KeySubstituteDetail,
   MatchedIngredientExplanation,
   RecipeIngredientMatchResult,
   RecipeMatchOptions,
@@ -11,6 +12,7 @@ import type {
   UserIngredientSelection,
 } from './ingredientTypes'
 import { createUnrecognizedIngredientId } from './ingredientLedger'
+import { findBestSubstitute } from '../flavor/engine'
 
 const ROLE_PRIORITY: Record<IngredientMatchRole, number> = {
   key: 5,
@@ -116,6 +118,7 @@ function buildResult(
   recipe: FridgeIngredientIndex['recipes'][number]['recipe'],
   selectedConceptIds: string[],
   unrecognizedUserInputs: UnrecognizedUserIngredient[],
+  options?: RecipeMatchOptions,
 ): RecipeIngredientMatchResult | null {
   const selected = new Set(selectedConceptIds)
   const grouped = groupRecipeIngredients(ingredients)
@@ -123,7 +126,52 @@ function buildResult(
 
   // 基础调味、普通辅料或 Formula 原料不能单独把一道食谱推入“可参考”候选。
   const hasMatchedKeyIngredient = matched.some(group => group.role === 'key' && !group.isBasicPantry)
-  if (!hasMatchedKeyIngredient) return null
+
+  let isSubstituteMatch = false
+  let keySubstitute: KeySubstituteDetail | undefined
+
+  // 平替判定逻辑：当 hasMatchedKeyIngredient 为 false 时，检查是否存在 score >= 0.30 的关键主料平替
+  if (!hasMatchedKeyIngredient && options) {
+    const missingKeyGroups = grouped.filter(group => group.role === 'key' && !group.isBasicPantry && !selected.has(group.conceptId))
+
+    // 收集用户当前手头食材名称列表 (已识别概念 displayName + 自定义输入)
+    const availableIngredientNames: string[] = [
+      ...selectedConceptIds.map(id => index.conceptById.get(id)?.displayName).filter((name): name is string => Boolean(name)),
+      ...unrecognizedUserInputs.map(item => item.displayName),
+    ]
+
+    if (availableIngredientNames.length > 0 && missingKeyGroups.length > 0) {
+      for (const keyGroup of missingKeyGroups) {
+        const concept = index.conceptById.get(keyGroup.conceptId)
+        const missingName = concept?.displayName || keyGroup.originalNames[0]
+
+        let sub: { substituteZh: string; score: number } | null = null
+        if (options.findSubstitute) {
+          sub = options.findSubstitute(missingName, availableIngredientNames)
+        } else if (options.flavorEngine) {
+          const res = options.flavorEngine.findBestSubstitute(missingName, availableIngredientNames, 0.30)
+          if (res && res.score >= 0.30) sub = res
+        } else if (options.flavorDataset) {
+          const res = findBestSubstitute(missingName, availableIngredientNames, options.flavorDataset, 0.30)
+          if (res && res.score >= 0.30) sub = res
+        }
+
+        if (sub && sub.score >= 0.30) {
+          isSubstituteMatch = true
+          keySubstitute = {
+            originalConceptId: keyGroup.conceptId,
+            originalDisplayName: missingName,
+            substituteDisplayName: sub.substituteZh,
+            score: sub.score,
+          }
+          break // 命中 Top 1 关键主料平替
+        }
+      }
+    }
+  }
+
+  // 门禁：既无直接命中关键食材，又无高分平替，直接拦截
+  if (!hasMatchedKeyIngredient && !isSubstituteMatch) return null
 
   const missing = grouped.filter(group => !selected.has(group.conceptId))
   const missingKey = missing.filter(group => group.role === 'key' && !group.isBasicPantry)
@@ -157,10 +205,44 @@ function buildResult(
     // 置信度只评价“为什么进入候选”与关键缺口的概念映射；
     // 未解析的普通调味仍会如实展示，但不会把所有候选一律降为低置信。
     confidence: confidenceFor([...matched, ...missingKey]),
+    isSubstituteMatch,
+    keySubstitute,
   }
 }
 
+function getMatchTier(result: RecipeIngredientMatchResult): number {
+  // Tier 1: 完全命中主料 (0 项关键缺口)
+  if (!result.isSubstituteMatch && result.missingKeyIngredients.length === 0) {
+    return 1
+  }
+  // Tier 2: 直接命中部分主料 (仅缺 1 项主料，或有其他关键主料直接在手)
+  if (!result.isSubstituteMatch && result.missingKeyIngredients.length <= 1) {
+    return 2
+  }
+  // Tier 3: 平替激活食谱 (手边食材可平替关键主料，排在完全命中之后、多缺口食谱之前)
+  if (result.isSubstituteMatch) {
+    return 3
+  }
+  // Tier 4: 多缺口食谱 (直接命中但缺 2+ 项关键主料)
+  return 4
+}
+
 function compareResults(left: RecipeIngredientMatchResult, right: RecipeIngredientMatchResult): number {
+  const leftTier = getMatchTier(left)
+  const rightTier = getMatchTier(right)
+  if (leftTier !== rightTier) {
+    return leftTier - rightTier
+  }
+
+  // 同为平替激活食谱时，优先展示平替得分更高的
+  if (left.isSubstituteMatch && right.isSubstituteMatch) {
+    const leftScore = left.keySubstitute?.score || 0
+    const rightScore = right.keySubstitute?.score || 0
+    if (Math.abs(leftScore - rightScore) > 0.001) {
+      return rightScore - leftScore
+    }
+  }
+
   const leftKeyMatches = left.matchedIngredients.filter(item => item.role === 'key').length
   const rightKeyMatches = right.matchedIngredients.filter(item => item.role === 'key').length
   return rightKeyMatches - leftKeyMatches
@@ -188,6 +270,7 @@ export function matchPublishedRecipes(
       indexed.recipe,
       selectedConceptIds,
       unrecognizedUserInputs,
+      options,
     ))
     .filter((result): result is RecipeIngredientMatchResult => Boolean(result))
     .sort(compareResults)
