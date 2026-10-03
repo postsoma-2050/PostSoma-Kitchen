@@ -149,8 +149,8 @@ onUnmounted(() => cleanup())
 
 <style scoped>
 .pk-mascot-dock {
-  --rest: 60px; --peek: 46px; --hat-only: 99px; --hidden: 140px;
-  position: fixed; z-index: 40; bottom: 0; width: 108px; height: 120px;
+  --rest: 68px; --peek: 55px; --hat-only: 106px; --hidden: 160px;
+  position: fixed; z-index: 40; bottom: 0; width: 118px; height: 129px;
   pointer-events: none; user-select: none;
   transform: translate3d(-50%, var(--rest), 0);
   transition: left var(--pk-travel-ms, 650ms) cubic-bezier(.22,.72,.22,1),
@@ -215,7 +215,7 @@ onUnmounted(() => cleanup())
 @keyframes pk-waddle { 0%,100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
 @keyframes pk-tilt { 0%,100% { transform: rotate(0); } 45% { transform: rotate(-7deg); } 70% { transform: rotate(4deg); } }
 @media (min-width: 768px) {
-  .pk-mascot-dock { --rest: 68px; --peek: 54px; --hat-only: 111px; --hidden: 155px; width: 122px; height: 135px; }
+  .pk-mascot-dock { --rest: 77px; --peek: 63px; --hat-only: 119px; --hidden: 176px; width: 132px; height: 145px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .pk-mascot-dock, .pk-mascot-stage, .pk-mascot-core, .pk-mascot-sprout,
