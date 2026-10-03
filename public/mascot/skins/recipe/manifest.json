@@ -1,0 +1,91 @@
+{
+ "base": {
+  "dark": "core/body_dark.png",
+  "light": "core/body_light.png"
+ },
+ "penetration_test": {
+  "backgrounds": [
+   "black",
+   "white",
+   "termgreen",
+   "brightyellow"
+  ],
+  "status": "pass"
+ },
+ "pipeline": "mascot_db v1 (Mascot Asset Pipeline Agent)",
+ "situation": "recipe",
+ "slots": [
+  {
+   "anchor": {
+    "left": "23%",
+    "top": "-9%",
+    "transform": "rotate(-12deg)",
+    "transform_origin": "50% 90%",
+    "width": "30%",
+    "z_index": 3
+   },
+   "behavior": {
+    "follow_breath": true,
+    "sway_with_sprout": true,
+    "on_click": "hat_nod_with_hop",
+    "on_cook": "hat_reacts_to_pan_toss"
+   },
+   "id": "hat",
+   "size": [
+    746,
+    893
+   ],
+   "src": "skins/recipe/hat_clean.png",
+   "src_dark": "skins/recipe/hat_dark.png"
+  },
+  {
+   "anchor": {
+    "right": "0%",
+    "top": "30%",
+    "transform": "rotate(18deg)",
+    "transform_origin": "50% 90%",
+    "width": "22%",
+    "z_index": 4
+   },
+   "behavior": {
+    "on_shock": "jitter",
+    "on_click": "short_spatula_flick_with_hop",
+    "on_cook": "stir_and_pan_toss",
+    "antic": "rare_short_stir"
+   },
+   "id": "spatula",
+   "size": [
+    528,
+    1250
+   ],
+   "src": "skins/recipe/spatula_clean.png",
+   "src_dark": "skins/recipe/spatula_dark.png"
+  }
+ ],
+ "states": {
+  "companion": {
+   "bottom_offset": "16px",
+   "idle_timeout": 10
+  },
+  "hiding": {
+   "bottom_offset": "-98px",
+   "show_sprout": true
+  },
+  "scared": {
+   "duration": 0.38,
+   "idle_timeout": 12
+  },
+  "shy": {
+   "blush": true,
+   "duration": 2.5
+  }
+ },
+ "version": "1.1.0",
+ "shared_rhythm": {
+  "breath_ms": 3400,
+  "blink_ms": 5200,
+  "sprout_degrees": 6,
+  "hover_wiggle_ms": 560,
+  "deviation": null
+ }
+}

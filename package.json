@@ -18,6 +18,7 @@
         "audit:book-source": "node scripts/runTsHermetic.js scripts/auditChineseBookSource.ts",
         "test:domain": "node scripts/runTs.js scripts/testDomain.ts",
         "test:flow": "node scripts/runTs.js tests/domain/flowGraph.test.ts",
+        "test:mascot": "node scripts/runTs.js tests/mascotEngine.test.ts",
         "test:ingredient-regions": "node scripts/runTsHermetic.js tests/domain/ingredientRegions.test.ts",
         "test:recipe-content-diff": "node scripts/runTsHermetic.js tests/domain/recipeContentDiff.test.ts",
         "test:recipe-data-governance": "node scripts/runTsHermetic.js tests/domain/recipeDataGovernance.test.ts",

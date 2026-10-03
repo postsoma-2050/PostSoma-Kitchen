@@ -1,6 +1,6 @@
 # PostSoma Kitchen — Full LLM Knowledge Base Feed
 Canonical Domain: https://recipelab.cc/
-Generated Date: 2026-10-01T16:06:04.566Z
+Generated Date: 2026-10-03T01:26:30.343Z
 
 ---
 
