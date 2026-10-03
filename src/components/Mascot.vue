@@ -176,8 +176,8 @@ onUnmounted(() => cleanup())
 .pk-mascot-eyes { position: absolute; inset: 0; z-index: 5; width: 100%; height: 100%; overflow: visible; }
 .pk-mascot-eye { animation: pk-blink 5.2s ease-in-out infinite; }
 .pk-mascot-eye:nth-child(2) { animation-delay: 120ms; }
-.pk-mascot-eye-halo { fill: #fbfaf7; stroke: #302e29; stroke-width: 13; }
-.pk-mascot-eye-center { fill: #fff; }
+.pk-mascot-eye-halo { fill: #242320; stroke: #fbfaf7; stroke-width: 13; }
+.pk-mascot-eye-center { fill: #fffdf9; }
 .pk-mascot-dock[data-behavior="hover_wiggle"] .pk-mascot-stage { animation: pk-wiggle 560ms ease-in-out both; }
 .pk-mascot-dock[data-behavior="click_react"] .pk-mascot-stage { animation: pk-hop 760ms cubic-bezier(.2,.8,.22,1) both; }
 .pk-mascot-dock[data-behavior="click_react"] .pk-mascot-spatula { animation: pk-spatula-flick 760ms ease-in-out both; }
